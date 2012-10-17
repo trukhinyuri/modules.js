@@ -1,0 +1,120 @@
+.globalNavigationMenu {
+    margin: 0;
+    padding: 3mm;
+    background: #2b2b2b;
+    height: 4mm;
+}
+
+.globalNavigationMenu_unorderedList
+{
+    width: 100%;
+    margin: 0;
+    padding: 0 0 0 0;
+    list-style: none;
+}
+
+.globalNavigationMenu_unorderedList_item
+{
+    float: left;
+    padding: 0 0 5mm 0;
+    position: relative;
+}
+
+.globalNavigationMenu_unorderedList_item_link
+{
+    float: left;
+    height: 5mm;
+    padding: 0 3mm;
+    color: #d3d3d3;
+    text-decoration: none;
+}
+
+.globalNavigationMenu_unorderedList_item:hover a
+{
+    color: #fafafa;
+}
+
+.globalNavigationMenu_unorderedList_item:hover .globalNavigationMenu_unorderedList_dropDownListSpace
+{
+    display: block;
+}
+
+/*Подменю*/
+
+.globalNavigationMenu_unorderedList_dropDownListSpace
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    position: absolute;
+    top: 7mm;
+    left: 0;
+    z-index: 99999;
+    background: #414141;
+    float: left;
+
+}
+
+.globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList
+{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    float: left;
+
+}
+
+.globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item
+{
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    display: block;
+    box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
+}
+
+.globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item:last-child
+{
+    box-shadow: none;
+}
+
+.globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item_link {
+    padding: 2mm;
+    height: auto;
+    line-height: 1;
+    display: block;
+    white-space: nowrap;
+    float: none;
+    text-decoration: none;
+    color: #d3d3d3;
+}
+
+
+
+.globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item:hover
+{
+    background: #0186ba;
+}
+
+.globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item:first-child a
+{
+    border-radius: 5px 5px 0 0;
+}
+
+
+.globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item:last-child a
+{
+    border-radius: 0 0 5px 5px;
+}
+
+.globalNavigationMenu_unorderedList:after
+{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
