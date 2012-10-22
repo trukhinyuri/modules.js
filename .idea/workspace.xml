@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tests/modulesTests.js" afterPath="$PROJECT_DIR$/js/tests/modulesTests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -530,10 +529,10 @@
     <splitter split-orientation="vertical" split-proportion="0.5738204">
       <split-first>
         <leaf>
-          <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="modulesTests.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="53" column="64" selection-start="2323" selection-end="2323" vertical-scroll-proportion="0.60040987">
+                <state line="52" column="160" selection-start="2258" selection-end="2258" vertical-scroll-proportion="0.5696721">
                   <folding />
                 </state>
               </provider>
@@ -617,12 +616,12 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="globalNavigationMenu.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="globalNavigationMenu.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="3" column="33" selection-start="97" selection-end="97" vertical-scroll-proportion="0.12605043">
+                <state line="3" column="7" selection-start="124" selection-end="124" vertical-scroll-proportion="0.12605043">
                   <folding>
-                    <marker date="1350867312000" expanded="true" signature="265:750" placeholder="..." />
+                    <marker date="1350901934000" expanded="true" signature="324:809" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -655,10 +654,10 @@
         <option value="$PROJECT_DIR$/js/tests/modules/test/test.css" />
         <option value="$PROJECT_DIR$/js/tests/modules/test/test.html" />
         <option value="$PROJECT_DIR$/js/tests/testsResult.html" />
-        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
         <option value="$PROJECT_DIR$/js/libs/modules.js" />
         <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
+        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
       </list>
     </option>
   </component>
@@ -1150,15 +1149,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="33" selection-start="97" selection-end="97" vertical-scroll-proportion="0.12605043">
-          <folding>
-            <marker date="1350867312000" expanded="true" signature="265:750" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="-0.0">
@@ -1177,8 +1167,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="64" selection-start="2323" selection-end="2323" vertical-scroll-proportion="0.60040987">
+        <state line="52" column="160" selection-start="2258" selection-end="2258" vertical-scroll-proportion="0.5696721">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="7" selection-start="124" selection-end="124" vertical-scroll-proportion="0.12605043">
+          <folding>
+            <marker date="1350901934000" expanded="true" signature="324:809" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

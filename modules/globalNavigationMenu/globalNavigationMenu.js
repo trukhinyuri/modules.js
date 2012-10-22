@@ -1,14 +1,15 @@
+//Simple module without notification support
 var globalNavigationMenu = new function() {
     this.run = function() {
         alert("");
     };
-    this.subscribe = function(callback) {
-       modules.notifier.subscribe(this.notify);
-       callback();
-    };
-    this.notify = function(message) {
-
-    };
+//    this.subscribe = function(callback) {
+//       modules.notifier.subscribe(this.notify);
+//       callback();
+//    };
+//    this.notify = function(message) {
+//
+//    };
 };
 
 
