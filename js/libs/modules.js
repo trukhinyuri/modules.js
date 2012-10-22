@@ -21,12 +21,15 @@ var modules = new function() {
     };
     this.load = function(path, name, element) {
 
-        var cssLoaded = document.getElementsByClassName("css" + name)[0];
+        var cssLoaded = document.getElementsByClassName("modulesjs-css-" + name)[0];
         if (!cssLoaded) {
-            var xhrCssLoader = new XMLHttpRequest();
-            xhrCssLoader.open("GET", path + "/" + name + "/" + name + ".css", false);
-            xhrCssLoader.send(null);
-            document.getElementsByTagName("head")[0].innerHTML += '<style type="text/css" class="css' + name + '">' + xhrCssLoader.responseText + '</style>';
+
+            var css = document.createElement('link');
+            css.href = path + "/" + name + "/" + name + ".css";
+            css.className = "modulesjs-css-" + name;
+            css.type = "text/css";
+            css.rel = "stylesheet";
+            document.getElementsByTagName("head")[0].appendChild(css);
         }
 
         var xhrHtmlLoader = new XMLHttpRequest();
@@ -34,17 +37,25 @@ var modules = new function() {
         xhrHtmlLoader.send(null);
         document.getElementById(element).innerHTML = xhrHtmlLoader.responseText;
 
-        var jsLoaded = document.getElementsByClassName("js" + name)[0];
+        var jsLoaded = document.getElementsByClassName("modulesjs-js-" + name)[0];
         if (!jsLoaded) {
-            var xhrJsLoader = new XMLHttpRequest();
-            xhrJsLoader.open("GET", path + "/" + name + "/" + name + ".js", false);
-            xhrJsLoader.send(null);
-            document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javascript" class="js' + name + '">' + xhrJsLoader.responseText + '</script>';
+            var callbackFired = false;
+            var script = document.createElement('script');
+            script.src = path + "/" + name + "/" + name + ".js";
+            script.className = "modulesjs-js-" + name;
+            script.type = "text/javascript";
+            document.getElementsByTagName("head")[0].appendChild(script);
+            script.onreadystatechange = script.onload = function(){
+                var state = script.readyState;
+                if (state == 'loaded' || 'completed') {
+                    if (!callbackFired) {
+                        callbackFired = true;
+                        var module = window[name];
+                        module.run();
 
-            var script = document.getElementsByClassName("js" + name)[0];
-            eval(script.text);
-            var module = eval(name);
-            module.run();
+                    }
+                }
+            }
         }
     };
     this.loadInfoArrayWithNotifier = function(InfoArray) {

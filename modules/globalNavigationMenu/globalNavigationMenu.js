@@ -5,10 +5,10 @@ var globalNavigationMenu = new function() {
     this.subscribe = function(callback) {
        modules.notifier.subscribe(this.notify);
        callback();
-    }
+    };
     this.notify = function(message) {
 
-    }
+    };
 };
 
 
