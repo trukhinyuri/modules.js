@@ -12,22 +12,40 @@ var modules = new function() {
                     }
                 });
         };
-        this.fire = function(to, from, e, msg, thisObj) {
-            var scope = thisObj || window;
+        this.sendMessage = function(to, from, e, msg) {
             this.fns.forEach(
                 function(el) {
-                    el.call(scope, {receiver: to, sender: from, evt: e, message: msg});
+                    el.call(window, {receiver: to, sender: from, evt: e, message: msg});
                 });
         };
-    }
-
+    };
     this.load = function(path, name, element) {
-        $("head").append("<link rel=\"stylesheet\" href=\"" + path + "/" + name + "/" + name + ".css" + "\" type=\"text/css\" />");
-        $(element).load(path + "/" + name + "/" + name + ".html ." + name, function() {
-            require([path + "/" + name + "/" + name + ".js"], function (module) {
-                module.run();
-            });
-        });
+
+        var cssLoaded = document.getElementsByClassName("css" + name)[0];
+        if (!cssLoaded) {
+            var xhrCssLoader = new XMLHttpRequest();
+            xhrCssLoader.open("GET", path + "/" + name + "/" + name + ".css", false);
+            xhrCssLoader.send(null);
+            document.getElementsByTagName("head")[0].innerHTML += '<style type="text/css" class="css' + name + '">' + xhrCssLoader.responseText + '</style>';
+        }
+
+        var xhrHtmlLoader = new XMLHttpRequest();
+        xhrHtmlLoader.open("GET", path + "/" + name + "/" + name + ".html", false);
+        xhrHtmlLoader.send(null);
+        document.getElementById(element).innerHTML = xhrHtmlLoader.responseText;
+
+        var jsLoaded = document.getElementsByClassName("js" + name)[0];
+        if (!jsLoaded) {
+            var xhrJsLoader = new XMLHttpRequest();
+            xhrJsLoader.open("GET", path + "/" + name + "/" + name + ".js", false);
+            xhrJsLoader.send(null);
+            document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javascript" class="js' + name + '">' + xhrJsLoader.responseText + '</script>';
+
+            var script = document.getElementsByClassName("js" + name)[0];
+            eval(script.text);
+            var module = eval(name);
+            module.run();
+        }
     };
     this.loadInfoArrayWithNotifier = function(InfoArray) {
         var registeredCounter = 0;
@@ -54,13 +72,16 @@ var modules = new function() {
             require([el.path + "/" + el.name + "/" + el.name + ".js"], function (module) {
                 module.register(callback);
             });
-       });
+        });
     };
     this.Info = function(path, name, element) {
         this.path = path;
         this.name = name;
         this.element = element;
-    }
+        return this;
+    };
 };
+
+
 
 
