@@ -23,7 +23,6 @@ var modules = new function() {
 
         var cssLoaded = document.getElementsByClassName("modulesjs-css-" + name)[0];
         if (!cssLoaded) {
-
             var css = document.createElement('link');
             css.href = path + "/" + name + "/" + name + ".css";
             css.className = "modulesjs-css-" + name;
@@ -52,7 +51,6 @@ var modules = new function() {
                         callbackFired = true;
                         var module = window[name];
                         module.run();
-
                     }
                 }
             }

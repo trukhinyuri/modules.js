@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tests/modulesTests.js" afterPath="$PROJECT_DIR$/js/tests/modulesTests.js" />
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350901406731" ignored="false" />
     <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350898761001" ignored="false" />
     <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350897722972" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350866030471" ignored="false" />
-    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350864751066" ignored="false" />
     <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350864093243" ignored="false" />
     <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350863224908" ignored="false" />
     <file path="/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350861979747" ignored="false" />
@@ -531,19 +530,19 @@
     <splitter split-orientation="vertical" split-proportion="0.5738204">
       <split-first>
         <leaf>
-          <file leaf-file-name="modulesTests.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="58" column="65" selection-start="2548" selection-end="2548" vertical-scroll-proportion="0.0">
+                <state line="53" column="64" selection-start="2323" selection-end="2323" vertical-scroll-proportion="0.60040987">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="50" column="60" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.76844263">
+                <state line="26" column="23" selection-start="894" selection-end="933" vertical-scroll-proportion="0.0">
                   <folding>
                     <element signature="e#66#655#0" expanded="false" />
                   </folding>
@@ -656,10 +655,10 @@
         <option value="$PROJECT_DIR$/js/tests/modules/test/test.css" />
         <option value="$PROJECT_DIR$/js/tests/modules/test/test.html" />
         <option value="$PROJECT_DIR$/js/tests/testsResult.html" />
-        <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
         <option value="$PROJECT_DIR$/js/libs/modules.js" />
+        <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
       </list>
     </option>
   </component>
@@ -1151,13 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="65" selection-start="2548" selection-end="2548" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="33" selection-start="97" selection-end="97" vertical-scroll-proportion="0.12605043">
@@ -1176,10 +1168,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="60" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.76844263">
+        <state line="26" column="23" selection-start="894" selection-end="933" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#66#655#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="64" selection-start="2323" selection-end="2323" vertical-scroll-proportion="0.60040987">
+          <folding />
         </state>
       </provider>
     </entry>
