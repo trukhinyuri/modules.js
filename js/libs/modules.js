@@ -48,30 +48,61 @@ var modules = new function() {
         }
     };
     this.loadInfoArrayWithNotifier = function(InfoArray) {
-        var registeredCounter = 0;
+        var infoArrayCounter = 0;
         var callback = function() {
-            registeredCounter++;
-            if (registeredCounter == InfoArray.length - 1) {
+            infoArrayCounter++;
+            if (infoArrayCounter == InfoArray.length - 1) {
                 InfoArray.forEach(function (el) {
                     if (el.element === "") {
-                        require([el.path + "/" + el.name + "/" + el.name + ".js"], function (module) {
-                            module.run();
-                        });
+                        var script = document.getElementsByClassName("js" + el.name)[0];
+                        eval(script.text);
+                        var module = eval(el.name);
+                        module.run();
                     } else {
-                        $("head").append("<link rel=\"stylesheet\" href=\"" + el.path + "/" + el.name + "/" + el.name + ".css" + "\" type=\"text/css\" />");
-                        $(el.element).load(el.path + "/" + el.name + "/" + el.name + ".html ." + el.name, function () {
-                            require([el.path + "/" + el.name + "/" + el.name + ".js"], function (module) {
-                                module.run();
-                            });
-                        });
+                        var cssLoaded = document.getElementsByClassName("css" + el.name)[0];
+                        if (!cssLoaded) {
+                            var xhrCssLoader = new XMLHttpRequest();
+                            xhrCssLoader.open("GET", el.path + "/" + el.name + "/" + el.name + ".css", false);
+                            xhrCssLoader.send(null);
+                            document.getElementsByTagName("head")[0].innerHTML += '<style type="text/css" class="css' + el.name + '">' + xhrCssLoader.responseText + '</style>';
+                        }
+
+                        var xhrHtmlLoader = new XMLHttpRequest();
+                        xhrHtmlLoader.open("GET", el.path + "/" + el.name + "/" + el.name + ".html", false);
+                        xhrHtmlLoader.send(null);
+                        document.getElementById(el.element).innerHTML = xhrHtmlLoader.responseText;
+
+                        var jsLoaded = document.getElementsByClassName("js" + el.name)[0];
+                        if (!jsLoaded) {
+                            var xhrJsLoader = new XMLHttpRequest();
+                            xhrJsLoader.open("GET", el.path + "/" + el.name + "/" + el.name + ".js", false);
+                            xhrJsLoader.send(null);
+                            document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javascript" class="js' + name + '">' + xhrJsLoader.responseText + '</script>';
+
+                            var script = document.getElementsByClassName("js" + el.name)[0];
+                            eval(script.text);
+                            var module = eval(el.name);
+                            module.run();
+                        }
+
                     }
                 });
             }
         }
         InfoArray.forEach(function (el) {
-            require([el.path + "/" + el.name + "/" + el.name + ".js"], function (module) {
-                module.register(callback);
-            });
+            var jsLoaded = document.getElementsByClassName("js" + el.name)[0];
+            if (!jsLoaded) {
+                var xhrJsLoader = new XMLHttpRequest();
+                xhrJsLoader.open("GET", el.path + "/" + el.name + "/" + el.name + ".js", false);
+                xhrJsLoader.send(null);
+                document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javascript" class="js' + name + '">' + xhrJsLoader.responseText + '</script>';
+
+                var script = document.getElementsByClassName("js" + el.name)[0];
+                eval(script.text);
+                var module = eval(el.name);
+                module.subscribe(callback);
+            } else {callback();}
+
         });
     };
     this.Info = function(path, name, element) {

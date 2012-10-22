@@ -57,7 +57,6 @@ test("modules.load", function() {
     ok(jsCount.length == 1, "module`s js loaded only once");
     var html = document.getElementsByClassName(name)[1];
     ok(html.textContent == 'Hello', "html loaded in footer too");
-
 });
 
 

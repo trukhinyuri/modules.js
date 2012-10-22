@@ -2,32 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/sass_stdlib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/modules/test/test.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/modules/test/test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/modules/test/test.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/libs/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/libs/require.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tests/modulesTests.js" afterPath="$PROJECT_DIR$/js/tests/modulesTests.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tests/testsResult.html" afterPath="$PROJECT_DIR$/js/tests/testsResult.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350864830726" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350866868080" ignored="false" />
+    <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350866030471" ignored="false" />
     <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350864751066" ignored="false" />
     <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350864093243" ignored="false" />
     <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350863224908" ignored="false" />
     <file path="/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350861979747" ignored="false" />
     <file path="/test.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350860684838" ignored="false" />
-    <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350859957956" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350855299399" ignored="false" />
     <file path="/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350846096583" ignored="false" />
     <file path="/testsuite.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350843157347" ignored="false" />
@@ -543,23 +530,22 @@
     <splitter split-orientation="vertical" split-proportion="0.5738204">
       <split-first>
         <leaf>
-          <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="modulesTests.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="47" column="90" selection-start="1998" selection-end="1998" vertical-scroll-proportion="0.9396985">
+                <state line="58" column="65" selection-start="2548" selection-end="2548" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="43" column="71" selection-start="1907" selection-end="1907" vertical-scroll-proportion="0.0">
+                <state line="49" column="9" selection-start="2030" selection-end="2055" vertical-scroll-proportion="-1.1165049">
                   <folding>
                     <element signature="e#66#655#0" expanded="false" />
-                    <element signature="e#2078#3307#0" expanded="false" />
-                    <element signature="e#3355#3467#0" expanded="false" />
+                    <element signature="e#5176#5288#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -635,9 +621,9 @@
           <file leaf-file-name="globalNavigationMenu.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="100" vertical-scroll-proportion="0.0">
+                <state line="7" column="5" selection-start="212" selection-end="212" vertical-scroll-proportion="0.4183267">
                   <folding>
-                    <marker date="1350859963000" expanded="true" signature="103:588" placeholder="..." />
+                    <marker date="1350866875000" expanded="true" signature="263:748" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -662,7 +648,6 @@
         <option value="$PROJECT_DIR$/js/tests/testsuite.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
-        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
         <option value="$PROJECT_DIR$/modules/test/test.html" />
         <option value="$PROJECT_DIR$/modules/test/test.js" />
         <option value="$PROJECT_DIR$/modules/test/test.css" />
@@ -672,8 +657,9 @@
         <option value="$PROJECT_DIR$/js/tests/modules/test/test.css" />
         <option value="$PROJECT_DIR$/js/tests/modules/test/test.html" />
         <option value="$PROJECT_DIR$/js/tests/testsResult.html" />
-        <option value="$PROJECT_DIR$/js/libs/modules.js" />
         <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
+        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
+        <option value="$PROJECT_DIR$/js/libs/modules.js" />
       </list>
     </option>
   </component>
@@ -1016,7 +1002,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1130,15 +1116,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="100" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1350859963000" expanded="true" signature="103:588" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="30" selection-start="0" selection-end="132" vertical-scroll-proportion="0.0">
@@ -1181,21 +1158,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
+    <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="71" selection-start="1907" selection-end="1907" vertical-scroll-proportion="0.0">
+        <state line="58" column="65" selection-start="2548" selection-end="2548" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="5" selection-start="212" selection-end="212" vertical-scroll-proportion="0.4183267">
           <folding>
-            <element signature="e#66#655#0" expanded="false" />
-            <element signature="e#2078#3307#0" expanded="false" />
-            <element signature="e#3355#3467#0" expanded="false" />
+            <marker date="1350866875000" expanded="true" signature="263:748" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
+    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="90" selection-start="1998" selection-end="1998" vertical-scroll-proportion="0.9396985">
-          <folding />
+        <state line="49" column="9" selection-start="2030" selection-end="2055" vertical-scroll-proportion="-1.1165049">
+          <folding>
+            <element signature="e#66#655#0" expanded="false" />
+            <element signature="e#5176#5288#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
