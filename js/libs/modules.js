@@ -38,20 +38,18 @@ var modules = new function() {
 
         var jsLoaded = document.getElementsByClassName("modulesjs-js-" + name)[0];
         if (!jsLoaded) {
-            var callbackFired = false;
             var script = document.createElement('script');
             script.src = path + "/" + name + "/" + name + ".js";
             script.className = "modulesjs-js-" + name;
             script.type = "text/javascript";
             document.getElementsByTagName("head")[0].appendChild(script);
+            var done = false;
             script.onreadystatechange = script.onload = function(){
                 var state = script.readyState;
-                if (state == 'loaded' || 'completed') {
-                    if (!callbackFired) {
-                        callbackFired = true;
-                        var module = window[name];
-                        module.run();
-                    }
+                if (!done && (!state || state == "loaded" || state == "complete")) {
+                    done = true;
+                    var module = window[name];
+                    module.run();
                 }
             }
         }
