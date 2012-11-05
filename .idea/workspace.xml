@@ -3,308 +3,43 @@
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352129852656" ignored="false" />
+    <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350915077548" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350914795415" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/cache-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/spring-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/document-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/navigation-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v9/weblogic-web-app.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/remoting-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v9/weblogic-ejb-jar.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/jms-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v9/weblogic-j2ee.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/bpm-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v9/weblogic-application.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v9/weblogic-rdbms20-persistence.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/httpinvoker/spring-integration-httpinvoker-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433346" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-faces-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jpa/spring-integration-jpa-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-config-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/rmi/spring-integration-rmi-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-config-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/rmi/spring-integration-rmi-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-config-2.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/rmi/spring-integration-rmi-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-faces-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringBatch/lib/SpringBatch.jar!/schemas/spring-batch-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.5.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringBatch/lib/SpringBatch.jar!/schemas/spring-batch-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/mail/spring-integration-mail-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/mail/spring-integration-mail-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433345" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.2.7.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/mail/spring-integration-mail-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/http/spring-integration-http-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/http/spring-integration-http-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.5.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/http/spring-integration-http-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.2.6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.5.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Hibernate/lib/hibernate.jar!/resources/schemas/hibernate-configuration-4.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/FlexCompilerSchema.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Hibernate/lib/hibernate.jar!/resources/schemas/hibernate-mapping-4.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433344" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/stream/spring-integration-stream-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/stream/spring-integration-stream-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/stream/spring-integration-stream-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/j2ee_web_services_client_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application_1_4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/spring.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jsp_2_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application-client_6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application-client_1_4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433343" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_3_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/persistence_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/persistence.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-facesconfig_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JBoss/lib/jbossIntegration.jar!/descriptors/jboss-deployment-structure-1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jspxml.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JBoss/lib/jbossIntegration.jar!/descriptors/jboss-deployment-structure-1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/orm_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jspxml.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application_6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_2_4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_1_3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jsp_2_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/BeanValidation/lib/bean_validation.jar!/resources/schemas/validation-mapping-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433342" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/j2ee_1_4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/BeanValidation/lib/bean_validation.jar!/resources/schemas/validation-configuration-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/orm_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/file/spring-integration-file-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/file/spring-integration-file-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_2_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/file/spring-integration-file-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_client_1_3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebServices/lib/spring-ws.jar!/resources/schemas/web-services-1.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebServices/lib/spring-ws.jar!/resources/schemas/spring-oxm-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jmx/spring-integration-jmx-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/ejb-jar_3_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jmx/spring-integration-jmx-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433341" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jmx/spring-integration-jmx-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433340" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/ejb-jar_2_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433340" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/spring-integration-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433340" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433340" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/spring-integration-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433340" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-common_3_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433340" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/spring-integration-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433340" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/amqp/spring-integration-amqp-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433340" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/amqp/spring-integration-amqp-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433340" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jms/spring-integration-jms-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/connector_1_6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jms/spring-integration-jms-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/connector_1_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jms/spring-integration-jms-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/scripting/spring-integration-scripting-core-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/scripting/spring-integration-scripting-core-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/spring-form.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/scripting/spring-integration-scripting-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/ejb-jar_3_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/scripting/spring-integration-scripting-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ftp/spring-integration-ftp-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433339" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-jsptaglibrary_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433334" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ftp/spring-integration-ftp-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433334" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jsp_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ftp/spring-integration-ftp-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_client_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xml/spring-integration-xml-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xml/spring-integration-xml-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application-client_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xml/spring-integration-xml-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-fragment_3_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/gemfire/spring-integration-gemfire-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/gemfire/spring-integration-gemfire-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jdbc/spring-integration-jdbc-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-jsptaglibrary_2_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jdbc/spring-integration-jdbc-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jdbc/spring-integration-jdbc-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/CDI/lib/cdi-support.jar!/resources/schemas/beans_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433328" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xmpp/spring-integration-xmpp-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433327" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/CDI/lib/cdi-support.jar!/resources/schemas/beans_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433327" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xmpp/spring-integration-xmpp-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433318" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/CDI/lib/cdi-support.jar!/resources/schemas/web-beans.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433318" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xmpp/spring-integration-xmpp-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433318" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-security-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433318" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/mongodb/spring-integration-mongodb-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433318" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/redis/spring-integration-redis-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433318" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-client-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433318" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/redis/spring-integration-redis-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433318" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-client-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433318" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/groovy/spring-integration-groovy-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433317" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433317" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/groovy/spring-integration-groovy-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433317" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-login-config-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433317" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/groovy/spring-integration-groovy-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433317" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ws/spring-integration-ws-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433317" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-subject-info-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433317" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ws/spring-integration-ws-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433317" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/corba-tss-config-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433317" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ws/spring-integration-ws-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433317" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/attributes-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433316" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/security/spring-integration-security-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433316" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-login-config-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433316" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/security/spring-integration-security-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433316" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433316" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/security/spring-integration-security-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433316" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-module-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433316" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433316" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/openejb-jar-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433316" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/corba-css-config-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433316" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-2.0.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/xslt-schema.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/plugins-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xsl" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-javabean-xmlattribute-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringData/lib/spring-data-support.jar!/resources/schemas/spring-repository-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-connector-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringData/lib/spring-data-support.jar!/resources/schemas/spring-jpa-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-cache-3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-connector-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-login-config-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433315" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-credential-store-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433314" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-client-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-aop-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tx-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jee-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-naming-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-context-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-util-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-lang-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/local-attribute.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jms-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-web-2.0.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433313" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jee-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tx-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/openejb-pkgen-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/openejb-jar-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-aop-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-config-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-lang-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-security-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-util-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-2.0.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433312" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-naming-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/attributes-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-web-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-mvc-3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jms-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-module-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tx-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-util-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/plugins-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-context-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-web-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-mvc-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-login-config-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433311" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-aop-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-web-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-lang-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-2.0.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jee-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-naming-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/openejb-jar-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-connector-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xinclude.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/plugins-1.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/XMLSchema-instance.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-config-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-security-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-transitional.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-client-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433310" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-config-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433309" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-web-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433309" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-strict.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433309" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-openejb-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433309" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xslt-1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433309" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-config-1.0.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433309" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jpdl-4.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433309" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jpdl-4.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433309" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jpdl-4.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433309" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/catalog.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433309" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jpdl-4.4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/XMLSchema.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jbmn20/Semantic.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jbmn20/DiagramDefinition.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jbmn20/DiagramInterchange.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-frameset.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jbmn20/DC.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xml.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jbmn20/DI.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xslt-2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jbmn20/BPMNDI.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/jbpm/lib/jbpm-support.jar.jar!/resources/schemas/jbmn20/BPMN20.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-2.0.4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-3.0.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-2.0.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433285" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-oauth-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-2.0.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-2.0.6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-3.0.4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-oauth2-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/dynamicModules/lib/spring-osgi-support.jar!/resources/schemas/spring-osgi-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/dynamicModules/lib/spring-osgi-support.jar!/resources/schemas/spring-osgi-compendium-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-web-bnd_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-application-ext_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-application-ext-pme_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-ejb-jar-ext_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-ejb-jar-bnd_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-web-ext_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-ejb-jar-ext_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433284" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-web-bnd_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-ejb-jar-ext-pme_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-web-ext-pme_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-common-ext-pme_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-application-bnd_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-common-ext_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-common-bnd_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-common-ext_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-application-bnd_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-ejb-jar-bnd_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-common-bnd_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-web-ext_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/html5/xhtml5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/maven-4.0.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/settings-1.0.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/profiles-1.0.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/pageflow-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433283" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/resteasy-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433282" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/ui-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433282" ignored="false" />
@@ -320,135 +55,43 @@
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/core-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433282" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/theme-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433282" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/seam-components_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433282" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ip/spring-integration-ip-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433282" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ip/spring-integration-ip-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433282" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ip/spring-integration-ip-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/sftp/spring-integration-sftp-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/sftp/spring-integration-sftp-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/sftp/spring-integration-sftp-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/relaxng.rng" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/twitter/spring-integration-twitter-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/twitter/spring-integration-twitter-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/twitter/spring-integration-twitter-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/event/spring-integration-event-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/event/spring-integration-event-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/event/spring-integration-event-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jsf_core_2_0.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/mojarra_ext.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jstl.core.facelets.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/javaee_web_services_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433281" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/facelets_jsf_core.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/html_basic.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jsf-ui.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-facesconfig_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-facesuicomponent_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/html_basic.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-facesconfig_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/javaee_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/composite.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jsf_core.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/html_basic_2_0.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jsf-ui-2_0.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-facelettaglibrary_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/javaee_web_services_client_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jstl-fn.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jstl-core.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433280" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/ui.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-facesconfig_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-partialresponse_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jstl.fn.facelets.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/composite.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/xml.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/rabbit/spring-rabbit-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/rabbit/spring-rabbit-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11_soapbinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/soap-envelope.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/cxf-jaxws.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/j2ee_jaxrpc_mapping_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/sun-jaxws.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wadl20061109.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/async-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jersey.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433279" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/transaction-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/xjc.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/pdf-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/business-process.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11_httpbinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/core-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl20.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-addr2006.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/components-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdd_provider_java.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/jms-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/wicket-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11soap12.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/persistence-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/bindingschema_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/cache-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433278" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/transaction-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl_customizationschema_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/international-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jboss-jaxws-config_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/bindingfile.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/framework-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl12.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/security-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/soap-encoding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/async-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-eventing.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/core-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/XMLSchema.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/plugin-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-policy.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/ui-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433277" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jboss-ws-security_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/jms-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jboss-jaxrpc-config_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jbossws-tool_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11_mimebinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/mail-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-addr.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/wicket-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/cxf-soap.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/pageflow-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/soap-encoding1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wadl20090202.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/REST_SWDP.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/pages-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/cxf-servlet.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433276" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/sun-jaxws.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433273" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/JAXRPCServlet.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433271" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/spring-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433271" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/jaxrpc-ri-runtime.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433271" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/pageflow-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433271" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis2.conf_axis2.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433270" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/international-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433270" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis2Servlet.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433270" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/excel-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433270" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/WSServlet.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/transaction-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/cxf.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/components-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis2.services.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/components-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/AxisServlet.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/theme-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis.services.wsdd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/wsdl.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/mail-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433268" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/navigation-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/theme-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/web-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/http/wsdl11_httpbinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/soap/wsdl11_soapbinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/bpm-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/mime/wsdl11_mimebinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/pages-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/pages-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/guice-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433267" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/security-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433266" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/mail-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433266" ignored="false" />
@@ -468,6 +111,363 @@
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350866030471" ignored="false" />
     <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350897722972" ignored="false" />
     <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350901406731" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/rabbit/spring-rabbit-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511618" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/rabbit/spring-rabbit-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511618" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/event/spring-integration-event-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511618" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/event/spring-integration-event-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511618" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/event/spring-integration-event-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511618" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/twitter/spring-integration-twitter-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511618" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/twitter/spring-integration-twitter-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511618" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/twitter/spring-integration-twitter-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/sftp/spring-integration-sftp-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/sftp/spring-integration-sftp-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/sftp/spring-integration-sftp-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ip/spring-integration-ip-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ip/spring-integration-ip-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ip/spring-integration-ip-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-web-ext_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-common-bnd_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-ejb-jar-bnd_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-application-bnd_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-common-ext_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-common-bnd_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-common-ext_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-application-bnd_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-common-ext-pme_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-web-ext-pme_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-ejb-jar-ext-pme_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-web-bnd_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-ejb-jar-ext_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-web-ext_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-ejb-jar-bnd_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-ejb-jar-ext_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-application-ext-pme_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-application-ext_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/webSphereIntegration/lib/webSphereIntegration.jar!/descriptors/ibm-web-bnd_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-config-1.0.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-openejb-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-web-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-config-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-client-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-security-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-config-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511619" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/plugins-1.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-connector-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/openejb-jar-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-naming-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-2.0.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-web-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-login-config-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-web-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/plugins-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-module-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-web-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/attributes-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-naming-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-2.0.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-security-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-config-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/openejb-jar-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/openejb-pkgen-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-web-2.0.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/local-attribute.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-naming-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511620" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-client-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-credential-store-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-login-config-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-connector-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-connector-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-javabean-xmlattribute-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/plugins-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-jetty-2.0.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/corba-css-config-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/openejb-jar-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-module-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/security/spring-integration-security-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/security/spring-integration-security-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-login-config-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/security/spring-integration-security-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/attributes-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ws/spring-integration-ws-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/corba-tss-config-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ws/spring-integration-ws-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-subject-info-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ws/spring-integration-ws-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/groovy/spring-integration-groovy-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-login-config-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/groovy/spring-integration-groovy-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-tomcat-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/groovy/spring-integration-groovy-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-client-1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/redis/spring-integration-redis-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-application-client-1.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/redis/spring-integration-redis-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/mongodb/spring-integration-mongodb-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Geronimo/lib/geronimoIntegration.jar!/descriptors/geronimo-security-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xmpp/spring-integration-xmpp-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xmpp/spring-integration-xmpp-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xmpp/spring-integration-xmpp-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jdbc/spring-integration-jdbc-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jdbc/spring-integration-jdbc-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jdbc/spring-integration-jdbc-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/gemfire/spring-integration-gemfire-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511621" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/gemfire/spring-integration-gemfire-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xml/spring-integration-xml-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xml/spring-integration-xml-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/xml/spring-integration-xml-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ftp/spring-integration-ftp-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ftp/spring-integration-ftp-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/ftp/spring-integration-ftp-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/scripting/spring-integration-scripting-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/scripting/spring-integration-scripting-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/scripting/spring-integration-scripting-core-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/scripting/spring-integration-scripting-core-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jms/spring-integration-jms-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jms/spring-integration-jms-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jms/spring-integration-jms-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/amqp/spring-integration-amqp-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/amqp/spring-integration-amqp-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/spring-integration-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/spring-integration-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/spring-integration-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jmx/spring-integration-jmx-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jmx/spring-integration-jmx-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jmx/spring-integration-jmx-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/file/spring-integration-file-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/file/spring-integration-file-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/file/spring-integration-file-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511622" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/stream/spring-integration-stream-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/stream/spring-integration-stream-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/stream/spring-integration-stream-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/http/spring-integration-http-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/http/spring-integration-http-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/http/spring-integration-http-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/mail/spring-integration-mail-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/mail/spring-integration-mail-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/mail/spring-integration-mail-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/rmi/spring-integration-rmi-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/rmi/spring-integration-rmi-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/rmi/spring-integration-rmi-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/jpa/spring-integration-jpa-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/httpinvoker/spring-integration-httpinvoker-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511623" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/relaxng.rng" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xslt-2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xml.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-frameset.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/XMLSchema.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/catalog.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xslt-1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-strict.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-transitional.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/XMLSchema-instance.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xinclude.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jee-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407902" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-lang-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-aop-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-mvc-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-context-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-util-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tx-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jms-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-mvc-3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-util-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-lang-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-aop-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tx-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jee-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jms-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-lang-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-util-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-context-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jee-2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tx-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-aop-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-cache-3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xsl" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/xslt-schema.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/BeanValidation/lib/bean_validation.jar!/resources/schemas/validation-configuration-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/BeanValidation/lib/bean_validation.jar!/resources/schemas/validation-mapping-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-oauth2-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407903" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JBoss/lib/jbossIntegration.jar!/descriptors/jboss-deployment-structure-1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-3.0.4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-2.0.6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JBoss/lib/jbossIntegration.jar!/descriptors/jboss-deployment-structure-1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-2.0.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-oauth-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-2.0.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-3.0.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringSecurity/lib/spring-security-support.jar!/resources/schemas/spring-security-2.0.4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v9/weblogic-rdbms20-persistence.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v9/weblogic-application.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v9/weblogic-j2ee.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v9/weblogic-ejb-jar.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v9/weblogic-web-app.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/mime/wsdl11_mimebinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/soap/wsdl11_soapbinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/http/wsdl11_httpbinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/wsdl.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis.services.wsdd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/AxisServlet.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis2.services.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/cxf.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/WSServlet.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis2Servlet.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis2.conf_axis2.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/jaxrpc-ri-runtime.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/JAXRPCServlet.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/sun-jaxws.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/cxf-servlet.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/REST_SWDP.web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wadl20090202.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/soap-encoding1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/cxf-soap.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/CDI/lib/cdi-support.jar!/resources/schemas/web-beans.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-addr.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/CDI/lib/cdi-support.jar!/resources/schemas/beans_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11_mimebinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/CDI/lib/cdi-support.jar!/resources/schemas/beans_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jbossws-tool_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jboss-jaxrpc-config_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407904" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-jsptaglibrary_2_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jboss-ws-security_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-policy.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-fragment_3_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/XMLSchema.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application-client_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-eventing.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/soap-encoding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_client_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl12.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jsp_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/bindingfile.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-jsptaglibrary_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jboss-jaxws-config_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl_customizationschema_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/ejb-jar_3_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/spring-form.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/bindingschema_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11soap12.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/connector_1_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdd_provider_java.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/connector_1_6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-addr2006.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl20.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11_httpbinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/business-process.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-common_3_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/xjc.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jersey.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/ejb-jar_2_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wadl20061109.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/sun-jaxws.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/ejb-jar_3_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/j2ee_jaxrpc_mapping_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_client_1_3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/cxf-jaxws.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_2_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/soap-envelope.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/orm_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11_soapbinding.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/j2ee_1_4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407905" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/profiles-1.0.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/settings-1.0.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/xml.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jsp_2_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/maven-4.0.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/composite.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jstl.fn.facelets.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_1_3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-partialresponse_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_2_4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-facesconfig_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application_6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/ui.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jspxml.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jstl-core.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/orm_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jstl-fn.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jspxml.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/javaee_web_services_client_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-facelettaglibrary_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jsf-ui-2_0.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/html_basic_2_0.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jsf_core.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/composite.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-facesconfig_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/javaee_5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/persistence.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-facesconfig_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/html_basic.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/persistence_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-facesuicomponent_2_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/web-facesconfig_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_3_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jsf-ui.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application-client_1_4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/html_basic.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application-client_6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/facelets_jsf_core.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/javaee_web_services_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jsp_2_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jstl.core.facelets.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/mojarra_ext.taglib.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/html5/xhtml5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/jsf_core_2_0.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/spring.tld" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application_1_4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_1_2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/j2ee_web_services_client_1_1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407906" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.4.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/FlexCompilerSchema.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.5.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.2.6.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.5.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.2.7.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.2.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.5.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-faces-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-config-2.3.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-config-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-config-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-faces-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -482,7 +482,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -517,6 +516,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
@@ -527,7 +527,7 @@
     <favorites_list name="Current task" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5738204">
+    <splitter split-orientation="vertical" split-proportion="0.5738206">
       <split-first>
         <leaf>
           <file leaf-file-name="modulesTests.js" pinned="false" current="false" current-in-tab="false">
@@ -542,7 +542,7 @@
           <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="51" column="36" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.6441718">
+                <state line="52" column="110" selection-start="2158" selection-end="2158" vertical-scroll-proportion="0.8766234">
                   <folding />
                 </state>
               </provider>
@@ -596,7 +596,7 @@
           <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="4" selection-start="356" selection-end="411" vertical-scroll-proportion="0.0">
+                <state line="21" column="96" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -618,10 +618,8 @@
           <file leaf-file-name="globalNavigationMenu.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="3" column="7" selection-start="124" selection-end="124" vertical-scroll-proportion="0.12569833">
-                  <folding>
-                    <marker date="1350901934000" expanded="false" signature="324:809" placeholder="..." />
-                  </folding>
+                <state line="13" column="156" selection-start="322" selection-end="322" vertical-scroll-proportion="0.06329114">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -638,10 +636,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/libs/require-config.js" />
         <option value="$PROJECT_DIR$/js/tests/testsuite.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/modules/test/test.html" />
@@ -655,16 +657,17 @@
         <option value="$PROJECT_DIR$/js/tests/testsResult.html" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
         <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
-        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
         <option value="$PROJECT_DIR$/js/libs/modules.js" />
+        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
+        <option value="$PROJECT_DIR$/js/tests/t.ts" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="4" />
     <option name="y" value="22" />
-    <option name="width" value="1676" />
-    <option name="height" value="1028" />
+    <option name="width" value="1276" />
+    <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -769,10 +772,6 @@
               <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -815,7 +814,7 @@
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="preferences.sourceCode" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -993,7 +992,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="22" width="1676" height="1028" extended-state="6" />
+    <frame x="4" y="22" width="1276" height="778" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1013,12 +1012,13 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11042945" sideWeight="0.6712329" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20894308" sideWeight="0.9911765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1080,11 +1080,23 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/tests/libs/qunit.js">
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="13" column="156" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="30" selection-start="0" selection-end="132" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tests/libs/qunit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/tests/libs/qunit.css">
@@ -1099,16 +1111,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/tests/modules/test/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="29" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/tests/modules/test/test.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="21" selection-start="0" selection-end="17" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="29" vertical-scroll-proportion="-0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/tests/modules/test/test.js">
@@ -1141,7 +1144,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="4" selection-start="356" selection-end="411" vertical-scroll-proportion="0.0">
+        <state line="21" column="96" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tests/modules/test/test.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="21" selection-start="0" selection-end="17" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1155,10 +1165,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="7" selection-start="124" selection-end="124" vertical-scroll-proportion="0.12569833">
-          <folding>
-            <marker date="1350901934000" expanded="false" signature="324:809" placeholder="..." />
-          </folding>
+        <state line="13" column="156" selection-start="322" selection-end="322" vertical-scroll-proportion="0.06329114">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,7 +1179,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="36" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.6441718">
+        <state line="52" column="110" selection-start="2158" selection-end="2158" vertical-scroll-proportion="0.8766234">
           <folding />
         </state>
       </provider>
