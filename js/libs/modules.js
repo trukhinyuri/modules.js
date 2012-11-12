@@ -1,4 +1,14 @@
 var modules = new function() {
+    var debug = false;
+    this.setDebug = function(value) {
+        if (value === true) {
+            debug = value;
+        }
+    };
+    this.getDebug = function() {
+       return debug;
+    };
+
     this.config = new function () {
         this.debug = false;
     };
