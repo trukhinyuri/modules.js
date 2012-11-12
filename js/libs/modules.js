@@ -1,4 +1,7 @@
 var modules = new function() {
+    this.config = new function () {
+        this.debug = false;
+    };
     this.notifier = new function() {
         this.fns = [];
         this.subscribe = function(fn) {
@@ -52,6 +55,64 @@ var modules = new function() {
                     module.run();
                 }
             }
+        }
+    };
+    this.loadInClass = function(modulePath, moduleName, classNameForLoad) {
+
+        var cssLoaded = document.getElementsByClassName("modulesjs-css-" + moduleName)[0];
+        if (!cssLoaded) {
+            var css = document.createElement('link');
+            css.href = modulePath + "/" + moduleName + "/" + moduleName + ".css";
+            css.className = "modulesjs-css-" + moduleName;
+            css.type = "text/css";
+            css.rel = "stylesheet";
+            document.getElementsByTagName("head")[0].appendChild(css);
+        }
+
+        var xhrHtmlLoader = new XMLHttpRequest();
+        xhrHtmlLoader.open("GET", modulePath + "/" + moduleName + "/" + moduleName + ".html", false);
+        xhrHtmlLoader.send(null);
+        var elementClasses = document.getElementsByClassName(classNameForLoad);
+        for (var i = 0; i < elementClasses.length; i++) {
+            elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
+        }
+
+        var jsLoaded = document.getElementsByClassName("modulesjs-js-" + moduleName)[0];
+        if (!jsLoaded) {
+            var script = document.createElement('script');
+            script.src = modulePath + "/" + moduleName + "/" + moduleName + ".js";
+            script.className = "modulesjs-js-" + moduleName;
+            script.type = "text/javascript";
+            document.getElementsByTagName("head")[0].appendChild(script);
+            var done = false;
+            script.onreadystatechange = script.onload = function(){
+                var state = script.readyState;
+                if (!done && (!state || state == "loaded" || state == "complete")) {
+                    done = true;
+                    var module = window[moduleName];
+                    module.run();
+                }
+            }
+        }
+    };
+    this.loadHtmlCssInClass = function(modulePath, moduleName, classNameForLoad) {
+
+        var cssLoaded = document.getElementsByClassName("modulesjs-css-" + moduleName)[0];
+        if (!cssLoaded) {
+            var css = document.createElement('link');
+            css.href = modulePath + "/" + moduleName + "/" + moduleName + ".css";
+            css.className = "modulesjs-css-" + moduleName;
+            css.type = "text/css";
+            css.rel = "stylesheet";
+            document.getElementsByTagName("head")[0].appendChild(css);
+        }
+
+        var xhrHtmlLoader = new XMLHttpRequest();
+        xhrHtmlLoader.open("GET", modulePath + "/" + moduleName + "/" + moduleName + ".html", false);
+        xhrHtmlLoader.send(null);
+        var elementClasses = document.getElementsByClassName(classNameForLoad);
+        for (var i = 0; i < elementClasses.length; i++) {
+            elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
         }
     };
     this.loadInfoArrayWithNotifier = function(InfoArray) {

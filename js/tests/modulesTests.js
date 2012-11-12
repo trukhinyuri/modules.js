@@ -57,4 +57,10 @@ test("modules.load", function() {
     ok(html.textContent == 'Hello', "html loaded in footer too");
 });
 
+test("modules.config", function() {
+    ok(modules.config.debug === false, "Default debugMode value is false");
+    modules.config.debug = true;
+    ok(modules.config.debug === true, "Set debugMode to true");
+});
+
 
