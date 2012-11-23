@@ -57,10 +57,12 @@ test("modules.load", function() {
     ok(html.textContent == 'Hello', "html loaded in footer too");
 });
 
-test("modules.debug", function() {
-    ok(modules.getDebug() === false, "Default debugMode value is false");
-    modules.setDebug(true);
-    ok(modules.getDebug() === true, "Set debugMode to true");
+test("modules.verifications", function() {
+    ok(modules.getVerificationsState() === false, "Default verifications state is false by performance requirements");
+    modules.enableVerifications();
+    ok(modules.getVerificationsState() === true, "Verifications enable");
+    modules.disableVerifications();
+    ok(modules.getVerificationsState() === false, "Verifications disable");
 });
 
 

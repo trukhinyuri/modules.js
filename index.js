@@ -1,5 +1,5 @@
 document.addEventListener( "DOMContentLoaded", function() {
-    var modules = new Modules();
+    modules.enableVerifications();
     modules.load("modules", "globalNavigationMenu", "header");
 },false);
 //function onLoad() {

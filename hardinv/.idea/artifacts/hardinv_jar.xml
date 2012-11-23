@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="hardinv:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/hardinv_jar</output-path>
+    <root id="archive" name="hardinv.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="hardinv" />
+    </root>
+  </artifact>
+</component>

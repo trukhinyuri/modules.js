@@ -5,6 +5,11 @@
     height: 4mm;
 }
 
+.globalNavigationMenu_expressionCheckTest {
+    width: expression(document.body.offsetWidth + "px");
+    width: expression(document.body.offsetWidth + "px");
+}
+
 .globalNavigationMenu_unorderedList
 {
     width: 100%;
