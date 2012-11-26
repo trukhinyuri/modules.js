@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tests/modulesTests.js" afterPath="$PROJECT_DIR$/js/tests/modulesTests.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tests/modulesTests.js" afterPath="$PROJECT_DIR$/js/tests/modulesTests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1353685348590" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1353940218904" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352813475939" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352806844150" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352806248291" ignored="false" />
@@ -111,12 +111,12 @@
     <file path="/jquery.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350654463193" ignored="false" />
     <file path="/require-config.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350841982138" ignored="false" />
     <file path="/testsuite.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350843157347" ignored="false" />
-    <file path="/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350846096583" ignored="false" />
+    <file path="/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1353938720691" ignored="false" />
     <file path="/test.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350860684838" ignored="false" />
     <file path="/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350861979747" ignored="false" />
     <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350863224908" ignored="false" />
     <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350864093243" ignored="false" />
-    <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350897722972" ignored="false" />
+    <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1353941084520" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
@@ -495,6 +495,7 @@
   </component>
   <component name="DebuggerManager">
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -529,7 +530,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -544,8 +544,22 @@
       <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="66" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.1875">
-              <folding />
+            <state line="54" column="46" selection-start="1914" selection-end="1914" vertical-scroll-proportion="0.7443182">
+              <folding>
+                <element signature="e#4864#10133#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="globalNavigationMenu.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="56" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1353779120000" expanded="false" signature="168:200" placeholder="{...}" />
+                <marker date="1353779120000" expanded="false" signature="225:257" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -589,8 +603,11 @@
       <file leaf-file-name="globalNavigationMenu.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="20" column="191" selection-start="1327" selection-end="1327" vertical-scroll-proportion="-12.5">
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -607,7 +624,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="96" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0">
+            <state line="3" column="72" selection-start="102" selection-end="102" vertical-scroll-proportion="-1.875">
               <folding />
             </state>
           </provider>
@@ -640,21 +657,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/modules/test/test.js" />
         <option value="$PROJECT_DIR$/modules/test/test.css" />
         <option value="$PROJECT_DIR$/js/tests/testResult.js" />
         <option value="$PROJECT_DIR$/js/tests/modules/test/test.js" />
         <option value="$PROJECT_DIR$/js/tests/modules/test/test.css" />
         <option value="$PROJECT_DIR$/js/tests/modules/test/test.html" />
         <option value="$PROJECT_DIR$/js/tests/testsResult.html" />
-        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
         <option value="$PROJECT_DIR$/js/tests/t.ts" />
         <option value="$PROJECT_DIR$/modules-config.json" />
         <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
         <option value="$PROJECT_DIR$/index.css" />
+        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
         <option value="$PROJECT_DIR$/js/libs/modules.js" />
       </list>
     </option>
@@ -663,7 +680,7 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="3" />
+    <option name="x" value="4" />
     <option name="y" value="22" />
     <option name="width" value="1676" />
     <option name="height" value="1028" />
@@ -696,8 +713,10 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane />
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files" />
+        <subPane subId="All" />
       </pane>
       <pane id="ProjectPane">
         <subPane>
@@ -751,10 +770,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files" />
-        <subPane subId="All" />
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -763,14 +780,14 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="preferences.pluginManager" />
-    <property name="FullScreen" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -795,35 +812,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="GLUE" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -854,6 +842,35 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="GLUE" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -867,13 +884,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -895,6 +905,13 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <list size="0" />
@@ -926,14 +943,14 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="" />
       <created>1350459500948</created>
-      <timeSpent>245937000</timeSpent>
+      <timeSpent>256043000</timeSpent>
       <updated>1350459500948</updated>
     </task>
-    <option name="myTotallyTimeSpent" value="245937000" />
+    <option name="myTotallyTimeSpent" value="256043000" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="22" width="1676" height="1028" extended-state="6" />
+    <frame x="4" y="22" width="1676" height="1028" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -943,7 +960,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781458" sideWeight="0.4981595" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32621083" sideWeight="0.4981595" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20245399" sideWeight="0.6721854" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -952,7 +969,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32944787" sideWeight="0.6721854" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22576687" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.073619634" sideWeight="0.9736264" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.073619634" sideWeight="0.6737892" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1080,25 +1097,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="58" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="96" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="34" selection-start="94" selection-end="94" vertical-scroll-proportion="0.0">
@@ -1115,15 +1113,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="17" selection-start="64" selection-end="64" vertical-scroll-proportion="0.03409091">
+        <state line="2" column="17" selection-start="64" selection-end="64" vertical-scroll-proportion="0.03409091" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="56" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1353779120000" expanded="false" signature="168:200" placeholder="{...}" />
+            <marker date="1353779120000" expanded="false" signature="225:257" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="72" selection-start="102" selection-end="102" vertical-scroll-proportion="-1.875">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="191" selection-start="1327" selection-end="1327" vertical-scroll-proportion="-12.5">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="66" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.1875">
-          <folding />
+        <state line="54" column="46" selection-start="1914" selection-end="1914" vertical-scroll-proportion="0.7443182">
+          <folding>
+            <element signature="e#4864#10133#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

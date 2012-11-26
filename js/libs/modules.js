@@ -32,7 +32,7 @@ var modules = new function() {
     };
 
     var verifyCSS = function(path, name) {
-        var result = "CSS VERIFICATION RESULT (" + name + ") </br>";
+        var result = "CSS VERIFICATION REPORT (" + name + ") </br>";
         var xhrHtmlLoader = new XMLHttpRequest();
         xhrHtmlLoader.open("GET", path + "/" + name + "/" + name + ".css", false);
         xhrHtmlLoader.send(null);
@@ -42,7 +42,7 @@ var modules = new function() {
     };
 
     var verifyJS = function(path, name) {
-        var result = "JAVASCRIPT VERIFICATION RESULT (" + name + ") </br>";
+        var result = "JAVASCRIPT VERIFICATION REPORT (" + name + ") </br>";
         var xhrHtmlLoader = new XMLHttpRequest();
         xhrHtmlLoader.open("GET", path + "/" + name + "/" + name + ".js", false);
         xhrHtmlLoader.send(null);
@@ -51,13 +51,47 @@ var modules = new function() {
         writeMessage(result);
     };
 
+    var verifyHTML = function (path, name) {
+        var result = "HTML VERIFICATION REPORT (" + name + ") </br>";
+        var xhrHtmlLoader = new XMLHttpRequest();
+        xhrHtmlLoader.open("GET", path + "/" + name + "/" + name + ".html", false);
+        xhrHtmlLoader.send(null);
+        var responseArray = xhrHtmlLoader.responseText.split("\n");
+        result += searchHTMLUsingEventHandlers(responseArray);
+        writeMessage(result);
+    };
+
+    var searchHTMLUsingEventHandlers = function(array) {
+        var resultDocument = "";
+        for (var i = 0; i < array.length; i++) {
+            var searchParam = '(?:onabort=|oncancel=|oncanplay=|oncanplaythrough=|onchange=|onclick=|onclose='
+                + '|oncontextmenu=|oncuechange=|ondblclick=|ondrag=|ondragend=|ondragenter=|ondragleave=|ondragover='
+                + '|ondragstart=|ondrop=|ondurationchange=|onemptied=|onended=|oninput=|oninvalid=|onkeydown='
+                + '|onkeypress=|onkeyup=|onloadeddata=|onloadedmetadata=|onloadstart=|onmousedown=|onmousemove='
+                + '|onmouseout=|onmouseover=|onmouseup=|onmousewheel=|onpause=|onplay=|onplaying=|onprogress='
+                + '|onratechange=|onreset=|onseeked=|onseeking=|onselect=|onshow=|onstalled=|onsubmit=|onsuspend='
+                + '|ontimeupdate=|onvolumechange=|onwaiting=|onblur=|onerror=|onfocus=|onload=|onscroll='
+                + '|onafterprint=|onbeforeprint=|onbeforeunload=|onhashchange=|onload=|onmessage=|onoffline='
+                + '|ononline=|onpagehide=|onpageshow=|onpopstate=|onredo=|onresize=|onscroll=|onstorage='
+                + '|onundo=|onunload=|onreadystatechange='
+                +')';
+            var searchResult = array[i].search(searchParam);
+            if (searchResult != -1) {
+                var lineNumber = i + 1;
+                resultDocument += "Warning [line "+lineNumber+"]: Using Javascript Event Handlers in HTML." +
+                    "Use Unobstructive JavaScript Pattern </br>";
+            }
+        }
+        return resultDocument;
+    };
+
     var searchCSSExpressions = function(array) {
         var resultDocument = "";
         for (var i = 0; i < array.length; i++) {
             var searchResult = array[i].search(/expression\(/);
             if (searchResult != -1) {
                 var lineNumber = i + 1;
-                resultDocument += "Warning: CSS Expressions found: " + lineNumber + " line </br>";
+                resultDocument += "Warning [line "+ lineNumber +"]: CSS Expressions found. </br>";
             }
         }
         return resultDocument;
@@ -69,7 +103,7 @@ var modules = new function() {
             var searchResult = array[i].search(/.style/);
             if (searchResult != -1) {
                 var lineNumber = i + 1;
-                resultDocument += "Warning: Access to style from JavaScript: " + lineNumber + " line. " +
+                resultDocument += "Warning [line "+lineNumber+"]: Access to style from JavaScript." +
                     "Write style in CSS and add CSS class to JavaScript Element </br>";
             }
         }
@@ -207,6 +241,7 @@ var modules = new function() {
             addNotificator();
             verifyCSS(path, name);
             verifyJS(path, name);
+            verifyHTML(path, name);
         }
         var cssLoaded = document.getElementsByClassName("modulesjs-css-" + name)[0];
         if (!cssLoaded) {
