@@ -1,6 +1,7 @@
 document.addEventListener( "DOMContentLoaded", function() {
     modules.enableVerifications();
     modules.load("modules", "globalNavigationMenu", "header");
+
 },false);
 //function onLoad() {
 //    var modulesInfo = new Array();

@@ -1,3 +1,4 @@
+//Legacy
 var modules = new function() {
     var verifications = false;
     this.enableVerifications = function() {
@@ -48,6 +49,7 @@ var modules = new function() {
         xhrHtmlLoader.send(null);
         var responseArray = xhrHtmlLoader.responseText.split("\n");
         result += searchJSUsingStyles(responseArray);
+        result += searchJSUsingInnerHTML(responseArray);
         writeMessage(result);
     };
 
@@ -58,7 +60,24 @@ var modules = new function() {
         xhrHtmlLoader.send(null);
         var responseArray = xhrHtmlLoader.responseText.split("\n");
         result += searchHTMLUsingEventHandlers(responseArray);
+        result += searchHTMLUsingScriptTagWithCode(responseArray);
         writeMessage(result);
+    };
+
+    var searchJSUsingInnerHTML = function(array) {
+        var resultDocument = "";
+        for (var i = 0; i < array.length; i++) {
+            var searchParam = /innerHTML/;
+            var searchResult = array[i].search(searchParam);
+            if (searchResult != -1) {
+                var lineNumber = i + 1;
+                resultDocument += "Warning [line "+lineNumber+"]: Using innerHTML in JavaScript. " +
+                    "</br>Possible solution: </br>" +
+                    "1) load HTML from server (use function modules.server.requestHTMLToElement(path, element))</br>" +
+                    "2) Client-side templates (use template in HTML and replace from JavaScript) </br>";
+            }
+        }
+        return resultDocument;
     };
 
     var searchHTMLUsingEventHandlers = function(array) {
@@ -78,8 +97,22 @@ var modules = new function() {
             var searchResult = array[i].search(searchParam);
             if (searchResult != -1) {
                 var lineNumber = i + 1;
-                resultDocument += "Warning [line "+lineNumber+"]: Using Javascript Event Handlers in HTML." +
-                    "Use Unobstructive JavaScript Pattern </br>";
+                resultDocument += "Warning [line "+lineNumber+"]: Using Javascript Event Handlers in HTML. " +
+                    "Use \"Unobstructive JavaScript\" Pattern (use function modules.helpers.addListener(target, type, handler)) </br>";
+            }
+        }
+        return resultDocument;
+    };
+
+    var searchHTMLUsingScriptTagWithCode = function(array) {
+        var resultDocument = "";
+        for (var i = 0; i < array.length; i++) {
+            var searchParam = /<script>/;
+            var searchResult = array[i].search(searchParam);
+            if (searchResult != -1) {
+                var lineNumber = i + 1;
+                resultDocument += "Warning [line "+lineNumber+"]: Using Javascript code in HTML script tag. " +
+                    "Use link to external Javascript file in script tag. </br>";
             }
         }
         return resultDocument;
@@ -200,7 +233,7 @@ var modules = new function() {
         function show() {
             var notificator = document.getElementById('modulesjs_internal_notificator');
             if (parseFloat(notificator.style.opacity) <= 1) {
-                notificator.style.opacity = (parseFloat(notificator.style.opacity) + 0.01);
+                notificator.style.opacity = (parseFloat(notificator.style.opacity) + 0.005);
                 setTimeout(show, 20);
             }
         }
@@ -234,6 +267,34 @@ var modules = new function() {
 //        this.write = function() {
 //           generator.document.getElementsByTagName("body").innerHTML += "Hello";
 //        };
+    };
+
+    this.helpers = new function() {
+        this.addListener = function(target, type, handler) {
+            if (target.addEventListener) {
+                target.addEventListener(type, handler, false);
+            } else if (target.attachEvent) {
+                target.attachEvent("on" + type, handler);
+            } else {
+                target["on" + type] = handler; }
+        }
+    };
+
+    this.server = new function() {
+        this.requestHTMLToElement = function(path, elementClassName, onComplete) {
+            var xhr = new XMLHttpRequest(); xhr.open("get", "path", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var div = document.getElementsByClassName(elementClassName);
+                    for (var i = 0; i<div.length; i++) {
+                        div[i].innerHTML = xhr.responseText;
+                    }
+                    onComplete();
+                } else {
+// handle error
+                } };
+            xhr.send(null);
+        };
     };
 
     this.load = function(path, name, element) {
@@ -375,7 +436,7 @@ var modules = new function() {
                     }
                 });
             }
-        }
+        };
         InfoArray.forEach(function (el) {
             var jsLoaded = document.getElementsByClassName("js" + el.name)[0];
             if (!jsLoaded) {
@@ -399,6 +460,77 @@ var modules = new function() {
         return this;
     };
 };
+//endLegacy
+
+var Modules;
+(function (Modules) {
+    Modules.Loader = (function () {
+        function Loader(path) {
+            this.path = path;
+        }
+        Loader.prototype.load = function (moduleName, className) {
+            var cssLoaded = document.getElementsByClassName("modulesjs-css-" + moduleName)[0];
+            if (!cssLoaded) {
+                var css = document.createElement('link');
+                css.href = this.path + "/" + moduleName + "/" + moduleName + ".css";
+                css.className = "modulesjs-css-" + moduleName;
+                css.type = "text/css";
+                css.rel = "stylesheet";
+                document.getElementsByTagName("head")[0].appendChild(css);
+            }
+
+            var xhrHtmlLoader = new XMLHttpRequest();
+            xhrHtmlLoader.open("GET", this.path + "/" + moduleName + "/" + moduleName + ".html", false);
+            xhrHtmlLoader.send(null);
+            var elementClasses = document.getElementsByClassName(className);
+            for (var i = 0; i < elementClasses.length; i++) {
+                elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
+            }
+
+            var jsLoaded = document.getElementsByClassName("modulesjs-js-" + moduleName)[0];
+            if (!jsLoaded) {
+                var script = document.createElement('script');
+                script.src = this.path + "/" + moduleName + "/" + moduleName + ".js";
+                script.className = "modulesjs-js-" + moduleName;
+                script.type = "text/javascript";
+                document.getElementsByTagName("head")[0].appendChild(script);
+                var done = false;
+                script.onreadystatechange = script.onload = function () {
+                    var state = script.readyState;
+                    if (!done && (!state || state == "loaded" || state == "complete")) {
+                        done = true;
+                        if (window[moduleName]) {
+                            var module = window[moduleName];
+                            module.run();
+                        }
+
+                    }
+                }
+            }
+        };
+        return Loader;
+    })();
+    Modules.Events = (function(){
+        function Events() {
+        }
+        Events.prototype.addListener = function (target, type, handler) {
+            if (target.addEventListener) {
+                target.addEventListener(type, handler, false); } else if (target.attachEvent) {
+                target.attachEvent("on" + type, handler); } else {
+                target["on" + type] = handler; }
+        };
+        return Events;
+    }());
+})(Modules || (Modules = {}));
+
+//var greeter = new Modules.Loader();
+//var button = document.createElement('button');
+//button.innerText = "Say Hello";
+//button.onclick = function () {
+//    alert(greeter.greet());
+//};
+//document.body.appendChild(button);
+
 
 
 

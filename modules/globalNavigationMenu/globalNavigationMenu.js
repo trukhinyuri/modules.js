@@ -3,6 +3,7 @@ var globalNavigationMenu = new function() {
     this.run = function() {
         //alert("");
         //document.style
+        //document.innerHTML
     };
 //    this.subscribe = function(callback) {
 //       modules.notifier.subscribe(this.notify);
