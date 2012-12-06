@@ -10,7 +10,7 @@
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354615444523" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354803932811" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352806844150" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354097628414" ignored="false" />
@@ -483,7 +483,7 @@
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546758466" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354545713721" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796459574" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354799884880" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354802919438" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354613620329" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/WEB-INF/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794309508" ignored="false" />
     <file path="/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794101685" ignored="false" />
@@ -499,7 +499,7 @@
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/PublicServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354795236674" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/oldindex.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796481826" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796501819" ignored="false" />
-    <file path="/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354797107925" ignored="false" />
+    <file path="/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354802892012" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -574,8 +574,10 @@
       <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="509" column="63" selection-start="23605" selection-end="23605" vertical-scroll-proportion="0.3887689">
-              <folding />
+            <state line="495" column="17" selection-start="22797" selection-end="22797" vertical-scroll-proportion="0.6760259">
+              <folding>
+                <element signature="e#52#21462#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1198,8 +1200,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="509" column="63" selection-start="23605" selection-end="23605" vertical-scroll-proportion="0.3887689">
-          <folding />
+        <state line="495" column="17" selection-start="22797" selection-end="22797" vertical-scroll-proportion="0.6760259">
+          <folding>
+            <element signature="e#52#21462#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

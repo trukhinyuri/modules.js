@@ -1,3 +1,4 @@
+"use strict";
 //Legacy
 var modules = new function() {
     var verifications = false;
@@ -479,40 +480,54 @@ var Modules = null;
                 document.getElementsByTagName("head")[0].appendChild(css);
             }
 
-            var xhrHtmlLoader = new XMLHttpRequest();
-            xhrHtmlLoader.open("GET", this.path + "/" + moduleName + "/" + moduleName + ".html", false);
-            xhrHtmlLoader.send(null);
-            var elementClasses = document.getElementsByClassName(className);
-            for (var i = 0; i < elementClasses.length; i++) {
-                elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
+            function checkStatus () {
+                if (xhrHtmlLoader.readyState == 4 /* complete */) {
+                    if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
+                       insertResponse();
+                       loadJS();
+                    }
+                }
             }
 
-            var jsLoaded = document.getElementsByClassName("modulesjs-js-" + moduleName)[0];
-            if (!jsLoaded) {
-                var script = document.createElement('script');
-                script.src = this.path + "/" + moduleName + "/" + moduleName + ".js";
-                script.className = "modulesjs-js-" + moduleName;
-                script.type = "text/javascript";
-                document.getElementsByTagName("head")[0].appendChild(script);
-                var done = false;
-                script.onreadystatechange = script.onload = function () {
-                    var state = script.readyState;
-                    if (!done && (!state || state == "loaded" || state == "complete")) {
-                        done = true;
+            function insertResponse() {
+                var elementClasses = document.getElementsByClassName(className);
+                for (var i = 0; i < elementClasses.length; i++) {
+                    elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
+                }
+            }
+            function loadJS() {
+                var jsLoaded = document.getElementsByClassName("modulesjs-js-" + moduleName)[0];
+                if (!jsLoaded) {
+                    var script = document.createElement('script');
+                    script.src = Loader.path + "/" + moduleName + "/" + moduleName + ".js";
+                    script.className = "modulesjs-js-" + moduleName;
+                    script.type = "text/javascript";
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                    var done = false;
+                    script.onreadystatechange = script.onload = function () {
+                        var state = script.readyState;
+                        if (!done && (!state || state == "loaded" || state == "complete")) {
+                            done = true;
 //                        if (window[moduleName]) {
 //                            var module = window[moduleName];
 //                            module.run();
 //                        }
 
+                        }
                     }
                 }
             }
+
+            var xhrHtmlLoader = new XMLHttpRequest();
+            xhrHtmlLoader.open("GET", this.path + "/" + moduleName + "/" + moduleName + ".html", true);
+            xhrHtmlLoader.onreadystatechange = checkStatus;
+            xhrHtmlLoader.send(null);
+
         };
         return Loader;
     })();
     Modules.Events = (function(){
-        function Events() {
-        }
+        function Events() {}
         Events.prototype.addListener = function (target, type, handler) {
             if (target.addEventListener) {
                 target.addEventListener(type, handler, false); } else if (target.attachEvent) {
@@ -520,6 +535,29 @@ var Modules = null;
                 target["on" + type] = handler; }
         };
         return Events;
+    }());
+    Modules.Server = (function(){
+        function Server() {}
+        Server.prototype.getStringValue = function(url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, false);
+            xhr.send(null);
+            return xhr.responseText;
+        };
+        Server.prototype.getStringValueAsync = function(url, handler) {
+            var xhr = new XMLHttpRequest();
+            function reportStatus() {
+                if (xhr.readyState == 4 /* complete */) {
+                    if (xhr.status == 200 || xhr.status == 304) {
+                        handler(xhr.responseText);
+                    }
+                }
+            }
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = reportStatus;
+            xhr.send(null);
+        };
+        return Server;
     }());
 })(Modules || (Modules = {}));
 
