@@ -462,7 +462,7 @@ var modules = new function() {
 };
 //endLegacy
 
-var Modules;
+var Modules = null;
 (function (Modules) {
     Modules.Loader = (function () {
         function Loader(path) {
@@ -499,10 +499,10 @@ var Modules;
                     var state = script.readyState;
                     if (!done && (!state || state == "loaded" || state == "complete")) {
                         done = true;
-                        if (window[moduleName]) {
-                            var module = window[moduleName];
-                            module.run();
-                        }
+//                        if (window[moduleName]) {
+//                            var module = window[moduleName];
+//                            module.run();
+//                        }
 
                     }
                 }

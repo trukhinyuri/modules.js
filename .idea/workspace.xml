@@ -3,14 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tests/modulesTests.js" afterPath="$PROJECT_DIR$/js/tests/modulesTests.js" />
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546614996" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354615444523" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352806844150" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354097628414" ignored="false" />
@@ -116,7 +116,7 @@
     <file path="/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350861979747" ignored="false" />
     <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350863224908" ignored="false" />
     <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350864093243" ignored="false" />
-    <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354099964042" ignored="false" />
+    <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354614636057" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
@@ -477,14 +477,29 @@
     <file path="/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1353681958661" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354544632681" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354520507061" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546836445" ignored="false" />
-    <file path="/_index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546822445" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354715045102" ignored="false" />
+    <file path="/_index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354714057689" ignored="false" />
     <file path="/_index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354544631245" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546758466" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354545713721" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546518916" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546717003" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354547380165" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796459574" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354799884880" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354613620329" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/WEB-INF/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794309508" ignored="false" />
+    <file path="/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794101685" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/UnstructuredDataExchange.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354782503645" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/ApplicationConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794465205" ignored="false" />
+    <file path="/ApplicationConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794431158" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/PublicApplicationConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354793613940" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/ProtectedApplicationConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354792908513" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/publicAPI/PublicSystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354793235760" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/publicAPI/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796348218" ignored="false" />
+    <file path="/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796272415" ignored="false" />
+    <file path="/PublicApplicationConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354793523535" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/PublicServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354795236674" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/oldindex.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796481826" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796501819" ignored="false" />
+    <file path="/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354797107925" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -509,8 +524,6 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
-    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -545,6 +558,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -559,7 +574,7 @@
       <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="502" column="28" selection-start="23424" selection-end="23498" vertical-scroll-proportion="0.46753246">
+            <state line="509" column="63" selection-start="23605" selection-end="23605" vertical-scroll-proportion="0.3887689">
               <folding />
             </state>
           </provider>
@@ -622,7 +637,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="49" selection-start="404" selection-end="404" vertical-scroll-proportion="-5.625">
+            <state line="9" column="49" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -694,10 +709,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="204" />
-    <option name="y" value="1050" />
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="x" value="4" />
+    <option name="y" value="22" />
+    <option name="width" value="1675" />
+    <option name="height" value="611" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -714,6 +729,10 @@
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
+  <component name="ProjectState">
+    <option name="privateKey" value="3082025b02010002818100af6329fd23450f1f6fcd38ad2bb8c32b1fe6e293b292f65e1ca8b8d7dca54e5f28702c26f5380850856b7895ed3177a0e42d5e44e3b04f9075436a720adfe1fef3e399474351a6cc2341bf6964c997281d37a7a168e0ba6a335e01122f122c14362903a88c4de38a0b71d27e36f9f2b3fddcd7a16cbc67997dad89abb898492d020301000102818042877f3a02d303758d576f9460ed693b4692b2880c492b237003a07a61bc630a3db0af4ee7de256945f30a7ef4c6baf65117d4969538203650050eafcbe8393577acdb7f46f346e44ad4998d5240ad0d927174fc5ec86b8e683c18115f433856db322caa906e17e6e888a436b8fc7a97e5cf3ea05904ab7e7d1638dbaa628b11024100e7e8ec50981b7fcc07b857e3ba30b05d83c1f331f340ba2d3dff670a38b2b4eb3bb90dd460b5714924ffeb6f3571e49146d19b6419f464812b1ba48e701865c3024100c19b29ba8be15cec6693b2b76d3e69ac15153dfe4fa39a03d444865e38f8dd15e96a3c7692e5194577c52eb21bd1bfe9205608779214b42eaedef1541da3764f02405e27c34a357774bb71a6f6880ee015bae1f3acb96af9ac9d11bed026e63e281619795894116f993f09369e6fd8531569a64713bfe089c904686c20b373ef73e102402ee2a39d6088a8173bd422e096dd197c29f2e5fb734fdc59770b4d3afe330e5f63126e280cf4dc44dd776c1287f828b08d3b287bc46dad20ed0a62890b506db3024047b4618f22727237969da8428423c84cb9b9b17d5e4b433cf4834af892a0bac21a348cf9625586bcb68802d1deb711d24dcb920307aa2b348444f8aa296a53a5" />
+    <option name="publicKey" value="30818902818100af6329fd23450f1f6fcd38ad2bb8c32b1fe6e293b292f65e1ca8b8d7dca54e5f28702c26f5380850856b7895ed3177a0e42d5e44e3b04f9075436a720adfe1fef3e399474351a6cc2341bf6964c997281d37a7a168e0ba6a335e01122f122c14362903a88c4de38a0b71d27e36f9f2b3fddcd7a16cbc67997dad89abb898492d0203010001" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
@@ -727,8 +746,10 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane />
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files" />
+        <subPane subId="All" />
       </pane>
       <pane id="ProjectPane">
         <subPane>
@@ -796,24 +817,30 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files" />
-        <subPane subId="All" />
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="preferences.keymap" />
-    <property name="FullScreen" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.lastSelected" value="Settings.JavaScript" />
+    <property name="recentsLimit" value="5" />
+    <property name="JavaScriptLanguageLevel" value="ES5" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/geo4geo" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="JavaScriptPreferStrict" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
@@ -840,35 +867,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="GLUE" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -899,6 +897,35 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="GLUE" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -912,13 +939,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -940,6 +960,13 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <list size="0" />
@@ -977,7 +1004,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="204" y="1050" width="1280" height="800" extended-state="6" />
+    <frame x="4" y="22" width="1675" height="611" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -987,7 +1014,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32621083" sideWeight="0.4981595" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325" sideWeight="0.4981595" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20243903" sideWeight="0.6721854" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -996,13 +1023,15 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6721854" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22520325" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11426256" sideWeight="0.93626374" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09821977" sideWeight="0.9979675" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781458" sideWeight="0.49754602" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Kotlin" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39977974" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1104,16 +1133,30 @@
         <state line="0" column="17" selection-start="0" selection-end="17" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/tests/modules/test/test.js">
+    <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="9" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
+        <state line="0" column="28" selection-start="28" selection-end="44" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/tests/testsResult.html">
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0">
+        <state line="8" column="0" selection-start="146" selection-end="259" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="45" selection-end="198" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tests/modules/test/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="9" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1125,9 +1168,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
+    <entry file="file://$PROJECT_DIR$/js/tests/testsResult.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="146" selection-end="259" vertical-scroll-proportion="0.0">
+        <state line="17" column="0" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="49" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1146,34 +1196,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="49" selection-start="404" selection-end="404" vertical-scroll-proportion="-5.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="28" selection-start="28" selection-end="44" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="45" selection-end="198" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="502" column="28" selection-start="23424" selection-end="23498" vertical-scroll-proportion="0.46753246">
+        <state line="509" column="63" selection-start="23605" selection-end="23605" vertical-scroll-proportion="0.3887689">
           <folding />
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>JsTestDriver Assertion Framework</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>modules.js</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.20000002" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>sass-stdlib</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
 
