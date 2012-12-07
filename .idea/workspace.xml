@@ -10,10 +10,10 @@
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354864066431" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354871127852" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352806844150" ignored="false" />
-    <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354097628414" ignored="false" />
+    <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354871318770" ignored="false" />
     <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352727621499" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
     <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352622007943" ignored="false" />
@@ -111,12 +111,12 @@
     <file path="/jquery.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350654463193" ignored="false" />
     <file path="/require-config.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350841982138" ignored="false" />
     <file path="/testsuite.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350843157347" ignored="false" />
-    <file path="/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1353938720691" ignored="false" />
+    <file path="/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354866787563" ignored="false" />
     <file path="/test.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350860684838" ignored="false" />
     <file path="/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350861979747" ignored="false" />
     <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350863224908" ignored="false" />
     <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350864093243" ignored="false" />
-    <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354614636057" ignored="false" />
+    <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354867497952" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
@@ -474,17 +474,17 @@
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-faces-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
-    <file path="/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1353681958661" ignored="false" />
+    <file path="/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354866811609" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354544632681" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354520507061" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354715045102" ignored="false" />
     <file path="/_index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354714057689" ignored="false" />
     <file path="/_index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354544631245" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546758466" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354860208519" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796459574" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354864241456" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354613620329" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354867044078" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354871181056" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354868248901" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354867703258" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354868236190" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/WEB-INF/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794309508" ignored="false" />
     <file path="/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794101685" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/UnstructuredDataExchange.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354782503645" ignored="false" />
@@ -493,13 +493,23 @@
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/PublicApplicationConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354793613940" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/ProtectedApplicationConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354792908513" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/publicAPI/PublicSystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354793235760" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/publicAPI/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796348218" ignored="false" />
-    <file path="/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796272415" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/publicAPI/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354866047457" ignored="false" />
+    <file path="/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354866043007" ignored="false" />
     <file path="/PublicApplicationConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354793523535" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/PublicServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354795236674" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/oldindex.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796481826" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796501819" ignored="false" />
-    <file path="/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354802892012" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354868031252" ignored="false" />
+    <file path="/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354867680025" ignored="false" />
+    <file path="/about.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354865129429" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354867195507" ignored="false" />
+    <file path="/about.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354866346905" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354866867387" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/help/help.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354868497687" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/help/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354867578437" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/help/help.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354868087913" ignored="false" />
+    <file path="/help.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354868456692" ignored="false" />
+    <file path="/help.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354868087913" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354871325197" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -571,22 +581,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="471" column="65" selection-start="21692" selection-end="21692" vertical-scroll-proportion="-0.4600432">
+            <state line="526" column="51" selection-start="24869" selection-end="24869" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#52#21462#0" expanded="false" />
-                <element signature="e#21692#24534#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="28" selection-start="28" selection-end="44" vertical-scroll-proportion="0.0">
+            <state line="2" column="60" selection-start="155" selection-end="155" vertical-scroll-proportion="0.064794816">
               <folding />
             </state>
           </provider>
@@ -703,8 +712,8 @@
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
         <option value="$PROJECT_DIR$/index.css" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/js/libs/modules.js" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -1026,7 +1035,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6721854" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22520325" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09785933" sideWeight="0.9979675" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09785933" sideWeight="0.9979675" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1136,13 +1145,6 @@
         <state line="0" column="17" selection-start="0" selection-end="17" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="28" selection-start="28" selection-end="44" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="146" selection-end="259" vertical-scroll-proportion="0.0">
@@ -1201,11 +1203,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="471" column="65" selection-start="21692" selection-end="21692" vertical-scroll-proportion="-0.4600432">
+        <state line="526" column="51" selection-start="24869" selection-end="24869" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#52#21462#0" expanded="false" />
-            <element signature="e#21692#24534#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="60" selection-start="155" selection-end="155" vertical-scroll-proportion="0.064794816">
+          <folding />
         </state>
       </provider>
     </entry>

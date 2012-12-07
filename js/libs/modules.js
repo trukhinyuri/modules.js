@@ -469,61 +469,68 @@ var Modules = null;
         function Loader(path) {
             this.path = path;
         }
-        Loader.prototype.load = function (moduleName, className) {
-            loadCSS(this.path, moduleName);
-            loadHTML(this.path, moduleName, className);
-            function loadCSS(path, moduleName) {
-                var cssLoaded = document.getElementsByClassName("modulesjs-css-" + moduleName)[0];
-                if (!cssLoaded) {
-                    var css = document.createElement('link');
-                    css.href = path + "/" + moduleName + "/" + moduleName + ".css";
-                    css.className = "modulesjs-css-" + moduleName;
-                    css.type = "text/css";
-                    css.rel = "stylesheet";
-                    document.getElementsByTagName("head")[0].appendChild(css);
-                }
+        Loader.prototype.load = function (moduleName, className, callback) {
+            loadAsync(this.path, moduleName, className, callback);
+            function loadAsync(path, moduleName, className) {
+                setTimeout(function(){
+                    loadSync(path, moduleName, className, callback);
+                }, 0);
             }
-            function loadHTML(path, moduleName, className) {
-                var xhrHtmlLoader = new XMLHttpRequest();
-                xhrHtmlLoader.open("GET", path + "/" + moduleName + "/" + moduleName + ".html", true);
-                xhrHtmlLoader.onreadystatechange = function() {
-                    if (xhrHtmlLoader.readyState == 4 /* complete */) {
-                        if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
-                            renderHTML(xhrHtmlLoader, className);
-                            loadJS(path, moduleName);
+            function loadSync(path, moduleName, className) {
+                loadCSS(path, moduleName);
+                loadHTML(path, moduleName, className, callback);
+                function loadCSS(path, moduleName) {
+                    var cssLoaded = document.getElementsByClassName("modulesjs-css-" + moduleName)[0];
+                    if (!cssLoaded) {
+                        var css = document.createElement('link');
+                        css.href = path + "/" + moduleName + "/" + moduleName + ".css";
+                        css.className = "modulesjs-css-" + moduleName;
+                        css.type = "text/css";
+                        css.rel = "stylesheet";
+                        document.getElementsByTagName("head")[0].appendChild(css);
+                    }
+                }
+                function loadHTML(path, moduleName, className, callback) {
+                    var xhrHtmlLoader = new XMLHttpRequest();
+                    xhrHtmlLoader.open("GET", path + "/" + moduleName + "/" + moduleName + ".html", true);
+                    xhrHtmlLoader.onreadystatechange = function() {
+                        if (xhrHtmlLoader.readyState == 4 /* complete */) {
+                            if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
+                                renderHTML(xhrHtmlLoader, className);
+                                loadJS(path, moduleName, callback);
+                            }
+                        }
+                    };
+                    xhrHtmlLoader.send(null);
+                }
+                function renderHTML(xhrHtmlLoader, className) {
+                    var elementClasses = document.getElementsByClassName(className);
+                    for (var i = 0; i < elementClasses.length; i++) {
+                        elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
+                    }
+                }
+                function loadJS(path, moduleName, callback) {
+                    var jsLoaded = document.getElementsByClassName("modulesjs-js-" + moduleName)[0];
+                    if (!jsLoaded) {
+                        var script = document.createElement('script');
+                        script.src = path + "/" + moduleName + "/" + moduleName + ".js";
+                        script.className = "modulesjs-js-" + moduleName;
+                        script.type = "text/javascript";
+                        document.getElementsByTagName("head")[0].appendChild(script);
+                        var done = false;
+
+                    script.onreadystatechange = script.onload = function () {
+                        var state = script.readyState;
+                        if (!done && (!state || state == "loaded" || state == "complete")) {
+                            done = true;
+                            if (callback) {
+                                callback(moduleName);
+                            }
                         }
                     }
-                };
-                xhrHtmlLoader.send(null);
-            }
-            function renderHTML(xhrHtmlLoader, className) {
-                var elementClasses = document.getElementsByClassName(className);
-                for (var i = 0; i < elementClasses.length; i++) {
-                    elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
-                }
-            }
-            function loadJS(path, moduleName) {
-                var jsLoaded = document.getElementsByClassName("modulesjs-js-" + moduleName)[0];
-                if (!jsLoaded) {
-                    var script = document.createElement('script');
-                    script.src = path + "/" + moduleName + "/" + moduleName + ".js";
-                    script.className = "modulesjs-js-" + moduleName;
-                    script.type = "text/javascript";
-                    document.getElementsByTagName("head")[0].appendChild(script);
-                    var done = false;
-//                    script.onreadystatechange = script.onload = function () {
-//                        var state = script.readyState;
-//                        if (!done && (!state || state == "loaded" || state == "complete")) {
-//                            done = true;
-////                        if (window[moduleName]) {
-////                            var module = window[moduleName];
-////                            module.run();
-////                        }
-//
-//                        }
-//                    }
-                }
+                    }
 
+                }
             }
         };
         return Loader;
@@ -548,15 +555,14 @@ var Modules = null;
         };
         Server.prototype.getStringAsync = function(url, handler) {
             var xhr = new XMLHttpRequest();
-            function reportStatus() {
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 /* complete */) {
                     if (xhr.status == 200 || xhr.status == 304) {
                         handler(xhr.responseText);
                     }
                 }
-            }
-            xhr.open('GET', url, true);
-            xhr.onreadystatechange = reportStatus;
+            };
             xhr.send(null);
         };
         return Server;
