@@ -470,59 +470,61 @@ var Modules = null;
             this.path = path;
         }
         Loader.prototype.load = function (moduleName, className) {
-            var cssLoaded = document.getElementsByClassName("modulesjs-css-" + moduleName)[0];
-            if (!cssLoaded) {
-                var css = document.createElement('link');
-                css.href = this.path + "/" + moduleName + "/" + moduleName + ".css";
-                css.className = "modulesjs-css-" + moduleName;
-                css.type = "text/css";
-                css.rel = "stylesheet";
-                document.getElementsByTagName("head")[0].appendChild(css);
-            }
-
-            function checkStatus () {
-                if (xhrHtmlLoader.readyState == 4 /* complete */) {
-                    if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
-                       insertResponse();
-                       loadJS();
-                    }
+            loadCSS(this.path, moduleName);
+            loadHTML(this.path, moduleName, className);
+            function loadCSS(path, moduleName) {
+                var cssLoaded = document.getElementsByClassName("modulesjs-css-" + moduleName)[0];
+                if (!cssLoaded) {
+                    var css = document.createElement('link');
+                    css.href = path + "/" + moduleName + "/" + moduleName + ".css";
+                    css.className = "modulesjs-css-" + moduleName;
+                    css.type = "text/css";
+                    css.rel = "stylesheet";
+                    document.getElementsByTagName("head")[0].appendChild(css);
                 }
             }
-
-            function insertResponse() {
+            function loadHTML(path, moduleName, className) {
+                var xhrHtmlLoader = new XMLHttpRequest();
+                xhrHtmlLoader.open("GET", path + "/" + moduleName + "/" + moduleName + ".html", true);
+                xhrHtmlLoader.onreadystatechange = function() {
+                    if (xhrHtmlLoader.readyState == 4 /* complete */) {
+                        if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
+                            renderHTML(xhrHtmlLoader, className);
+                            loadJS(path, moduleName);
+                        }
+                    }
+                };
+                xhrHtmlLoader.send(null);
+            }
+            function renderHTML(xhrHtmlLoader, className) {
                 var elementClasses = document.getElementsByClassName(className);
                 for (var i = 0; i < elementClasses.length; i++) {
                     elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
                 }
             }
-            function loadJS() {
+            function loadJS(path, moduleName) {
                 var jsLoaded = document.getElementsByClassName("modulesjs-js-" + moduleName)[0];
                 if (!jsLoaded) {
                     var script = document.createElement('script');
-                    script.src = Loader.path + "/" + moduleName + "/" + moduleName + ".js";
+                    script.src = path + "/" + moduleName + "/" + moduleName + ".js";
                     script.className = "modulesjs-js-" + moduleName;
                     script.type = "text/javascript";
                     document.getElementsByTagName("head")[0].appendChild(script);
                     var done = false;
-                    script.onreadystatechange = script.onload = function () {
-                        var state = script.readyState;
-                        if (!done && (!state || state == "loaded" || state == "complete")) {
-                            done = true;
-//                        if (window[moduleName]) {
-//                            var module = window[moduleName];
-//                            module.run();
+//                    script.onreadystatechange = script.onload = function () {
+//                        var state = script.readyState;
+//                        if (!done && (!state || state == "loaded" || state == "complete")) {
+//                            done = true;
+////                        if (window[moduleName]) {
+////                            var module = window[moduleName];
+////                            module.run();
+////                        }
+//
 //                        }
-
-                        }
-                    }
+//                    }
                 }
+
             }
-
-            var xhrHtmlLoader = new XMLHttpRequest();
-            xhrHtmlLoader.open("GET", this.path + "/" + moduleName + "/" + moduleName + ".html", true);
-            xhrHtmlLoader.onreadystatechange = checkStatus;
-            xhrHtmlLoader.send(null);
-
         };
         return Loader;
     })();
@@ -538,13 +540,13 @@ var Modules = null;
     }());
     Modules.Server = (function(){
         function Server() {}
-        Server.prototype.getStringValue = function(url) {
+        Server.prototype.getString = function(url) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, false);
             xhr.send(null);
             return xhr.responseText;
         };
-        Server.prototype.getStringValueAsync = function(url, handler) {
+        Server.prototype.getStringAsync = function(url, handler) {
             var xhr = new XMLHttpRequest();
             function reportStatus() {
                 if (xhr.readyState == 4 /* complete */) {

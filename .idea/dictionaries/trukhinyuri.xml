@@ -4,6 +4,7 @@
       <w>modulesjs</w>
       <w>notificator</w>
       <w>onload</w>
+      <w>onreadystatechange</w>
     </words>
   </dictionary>
 </component>

@@ -10,7 +10,7 @@
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354803932811" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354864066431" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352806844150" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354097628414" ignored="false" />
@@ -481,9 +481,9 @@
     <file path="/_index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354714057689" ignored="false" />
     <file path="/_index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354544631245" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546758466" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354545713721" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354860208519" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/globalNavigationMenu/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354796459574" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354802919438" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354864241456" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354613620329" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/WEB-INF/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794309508" ignored="false" />
     <file path="/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794101685" ignored="false" />
@@ -574,9 +574,10 @@
       <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="495" column="17" selection-start="22797" selection-end="22797" vertical-scroll-proportion="0.6760259">
+            <state line="471" column="65" selection-start="21692" selection-end="21692" vertical-scroll-proportion="-0.4600432">
               <folding>
                 <element signature="e#52#21462#0" expanded="false" />
+                <element signature="e#21692#24534#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -711,9 +712,9 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
+    <option name="x" value="-1" />
     <option name="y" value="22" />
-    <option name="width" value="1675" />
+    <option name="width" value="1681" />
     <option name="height" value="611" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -831,7 +832,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="Settings.JavaScript" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="recentsLimit" value="5" />
     <property name="JavaScriptLanguageLevel" value="ES5" />
     <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/geo4geo" />
@@ -1006,7 +1007,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="22" width="1675" height="611" extended-state="0" />
+    <frame x="-1" y="22" width="1681" height="611" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1025,7 +1026,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6721854" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22520325" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09821977" sideWeight="0.9979675" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09785933" sideWeight="0.9979675" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1095,7 +1096,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1200,9 +1201,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="495" column="17" selection-start="22797" selection-end="22797" vertical-scroll-proportion="0.6760259">
+        <state line="471" column="65" selection-start="21692" selection-end="21692" vertical-scroll-proportion="-0.4600432">
           <folding>
             <element signature="e#52#21462#0" expanded="false" />
+            <element signature="e#21692#24534#0" expanded="false" />
           </folding>
         </state>
       </provider>
