@@ -471,12 +471,12 @@ var Modules = null;
         }
         Loader.prototype.load = function (moduleName, className, callback) {
             loadAsync(this.path, moduleName, className, callback);
-            function loadAsync(path, moduleName, className) {
+            function loadAsync(path, moduleName, className, callback) {
                 setTimeout(function(){
                     loadSync(path, moduleName, className, callback);
                 }, 0);
             }
-            function loadSync(path, moduleName, className) {
+            function loadSync(path, moduleName, className, callback) {
                 loadCSS(path, moduleName);
                 loadHTML(path, moduleName, className, callback);
                 function loadCSS(path, moduleName) {
@@ -531,6 +531,39 @@ var Modules = null;
                     }
 
                 }
+            }
+        };
+        Loader.prototype.loadHTML = function(fileName, className, callback) {
+            loadAsync(this.path, fileName, className, callback);
+            function loadAsync(path, fileName, className, callback) {
+                setTimeout(function(){
+                    loadSync(path, fileName, className, callback);
+                }, 0);
+            }
+            function loadSync(path, fileName, className, callback) {
+                loadHTML(path, fileName, className, callback);
+            }
+            function loadHTML(path, fileName, className, callback) {
+                var xhrHtmlLoader = new XMLHttpRequest();
+                xhrHtmlLoader.open("GET", path + "/" + fileName + ".html", true);
+                xhrHtmlLoader.onreadystatechange = function() {
+                    if (xhrHtmlLoader.readyState == 4 /* complete */) {
+                        if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
+                            renderHTML(xhrHtmlLoader, fileName, className, callback);
+                        }
+                    }
+                };
+                xhrHtmlLoader.send(null);
+            }
+            function renderHTML(xhrHtmlLoader, fileName, className, callback) {
+                var elementClasses = document.getElementsByClassName(className);
+                for (var i = 0; i < elementClasses.length; i++) {
+                    elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
+                }
+                if (callback) {
+                    callback(fileName);
+                }
+
             }
         };
         return Loader;

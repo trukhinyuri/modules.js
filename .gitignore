@@ -2,3 +2,6 @@
 .DS_Store
 *.swp
 *~.nib
+.idea/workspace.xml
+
+.idea/workspace.xml
