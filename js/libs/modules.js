@@ -1,3 +1,4 @@
+//version 0.03
 "use strict";
 //Legacy
 var modules = new function() {
@@ -469,6 +470,65 @@ var Modules = null;
         function Loader(path) {
             this.path = path;
         }
+        function loadJS (path, name, callback) {
+            var jsLoaded = document.getElementsByClassName("modulesjs-js-" + name)[0];
+            if (!jsLoaded) {
+                var script = document.createElement('script');
+                script.src = path + ".js";
+                script.className = "modulesjs-js-" + name;
+                script.type = "text/javascript";
+                document.getElementsByTagName("head")[0].appendChild(script);
+                var done = false;
+
+                script.onreadystatechange = script.onload = function () {
+                    var state = script.readyState;
+                    if (!done && (!state || state == "loaded" || state == "complete")) {
+                        done = true;
+                        if (callback) {
+                            callback(name);
+                        }
+                    }
+                }
+            }
+        }
+        function loadCSS(path, name) {
+            var cssLoaded = document.getElementsByClassName("modulesjs-css-" + name)[0];
+            if (!cssLoaded) {
+                var css = document.createElement('link');
+                css.href = path + ".css";
+                css.className = "modulesjs-css-" + name;
+                css.type = "text/css";
+                css.rel = "stylesheet";
+                document.getElementsByTagName("head")[0].appendChild(css);
+            }
+        }
+        function renderHTML(xhrHtmlLoader, className) {
+            var elementClasses = document.getElementsByClassName(className);
+            for (var i = 0; i < elementClasses.length; i++) {
+                elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
+            }
+        }
+        function loadHTML(path, name, className, callback) {
+            var xhrHtmlLoader = new XMLHttpRequest();
+            xhrHtmlLoader.open("GET", path  + ".html", true);
+            xhrHtmlLoader.onreadystatechange = function() {
+                if (xhrHtmlLoader.readyState == 4 /* complete */) {
+                    if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
+                        renderHTML(xhrHtmlLoader, className);
+                        callback(name);
+                    }
+                }
+            };
+            xhrHtmlLoader.send(null);
+        }
+        function buildModulePath(path, name) {
+            var result = path + "/" + name + "/" + name;
+            return result;
+        }
+        function buildFilePath(path, name) {
+            var result = path + "/" + name;
+            return result;
+        }
         Loader.prototype.load = function (moduleName, className, callback) {
             loadAsync(this.path, moduleName, className, callback);
             function loadAsync(path, moduleName, className, callback) {
@@ -477,60 +537,11 @@ var Modules = null;
                 }, 0);
             }
             function loadSync(path, moduleName, className, callback) {
-                loadCSS(path, moduleName);
-                loadHTML(path, moduleName, className, callback);
-                function loadCSS(path, moduleName) {
-                    var cssLoaded = document.getElementsByClassName("modulesjs-css-" + moduleName)[0];
-                    if (!cssLoaded) {
-                        var css = document.createElement('link');
-                        css.href = path + "/" + moduleName + "/" + moduleName + ".css";
-                        css.className = "modulesjs-css-" + moduleName;
-                        css.type = "text/css";
-                        css.rel = "stylesheet";
-                        document.getElementsByTagName("head")[0].appendChild(css);
-                    }
-                }
-                function loadHTML(path, moduleName, className, callback) {
-                    var xhrHtmlLoader = new XMLHttpRequest();
-                    xhrHtmlLoader.open("GET", path + "/" + moduleName + "/" + moduleName + ".html", true);
-                    xhrHtmlLoader.onreadystatechange = function() {
-                        if (xhrHtmlLoader.readyState == 4 /* complete */) {
-                            if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
-                                renderHTML(xhrHtmlLoader, className);
-                                loadJS(path, moduleName, callback);
-                            }
-                        }
-                    };
-                    xhrHtmlLoader.send(null);
-                }
-                function renderHTML(xhrHtmlLoader, className) {
-                    var elementClasses = document.getElementsByClassName(className);
-                    for (var i = 0; i < elementClasses.length; i++) {
-                        elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
-                    }
-                }
-                function loadJS(path, moduleName, callback) {
-                    var jsLoaded = document.getElementsByClassName("modulesjs-js-" + moduleName)[0];
-                    if (!jsLoaded) {
-                        var script = document.createElement('script');
-                        script.src = path + "/" + moduleName + "/" + moduleName + ".js";
-                        script.className = "modulesjs-js-" + moduleName;
-                        script.type = "text/javascript";
-                        document.getElementsByTagName("head")[0].appendChild(script);
-                        var done = false;
-
-                    script.onreadystatechange = script.onload = function () {
-                        var state = script.readyState;
-                        if (!done && (!state || state == "loaded" || state == "complete")) {
-                            done = true;
-                            if (callback) {
-                                callback(moduleName);
-                            }
-                        }
-                    }
-                    }
-
-                }
+                var modulePath = buildModulePath(path, moduleName);
+                loadCSS(modulePath, moduleName);
+                loadHTML(modulePath, moduleName, className, function() {
+                    loadJS(modulePath, moduleName, callback);
+                });
             }
         };
         Loader.prototype.loadHTML = function(fileName, className, callback) {
@@ -541,29 +552,8 @@ var Modules = null;
                 }, 0);
             }
             function loadSync(path, fileName, className, callback) {
-                loadHTML(path, fileName, className, callback);
-            }
-            function loadHTML(path, fileName, className, callback) {
-                var xhrHtmlLoader = new XMLHttpRequest();
-                xhrHtmlLoader.open("GET", path + "/" + fileName + ".html", true);
-                xhrHtmlLoader.onreadystatechange = function() {
-                    if (xhrHtmlLoader.readyState == 4 /* complete */) {
-                        if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
-                            renderHTML(xhrHtmlLoader, fileName, className, callback);
-                        }
-                    }
-                };
-                xhrHtmlLoader.send(null);
-            }
-            function renderHTML(xhrHtmlLoader, fileName, className, callback) {
-                var elementClasses = document.getElementsByClassName(className);
-                for (var i = 0; i < elementClasses.length; i++) {
-                    elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
-                }
-                if (callback) {
-                    callback(fileName);
-                }
-
+                var htmlPath = buildFilePath(path, fileName);
+                loadHTML(htmlPath, fileName, className, callback);
             }
         };
         return Loader;
@@ -596,7 +586,7 @@ var Modules = null;
                     }
                 }
             };
-            xhr.send(null);
+            xhr.send();
         };
         return Server;
     }());
@@ -609,8 +599,3 @@ var Modules = null;
 //    alert(greeter.greet());
 //};
 //document.body.appendChild(button);
-
-
-
-
-
