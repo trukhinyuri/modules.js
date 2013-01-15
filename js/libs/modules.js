@@ -515,7 +515,9 @@ var Modules = null;
                 if (xhrHtmlLoader.readyState == 4 /* complete */) {
                     if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
                         renderHTML(xhrHtmlLoader, className);
-                        callback(name);
+                        if (callback) {
+                            callback(name);
+                        }
                     }
                 }
             };
@@ -527,6 +529,10 @@ var Modules = null;
         }
         function buildFilePath(path, name) {
             var result = path + "/" + name;
+            return result;
+        }
+        function buildTemplatePath(path, name) {
+            var result = path + "/" + name + "/" + name;
             return result;
         }
         Loader.prototype.load = function (moduleName, className, callback) {
@@ -554,6 +560,18 @@ var Modules = null;
             function loadSync(path, fileName, className, callback) {
                 var htmlPath = buildFilePath(path, fileName);
                 loadHTML(htmlPath, fileName, className, callback);
+            }
+        };
+        Loader.prototype.loadTemplate = function(templateName, className, callback) {
+            loadAsync(this.path, templateName, className, callback);
+            function loadAsync(path, templateName, className, callback) {
+                setTimeout(function(){
+                    loadSync(path, templateName, className, callback);
+                }, 0);
+            }
+            function loadSync(path, templateName, className, callback) {
+                var templatePath = buildTemplatePath(path, templateName);
+                loadHTML(templatePath, templateName, className, callback);
             }
         };
         return Loader;
