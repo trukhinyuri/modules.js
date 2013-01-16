@@ -502,21 +502,29 @@ var Modules = null;
                 document.getElementsByTagName("head")[0].appendChild(css);
             }
         }
-        function renderHTML(xhrHtmlLoader, className) {
+        function renderHTML(responseText, name, className, callback) {
             var elementClasses = document.getElementsByClassName(className);
             for (var i = 0; i < elementClasses.length; i++) {
-                elementClasses[i].innerHTML = xhrHtmlLoader.responseText;
+                elementClasses[i].innerHTML = responseText;
+            }
+            if (callback) {
+                callback(name);
             }
         }
         function loadHTML(path, name, className, callback) {
+            function loadedHandler(responseText, name) {
+                renderHTML(responseText, name, className, callback);
+            }
+            loadHTMLInMemory(path, name, loadedHandler);
+        }
+        function loadHTMLInMemory(path, name, callback) {
             var xhrHtmlLoader = new XMLHttpRequest();
             xhrHtmlLoader.open("GET", path  + ".html", true);
             xhrHtmlLoader.onreadystatechange = function() {
                 if (xhrHtmlLoader.readyState == 4 /* complete */) {
                     if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
-                        renderHTML(xhrHtmlLoader, className);
                         if (callback) {
-                            callback(name);
+                            callback(xhrHtmlLoader.responseText, name);
                         }
                     }
                 }
@@ -562,18 +570,27 @@ var Modules = null;
                 loadHTML(htmlPath, fileName, className, callback);
             }
         };
-        Loader.prototype.loadTemplate = function(templateName, className, callback) {
-            loadAsync(this.path, templateName, className, callback);
-            function loadAsync(path, templateName, className, callback) {
-                setTimeout(function(){
-                    loadSync(path, templateName, className, callback);
-                }, 0);
-            }
-            function loadSync(path, templateName, className, callback) {
-                var templatePath = buildTemplatePath(path, templateName);
-                loadHTML(templatePath, templateName, className, callback);
-            }
-        };
+//        Loader.prototype.loadTemplate = function(templateName, className, dataSource, callback) {
+//            loadAsync(this.path, templateName, className, callback);
+//            function loadAsync(path, templateName, className, callback) {
+//                setTimeout(function(){
+//                    loadSync(path, templateName, className, callback);
+//                }, 0);
+//            }
+//            function loadSync(path, templateName, className, callback) {
+//                var templatePath = buildTemplatePath(path, templateName);
+//                function htmlLoadedHandler(responseText, name) {
+//
+//                }
+//                loadHTMLInMemory(templatePath, templateName, htmlLoadedHandler);
+////                loadHTML(templatePath, templateName, className, callback);
+////                var className = document.getElementsByClassName(className);
+////                for (var i = 0; i < className.length; i++) {
+////                    className[i].innerHTML = className[i].innerHTML.replace('{{= fileName}}', 'cool');
+////                }
+//
+//            }
+//        };
         return Loader;
     })();
     Modules.Events = (function(){
