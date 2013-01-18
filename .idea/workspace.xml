@@ -25,19 +25,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/fileInfo/fileInfo.css" afterPath="$PROJECT_DIR$/templates/fileInfo/fileInfo.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templateDemo.css" afterPath="$PROJECT_DIR$/templateDemo.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templateDemo.html" afterPath="$PROJECT_DIR$/templateDemo.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templateDemo.js" afterPath="$PROJECT_DIR$/templateDemo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358546092894" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358549597339" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816260904" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357821248134" ignored="false" />
     <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352727621499" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358519643732" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358546269211" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
@@ -555,11 +558,12 @@
     <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357901303614" ignored="false" />
     <file path="/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358168857793" ignored="false" />
     <file path="/fileInfo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358519370359" ignored="false" />
-    <file path="/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358249253400" ignored="false" />
-    <file path="/templateDemo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358257963346" ignored="false" />
-    <file path="/templateDemo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358545264872" ignored="false" />
+    <file path="/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358549671078" ignored="false" />
+    <file path="/templateDemo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358547901080" ignored="false" />
+    <file path="/templateDemo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358548039275" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/content/help_content_changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358353531502" ignored="false" />
     <file path="/help_content_changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358353523514" ignored="false" />
+    <file path="/templateDemo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358549261600" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -633,7 +637,7 @@
       <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="552" column="46" selection-start="25132" selection-end="25132" vertical-scroll-proportion="0.758465">
+            <state line="604" column="52" selection-start="27780" selection-end="27780" vertical-scroll-proportion="0.06094808">
               <folding />
             </state>
           </provider>
@@ -642,7 +646,16 @@
       <file leaf-file-name="fileInfo.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="139" vertical-scroll-proportion="-0.0">
+            <state line="2" column="46" selection-start="112" selection-end="128" vertical-scroll-proportion="-1.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fileInfo.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="23" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -651,7 +664,25 @@
       <file leaf-file-name="templateDemo.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templateDemo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="8" selection-start="329" selection-end="403" vertical-scroll-proportion="0.0">
+            <state line="9" column="33" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="templateDemo.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templateDemo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="30" selection-start="704" selection-end="704" vertical-scroll-proportion="-11.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="templateDemo.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templateDemo.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="16" selection-start="183" selection-end="183" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -682,7 +713,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/tests/testsResult.html" />
         <option value="$PROJECT_DIR$/js/tests/t.ts" />
         <option value="$PROJECT_DIR$/modules-config.json" />
         <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
@@ -692,12 +722,13 @@
         <option value="$PROJECT_DIR$/index.css" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.js" />
-        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/templateDemo.html" />
         <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.html" />
-        <option value="$PROJECT_DIR$/js/libs/modules.js" />
+        <option value="$PROJECT_DIR$/templateDemo.html" />
         <option value="$PROJECT_DIR$/templateDemo.js" />
+        <option value="$PROJECT_DIR$/templateDemo.css" />
+        <option value="$PROJECT_DIR$/js/libs/modules.js" />
+        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.css" />
       </list>
     </option>
   </component>
@@ -1030,7 +1061,11 @@
       <created>1358519651321</created>
       <updated>1358519651321</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="remove $ requirements in simpleDataObject">
+      <created>1358546275220</created>
+      <updated>1358546275220</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1108,7 +1143,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic loadTemplate implementations for one item" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove $ requirements in simpleDataObject" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1126,6 +1161,7 @@
     <MESSAGE value="Start implementing template engine" />
     <MESSAGE value="Refactoring: extract method: loadHTMLinMemory: for using in templates support" />
     <MESSAGE value="Basic loadTemplate implementations for one item" />
+    <MESSAGE value="remove $ requirements in simpleDataObject" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1140,27 +1176,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templateDemo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="28" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="574" column="85" selection-start="26352" selection-end="26352" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="564" column="85" selection-start="26594" selection-end="26594" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="146" selection-end="259" vertical-scroll-proportion="0.0" />
@@ -1211,23 +1226,44 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.html">
+    <entry file="file://$PROJECT_DIR$/templateDemo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="139" vertical-scroll-proportion="0.0">
+        <state line="9" column="33" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templateDemo.js">
+    <entry file="file://$PROJECT_DIR$/templateDemo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="8" selection-start="329" selection-end="403" vertical-scroll-proportion="0.0">
+        <state line="18" column="30" selection-start="704" selection-end="704" vertical-scroll-proportion="-11.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templateDemo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="16" selection-start="183" selection-end="183" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="46" selection-start="112" selection-end="128" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="23" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="552" column="46" selection-start="25132" selection-end="25132" vertical-scroll-proportion="0.758465">
+        <state line="604" column="52" selection-start="27780" selection-end="27780" vertical-scroll-proportion="0.06094808">
           <folding />
         </state>
       </provider>

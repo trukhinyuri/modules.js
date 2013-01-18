@@ -1,0 +1,20 @@
+.header {
+    width: 100%;
+    float: left;
+}
+.body {
+    width: 100%;
+    float: left;
+}
+.footer {
+    width: 100%;
+    float: left;
+}
+.bodySimple {
+    width: 100%;
+    float: left;
+}
+.bodyList {
+    width: 100%;
+    float: left;
+}

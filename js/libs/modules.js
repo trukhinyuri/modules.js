@@ -554,6 +554,13 @@ var Modules = null;
             }
             return result;
         }
+        function addUUIDAttribute(responseText, itemNumber, name) {
+            var parser = new DOMParser();
+            var dom = parser.parseFromString(responseText, 'text/html');
+            var element = dom.getElementsByClassName(name)[0];
+            element.setAttribute('uuid', itemNumber);
+            return element.outerHTML;
+        }
         Loader.prototype.load = function (moduleName, className, callback) {
             loadAsync(this.path, moduleName, className, callback);
             function loadAsync(path, moduleName, className, callback) {
@@ -593,7 +600,9 @@ var Modules = null;
                 function htmlLoadedHandler(responseText, name) {
                     var result = replace$PlaceholdersInTemplate(responseText, name, simpleDataSource);
                     renderHTML(result, templateName, className, callback);
+                    loadJS(templatePath, templateName, callback);
                 }
+                loadCSS(templatePath, templateName);
                 loadHTMLInMemory(templatePath, templateName, htmlLoadedHandler);
             }
         };
@@ -607,9 +616,17 @@ var Modules = null;
             function loadSync(path, templateName, className, callback) {
                 var templatePath = buildTemplatePath(path, templateName);
                 function htmlLoadedHandler(responseText, name) {
-                    var result = replace$PlaceholdersInTemplate(responseText, name, listDataSource);
+                    var result = '';
+                    var stepResult = '';
+                    for (var i = 0; i < listDataSource.length; i++) {
+                        stepResult = replace$PlaceholdersInTemplate(responseText, name, listDataSource[i]);
+                        stepResult = addUUIDAttribute(stepResult, i, name);
+                        result += stepResult;
+                    }
                     renderHTML(result, templateName, className, callback);
+                    loadJS(templatePath, templateName, callback);
                 }
+                loadCSS(templatePath, templateName);
                 loadHTMLInMemory(templatePath, templateName, htmlLoadedHandler);
             }
         };
