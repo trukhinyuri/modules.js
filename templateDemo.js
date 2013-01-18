@@ -7,7 +7,8 @@
 //            {filename: 'filename', lastModificationDate: 'lastModificationDate'}
 //            , {filename: 'filename', lastModificationDate: 'lastModificationDate'}
 //        ];
-        var fileInfoData = {$filename : 'one.txt', $lastModifiedDate: '01.01.2013'};
+        var fileInfoData = {filename : 'one.txt', lastModifiedDate: '01.01.2013'};
+//        var fileInfoListData =
         templates.loadTemplate('fileInfo', 'body', fileInfoData);
     }
     var events = new Modules.Events();

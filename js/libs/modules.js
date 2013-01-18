@@ -543,14 +543,14 @@ var Modules = null;
             var result = path + "/" + name + "/" + name;
             return result;
         }
-        function replace$PlaceholdersInTemplate(responseText, name, dataSource) {
-            var keys = Object.keys(dataSource);
+        function replace$PlaceholdersInTemplate(responseText, name, simpleDataSource) {
+            var keys = Object.keys(simpleDataSource);
             var placeholder, value;
             var result = responseText;
             for (var i = 0; i < keys.length; i++) {
                 placeholder = keys[i];
-                value = dataSource[keys[i]];
-                result = result.replace(placeholder, value);
+                value = simpleDataSource[keys[i]];
+                result = result.replace('$' + placeholder, value);
             }
             return result;
         }
@@ -581,7 +581,7 @@ var Modules = null;
                 loadHTML(htmlPath, fileName, className, callback);
             }
         };
-        Loader.prototype.loadTemplate = function(templateName, className, dataSource, callback) {
+        Loader.prototype.loadTemplate = function(templateName, className, simpleDataSource, callback) {
             loadAsync(this.path, templateName, className, callback);
             function loadAsync(path, templateName, className, callback) {
                 setTimeout(function(){
@@ -591,7 +591,23 @@ var Modules = null;
             function loadSync(path, templateName, className, callback) {
                 var templatePath = buildTemplatePath(path, templateName);
                 function htmlLoadedHandler(responseText, name) {
-                    var result = replace$PlaceholdersInTemplate(responseText, name, dataSource);
+                    var result = replace$PlaceholdersInTemplate(responseText, name, simpleDataSource);
+                    renderHTML(result, templateName, className, callback);
+                }
+                loadHTMLInMemory(templatePath, templateName, htmlLoadedHandler);
+            }
+        };
+        Loader.prototype.loadTemplateList = function(templateName, className, listDataSource, callback) {
+            loadAsync(this.path, templateName, className, callback);
+            function loadAsync(path, templateName, className, callback) {
+                setTimeout(function(){
+                    loadSync(path, templateName, className, callback);
+                }, 0);
+            }
+            function loadSync(path, templateName, className, callback) {
+                var templatePath = buildTemplatePath(path, templateName);
+                function htmlLoadedHandler(responseText, name) {
+                    var result = replace$PlaceholdersInTemplate(responseText, name, listDataSource);
                     renderHTML(result, templateName, className, callback);
                 }
                 loadHTMLInMemory(templatePath, templateName, htmlLoadedHandler);
