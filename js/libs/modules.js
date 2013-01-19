@@ -555,9 +555,9 @@ var Modules = null;
             return result;
         }
         function addUUIDAttribute(responseText, itemNumber, name) {
-            var parser = new DOMParser();
-            var dom = parser.parseFromString(responseText, 'text/html');
-            var element = dom.getElementsByClassName(name)[0];
+            var dom = document.createElement('div');
+            dom.innerHTML = responseText;
+            var element = dom.getElementsByClassName('fileInfo')[0];
             element.setAttribute('uuid', itemNumber);
             return element.outerHTML;
         }
@@ -620,7 +620,7 @@ var Modules = null;
                     var stepResult = '';
                     for (var i = 0; i < listDataSource.length; i++) {
                         stepResult = replace$PlaceholdersInTemplate(responseText, name, listDataSource[i]);
-                        stepResult = addUUIDAttribute(stepResult, i, name);
+                        stepResult = addUUIDAttribute(stepResult, i, templateName);
                         result += stepResult;
                     }
                     renderHTML(result, templateName, className, callback);
