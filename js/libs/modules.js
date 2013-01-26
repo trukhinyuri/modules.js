@@ -633,13 +633,19 @@ var Modules = null;
         return Loader;
     })();
     Modules.Events = (function(){
-        function Events() {}
-        Events.prototype.addListener = function (target, type, handler) {
+        function addListenerImplementation(target, type, handler) {
             if (target.addEventListener) {
                 target.addEventListener(type, handler, false); } else if (target.attachEvent) {
                 target.attachEvent("on" + type, handler); } else {
                 target["on" + type] = handler; }
+        }
+        function Events() {}
+        Events.prototype.addListener = function (target, type, handler) {
+            addListenerImplementation(target, type, handler);
         };
+        Events.prototype.addStartupListener = function (handler) {
+            addListenerImplementation(document, "DOMContentLoaded", handler);
+        }
         return Events;
     }());
     Modules.Server = (function(){
