@@ -17,8 +17,6 @@
         templates.loadTemplateList('fileInfo', 'bodyList', fileInfoListData);
     }
     var events = new Modules.Events();
-
-    //events.addListener(document, "DOMContentLoaded", run);
     events.addStartupListener(run);
 
 }());
