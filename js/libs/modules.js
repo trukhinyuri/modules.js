@@ -588,25 +588,7 @@ var Modules = null;
                 loadHTML(htmlPath, fileName, className, callback);
             }
         };
-        Loader.prototype.loadTemplate = function(templateName, className, simpleDataSource, callback) {
-            loadAsync(this.path, templateName, className, callback);
-            function loadAsync(path, templateName, className, callback) {
-                setTimeout(function(){
-                    loadSync(path, templateName, className, callback);
-                }, 0);
-            }
-            function loadSync(path, templateName, className, callback) {
-                var templatePath = buildTemplatePath(path, templateName);
-                function htmlLoadedHandler(responseText, name) {
-                    var result = replace$PlaceholdersInTemplate(responseText, name, simpleDataSource);
-                    renderHTML(result, templateName, className, callback);
-                    loadJS(templatePath, templateName, callback);
-                }
-                loadCSS(templatePath, templateName);
-                loadHTMLInMemory(templatePath, templateName, htmlLoadedHandler);
-            }
-        };
-        Loader.prototype.loadTemplateList = function(templateName, className, listDataSource, callback) {
+        Loader.prototype.loadTemplate = function(templateName, className, dataSource, callback) {
             loadAsync(this.path, templateName, className, callback);
             function loadAsync(path, templateName, className, callback) {
                 setTimeout(function(){
@@ -618,10 +600,18 @@ var Modules = null;
                 function htmlLoadedHandler(responseText, name) {
                     var result = '';
                     var stepResult = '';
-                    for (var i = 0; i < listDataSource.length; i++) {
-                        stepResult = replace$PlaceholdersInTemplate(responseText, name, listDataSource[i]);
-                        stepResult = addUUIDAttribute(stepResult, i, templateName);
-                        result += stepResult;
+                    //plain object
+                    if (dataSource.length == undefined) {
+                        result = replace$PlaceholdersInTemplate(responseText, name, dataSource);
+                        result = addUUIDAttribute(result, 0, templateName);
+                    }
+                    //list
+                    else {
+                        for (var i = 0; i < dataSource.length; i++) {
+                            stepResult = replace$PlaceholdersInTemplate(responseText, name, dataSource[i]);
+                            stepResult = addUUIDAttribute(stepResult, i, templateName);
+                            result += stepResult;
+                        }
                     }
                     renderHTML(result, templateName, className, callback);
                     loadJS(templatePath, templateName, callback);

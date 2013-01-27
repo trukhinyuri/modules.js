@@ -1,1 +1,54 @@
-/*Stylesheet for index.html container*/
+* {
+    margin: 0;
+    padding: 0;
+    font: 4mm "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+}
+
+html, body, .container {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body > .container {
+    height: auto;
+    min-height: 100%;
+}
+.header {
+    width: 100%;
+    background: #2b2b2b;
+    float: left;
+    white-space: nowrap;
+    min-width: 800px;
+}
+.header_navigation {
+    width: auto;
+    float: left;
+    min-width: 700px;
+}
+.header_loginState {
+    width: auto;
+    float: right;
+}
+.body {
+    width: 100%;
+    float: left;
+    margin-bottom: 10mm;
+}
+.bodySimple {
+    width: 100%;
+    float: left;
+}
+.bodyList {
+    width: 100%;
+    float: left;
+}
+.footer {
+    width: 100%;
+    float: left;
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 10mm;
+    margin-top: -10mm;
+    /* Height of the footer */
+}

@@ -24,23 +24,30 @@
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/fileInfo/fileInfo.css" afterPath="$PROJECT_DIR$/templates/fileInfo/fileInfo.css" />
+    <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="loadTemplateList fix for Chrome and others.">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templateDemo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templateDemo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templateDemo.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" afterPath="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.css" afterPath="$PROJECT_DIR$/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templateDemo.css" afterPath="$PROJECT_DIR$/templateDemo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templateDemo.html" afterPath="$PROJECT_DIR$/templateDemo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templateDemo.js" afterPath="$PROJECT_DIR$/templateDemo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358549597339" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359289595023" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816260904" ignored="false" />
-    <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357821248134" ignored="false" />
+    <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359289266091" ignored="false" />
     <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352727621499" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358546269211" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359233997819" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
@@ -135,12 +142,12 @@
     <file path="/jquery.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350654463193" ignored="false" />
     <file path="/require-config.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350841982138" ignored="false" />
     <file path="/testsuite.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350843157347" ignored="false" />
-    <file path="/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358257859510" ignored="false" />
+    <file path="/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359288657467" ignored="false" />
     <file path="/test.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350860684838" ignored="false" />
     <file path="/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350861979747" ignored="false" />
     <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350863224908" ignored="false" />
     <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350864093243" ignored="false" />
-    <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354867497952" ignored="false" />
+    <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359288866846" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351345511617" ignored="false" />
@@ -498,7 +505,7 @@
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-faces-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351843407907" ignored="false" />
-    <file path="/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358158855426" ignored="false" />
+    <file path="/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358615893081" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354544632681" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354520507061" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354715045102" ignored="false" />
@@ -541,29 +548,49 @@
     <file path="$USER_HOME$/semantics/src/main/webapp/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358351931991" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/publicAPI/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357820413360" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/globalNavigationMenu/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357820413360" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358158858745" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358615893443" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357821282261" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357815298390" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/loginState/loginState.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357820413360" ignored="false" />
     <file path="/loginState.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816001476" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357820413360" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358602107170" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/login.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357820413360" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357820413360" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358254121726" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358240068942" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358168862610" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358553755478" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358601974658" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359289697738" ignored="false" />
     <file path="/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358171031386" ignored="false" />
-    <file path="/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358239953733" ignored="false" />
+    <file path="/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358601972941" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357821264473" ignored="false" />
-    <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357901303614" ignored="false" />
-    <file path="/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358168857793" ignored="false" />
-    <file path="/fileInfo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358519370359" ignored="false" />
-    <file path="/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358549671078" ignored="false" />
+    <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359033251047" ignored="false" />
+    <file path="/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358617086144" ignored="false" />
+    <file path="/fileInfo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358614398106" ignored="false" />
+    <file path="/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358553206876" ignored="false" />
     <file path="/templateDemo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358547901080" ignored="false" />
-    <file path="/templateDemo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358548039275" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/content/help_content_changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358353531502" ignored="false" />
-    <file path="/help_content_changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358353523514" ignored="false" />
+    <file path="/templateDemo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359232219304" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/content/help_content_changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358749119828" ignored="false" />
+    <file path="/help_content_changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358618707437" ignored="false" />
     <file path="/templateDemo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358549261600" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/templates/fileInfo/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358551238243" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/templates/fileInfo/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358553206876" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/templates/fileInfo/fileInfo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358614441738" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/web/modules/themes/themes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358615187050" ignored="false" />
+    <file path="/themes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358615137667" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/Database.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358886071689" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855273569" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/actions.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855282359" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/award.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855285462" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/contact.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855288455" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/equipment.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855291449" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/material.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855296239" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/photo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855299562" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/photo_2.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855303322" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/photo_3.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855307439" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/photo_4.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855310817" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/price.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855313895" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/service.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855317138" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/specialist.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855320074" ignored="false" />
+    <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/specialist_2.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855322881" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -634,55 +661,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="30" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="604" column="52" selection-start="27780" selection-end="27780" vertical-scroll-proportion="0.06094808">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fileInfo.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="46" selection-start="112" selection-end="128" vertical-scroll-proportion="-1.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fileInfo.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="23" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="templateDemo.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templateDemo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="33" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="templateDemo.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templateDemo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="30" selection-start="704" selection-end="704" vertical-scroll-proportion="-11.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="templateDemo.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templateDemo.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="16" selection-start="183" selection-end="183" vertical-scroll-proportion="0.0">
+            <state line="607" column="26" selection-start="27838" selection-end="27838" vertical-scroll-proportion="0.16348773">
               <folding />
             </state>
           </provider>
@@ -717,18 +708,18 @@
         <option value="$PROJECT_DIR$/modules-config.json" />
         <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css" />
-        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
+        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.js" />
+        <option value="$PROJECT_DIR$/templateDemo.html" />
+        <option value="$PROJECT_DIR$/templateDemo.css" />
+        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.html" />
+        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.css" />
+        <option value="$PROJECT_DIR$/templateDemo.js" />
+        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/index.css" />
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.html" />
-        <option value="$PROJECT_DIR$/templateDemo.html" />
-        <option value="$PROJECT_DIR$/templateDemo.js" />
-        <option value="$PROJECT_DIR$/templateDemo.css" />
         <option value="$PROJECT_DIR$/js/libs/modules.js" />
-        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.css" />
       </list>
     </option>
   </component>
@@ -736,10 +727,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="y" value="22" />
-    <option name="width" value="1276" />
-    <option name="height" value="778" />
+    <option name="x" value="230" />
+    <option name="y" value="1050" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -773,9 +764,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -822,6 +810,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="globalNavigationMenu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -850,6 +856,9 @@
         <subPane subId="Problems" />
         <subPane subId="Project Files" />
         <subPane subId="All" />
+      </pane>
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -886,8 +895,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/js/libs" />
       <recent name="$PROJECT_DIR$/modules" />
+      <recent name="$PROJECT_DIR$/js/libs" />
       <recent name="$PROJECT_DIR$/js/tests/libs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -1065,14 +1074,30 @@
       <created>1358546275220</created>
       <updated>1358546275220</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="basic loadTemplateList implementations. added loading templates css and js">
+      <created>1358549751340</created>
+      <updated>1358549751340</updated>
+    </task>
+    <task id="LOCAL-00008" summary="loadTemplateList fix for Chrome and others.">
+      <created>1358604956094</created>
+      <updated>1358604956094</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add addStartupListener event handler for simplifying modules loader and example in templateDemo">
+      <created>1359232517203</created>
+      <updated>1359232517203</updated>
+    </task>
+    <task id="LOCAL-00010" summary="loadTemplateList fix for Chrome and others.">
+      <created>1359234003567</created>
+      <updated>1359234003568</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="22" width="1276" height="778" extended-state="0" />
-    <editor active="true" />
+    <frame x="230" y="1050" width="1280" height="800" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26443768" sideWeight="0.81656444" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.9723926" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1094,12 +1119,12 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6721854" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33658537" sideWeight="0.7355623" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15072933" sideWeight="0.6" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781458" sideWeight="0.49754602" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32674772" sideWeight="0.49754602" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3988604" sideWeight="0.49675852" order="5" side_tool="false" content_ui="tabs" />
@@ -1143,7 +1168,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove $ requirements in simpleDataObject" />
+    <option name="LAST_COMMIT_MESSAGE" value="loadTemplateList fix for Chrome and others." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1162,6 +1187,9 @@
     <MESSAGE value="Refactoring: extract method: loadHTMLinMemory: for using in templates support" />
     <MESSAGE value="Basic loadTemplate implementations for one item" />
     <MESSAGE value="remove $ requirements in simpleDataObject" />
+    <MESSAGE value="basic loadTemplateList implementations. added loading templates css and js" />
+    <MESSAGE value="add addStartupListener event handler for simplifying modules loader and example in templateDemo" />
+    <MESSAGE value="loadTemplateList fix for Chrome and others." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1176,44 +1204,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="146" selection-end="259" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="45" selection-end="198" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/tests/modules/test/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="9" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="23" selection-start="1771" selection-end="1771" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/tests/testsResult.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="0" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="845" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="60" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
@@ -1226,44 +1224,58 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templateDemo.js">
+    <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="33" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templateDemo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="30" selection-start="704" selection-end="704" vertical-scroll-proportion="-11.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templateDemo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="16" selection-start="183" selection-end="183" vertical-scroll-proportion="0.0">
+        <state line="3" column="0" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="46" selection-start="112" selection-end="128" vertical-scroll-proportion="-1.25">
+        <state line="3" column="10" selection-start="139" selection-end="139" vertical-scroll-proportion="0.12676056">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.css">
+    <entry file="file://$PROJECT_DIR$/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="23" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
+        <state line="43" column="1" selection-start="679" selection-end="679" vertical-scroll-proportion="0.5842105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="56" selection-start="1928" selection-end="1928" vertical-scroll-proportion="0.71629214">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="36" selection-start="754" selection-end="754" vertical-scroll-proportion="0.7668539">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="30" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="604" column="52" selection-start="27780" selection-end="27780" vertical-scroll-proportion="0.06094808">
+        <state line="607" column="26" selection-start="27838" selection-end="27838" vertical-scroll-proportion="0.16348773">
           <folding />
         </state>
       </provider>
