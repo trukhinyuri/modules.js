@@ -24,7 +24,7 @@
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="loadTemplateList fix for Chrome and others.">
+    <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -36,7 +36,7 @@
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359289266091" ignored="false" />
     <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352727621499" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359373793235" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359373808390" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
@@ -580,6 +580,7 @@
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/service.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855317138" ignored="false" />
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/specialist.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855320074" ignored="false" />
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/specialist_2.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855322881" ignored="false" />
+    <file path="/README.md" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359373962368" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -662,7 +663,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="48" selection-start="1820" selection-end="1820" vertical-scroll-proportion="0.33163264">
+            <state line="21" column="3" selection-start="1889" selection-end="1889" vertical-scroll-proportion="0.5865922">
               <folding />
             </state>
           </provider>
@@ -1119,7 +1120,11 @@
       <created>1359373794650</created>
       <updated>1359373794650</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fix for readme">
+      <created>1359373810275</created>
+      <updated>1359373810275</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1318,7 +1323,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="48" selection-start="1820" selection-end="1820" vertical-scroll-proportion="0.33163264">
+        <state line="21" column="3" selection-start="1889" selection-end="1889" vertical-scroll-proportion="0.5865922">
           <folding />
         </state>
       </provider>
