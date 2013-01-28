@@ -1,3 +1,4 @@
+препринт
 #MODULES.JS
 ##Методика разработки модульных приложений на пользовательском уровне SaaS (modules.js methodology)
 В основе методики лежит процесс автоматической сборки страницы приложения из различных модулей по запросу страницы
@@ -73,8 +74,9 @@ modules.load("globalNavigationMenu", "header");
     events.addStartupListener(run);
 }());
 ```
+##Структура модуля
 
-## Примечания к выпуску
+## Примечания к процессу отладки на локальной машине
 Для корректной работы на локальной машине из-за системы безопасности современных браузеров при запуске демо-страницы index.html или страницы тестов /js/tests/testsResult.html можно получить ошибку:  
 **Died on test #1     at file://localhost/Users/trukhinyuri/modules.js/js/tests/modulesTests.js:40:1: NETWORK_ERR: XMLHttpRequest Exception 101
 Source: 	
