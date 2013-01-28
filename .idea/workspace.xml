@@ -25,7 +25,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="fix for readme">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="modulesjs.iws" />
@@ -36,7 +35,7 @@
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359289266091" ignored="false" />
     <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352727621499" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359379400133" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359380050872" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
@@ -580,7 +579,7 @@
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/service.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855317138" ignored="false" />
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/specialist.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855320074" ignored="false" />
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/specialist_2.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855322881" ignored="false" />
-    <file path="/README.md" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359379364286" ignored="false" />
+    <file path="/README.md" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359380040228" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -663,7 +662,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="45" selection-start="4230" selection-end="4230" vertical-scroll-proportion="0.15816326">
+            <state line="91" column="31" selection-start="4272" selection-end="4272" vertical-scroll-proportion="2.3214285">
               <folding />
             </state>
           </provider>
@@ -1253,7 +1252,23 @@
       <created>1359379402130</created>
       <updated>1359379402130</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="fix for readme">
+      <created>1359379407513</created>
+      <updated>1359379407513</updated>
+    </task>
+    <task id="LOCAL-00039" summary="fix for readme">
+      <created>1359379414813</created>
+      <updated>1359379414813</updated>
+    </task>
+    <task id="LOCAL-00040" summary="fix for readme">
+      <created>1359379491677</created>
+      <updated>1359379491677</updated>
+    </task>
+    <task id="LOCAL-00041" summary="fix for readme">
+      <created>1359380054551</created>
+      <updated>1359380054551</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1460,7 +1475,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="45" selection-start="4230" selection-end="4230" vertical-scroll-proportion="0.15816326">
+        <state line="91" column="31" selection-start="4272" selection-end="4272" vertical-scroll-proportion="2.3214285">
           <folding />
         </state>
       </provider>
