@@ -91,13 +91,14 @@ modules.load("globalNavigationMenu", "header");
 ```
 ##Шаблонизация (API может измениться, экспериментально)
 Шаблонизация в рассматриваемой методике – процесс заполнения каркаса данных требуемыми данными.
-Шаблон представляет собой модуль (с сохранением всех требований к модулям), в котором добавлены переменные данных (слово на английском языке с префиксом $)
+Шаблон представляет собой модуль (с сохранением всех требований к модулям), в котором добавлены переменные данных
+(слово на английском языке внутри символов $; , например $variable;)
 в месте предполагаемой визуализации.
 Пример HTML файла шаблона данных:
 ```html
 <div class="fileInfo">
-    <p class="fileInfo_name">$filename</p>
-    <p class="fileInfo_lastModificationDate">$lastModifiedDate</p>
+    <p class="fileInfo_name">$filename;</p>
+    <p class="fileInfo_lastModificationDate">$lastModifiedDate;</p>
 </div>
 ```
 Обьект данных в настоящий момент может быть двух типов: простой объект и массив объектов (из массива объектов
@@ -112,7 +113,6 @@ var fileInfoListData = [
     , {filename: 'one.h',lastModifiedDate: '02.01.2013'}
 ];
 templates.loadTemplate('fileInfo', 'bodyList', fileInfoListData);
-
 ```
 , где fileInfo – название шаблона, bodyList – контейнер, куда выполняется загрузка, fileInfoListData – объект данных, /templates – месторасположение шаблонов данных.
 ## Примечания к процессу отладки на локальной машине
