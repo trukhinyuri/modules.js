@@ -1,6 +1,39 @@
 #MODULES.JS
 ##Методика разработки модульных приложений на пользовательском уровне SaaS (modules.js methodology)
-В основе методики лежит сборка страниц приложения из различных видов модулей по запросу в процессе исполнения программы. Модули загружаются в хост-файл HTML, содержащий разметку контейнеров для модулей. На одном уровне в иерархии проекта должен находиться файл CSS с описанием свойств контейнеров хост-файла и файл JavaScript – загрузчик модулей. Имена CSS и JavaScript файла по соглашению должны совпадать с именем хост-файла. Процесс загрузки модулей в хост-файл описывается в загрузчике модулей, подключенном в хост-файле после подключения служебной библиотеки modules.js.
+В основе методики лежит сборка страниц приложения из различных видов модулей по запросу в процессе исполнения программы.
+Модули загружаются в хост-файл HTML, содержащий разметку контейнеров для модулей.
+На одном уровне в иерархии проекта должен находиться файл CSS с описанием свойств контейнеров хост-файла и файл
+JavaScript – загрузчик модулей. Имена CSS и JavaScript файла по соглашению должны совпадать с именем хост-файла.
+Процесс загрузки модулей в хост-файл описывается в загрузчике модулей, подключенном в хост-файле после подключения
+служебной библиотеки modules.js.
+###Пример хост-файла HTML:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="shortcut icon" href="/img/logo-black.ico" type="image/x-icon" />
+    <link rel="icon" href="/img/logo-black.ico" type="image/x-icon" />
+    <title>Modules.js demo page</title>
+    <link rel="stylesheet" href="/index.css" type="text/css"/>
+    <script src="/js/libs/modules.js" type="text/javascript"></script>
+    <script src="/index.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header_navigation"></div>
+        <div class="header_loginState"></div>
+    </div>
+    <div class="body">
+        <div class="bodySimple"></div>
+        <div class="bodyList"></div>
+    </div>
+</div>
+<div class="footer"></div>
+</body>
+</html>
+```
 ##Загрузчик модулей
 Описывать загрузчик по соглашению необходимо в анонимной функции, запускающeйся после загрузки загрузчика со включенным строгим режимом JavaScript:
 ```javascript
