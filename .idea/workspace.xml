@@ -36,7 +36,7 @@
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359289266091" ignored="false" />
     <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352727621499" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359373614159" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359373668089" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350676433347" ignored="false" />
@@ -662,7 +662,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="53" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.33163264">
+            <state line="13" column="48" selection-start="1820" selection-end="1820" vertical-scroll-proportion="0.33163264">
               <folding />
             </state>
           </provider>
@@ -1107,7 +1107,15 @@
       <created>1359373616104</created>
       <updated>1359373616104</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix for readme">
+      <created>1359373626282</created>
+      <updated>1359373626282</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix for readme">
+      <created>1359373669951</created>
+      <updated>1359373669951</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1185,7 +1193,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="loadTemplateList fix for Chrome and others." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix for readme" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1210,6 +1218,7 @@
     <MESSAGE value="merging loadTemplate and loadTemplateList to one loadTemplate method. rewriting index demo page. Updating globalNavigationMenu module example" />
     <MESSAGE value="added some items to readme" />
     <MESSAGE value="loadTemplateList fix for Chrome and others." />
+    <MESSAGE value="fix for readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1305,7 +1314,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="53" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.33163264">
+        <state line="13" column="48" selection-start="1820" selection-end="1820" vertical-scroll-proportion="0.33163264">
           <folding />
         </state>
       </provider>
