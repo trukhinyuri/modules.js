@@ -61,7 +61,18 @@ modules.load("globalNavigationMenu", "header");
 После исполнения скрипта загрузчика указанный модуль будет загружен.
 В скрипте загрузчика необходимо загружать все модули, необходимые для корректной работы собранной страницы
 в хост-файле.
-
+###Пример загрузчика на JavaScript:
+```javascript
+"use strict";
+(function () {
+    function run() {
+        var modules = new Modules.Loader("/modules");
+        modules.load("globalNavigationMenu", "header");
+    }
+    var events = new Modules.Events();
+    events.addStartupListener(run);
+}());
+```
 
 ## Примечания к выпуску
 Для корректной работы на локальной машине из-за системы безопасности современных браузеров при запуске демо-страницы index.html или страницы тестов /js/tests/testsResult.html можно получить ошибку:  
