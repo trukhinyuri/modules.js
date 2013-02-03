@@ -504,7 +504,8 @@ var Modules = null;
         }
         function renderHTML(responseText, name, className, callback) {
             var elementClasses = document.getElementsByClassName(className);
-            Array.forEach(elementClasses, function(elementClass) {
+            var forEach = Array.prototype.forEach;
+            forEach.call(elementClasses, function(elementClass) {
                 elementClass.innerHTML = responseText;
             });
             if (callback) {
