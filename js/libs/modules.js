@@ -553,7 +553,7 @@ var Modules = null;
             for (var i = 0; i < keys.length; i++) {
                 placeholder = keys[i];
                 value = simpleDataSource[keys[i]];
-                result = result.replace('$' + placeholder + ';', value);
+                result = result.split('$' + placeholder + ';').join(value);
             }
             return result;
         }
