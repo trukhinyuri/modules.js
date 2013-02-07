@@ -472,24 +472,26 @@ var Modules = null;
         }
         function loadJS (path, name, callback) {
             var jsLoaded = document.getElementsByClassName("modulesjs-js-" + name)[0];
-            if (!jsLoaded) {
-                var script = document.createElement('script');
-                script.src = path + ".js";
-                script.className = "modulesjs-js-" + name;
-                script.type = "text/javascript";
-                document.getElementsByTagName("head")[0].appendChild(script);
-                var done = false;
+            if (jsLoaded) {
+                document.getElementsByTagName("head")[0].removeChild(jsLoaded);
+            }
+            var script = document.createElement('script');
+            script.src = path + ".js";
+            script.className = "modulesjs-js-" + name;
+            script.type = "text/javascript";
+            document.getElementsByTagName("head")[0].appendChild(script);
+            var done = false;
 
-                script.onreadystatechange = script.onload = function () {
-                    var state = script.readyState;
-                    if (!done && (!state || state == "loaded" || state == "complete")) {
-                        done = true;
-                        if (callback) {
-                            callback(name);
-                        }
+            script.onreadystatechange = script.onload = function () {
+                var state = script.readyState;
+                if (!done && (!state || state == "loaded" || state == "complete")) {
+                    done = true;
+                    if (callback) {
+                        callback(name);
                     }
                 }
             }
+
         }
         function loadCSS(path, name) {
             var cssLoaded = document.getElementsByClassName("modulesjs-css-" + name)[0];
