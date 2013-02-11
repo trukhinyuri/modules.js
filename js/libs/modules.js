@@ -1,4 +1,3 @@
-//version 0.03
 "use strict";
 //Legacy
 var modules = new function() {
@@ -626,18 +625,36 @@ var Modules = null;
         return Loader;
     })();
     Modules.Events = (function(){
-        function addListenerImplementation(target, type, handler) {
-            if (target.addEventListener) {
-                target.addEventListener(type, handler, false); } else if (target.attachEvent) {
-                target.attachEvent("on" + type, handler); } else {
-                target["on" + type] = handler; }
+        function addListenerImplementation(target, type, listener, useCapture) {
+            target.addEventListener(type, listener, useCapture);
+        }
+        function removeListenerImplementation(target, type, listener, useCapture) {
+            target.removeEventListener(type, listener, useCapture);
         }
         function Events() {}
-        Events.prototype.addListener = function (target, type, handler) {
-            addListenerImplementation(target, type, handler);
+        Events.prototype.addListener = function (target, type, listener) {
+            addListenerImplementation(target, type, listener, true);
         };
-        Events.prototype.addStartupListener = function (handler) {
-            addListenerImplementation(document, "DOMContentLoaded", handler);
+        Events.prototype.removeListener = function (target, type, listener) {
+            removeListenerImplementation(target, type, listener, true);
+        };
+        Events.prototype.addStartupListener = function (listener) {
+            addListenerImplementation(document, "DOMContentLoaded", listener, true);
+        }
+        Events.prototype.removeStartupListener = function (listener) {
+            removeListenerImplementation(document, "DOMContentLoaded", listener, true);
+        }
+        Events.prototype.addListeners = function(targets, type, listener) {
+            var forEach = Array.prototype.forEach;
+            forEach.call(targets, function(target) {
+                addListenerImplementation(target, type, listener, true);
+            });
+        }
+        Events.prototype.removeListeners = function(targets, type, listener) {
+            var forEach = Array.prototype.forEach;
+            forEach.call(targets, function(target) {
+                removeListenerImplementation(target, type, listener, true);
+            });
         }
         return Events;
     }());
