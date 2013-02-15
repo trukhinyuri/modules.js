@@ -658,6 +658,24 @@ var Modules = null;
         }
         return Events;
     }());
+    Modules.Talking = (function(){
+        var listenersInfo = {};
+        function Talking() {
+            var instance;
+            if (typeof instance !== 'undefined') {
+                return instance;
+            }
+            return instance = this;
+        }
+        Talking.prototype.register = function(moduleName, listener) {
+            listenersInfo[moduleName] = listener;
+        };
+        Talking.prototype.sendMessage = function(moduleName, message) {
+//            //CHECK INIT TIME FOR ALL MODULES IN TALKING!!! DO NOT USE THIS
+            listenersInfo[moduleName](message);
+        }
+        return Talking;
+    }());
     Modules.Server = (function(){
         function Server() {}
         Server.prototype.getString = function(url) {
