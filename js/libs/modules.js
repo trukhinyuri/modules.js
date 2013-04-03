@@ -492,7 +492,7 @@ var Modules = null;
             }
 
         }
-        function loadCSS(path, name) {
+        function loadCSS(path, name, callback) {
             var cssLoaded = document.getElementsByClassName("modulesjs-css-" + name)[0];
             if (!cssLoaded) {
                 var css = document.createElement('link');
@@ -501,6 +501,9 @@ var Modules = null;
                 css.type = "text/css";
                 css.rel = "stylesheet";
                 document.getElementsByTagName("head")[0].appendChild(css);
+                if (callback) {
+                    callback();
+                }
             }
         }
         function renderHTML(responseText, name, className, callback) {
@@ -572,9 +575,17 @@ var Modules = null;
             }
             function loadSync(path, moduleName, className, callback) {
                 var modulePath = buildModulePath(path, moduleName);
-                loadCSS(modulePath, moduleName);
-                loadHTML(modulePath, moduleName, className, function() {
-                    loadJS(modulePath, moduleName, callback);
+                loadCSS(modulePath, moduleName, function() {
+                    loadHTML(modulePath, moduleName, className, function() {
+                        loadJS(modulePath, moduleName, function() {
+                            document.dispatchEvent(new CustomEvent("module_" + moduleName + "_loaded",
+                                {"detail": {"path": modulePath, "className": className}}
+                            ));
+                            if (callback) {
+                                callback();
+                            }
+                        });
+                    });
                 });
             }
         };
@@ -587,7 +598,52 @@ var Modules = null;
             }
             function loadSync(path, fileName, className, callback) {
                 var htmlPath = buildFilePath(path, fileName);
-                loadHTML(htmlPath, fileName, className, callback);
+                loadHTML(htmlPath, fileName, className, function() {
+                    document.dispatchEvent(new CustomEvent("html_" + fileName + "_loaded",
+                        {"detail": {"htmlPath": htmlPath, "path" : path, "className": className}}
+                    ));
+                    if (callback) {
+                        callback();
+                    }
+                });
+            }
+        };
+        Loader.prototype.loadJS = function(fileName, callback) {
+            loadAsync(this.path, fileName, callback);
+            function loadAsync(path, fileName, callback) {
+                setTimeout(function(){
+                    loadSync(path, fileName, callback);
+                }, 0);
+            }
+            function loadSync(path, fileName,  callback) {
+                var jsPath = buildFilePath(path, fileName);
+                loadJS(jsPath, fileName, function() {
+                    document.dispatchEvent(new CustomEvent("js_" + fileName + "_loaded",
+                        {"detail": {"jsPath": jsPath, "path" : path}}
+                    ));
+                    if (callback) {
+                        callback();
+                    }
+                });
+            }
+        };
+        Loader.prototype.loadCSS = function(fileName, callback) {
+            loadAsync(this.path, fileName, callback);
+            function loadAsync(path, fileName, callback) {
+                setTimeout(function(){
+                    loadSync(path, fileName, callback);
+                }, 0);
+            }
+            function loadSync(path, fileName, callback) {
+                var cssPath = buildFilePath(path, fileName);
+                loadCSS(cssPath, fileName, function() {
+                    document.dispatchEvent(new CustomEvent("css_" + fileName + "_loaded",
+                        {"detail": {"cssPath": cssPath, "path" : path}}
+                    ));
+                    if (callback) {
+                        callback();
+                    }
+                });
             }
         };
         Loader.prototype.loadTemplate = function(templateName, className, dataSource, callback) {
@@ -658,24 +714,110 @@ var Modules = null;
         }
         return Events;
     }());
-    Modules.Talking = (function(){
-        var listenersInfo = {};
-        function Talking() {
-            var instance;
-            if (typeof instance !== 'undefined') {
-                return instance;
-            }
-            return instance = this;
-        }
-        Talking.prototype.register = function(moduleName, listener) {
-            listenersInfo[moduleName] = listener;
-        };
-        Talking.prototype.sendMessage = function(moduleName, message) {
-//            //CHECK INIT TIME FOR ALL MODULES IN TALKING!!! DO NOT USE THIS
-            listenersInfo[moduleName](message);
-        }
-        return Talking;
-    }());
+//    Modules.MessageQueuePointToPoint = (function(){
+//        var queueCallbacks = {};
+//        var queuePool = {};
+//        function MessageQueuePointToPoint() {
+//            var instance;
+//            if (typeof instance !== 'undefined') {
+//                return instance;
+//            }
+//            return instance = this;
+//        }
+//        function flush(theme) {
+//            if (queueCallbacks[theme]) {
+//                for (var callback in queueCallbacks[theme]) {
+//                    callback(queuePool[theme][0]);
+//                }
+//                queuePool[theme].shift();
+//            }
+//        }
+//        MessageQueuePointToPoint.prototype.register = function(moduleName, listener, theme) {
+//            if ((theme == null) || (theme == undefined)) {
+//                queueCallbacks['nulltheme'][moduleName] = listener;
+//                if ((queuePool['nulltheme'] != null) || (queuePool['nulltheme'] != undefined)) {
+//                    listener(queuePool['nulltheme'][0]);
+//                    queuePool['nulltheme'].shift();
+//                }
+//                queuePool['nulltheme'] = [];
+//
+//            } else {
+//                queueCallbacks[theme][moduleName] = listener;
+//                if ((queuePool[theme] != null) || (queuePool[theme] != undefined)) {
+//                    listener(queuePool[theme][0]);
+//                    queuePool[theme].shift();
+//                }
+//                queuePool[theme] = [];
+//            }
+//        };
+//        MessageQueuePointToPoint.prototype.sendMessage = function(message, theme) {
+//            if ((theme == null) || (theme == undefined)) {
+//                queuePool['nulltheme'] = queuePool['nulltheme'] || [];
+//                queuePool['nulltheme'].push(message);
+//                flush('nulltheme');
+//            } else {
+//                queuePool[theme] = queuePool[theme] || [];
+//                queuePool[theme].push(message);
+//                flush(theme);
+//            }
+//
+//            //queueCallbacks[moduleName](message);
+//        }
+//
+//        return MessageQueuePointToPoint;
+//    }());
+//    Modules.MessageQueuePublishSubscribe = (function(){
+//        var queueCallbacks = {};
+//        var queuePool = {};
+//        function MessageQueue() {
+//            var instance;
+//            if (typeof instance !== 'undefined') {
+//                return instance;
+//            }
+//            return instance = this;
+//        }
+//        function flush(theme) {
+//            if (queueCallbacks[theme]) {
+//                for (var callback in queueCallbacks[theme]) {
+//                    callback(queuePool[theme][0]);
+//                }
+//                queuePool[theme].shift();
+//            }
+//        }
+//        MessageQueue.prototype.register = function(moduleName, listener, theme) {
+//            if ((theme == null) || (theme == undefined)) {
+//                queueCallbacks['nulltheme'][moduleName] = listener;
+//                if ((queuePool['nulltheme'] != null) || (queuePool['nulltheme'] != undefined)) {
+//                    listener(queuePool['nulltheme'][0]);
+//                    queuePool['nulltheme'].shift();
+//                }
+//                queuePool['nulltheme'] = [];
+//
+//            } else {
+//                queueCallbacks[theme][moduleName] = listener;
+//                if ((queuePool[theme] != null) || (queuePool[theme] != undefined)) {
+//                    listener(queuePool[theme][0]);
+//                    queuePool[theme].shift();
+//                }
+//                queuePool[theme] = [];
+//            }
+//        };
+//        MessageQueue.prototype.sendMessage = function(message, theme) {
+//            if ((theme == null) || (theme == undefined)) {
+//                queuePool['nulltheme'] = queuePool['nulltheme'] || [];
+//                queuePool['nulltheme'].push(message);
+//                flush('nulltheme');
+//            } else {
+//                queuePool[theme] = queuePool[theme] || [];
+//                queuePool[theme].push(message);
+//                flush(theme);
+//            }
+//
+//            //queueCallbacks[moduleName](message);
+//        }
+//
+//        return MessageQueue;
+//    }());
     Modules.Server = (function(){
         function Server() {}
         Server.prototype.getString = function(url) {
