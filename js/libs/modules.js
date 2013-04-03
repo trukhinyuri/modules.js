@@ -697,6 +697,30 @@ var Modules = null;
         Events.prototype.addStartupListener = function (listener) {
             addListenerImplementation(document, "DOMContentLoaded", listener, true);
         }
+        Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
+            addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, true);
+        }
+        Events.prototype.addHTMLLoadedListener = function(fileName, listener) {
+            addListenerImplementation(document, "html_" + fileName + "_loaded", listener, true);
+        }
+        Events.prototype.addCSSLoadedListener = function(fileName, listener) {
+            addListenerImplementation(document, "css_" + fileName + "_loaded", listener, true);
+        }
+        Events.prototype.addJSLoadedListener = function(fileName, listener) {
+            addListenerImplementation(document, "js_" + fileName + "_loaded", listener, true);
+        }
+        Events.prototype.removeModuleLoadedListener = function(moduleName, listener) {
+            removeListenerImplementation(document, "module_" + moduleName + "_loaded", listener, true);
+        }
+        Events.prototype.removeHTMLLoadedListener = function(fileName, listener) {
+            removeListenerImplementation(document, "html_" + fileName + "_loaded", listener, true);
+        }
+        Events.prototype.removeCSSLoadedListener = function(fileName, listener) {
+            removeListenerImplementation(document, "css_" + fileName + "_loaded", listener, true);
+        }
+        Events.prototype.removeJSLoadedListener = function(fileName, listener) {
+            removeListenerImplementation(document, "js_" + fileName + "_loaded", listener, true);
+        }
         Events.prototype.removeStartupListener = function (listener) {
             removeListenerImplementation(document, "DOMContentLoaded", listener, true);
         }
