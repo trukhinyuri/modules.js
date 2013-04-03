@@ -672,7 +672,14 @@ var Modules = null;
                         }
                     }
                     renderHTML(result, templateName, className, callback);
-                    loadJS(templatePath, templateName, callback);
+                    loadJS(templatePath, templateName, function() {
+                        document.dispatchEvent(new CustomEvent("template_" + templateName + "_loaded",
+                            {"detail": {"templateName" : templateName, "path": templatePath, "className": className}}
+                        ));
+                        if (callback) {
+                            callback();
+                        }
+                    });
                 }
                 loadCSS(templatePath, templateName);
                 loadHTMLInMemory(templatePath, templateName, htmlLoadedHandler);
@@ -700,6 +707,9 @@ var Modules = null;
         Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
             addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, true);
         }
+        Events.prototype.addTemplateLoadedListener = function(templateName, listener) {
+            addListenerImplementation(document, "template_" + templateName + "_loaded", listener, true);
+        }
         Events.prototype.addHTMLLoadedListener = function(fileName, listener) {
             addListenerImplementation(document, "html_" + fileName + "_loaded", listener, true);
         }
@@ -711,6 +721,9 @@ var Modules = null;
         }
         Events.prototype.removeModuleLoadedListener = function(moduleName, listener) {
             removeListenerImplementation(document, "module_" + moduleName + "_loaded", listener, true);
+        }
+        Events.prototype.removeTemplateLoadedListener = function(templateName, listener) {
+            removeListenerImplementation(document, "template_" + templateName + "_loaded", listener, true);
         }
         Events.prototype.removeHTMLLoadedListener = function(fileName, listener) {
             removeListenerImplementation(document, "html_" + fileName + "_loaded", listener, true);

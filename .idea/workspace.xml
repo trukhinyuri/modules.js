@@ -31,13 +31,13 @@
     <list id="5df47217-04d1-440a-8b5a-4d0f10be2759" name="crap" comment="" />
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986500758" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365004469169" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816260904" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364955614187" ignored="false" />
     <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352727621499" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986187183" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365002887150" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
@@ -533,8 +533,8 @@
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354871325197" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/loginState/loginState.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364985472528" ignored="false" />
     <file path="/loginState.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364985466729" ignored="false" />
-    <file path="/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986460945" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986467453" ignored="false" />
+    <file path="/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365002661903" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365002842615" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364959678687" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/publicAPI/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364959678686" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/globalNavigationMenu/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357820413360" ignored="false" />
@@ -548,12 +548,12 @@
     <file path="$USER_HOME$/semantics/src/main/webapp/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364959678687" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361798521385" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800004" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361798521385" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365003316925" ignored="false" />
     <file path="/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360598494824" ignored="false" />
     <file path="/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360599579142" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361735207878" ignored="false" />
     <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364959679548" ignored="false" />
-    <file path="/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361049186330" ignored="false" />
+    <file path="/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365003277238" ignored="false" />
     <file path="/fileInfo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360593361063" ignored="false" />
     <file path="/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360598976705" ignored="false" />
     <file path="/templateDemo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358547901080" ignored="false" />
@@ -585,8 +585,8 @@
     <file path="$USER_HOME$/semantics/art/CNIPGIS design/Comboboxes/comboboxes.sketch/fonts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359467388645" ignored="false" />
     <file path="$USER_HOME$/semantics/art/CNIPGIS design/Comboboxes/comboboxes.sketch/version" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359467388645" ignored="false" />
     <file path="/login.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359553518435" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/templates/fileInfo/fileInfo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361798521385" ignored="false" />
-    <file path="/fileInfo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361049226387" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/templates/fileInfo/fileInfo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365004518487" ignored="false" />
+    <file path="/fileInfo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365004516776" ignored="false" />
     <file path="$USER_HOME$/Library/Application Support/IntelliJIdea12/Kotlin/lib/kotlin-plugin.jar!/jet/Unit.jet" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360047724212" ignored="false" />
     <file path="/fragment.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360822817428" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/privateAPI/ConfigREST.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364959678686" ignored="false" />
@@ -1447,11 +1447,11 @@
     <file path="$USER_HOME$/interactive_video/libs/js/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364819547147" ignored="false" />
     <file path="$USER_HOME$/interactive_video/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364821977836" ignored="false" />
     <file path="$USER_HOME$/interactive_video/modules/iis_smooth_streaming/iis_smooth_streaming.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364980698000" ignored="false" />
-    <file path="$USER_HOME$/interactive_video/modules/iis_smooth_streaming/iis_smooth_streaming.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364980884280" ignored="false" />
+    <file path="$USER_HOME$/interactive_video/modules/iis_smooth_streaming/iis_smooth_streaming.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364988472235" ignored="false" />
     <file path="$USER_HOME$/interactive_video/modules/iis_smooth_streaming/iis_smooth_streaming.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364819609926" ignored="false" />
     <file path="/iis_smooth_streaming.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364980508624" ignored="false" />
     <file path="$USER_HOME$/interactive_video/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364957790411" ignored="false" />
-    <file path="/iis_smooth_streaming.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364980571784" ignored="false" />
+    <file path="/iis_smooth_streaming.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364988459911" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1527,7 +1527,7 @@
       <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="649" column="42" selection-start="29600" selection-end="29600" vertical-scroll-proportion="0.9444444">
+            <state line="725" column="18" selection-start="33699" selection-end="33699" vertical-scroll-proportion="0.80679786">
               <folding />
             </state>
           </provider>
@@ -1554,7 +1554,7 @@
       <file leaf-file-name="clientside.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/clientside.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -2182,7 +2182,11 @@
       <created>1364986194150</created>
       <updated>1364986194150</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="added name detail in event detail on load event">
+      <created>1364986511641</created>
+      <updated>1364986511641</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -2192,7 +2196,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22944297" sideWeight="0.91226995" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20424403" sideWeight="0.91226995" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2214,7 +2218,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22520325" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24311183" sideWeight="0.77055705" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24311183" sideWeight="0.795756" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969324" sideWeight="0.8175824" order="2" side_tool="false" content_ui="combo" />
       <window_info id="IntellijBashOrg" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
@@ -2397,23 +2401,9 @@
         <state line="131" column="89" selection-start="7069" selection-end="7069" vertical-scroll-proportion="1.966581" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="649" column="42" selection-start="29600" selection-end="29600" vertical-scroll-proportion="0.9444444">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="94" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/clientside.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -2428,6 +2418,20 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="31" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/clientside.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="725" column="18" selection-start="33699" selection-end="33699" vertical-scroll-proportion="0.80679786">
           <folding />
         </state>
       </provider>
