@@ -579,7 +579,7 @@ var Modules = null;
                     loadHTML(modulePath, moduleName, className, function() {
                         loadJS(modulePath, moduleName, function() {
                             document.dispatchEvent(new CustomEvent("module_" + moduleName + "_loaded",
-                                {"detail": {"name" : moduleName,"path": modulePath, "className": className}}
+                                {"detail": {"moduleName" : moduleName,"path": modulePath, "className": className}}
                             ));
                             if (callback) {
                                 callback();
@@ -600,7 +600,7 @@ var Modules = null;
                 var htmlPath = buildFilePath(path, fileName);
                 loadHTML(htmlPath, fileName, className, function() {
                     document.dispatchEvent(new CustomEvent("html_" + fileName + "_loaded",
-                        {"detail": {"name" : fileName, "htmlPath": htmlPath, "path" : path, "className": className}}
+                        {"detail": {"fileName" : fileName, "htmlPath": htmlPath, "path" : path, "className": className}}
                     ));
                     if (callback) {
                         callback();
@@ -619,7 +619,7 @@ var Modules = null;
                 var jsPath = buildFilePath(path, fileName);
                 loadJS(jsPath, fileName, function() {
                     document.dispatchEvent(new CustomEvent("js_" + fileName + "_loaded",
-                        {"detail": {"name" : fileName, "jsPath": jsPath, "path" : path}}
+                        {"detail": {"fileName" : fileName, "jsPath": jsPath, "path" : path}}
                     ));
                     if (callback) {
                         callback();
@@ -638,7 +638,7 @@ var Modules = null;
                 var cssPath = buildFilePath(path, fileName);
                 loadCSS(cssPath, fileName, function() {
                     document.dispatchEvent(new CustomEvent("css_" + fileName + "_loaded",
-                        {"detail": {"name" : fileName, "cssPath": cssPath, "path" : path}}
+                        {"detail": {"fileName" : fileName, "cssPath": cssPath, "path" : path}}
                     ));
                     if (callback) {
                         callback();

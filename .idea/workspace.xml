@@ -31,13 +31,13 @@
     <list id="5df47217-04d1-440a-8b5a-4d0f10be2759" name="crap" comment="" />
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986098372" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986500758" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816260904" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364955614187" ignored="false" />
     <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352727621499" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364984422295" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986187183" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
@@ -533,8 +533,8 @@
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354871325197" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/loginState/loginState.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364985472528" ignored="false" />
     <file path="/loginState.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364985466729" ignored="false" />
-    <file path="/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986139513" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986141837" ignored="false" />
+    <file path="/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986460945" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364986467453" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364959678687" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/publicAPI/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364959678686" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/globalNavigationMenu/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357820413360" ignored="false" />
@@ -1527,7 +1527,7 @@
       <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="640" column="55" selection-start="29243" selection-end="29243" vertical-scroll-proportion="0.75">
+            <state line="649" column="42" selection-start="29600" selection-end="29600" vertical-scroll-proportion="0.9444444">
               <folding />
             </state>
           </provider>
@@ -2178,7 +2178,11 @@
       <created>1364984427700</created>
       <updated>1364984427700</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="added name detail in event detail on load event">
+      <created>1364986194150</created>
+      <updated>1364986194150</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -2186,7 +2190,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22944297" sideWeight="0.91226995" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -2210,7 +2214,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22520325" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24311183" sideWeight="0.77055705" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24311183" sideWeight="0.77055705" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969324" sideWeight="0.8175824" order="2" side_tool="false" content_ui="combo" />
       <window_info id="IntellijBashOrg" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
@@ -2266,7 +2270,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added listeners for loaded event on module, html, css, js" />
+    <option name="LAST_COMMIT_MESSAGE" value="added name detail in event detail on load event" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2303,6 +2307,7 @@
     <MESSAGE value="Start implementing singleton talking, do not use this function" />
     <MESSAGE value="Added events, when module/html/css/js loaded. It resolve problem: cascade modules loading." />
     <MESSAGE value="Added listeners for loaded event on module, html, css, js" />
+    <MESSAGE value="added name detail in event detail on load event" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2394,7 +2399,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="640" column="55" selection-start="29243" selection-end="29243" vertical-scroll-proportion="0.75">
+        <state line="649" column="42" selection-start="29600" selection-end="29600" vertical-scroll-proportion="0.9444444">
           <folding />
         </state>
       </provider>
