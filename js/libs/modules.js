@@ -671,14 +671,15 @@ var Modules = null;
                             result += stepResult;
                         }
                     }
-                    renderHTML(result, templateName, className, callback);
-                    loadJS(templatePath, templateName, function() {
-                        document.dispatchEvent(new CustomEvent("template_" + templateName + "_loaded",
-                            {"detail": {"templateName" : templateName, "path": templatePath, "className": className}}
-                        ));
-                        if (callback) {
-                            callback();
-                        }
+                    renderHTML(result, templateName, className, function(){
+                        loadJS(templatePath, templateName, function() {
+                            document.dispatchEvent(new CustomEvent("template_" + templateName + "_loaded",
+                                {"detail": {"templateName" : templateName, "path": templatePath, "className": className}}
+                            ));
+                            if (callback) {
+                                callback();
+                            }
+                        });
                     });
                 }
                 loadCSS(templatePath, templateName);
@@ -856,7 +857,13 @@ var Modules = null;
 //        return MessageQueue;
 //    }());
     Modules.Server = (function(){
-        function Server() {}
+        function Server(path) {
+            this.path = path;
+            loadJSONConfig(this.path, "cloud", function() {
+                alert(ModulesJsConfigCloud.trackers);
+                alert(getRandomInt(0,ModulesJsConfigCloud.trackers.length));
+            });
+        }
         Server.prototype.getString = function(url) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, false);
@@ -875,6 +882,34 @@ var Modules = null;
             };
             xhr.send();
         };
+        function loadJSONConfig(path, name, callback) {
+            var jsLoaded = document.getElementsByClassName("modulesjs-config-" + name)[0];
+            if (jsLoaded) {
+                document.getElementsByTagName("head")[0].removeChild(jsLoaded);
+            }
+            var script = document.createElement('script');
+            script.src = path + "/" + name + ".js";
+            script.className = "modulesjs-config-" + name;
+            script.type = "text/javascript";
+            document.getElementsByTagName("head")[0].appendChild(script);
+            var done = false;
+
+            script.onreadystatechange = script.onload = function () {
+                var state = script.readyState;
+                if (!done && (!state || state == "loaded" || state == "complete")) {
+                    done = true;
+                    document.dispatchEvent(new CustomEvent("config_" + name + "_loaded",
+                        {"detail": {"configName" : name, "path": path}}
+                    ));
+                    if (callback) {
+                        callback(name);
+                    }
+                }
+            }
+        }
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
         return Server;
     }());
 })(Modules || (Modules = {}));

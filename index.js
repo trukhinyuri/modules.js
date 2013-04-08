@@ -19,6 +19,8 @@
             }
         ];
         templates.loadTemplate('fileInfo', 'bodyList', fileInfoListData);
+        var server = new Modules.Server("/config");
+
     }
     var events = new Modules.Events();
     events.addStartupListener(run);
