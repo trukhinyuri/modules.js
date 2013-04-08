@@ -861,7 +861,7 @@ var Modules = null;
             this.path = path;
             loadJSONConfig(this.path, "cloud", function() {
                 alert(ModulesJsConfigCloud.trackers);
-                alert(getRandomInt(0,ModulesJsConfigCloud.trackers.length));
+                alert(getRandomInt(0, ModulesJsConfigCloud.trackers.length - 1));
             });
         }
         Server.prototype.getString = function(url) {
