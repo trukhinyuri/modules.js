@@ -25,7 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tests/modulesTests_legacy_do_not_use.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/libs/modulesjs_legacy_do_not_use.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tests/modulesTests.js" afterPath="$PROJECT_DIR$/js/tests/modulesTests.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="5df47217-04d1-440a-8b5a-4d0f10be2759" name="crap" comment="" />
@@ -35,9 +38,9 @@
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816260904" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365406058433" ignored="false" />
-    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352727621499" ignored="false" />
+    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367526198165" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365426295241" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367525870740" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
@@ -536,37 +539,37 @@
     <file path="/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365002661903" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/publicAPI/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/publicAPI/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/globalNavigationMenu/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357820413360" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800005" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348616" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/loginState/loginState.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800005" ignored="false" />
     <file path="/loginState.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816001476" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800006" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/login.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800008" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1366962138320" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800004" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365351524506" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1366603800932" ignored="false" />
     <file path="/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360598494824" ignored="false" />
     <file path="/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360599579142" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083381948" ignored="false" />
+    <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367064208085" ignored="false" />
     <file path="/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365350969992" ignored="false" />
     <file path="/fileInfo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360593361063" ignored="false" />
     <file path="/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360598976705" ignored="false" />
     <file path="/templateDemo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358547901080" ignored="false" />
     <file path="/templateDemo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359232219304" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/content/help_content_changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361798521386" ignored="false" />
-    <file path="/help_content_changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360593921170" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/content/help_content_changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1366813127694" ignored="false" />
+    <file path="/help_content_changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1366797477483" ignored="false" />
     <file path="/templateDemo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358549261600" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/templates/fileInfo/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358551238243" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/templates/fileInfo/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800004" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/templates/fileInfo/fileInfo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
     <file path="$USER_HOME$/taliya_fashion/web/modules/themes/themes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358615187050" ignored="false" />
     <file path="/themes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358615137667" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/Database.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/Database.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855273569" ignored="false" />
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/actions.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855282359" ignored="false" />
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/award.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855285462" ignored="false" />
@@ -585,53 +588,53 @@
     <file path="$USER_HOME$/semantics/art/CNIPGIS design/Comboboxes/comboboxes.sketch/fonts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359467388645" ignored="false" />
     <file path="$USER_HOME$/semantics/art/CNIPGIS design/Comboboxes/comboboxes.sketch/version" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359467388645" ignored="false" />
     <file path="/login.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359553518435" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/templates/fileInfo/fileInfo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/templates/fileInfo/fileInfo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1366004180898" ignored="false" />
     <file path="/fileInfo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365004516776" ignored="false" />
     <file path="$USER_HOME$/Library/Application Support/IntelliJIdea12/Kotlin/lib/kotlin-plugin.jar!/jet/Unit.jet" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365082514813" ignored="false" />
     <file path="/fragment.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360822817428" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/privateAPI/ConfigREST.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/PrivateServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/PublicServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/privateAPI/UnstructuredDataExchange.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/FileInfoInMemory.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/FileUploadInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/privateAPI/ConfigREST.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/PrivateServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/PublicServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/privateAPI/UnstructuredDataExchange.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/FileInfoInMemory.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/FileUploadInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/JAXBContextResolver.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361735173209" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/TagsFileManager.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/IndexFileManager.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/Path.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/PathType.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/PropertiesFile.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/BinaryFile.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/RandomAccessFileExtended.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/DatabaseTransactionMessages.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/content/help_content_links.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361798521386" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/TagsFileManager.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/IndexFileManager.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/Path.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/PathType.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/PropertiesFile.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/BinaryFile.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/RandomAccessFileExtended.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/DatabaseTransactionMessages.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/content/help_content_links.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367050907940" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/help.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/loginState/loginState.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/infrastructure/logging/Formatter.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800002" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/config/setup.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361798521386" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/about/about.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/UUIDFileManager.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/metadb/UUIDFileManager.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/infrastructure/logging/ConsoleLogging.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800003" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/startup/ConfigFile.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/startup/Initializer.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/startup/ConfigFile.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/startup/Initializer.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/infrastructure/logging/Logging.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800002" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/content/help_content_howToWork.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361798521386" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/page_header.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/semantics.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348616" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/changes.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348618" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/error.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348616" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/how_to_work.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348616" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/error.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/how_to_work.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/uploadFile.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/downloadFile.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/oldindex.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/page_header.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/transformations.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/index_content_links.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/login.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/oldindex.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/page_header.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854111" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854111" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/transformations.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854111" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/index_content_links.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/login.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/SemanticsFX/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361012683986" ignored="false" />
-    <file path="/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083381948" ignored="false" />
+    <file path="/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367064204195" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/SemanticsFX/src/main/java/com/trukhin/MainApp.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360829190393" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116642" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v10/weblogic-ejb-jar_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116647" ignored="false" />
@@ -640,9 +643,9 @@
     <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v10/weblogic-web-app_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116647" ignored="false" />
     <file path="/PublicServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1363359499445" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/resources/META-INF/ejb-jar.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361798535604" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/WEB-INF/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348616" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/WEB-INF/beans.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348616" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/WEB-INF/glassfish-web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365402829943" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/WEB-INF/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/WEB-INF/beans.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/WEB-INF/glassfish-web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/observers/DBTransactions.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1363262408611" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/js/bootstrap-alert.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/js/bootstrap-button.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
@@ -1411,14 +1414,14 @@
     <file path="$USER_HOME$/tcserver/server/system/domains/domain1/generated/jsp/__admingui/loader_2116515006/META-INF/maven/org.glassfish.main.admingui/console-core/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1363161674654" ignored="false" />
     <file path="$USER_HOME$/tcserver/server/system/domains/domain1/generated/jsp/__admingui/loader_1638311747/META-INF/maven/org.glassfish.main.admingui/console-core/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1363161674654" ignored="false" />
     <file path="$USER_HOME$/tcserver/server/system/domains/domain1/generated/jsp/__admingui/loader_1446750745/META-INF/maven/org.glassfish.main.admingui/console-core/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1363161674654" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/DatabaseTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348618" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/ConfigFileTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348618" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/PathTypesTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348618" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/PropertiesFileTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348618" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/PathTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/DatabaseTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854111" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/ConfigFileTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/PathTypesTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/PropertiesFileTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854516" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/PathTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/startup/ConfigFileTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365082278669" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/IndexFileManagerTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348618" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/ConfigFileManagerTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348618" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/IndexFileManagerTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854516" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/test/java/com/trukhin/semantics/metadb/ConfigFileManagerTests.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854516" ignored="false" />
     <file path="$USER_HOME$/tcserver/server/tcserver" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1363161674654" ignored="false" />
     <file path="$USER_HOME$/semantics/art/CNIPGIS design/Comboboxes/comboboxes.svg" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/security/UserManagement.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364959678687" ignored="false" />
@@ -1469,7 +1472,22 @@
     <file path="/glassfish-web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365402809261" ignored="false" />
     <file path="/cloud.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365404762958" ignored="false" />
     <file path="/cloud.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365405932690" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/config/cloud.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365405907916" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/config/cloud.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1366004180898" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/contrib/lwjgl.pom" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365484557728" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/.gitignore" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/DiabloMiner-Windows.l4j.ini" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/LICENSE" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/README.md" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/DiabloMiner-Linux.sh" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/DiabloMiner-OSX.sh" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/DiabloMiner-Solaris.sh" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/src/main/java/com/diablominer/DiabloMiner/DeviceState/DeviceState.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/src/main/java/com/diablominer/DiabloMiner/NetworkState/NetworkState.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/src/main/java/com/diablominer/DiabloMiner/DiabloMiner.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/src/main/java/com/diablominer/DiabloMiner/DiabloMinerFatalException.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="$USER_HOME$/DiabloMiner/src/main/java/com/diablominer/DiabloMiner/DeviceState/GPUHardwareType.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
+    <file path="/help_content_links.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367050907940" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1494,7 +1512,6 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -1531,6 +1548,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -1541,62 +1559,115 @@
     <favorites_list name="modules.js" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="863" column="76" selection-start="39699" selection-end="39699" vertical-scroll-proportion="0.43529412">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="8" selection-start="725" selection-end="768" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cloud.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/cloud.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="16" selection-start="63" selection-end="63" vertical-scroll-proportion="-1.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="globalNavigationMenu.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="58" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="0" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="7" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="vertical" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="25" column="35" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="3" column="62" selection-start="167" selection-end="167" vertical-scroll-proportion="0.18145162">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="testsResult.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/tests/testsResult.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="modulesTests_legacy_do_not_use.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/tests/modulesTests_legacy_do_not_use.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="39" column="0" selection-start="1579" selection-end="2521" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="fileInfo.css" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="fileInfo.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="fileInfo.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="2" column="58" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="15" column="45" selection-start="558" selection-end="644" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="globalNavigationMenu.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="41" column="58" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="globalNavigationMenu.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="226" column="0" selection-start="10170" selection-end="10170" vertical-scroll-proportion="13.452381">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -1621,8 +1692,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.js" />
-        <option value="$PROJECT_DIR$/templateDemo.html" />
         <option value="$PROJECT_DIR$/templateDemo.css" />
         <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.css" />
         <option value="$PROJECT_DIR$/templateDemo.js" />
@@ -1630,13 +1699,15 @@
         <option value="$PROJECT_DIR$/index.css" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
         <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.html" />
-        <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/config/cloud.json" />
         <option value="$PROJECT_DIR$/config/cloud.js" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/js/libs/modulesjs_legacy.js" />
         <option value="$PROJECT_DIR$/js/libs/modules.js" />
+        <option value="$PROJECT_DIR$/js/tests/modulesTests_legacy_do_not_use.js" />
+        <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
       </list>
     </option>
   </component>
@@ -1644,8 +1715,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1668,8 +1739,8 @@
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
-      <flattenPackages />
-      <showMembers />
+      <flattenPackages ProjectPane="false" />
+      <showMembers ProjectPane="true" />
       <showModules />
       <showLibraryContents />
       <hideEmptyPackages />
@@ -1679,9 +1750,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1697,6 +1765,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="modules.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fileInfo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1729,6 +1815,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1770,6 +1860,9 @@
         <subPane subId="Problems" />
         <subPane subId="Project Files" />
         <subPane subId="All" />
+      </pane>
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -2221,41 +2314,44 @@
       <created>1365426298152</created>
       <updated>1365426298152</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="basic json configuration support for trackers in Server subsystem. Do not implemented, in active development.">
+      <created>1365427912395</created>
+      <updated>1365427912395</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="68467000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.112549804" sideWeight="0.9233129" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.6721854" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20424403" sideWeight="0.9233129" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19375" sideWeight="0.49756888" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.6721854" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Kotlin" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19375" sideWeight="0.49756888" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28373984" sideWeight="0.67083335" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18359853" sideWeight="0.8874502" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Kotlin" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22520325" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6721854" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22520325" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25121555" sideWeight="0.795756" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969324" sideWeight="0.8175824" order="2" side_tool="false" content_ui="combo" />
       <window_info id="IntellijBashOrg" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2263,7 +2359,9 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32674772" sideWeight="0.49754602" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329235" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3988604" sideWeight="0.49675852" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2362,86 +2460,24 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="709" column="29" selection-start="32198" selection-end="32198" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="709" column="29" selection-start="32198" selection-end="32198" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="683" column="70" selection-start="31260" selection-end="31260" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="673" column="77" selection-start="30819" selection-end="30819" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="673" column="77" selection-start="30819" selection-end="30819" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="665" column="24" selection-start="30464" selection-end="30464" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="660" column="29" selection-start="30328" selection-end="30328" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="660" column="29" selection-start="30328" selection-end="30328" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="660" column="29" selection-start="30328" selection-end="30328" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="131" column="89" selection-start="7069" selection-end="7069" vertical-scroll-proportion="1.966581" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.css">
+    <entry file="file://$PROJECT_DIR$/config/cloud.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="16" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="7" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="54" column="0" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
@@ -2451,23 +2487,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="8" selection-start="725" selection-end="768" vertical-scroll-proportion="0.0">
+        <state line="15" column="45" selection-start="558" selection-end="644" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/cloud.js">
+    <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="16" selection-start="63" selection-end="63" vertical-scroll-proportion="-1.25">
+        <state line="2" column="58" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="35" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/libs/modulesjs_legacy_do_not_use.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="13" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tests/modulesTests_legacy_do_not_use.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="1579" selection-end="2521" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tests/testsResult.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="863" column="76" selection-start="39699" selection-end="39699" vertical-scroll-proportion="0.43529412">
+        <state line="226" column="0" selection-start="10170" selection-end="10170" vertical-scroll-proportion="13.452381">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="62" selection-start="167" selection-end="167" vertical-scroll-proportion="0.18145162">
           <folding />
         </state>
       </provider>
