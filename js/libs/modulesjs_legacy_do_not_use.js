@@ -74,7 +74,7 @@ var modules = new function() {
                 var lineNumber = i + 1;
                 resultDocument += "Warning [line "+lineNumber+"]: Using innerHTML in JavaScript. " +
                     "</br>Possible solution: </br>" +
-                    "1) load HTML from server (use function modules.server.requestHTMLToElement(path, element))</br>" +
+                    "1) load HTML from server (use function modules.server.requestHTMLToElement(_path, element))</br>" +
                     "2) Client-side templates (use template in HTML and replace from JavaScript) </br>";
             }
         }
@@ -283,7 +283,7 @@ var modules = new function() {
 
     this.server = new function() {
         this.requestHTMLToElement = function(path, elementClassName, onComplete) {
-            var xhr = new XMLHttpRequest(); xhr.open("get", "path", true);
+            var xhr = new XMLHttpRequest(); xhr.open("get", "__path", true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var div = document.getElementsByClassName(elementClassName);
@@ -411,20 +411,20 @@ var modules = new function() {
                         var cssLoaded = document.getElementsByClassName("css" + el.name)[0];
                         if (!cssLoaded) {
                             var xhrCssLoader = new XMLHttpRequest();
-                            xhrCssLoader.open("GET", el.path + "/" + el.name + "/" + el.name + ".css", false);
+                            xhrCssLoader.open("GET", el._path + "/" + el.name + "/" + el.name + ".css", false);
                             xhrCssLoader.send(null);
                             document.getElementsByTagName("head")[0].innerHTML += '<style type="text/css" class="css' + el.name + '">' + xhrCssLoader.responseText + '</style>';
                         }
 
                         var xhrHtmlLoader = new XMLHttpRequest();
-                        xhrHtmlLoader.open("GET", el.path + "/" + el.name + "/" + el.name + ".html", false);
+                        xhrHtmlLoader.open("GET", el._path + "/" + el.name + "/" + el.name + ".html", false);
                         xhrHtmlLoader.send(null);
                         document.getElementById(el.element).innerHTML = xhrHtmlLoader.responseText;
 
                         var jsLoaded = document.getElementsByClassName("js" + el.name)[0];
                         if (!jsLoaded) {
                             var xhrJsLoader = new XMLHttpRequest();
-                            xhrJsLoader.open("GET", el.path + "/" + el.name + "/" + el.name + ".js", false);
+                            xhrJsLoader.open("GET", el._path + "/" + el.name + "/" + el.name + ".js", false);
                             xhrJsLoader.send(null);
                             document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javascript" class="js' + name + '">' + xhrJsLoader.responseText + '</script>';
 
@@ -442,7 +442,7 @@ var modules = new function() {
             var jsLoaded = document.getElementsByClassName("js" + el.name)[0];
             if (!jsLoaded) {
                 var xhrJsLoader = new XMLHttpRequest();
-                xhrJsLoader.open("GET", el.path + "/" + el.name + "/" + el.name + ".js", false);
+                xhrJsLoader.open("GET", el._path + "/" + el.name + "/" + el.name + ".js", false);
                 xhrJsLoader.send(null);
                 document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javascript" class="js' + name + '">' + xhrJsLoader.responseText + '</script>';
 
@@ -455,7 +455,7 @@ var modules = new function() {
         });
     };
     this.Info = function(path, name, element) {
-        this.path = path;
+        this._path = path;
         this.name = name;
         this.element = element;
         return this;

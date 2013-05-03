@@ -3,8 +3,17 @@ var Modules = null;
 (function (Modules) {
     Modules.Loader = (function () {
         function Loader(path) {
-            this.path = path;
+            this._path = path;
         }
+        Loader.prototype = {
+            set path (path) {
+                this._path = path;
+            },
+            get path () {
+                return this._path;
+            }
+        }
+
         function loadJS (path, name, callback) {
             var jsLoaded = document.getElementsByClassName("modulesjs-js-" + name)[0];
             if (jsLoaded) {
@@ -102,8 +111,9 @@ var Modules = null;
             element.setAttribute('uuid', itemNumber);
             return element.outerHTML;
         }
+
         Loader.prototype.load = function (moduleName, className, callback) {
-            loadAsync(this.path, moduleName, className, callback);
+            loadAsync(this._path, moduleName, className, callback);
             function loadAsync(path, moduleName, className, callback) {
                 setTimeout(function(){
                     loadSync(path, moduleName, className, callback);
@@ -115,7 +125,7 @@ var Modules = null;
                     loadHTML(modulePath, moduleName, className, function() {
                         loadJS(modulePath, moduleName, function() {
                             document.dispatchEvent(new CustomEvent("module_" + moduleName + "_loaded",
-                                {"detail": {"moduleName" : moduleName,"path": modulePath, "className": className}}
+                                {"detail": {"moduleName" : moduleName,"_path": modulePath, "className": className}}
                             ));
                             if (callback) {
                                 callback();
@@ -126,7 +136,7 @@ var Modules = null;
             }
         };
         Loader.prototype.loadHTML = function(fileName, className, callback) {
-            loadAsync(this.path, fileName, className, callback);
+            loadAsync(this._path, fileName, className, callback);
             function loadAsync(path, fileName, className, callback) {
                 setTimeout(function(){
                     loadSync(path, fileName, className, callback);
@@ -136,7 +146,7 @@ var Modules = null;
                 var htmlPath = buildFilePath(path, fileName);
                 loadHTML(htmlPath, fileName, className, function() {
                     document.dispatchEvent(new CustomEvent("html_" + fileName + "_loaded",
-                        {"detail": {"fileName" : fileName, "htmlPath": htmlPath, "path" : path, "className": className}}
+                        {"detail": {"fileName" : fileName, "htmlPath": htmlPath, "_path" : path, "className": className}}
                     ));
                     if (callback) {
                         callback();
@@ -145,7 +155,7 @@ var Modules = null;
             }
         };
         Loader.prototype.loadJS = function(fileName, callback) {
-            loadAsync(this.path, fileName, callback);
+            loadAsync(this._path, fileName, callback);
             function loadAsync(path, fileName, callback) {
                 setTimeout(function(){
                     loadSync(path, fileName, callback);
@@ -155,7 +165,7 @@ var Modules = null;
                 var jsPath = buildFilePath(path, fileName);
                 loadJS(jsPath, fileName, function() {
                     document.dispatchEvent(new CustomEvent("js_" + fileName + "_loaded",
-                        {"detail": {"fileName" : fileName, "jsPath": jsPath, "path" : path}}
+                        {"detail": {"fileName" : fileName, "jsPath": jsPath, "_path" : path}}
                     ));
                     if (callback) {
                         callback();
@@ -164,7 +174,7 @@ var Modules = null;
             }
         };
         Loader.prototype.loadCSS = function(fileName, callback) {
-            loadAsync(this.path, fileName, callback);
+            loadAsync(this._path, fileName, callback);
             function loadAsync(path, fileName, callback) {
                 setTimeout(function(){
                     loadSync(path, fileName, callback);
@@ -174,7 +184,7 @@ var Modules = null;
                 var cssPath = buildFilePath(path, fileName);
                 loadCSS(cssPath, fileName, function() {
                     document.dispatchEvent(new CustomEvent("css_" + fileName + "_loaded",
-                        {"detail": {"fileName" : fileName, "cssPath": cssPath, "path" : path}}
+                        {"detail": {"fileName" : fileName, "cssPath": cssPath, "_path" : path}}
                     ));
                     if (callback) {
                         callback();
@@ -183,7 +193,7 @@ var Modules = null;
             }
         };
         Loader.prototype.loadTemplate = function(templateName, className, dataSource, callback) {
-            loadAsync(this.path, templateName, className, callback);
+            loadAsync(this._path, templateName, className, callback);
             function loadAsync(path, templateName, className, callback) {
                 setTimeout(function(){
                     loadSync(path, templateName, className, callback);
@@ -210,7 +220,7 @@ var Modules = null;
                     renderHTML(result, templateName, className, function(){
                         loadJS(templatePath, templateName, function() {
                             document.dispatchEvent(new CustomEvent("template_" + templateName + "_loaded",
-                                {"detail": {"templateName" : templateName, "path": templatePath, "className": className}}
+                                {"detail": {"templateName" : templateName, "_path": templatePath, "className": className}}
                             ));
                             if (callback) {
                                 callback();
@@ -290,8 +300,8 @@ var Modules = null;
     }());
     Modules.Server = (function(){
         function Server(path) {
-            this.path = path;
-            loadJSONConfig(this.path, "cloud", function() {
+            this._path = path;
+            loadJSONConfig(this._path, "cloud", function() {
                 alert(ModulesJsConfigCloud.trackers);
                 alert(getRandomInt(0, ModulesJsConfigCloud.trackers.length - 1));
             });
@@ -331,7 +341,7 @@ var Modules = null;
                 if (!done && (!state || state == "loaded" || state == "complete")) {
                     done = true;
                     document.dispatchEvent(new CustomEvent("config_" + name + "_loaded",
-                        {"detail": {"configName" : name, "path": path}}
+                        {"detail": {"configName" : name, "_path": path}}
                     ));
                     if (callback) {
                         callback(name);

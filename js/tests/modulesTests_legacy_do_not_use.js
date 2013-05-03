@@ -1,6 +1,6 @@
 test("modules.Info", function() {
     var info = modules.Info("modules", "globalNavigationMenu", "header");
-    ok(info.path === "modules", "Info.path correct" );
+    ok(info._path === "modules", "Info._path correct" );
     ok(info.name === "globalNavigationMenu", "Info.name correct");
     ok(info.element === "header", "Info.element correct");
 });

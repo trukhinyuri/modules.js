@@ -1,10 +1,10 @@
 test("Modules.Loader", function() {
     var path = "modules";
     var loader = new Modules.Loader(path);
-    ok(loader.path == path, "Loader path in the root directory is set correctly");
-//    var path = "modules";
+    ok(loader.path == path, "Loader.path is set correctly");
+//    var _path = "modules";
 //    var name = "test";
-//    modules.load(path, name, "header");
+//    modules.load(_path, name, "header");
 //    var css = document.getElementsByClassName("modulesjs-css-" + name)[0];
 //    ok(css.href != undefined, "css loaded");
 //    var html = document.getElementsByClassName(name)[0];
@@ -12,7 +12,7 @@ test("Modules.Loader", function() {
 //    var js = document.getElementsByClassName("modulesjs-js-" + name)[0];
 //    ok(js != undefined, "js loaded");
 //    //load module in different place
-//    modules.load(path, name, "footer");
+//    modules.load(_path, name, "footer");
 //    var cssCount = document.getElementsByClassName("modulesjs-css-" + name);
 //    ok(cssCount.length == 1, "module`s css loaded only once");
 //    var jsCount = document.getElementsByClassName("modulesjs-js-" + name);
