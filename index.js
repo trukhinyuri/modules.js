@@ -1,7 +1,7 @@
 "use strict";
 (function () {
     function run() {
-        var modules = new Modules.Loader("/modules");
+        var modules = new Modules.Loader("modules");
         modules.load("globalNavigationMenu", "header");
 
         var templates = new Modules.Loader("/templates");

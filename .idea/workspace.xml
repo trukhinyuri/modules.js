@@ -25,19 +25,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/js/libs/modules.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/libs/modules.js" afterPath="$PROJECT_DIR$/modules.js/modules.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/libs/modulesjs_legacy_do_not_use.js" afterPath="$PROJECT_DIR$/modules.js/modulesjs_legacy_do_not_use.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/tests/libs/qunit.css" afterPath="$PROJECT_DIR$/modules.js/libs/qunit.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/tests/libs/qunit.js" afterPath="$PROJECT_DIR$/modules.js/libs/qunit.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/tests/modules/test/test.css" afterPath="$PROJECT_DIR$/modules.js/modules_forTests/test/test.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/tests/modules/test/test.html" afterPath="$PROJECT_DIR$/modules.js/modules_forTests/test/test.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/tests/modules/test/test.js" afterPath="$PROJECT_DIR$/modules.js/modules_forTests/test/test.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/tests/modulesTests.js" afterPath="$PROJECT_DIR$/modules.js/modulesTests.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/tests/modulesTests_legacy_do_not_use.js" afterPath="$PROJECT_DIR$/modules.js/modulesTests_legacy_do_not_use.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/tests/testsResult.html" afterPath="$PROJECT_DIR$/modules.js/testsResult.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="5df47217-04d1-440a-8b5a-4d0f10be2759" name="crap" comment="" />
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367581753153" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367600365719" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816260904" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365406058433" ignored="false" />
-    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367581237286" ignored="false" />
+    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367606317880" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367581705176" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367607360794" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
@@ -136,7 +148,7 @@
     <file path="/test.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350860684838" ignored="false" />
     <file path="/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350861979747" ignored="false" />
     <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350863224908" ignored="false" />
-    <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350864093243" ignored="false" />
+    <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367600653493" ignored="false" />
     <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359288866846" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116646" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116646" ignored="false" />
@@ -552,7 +564,7 @@
     <file path="/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360598494824" ignored="false" />
     <file path="/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360599579142" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367064208085" ignored="false" />
+    <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367599457028" ignored="false" />
     <file path="/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365350969992" ignored="false" />
     <file path="/fileInfo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360593361063" ignored="false" />
     <file path="/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360598976705" ignored="false" />
@@ -581,7 +593,7 @@
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/service.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855317138" ignored="false" />
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/specialist.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855320074" ignored="false" />
     <file path="$USER_HOME$/taliya_fashion/account/site/Сайт (html)/specialist_2.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1358855322881" ignored="false" />
-    <file path="/README.md" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360945123335" ignored="false" />
+    <file path="/README.md" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367607391091" ignored="false" />
     <file path="$USER_HOME$/semantics/art/CNIPGIS design/Comboboxes/comboboxes.sketch/fonts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359467388645" ignored="false" />
     <file path="$USER_HOME$/semantics/art/CNIPGIS design/Comboboxes/comboboxes.sketch/version" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359467388645" ignored="false" />
     <file path="/login.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359553518435" ignored="false" />
@@ -1485,6 +1497,7 @@
     <file path="$USER_HOME$/DiabloMiner/src/main/java/com/diablominer/DiabloMiner/DiabloMinerFatalException.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
     <file path="$USER_HOME$/DiabloMiner/src/main/java/com/diablominer/DiabloMiner/DeviceState/GPUHardwareType.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365485087649" ignored="false" />
     <file path="/help_content_links.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367050907940" ignored="false" />
+    <file path="$USER_HOME$/test.js/README.md" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367607390775" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1562,32 +1575,32 @@
           <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="25" column="35" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0">
+                <state line="3" column="42" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="modulesTests.js" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
+          <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="3" column="62" selection-start="165" selection-end="165" vertical-scroll-proportion="0.12064343">
+                <state line="6" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="0.36290324">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="testsResult.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/tests/testsResult.html">
+            <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                <state line="8" column="66" selection-start="405" selection-end="405" vertical-scroll-proportion="-3.0833333">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="modulesTests_legacy_do_not_use.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/tests/modulesTests_legacy_do_not_use.js">
+            <entry file="file://$PROJECT_DIR$/modules.js/modulesTests_legacy_do_not_use.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="39" column="0" selection-start="1581" selection-end="2523" vertical-scroll-proportion="0.0">
                   <folding />
@@ -1625,16 +1638,7 @@
           <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="15" column="45" selection-start="558" selection-end="644" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="globalNavigationMenu.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="41" column="58" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.0">
+                <state line="15" column="45" selection-start="561" selection-end="647" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -1653,22 +1657,19 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
+          <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
+                <state line="15" column="12" selection-start="356" selection-end="485" vertical-scroll-proportion="0.4047619">
                   <folding>
-                    <element signature="e#422#1311#0" expanded="false" />
-                    <element signature="e#1359#1896#0" expanded="false" />
-                    <element signature="e#1966#2316#0" expanded="false" />
-                    <element signature="e#2376#2584#0" expanded="false" />
-                    <element signature="e#2641#3213#0" expanded="false" />
-                    <element signature="e#3259#3354#0" expanded="false" />
-                    <element signature="e#3398#3480#0" expanded="false" />
-                    <element signature="e#3528#3623#0" expanded="false" />
-                    <element signature="e#3710#4109#0" expanded="false" />
-                    <element signature="e#4176#4443#0" expanded="false" />
-                    <element signature="e#10424#13949#0" expanded="false" />
+                    <element signature="e#980#1869#0" expanded="false" />
+                    <element signature="e#1939#2289#0" expanded="false" />
+                    <element signature="e#2349#2557#0" expanded="false" />
+                    <element signature="e#2614#3186#0" expanded="false" />
+                    <element signature="e#3230#3312#0" expanded="false" />
+                    <element signature="e#3360#3455#0" expanded="false" />
+                    <element signature="e#3542#3941#0" expanded="false" />
+                    <element signature="e#4008#4275#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -1701,10 +1702,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templateDemo.css" />
-        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.css" />
-        <option value="$PROJECT_DIR$/templateDemo.js" />
-        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
         <option value="$PROJECT_DIR$/index.css" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
         <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.html" />
@@ -1712,11 +1709,15 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/config/cloud.json" />
         <option value="$PROJECT_DIR$/config/cloud.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/js/libs/modulesjs_legacy.js" />
         <option value="$PROJECT_DIR$/js/tests/modulesTests_legacy_do_not_use.js" />
-        <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
+        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/js/libs/modules.js" />
+        <option value="$PROJECT_DIR$/js/tests/testsResult.html" />
+        <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
+        <option value="$PROJECT_DIR$/modules.js/tests/testsResult.html" />
+        <option value="$PROJECT_DIR$/modules.js/testsResult.html" />
+        <option value="$PROJECT_DIR$/modules.js/modulesTests.js" />
       </list>
     </option>
   </component>
@@ -1724,8 +1725,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1805,47 +1806,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="modules.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="globalNavigationMenu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1913,6 +1892,7 @@
       <recent name="$PROJECT_DIR$/js/tests/libs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules.js" />
       <recent name="$PROJECT_DIR$/js/tests/modules" />
     </key>
   </component>
@@ -1921,6 +1901,13 @@
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -2335,17 +2322,21 @@
       <created>1367581710938</created>
       <updated>1367581710938</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Added version header">
+      <created>1367581901018</created>
+      <updated>1367581901018</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="68467000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15338646" sideWeight="0.9233129" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20424403" sideWeight="0.9233129" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.6721854" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19375" sideWeight="0.49756888" order="8" side_tool="true" content_ui="tabs" />
@@ -2355,7 +2346,7 @@
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18971848" sideWeight="0.8466135" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25121555" sideWeight="0.795756" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2424,7 +2415,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modules Loader path now is property" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added version header" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2438,7 +2429,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Refactoring: extract method: loadHTMLinMemory: for using in templates support" />
     <MESSAGE value="Basic loadTemplate implementations for one item" />
     <MESSAGE value="remove $ requirements in simpleDataObject" />
     <MESSAGE value="basic loadTemplateList implementations. added loading templates css and js" />
@@ -2463,6 +2453,7 @@
     <MESSAGE value="basic json configuration support for trackers in Server subsystem. Do not implemented, in active development." />
     <MESSAGE value="Preparing to 1.0. Removed legacy code in legacy file. Written first test for modern modules.js" />
     <MESSAGE value="Modules Loader path now is property" />
+    <MESSAGE value="Added version header" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2477,11 +2468,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="89" selection-start="7069" selection-end="7069" vertical-scroll-proportion="1.966581" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/cloud.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="16" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" />
@@ -2506,7 +2492,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="45" selection-start="558" selection-end="644" vertical-scroll-proportion="0.0">
+        <state line="15" column="45" selection-start="561" selection-end="647" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -2532,30 +2518,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="35" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modulesjs_legacy_do_not_use.js">
+    <entry file="file://$PROJECT_DIR$/modules.js/modulesjs_legacy_do_not_use.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="13" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/tests/modulesTests_legacy_do_not_use.js">
+    <entry file="file://$PROJECT_DIR$/modules.js/modulesTests_legacy_do_not_use.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="0" selection-start="1581" selection-end="2523" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/tests/testsResult.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -2567,29 +2539,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/tests/modulesTests.js">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="62" selection-start="165" selection-end="165" vertical-scroll-proportion="0.12064343">
+        <state line="131" column="89" selection-start="7069" selection-end="7069" vertical-scroll-proportion="9.447115">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="42" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/modules.js">
+    <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
+        <state line="8" column="66" selection-start="405" selection-end="405" vertical-scroll-proportion="-3.0833333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="12" selection-start="356" selection-end="485" vertical-scroll-proportion="0.4047619">
           <folding>
-            <element signature="e#422#1311#0" expanded="false" />
-            <element signature="e#1359#1896#0" expanded="false" />
-            <element signature="e#1966#2316#0" expanded="false" />
-            <element signature="e#2376#2584#0" expanded="false" />
-            <element signature="e#2641#3213#0" expanded="false" />
-            <element signature="e#3259#3354#0" expanded="false" />
-            <element signature="e#3398#3480#0" expanded="false" />
-            <element signature="e#3528#3623#0" expanded="false" />
-            <element signature="e#3710#4109#0" expanded="false" />
-            <element signature="e#4176#4443#0" expanded="false" />
-            <element signature="e#10424#13949#0" expanded="false" />
+            <element signature="e#980#1869#0" expanded="false" />
+            <element signature="e#1939#2289#0" expanded="false" />
+            <element signature="e#2349#2557#0" expanded="false" />
+            <element signature="e#2614#3186#0" expanded="false" />
+            <element signature="e#3230#3312#0" expanded="false" />
+            <element signature="e#3360#3455#0" expanded="false" />
+            <element signature="e#3542#3941#0" expanded="false" />
+            <element signature="e#4008#4275#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="0.36290324">
+          <folding />
         </state>
       </provider>
     </entry>
