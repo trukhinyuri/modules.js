@@ -7,7 +7,7 @@ test("path", function() {
     equal(loader.path, path, "Loader.path is set correctly: " + path);
 });
 test("load", function() {
-    expect(5);
+    expect(6);
     var path = "modules_forTests";
     var loader = new Modules.Loader(path);
     var moduleName = "test";
@@ -44,8 +44,12 @@ test("load", function() {
         var loadedJsSrcWithHost = jsLoaded.src;
         var actualLoadedJsSrc = loadedJsSrcWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
         var expectedJsSrc = modulePath + ".js";
-        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly " + comment + ": " + actualLoadedJsSrc);
-//        //End Javascript loaded check
+        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+        var actualLoadedJsClassName = jsLoaded.className;
+        var expectedJsClassName = modulesJsPrefix + moduleName;
+        equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+            + comment + "): " + actualLoadedJsClassName);
+        //End Javascript loaded check
     }
 });
 

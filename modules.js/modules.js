@@ -37,6 +37,7 @@ var Modules = null;
             script.src = path + ".js";
             script.className = modulesJsPrefix + name;
             script.type = "text/javascript";
+            script.async = true;
             document.getElementsByTagName("head")[0].appendChild(script);
             var done = false;
             script.onreadystatechange = script.onload = function () {
