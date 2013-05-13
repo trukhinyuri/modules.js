@@ -2,7 +2,31 @@
 test("Modules.Loader.path", function() {
     var path = "modules_forTests";
     var loader = new Modules.Loader(path);
-    ok(loader.path == path, "Loader.path is set correctly");
+    equal(loader.path, path, "Loader.path is set correctly: " + path);
+});
+test("Modules.Loader.load", function() {
+    var path = "modules_forTests";
+    var loader = new Modules.Loader(path);
+    var moduleName = "test";
+    var modulePath = path + "/" + moduleName + "/" + moduleName;
+    stop();
+    loader.load(moduleName,"loadTest", function(){
+        var modulesCSSprefix = "modulesjs-css-";
+        var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName);
+        var loadedCSSHrefWithHost = cssLoaded[0].href;
+        var actualLoadedCSSHref = loadedCSSHrefWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
+        var expectedCSSHref = modulePath + ".css";
+        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (callback assert): " + actualLoadedCSSHref);
+        var actualLoadedCSSClassName = cssLoaded[0].className;
+        var expectedCSSClassName = modulesCSSprefix + moduleName;
+        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (callback assert): " + actualLoadedCSSClassName);
+        var actualLoadedCSSType = cssLoaded[0].type;
+        var expectedCSSType = "text/css";
+        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (callback assert): " + actualLoadedCSSType);
+//    css.type = "text/css";
+//    css.rel = "stylesheet";
+        start();
+    });
 });
 
 //    loader.path = "custom error path";
