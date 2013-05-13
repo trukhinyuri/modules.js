@@ -28,17 +28,17 @@ var Modules = null;
             }
         }
         function loadJS (path, name, callback) {
-            var jsLoaded = document.getElementsByClassName("modulesjs-js-" + name)[0];
+            var modulesJsPrefix = "modulesjs-js-";
+            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + name)[0];
             if (jsLoaded) {
                 document.getElementsByTagName("head")[0].removeChild(jsLoaded);
             }
             var script = document.createElement('script');
             script.src = path + ".js";
-            script.className = "modulesjs-js-" + name;
+            script.className = modulesJsPrefix + name;
             script.type = "text/javascript";
             document.getElementsByTagName("head")[0].appendChild(script);
             var done = false;
-
             script.onreadystatechange = script.onload = function () {
                 var state = script.readyState;
                 if (!done && (!state || state == "loaded" || state == "complete")) {
@@ -48,7 +48,6 @@ var Modules = null;
                     }
                 }
             }
-
         }
         function renderHTML(responseText, name, className, callback) {
             var elementClasses = document.getElementsByClassName(className);
@@ -106,22 +105,13 @@ var Modules = null;
             element.setAttribute('uuid', itemNumber);
             return element.outerHTML;
         }
-        function async(fn, callback) {
-            setTimeout(function() {
-                fn();
-                if (callback) {
-                    callback();
-                }
-            }, 0);
-        }
 
         Loader.prototype.load = function (moduleName, className, callback) {
             var path = this.path;
-            async(function() {
-                load(path, moduleName, className);
-            }, callback);
-
-            function load (path, moduleName, className ) {
+            setTimeout(function(){
+                load(path, moduleName, className, callback);
+            }, 0);
+            function load (path, moduleName, className, callback) {
                 var modulePath = buildModulePath(path, moduleName);
                 loadCSS(modulePath, moduleName, function() {
                     loadHTML(modulePath, moduleName, className, function() {
@@ -129,6 +119,9 @@ var Modules = null;
                             document.dispatchEvent(new CustomEvent("module_" + moduleName + "_loaded",
                                 {"detail": {"moduleName" : moduleName,"_path": modulePath, "className": className}}
                             ));
+                            if (callback) {
+                                callback();
+                            }
                         });
                     });
                 });
