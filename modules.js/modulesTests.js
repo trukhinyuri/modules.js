@@ -6,7 +6,7 @@ test("path", function() {
     var loader = new Modules.Loader(path);
     equal(loader.path, path, "Loader.path is set correctly: " + path);
 });
-test("load", function() {
+asyncTest("load", function() {
     expect(18);
     var path = "modules_forTests";
     var loader = new Modules.Loader(path);
@@ -16,7 +16,6 @@ test("load", function() {
     function whenModuleLoaded() {
         checkModuleLoaded(moduleName, modulePath, "event assert");
     }
-    stop();
     loader.load(moduleName,"loadTest", function(){
         checkModuleLoaded(moduleName, modulePath, "callback assert");
         start();
