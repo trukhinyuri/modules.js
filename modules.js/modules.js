@@ -117,9 +117,10 @@ var Modules = null;
                 loadCSS(modulePath, moduleName, function() {
                     loadHTML(modulePath, moduleName, className, function() {
                         loadJS(modulePath, moduleName, function() {
-                            document.dispatchEvent(new CustomEvent("module_" + moduleName + "_loaded",
-                                {"detail": {"moduleName" : moduleName,"_path": modulePath, "className": className}}
-                            ));
+                            var event = document.createEvent("CustomEvent");
+                            event.initCustomEvent("module_" + moduleName + "_loaded", true, true,
+                                {"detail": {"moduleName" : moduleName,"_path": modulePath, "className": className}});
+                            document.dispatchEvent(event);
                             if (callback) {
                                 callback();
                             }
