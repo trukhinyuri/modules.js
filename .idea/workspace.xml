@@ -26,18 +26,19 @@
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modules.js" afterPath="$PROJECT_DIR$/modules.js/modules.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modulesTests.js" afterPath="$PROJECT_DIR$/modules.js/modulesTests.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="5df47217-04d1-440a-8b5a-4d0f10be2759" name="crap" comment="" />
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368523376400" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368535691751" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816260904" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365406058433" ignored="false" />
-    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368474432758" ignored="false" />
+    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368537791070" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368474611784" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368523803087" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
@@ -1603,10 +1604,10 @@
     <splitter split-orientation="vertical" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="modulesTests.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="50" column="26" selection-start="2751" selection-end="2751" vertical-scroll-proportion="0.51123595">
+                <state line="31" column="96" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.9208443">
                   <folding />
                 </state>
               </provider>
@@ -1624,7 +1625,7 @@
           <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="122" column="51" selection-start="5271" selection-end="5271" vertical-scroll-proportion="0.0">
+                <state line="122" column="51" selection-start="5255" selection-end="5255" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -1634,15 +1635,6 @@
             <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="12" column="32" selection-start="480" selection-end="480" vertical-scroll-proportion="-7.5">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="modulesTests_legacy_do_not_use.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules.js/modulesTests_legacy_do_not_use.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="39" column="0" selection-start="1581" selection-end="2523" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -1697,10 +1689,19 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="122" column="56" selection-start="5276" selection-end="5276" vertical-scroll-proportion="0.72386056">
+                <state line="120" column="84" selection-start="5038" selection-end="5072" vertical-scroll-proportion="0.24128686">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
                   <folding />
                 </state>
               </provider>
@@ -1747,8 +1748,8 @@
         <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
         <option value="$PROJECT_DIR$/modules.js/tests/testsResult.html" />
         <option value="$PROJECT_DIR$/modules.js/testsResult.html" />
-        <option value="$PROJECT_DIR$/modules.js/modulesTests.js" />
         <option value="$PROJECT_DIR$/modules.js/modules.js" />
+        <option value="$PROJECT_DIR$/modules.js/modulesTests.js" />
       </list>
     </option>
   </component>
@@ -1867,7 +1868,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="reference.settingsdialog.project.gradle" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="JavaScriptLanguageLevel" value="ES5" />
     <property name="last_opened_file_path" value="$USER_HOME$/taliya_fashion/account/site/release" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -2340,7 +2341,11 @@
       <created>1368474614485</created>
       <updated>1368474614485</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Fixed bug in IE (IE10 don`t support DOM4 CustomEvent constructor). Need fixing all custom event usage (future)">
+      <created>1368523805389</created>
+      <updated>1368523805389</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -2429,7 +2434,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed modules.js load(). now callback excecuted in correct time after script loaded. Added some tests for load" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug in IE (IE10 don`t support DOM4 CustomEvent constructor). Need fixing all custom event usage (future)" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2443,7 +2448,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="add addStartupListener event handler for simplifying modules loader and example in templateDemo" />
     <MESSAGE value="merging loadTemplate and loadTemplateList to one loadTemplate method. rewriting index demo page" />
     <MESSAGE value="merging loadTemplate and loadTemplateList to one loadTemplate method. rewriting index demo page. Updating globalNavigationMenu module example" />
     <MESSAGE value="added some items to readme" />
@@ -2468,6 +2472,7 @@
     <MESSAGE value="Refactoring load" />
     <MESSAGE value="Tests for Modules.Loader.load (CSS)" />
     <MESSAGE value="Fixed modules.js load(). now callback excecuted in correct time after script loaded. Added some tests for load" />
+    <MESSAGE value="Fixed bug in IE (IE10 don`t support DOM4 CustomEvent constructor). Need fixing all custom event usage (future)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2482,11 +2487,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -2573,16 +2573,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
+    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="26" selection-start="2751" selection-end="2751" vertical-scroll-proportion="0.51123595">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="56" selection-start="5276" selection-end="5276" vertical-scroll-proportion="0.72386056">
+        <state line="122" column="51" selection-start="5255" selection-end="5255" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="96" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.9208443">
           <folding />
         </state>
       </provider>

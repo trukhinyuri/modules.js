@@ -7,11 +7,15 @@ test("path", function() {
     equal(loader.path, path, "Loader.path is set correctly: " + path);
 });
 test("load", function() {
-    expect(6);
+    expect(18);
     var path = "modules_forTests";
     var loader = new Modules.Loader(path);
     var moduleName = "test";
     var modulePath = path + "/" + moduleName + "/" + moduleName;
+    document.addEventListener("module_" + moduleName + "_loaded", whenModuleLoaded, true);
+    function whenModuleLoaded() {
+        checkModuleLoaded(moduleName, modulePath, "event assert");
+    }
     stop();
     loader.load(moduleName,"loadTest", function(){
         checkModuleLoaded(moduleName, modulePath, "callback assert");
@@ -25,7 +29,7 @@ test("load", function() {
         var loadedCSSHrefWithHost = cssLoaded.href;
         var actualLoadedCSSHref = loadedCSSHrefWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
         var expectedCSSHref = modulePath + ".css";
-        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly " + comment + ": " + actualLoadedCSSHref);
+        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
         var actualLoadedCSSClassName = cssLoaded.className;
         var expectedCSSClassName = modulesCSSprefix + moduleName;
         equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
@@ -49,7 +53,20 @@ test("load", function() {
         var expectedJsClassName = modulesJsPrefix + moduleName;
         equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
             + comment + "): " + actualLoadedJsClassName);
+        var actualLoadedJsType = jsLoaded.type;
+        var expectedJsType = "text/javascript";
+        equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+        var actualLoadedJsAsync = jsLoaded.async;
+        var expectedJsAsync = true;
+        equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
         //End Javascript loaded check
+
+        //HTML loaded check
+        var htmlLoaded = document.getElementsByClassName(moduleName)[0];
+        var expectedHtmlClassName = moduleName;
+        var actualHtmlClassName = htmlLoaded.className;
+        equal(expectedHtmlClassName, actualHtmlClassName,  "Html loaded correctly, className is found in document (" + comment + "): " + actualHtmlClassName);
+        //End HTML loaded check
     }
 });
 

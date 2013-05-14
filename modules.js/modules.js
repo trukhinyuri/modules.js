@@ -50,19 +50,19 @@ var Modules = null;
                 }
             }
         }
-        function renderHTML(responseText, name, className, callback) {
+        function renderHTML(responseText, className, callback) {
             var elementClasses = document.getElementsByClassName(className);
             var forEach = Array.prototype.forEach;
             forEach.call(elementClasses, function(elementClass) {
                 elementClass.innerHTML = responseText;
             });
             if (callback) {
-                callback(name);
+                callback();
             }
         }
         function loadHTML(path, name, className, callback) {
             function loadedHandler(responseText, name) {
-                renderHTML(responseText, name, className, callback);
+                renderHTML(responseText, className, callback);
             }
             loadHTMLInMemory(path, name, loadedHandler);
         }
