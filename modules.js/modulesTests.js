@@ -1,14 +1,22 @@
 "use strict";
 module("Modules.Loader");
 test("path", function() {
-    expect(2);
-    var path = "modules_forTests";
-    var loader = new Modules.Loader(path);
-    equal(loader.path, path, "Loader.path is set correctly: " + loader.path);
+    expect(4);
+    var expectedPath = "modules_forTests";
+    var loader = new Modules.Loader(expectedPath);
+    equal(loader.path, expectedPath, "Loader.path is set correctly: " + loader.path);
+    throws(
+        function() {
+           loader.path = "unexpectedPath";
+        }, Error,
+        "Trying to set loader.path without constructor. Throw exception, loader.path isn`t changed: " + loader.path
+    );
     var loaderWithoutPath = new Modules.Loader();
-    var autoPath = "";
-    equal(loaderWithoutPath.path, autoPath, "Loader.path is set automatically on current directory, " +
+    var expectedAutoPath = "";
+    equal(loaderWithoutPath.path, expectedAutoPath, "Loader.path is set automatically on current directory, " +
         "if path isn`t specified in constructor. " + loaderWithoutPath.path);
+    var loaderWithSlash = new Modules.Loader("modules_forTests/");
+    equal(expectedPath, loaderWithSlash.path, "Loader.path with slash in end of path. Slash removed: " + loaderWithSlash.path);
 });
 asyncTest("load", function() {
     expect(18);

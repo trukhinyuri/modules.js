@@ -6,6 +6,9 @@ var Modules = null;
     Modules.Loader = (function () {
         function Loader(path) {
             if (path != undefined) {
+                if (path[path.length-1] === "/") {
+                    path = path.substring(0, path.length - 1);
+                }
                 this._path = path;
             }
             else {
