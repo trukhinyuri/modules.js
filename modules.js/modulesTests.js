@@ -1,10 +1,14 @@
 "use strict";
 module("Modules.Loader");
 test("path", function() {
-    expect(1);
+    expect(2);
     var path = "modules_forTests";
     var loader = new Modules.Loader(path);
-    equal(loader.path, path, "Loader.path is set correctly: " + path);
+    equal(loader.path, path, "Loader.path is set correctly: " + loader.path);
+    var loaderWithoutPath = new Modules.Loader();
+    var autoPath = "";
+    equal(loaderWithoutPath.path, autoPath, "Loader.path is set automatically on current directory, " +
+        "if path isn`t specified in constructor. " + loaderWithoutPath.path);
 });
 asyncTest("load", function() {
     expect(18);
@@ -68,6 +72,17 @@ asyncTest("load", function() {
         //End HTML loaded check
     }
 });
+//asyncTest("loadHTML", function() {
+//    expect(1);
+//    var path = "modules_forTests";
+//    var loader = new Modules.Loader(path);
+//    var fileName = "test";
+//    var filePath = path + "/" + fileName;
+//    loader.loadHTML(fileName, "loadHTMLTest", function(){
+//        checkHTMLLoaded(fileName, modulePath, "callback assert");
+//        start();
+//    });
+//});
 
 //    loader.path = "custom error path";
 //    ok(loader.path == path, "Loader.path is set correctly after rewrite without object instantiation." +

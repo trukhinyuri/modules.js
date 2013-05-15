@@ -25,19 +25,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modules.js" afterPath="$PROJECT_DIR$/modules.js/modules.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modulesTests.js" afterPath="$PROJECT_DIR$/modules.js/modulesTests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modules_forTests/test/test.html" afterPath="$PROJECT_DIR$/modules.js/modules_forTests/test/test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/testsResult.html" afterPath="$PROJECT_DIR$/modules.js/testsResult.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="5df47217-04d1-440a-8b5a-4d0f10be2759" name="crap" comment="" />
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368535691751" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368607895653" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816260904" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365406058433" ignored="false" />
-    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368538909719" ignored="false" />
+    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368607641439" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368538313448" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368538920498" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
@@ -135,8 +138,8 @@
     <file path="/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368018216162" ignored="false" />
     <file path="/test.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350860684838" ignored="false" />
     <file path="/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367607939512" ignored="false" />
-    <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350863224908" ignored="false" />
-    <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368428674699" ignored="false" />
+    <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368603352383" ignored="false" />
+    <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368601019160" ignored="false" />
     <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359288866846" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116646" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116646" ignored="false" />
@@ -552,7 +555,7 @@
     <file path="/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360598494824" ignored="false" />
     <file path="/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360599579142" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368428501334" ignored="false" />
+    <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368542250843" ignored="false" />
     <file path="/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365350969992" ignored="false" />
     <file path="/fileInfo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360593361063" ignored="false" />
     <file path="/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360598976705" ignored="false" />
@@ -631,7 +634,7 @@
     <file path="$USER_HOME$/semantics/src/main/webapp/index_content_links.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/login.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/SemanticsFX/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361012683986" ignored="false" />
-    <file path="/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368428190199" ignored="false" />
+    <file path="/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368540552614" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/SemanticsFX/src/main/java/com/trukhin/MainApp.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360829190393" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116642" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v10/weblogic-ejb-jar_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116647" ignored="false" />
@@ -1603,10 +1606,19 @@
     <splitter split-orientation="vertical" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="modulesTests.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="69" column="3" selection-start="3868" selection-end="3868" vertical-scroll-proportion="0.4353562">
+                <state line="10" column="9" selection-start="423" selection-end="423" vertical-scroll-proportion="0.39577836">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -1624,7 +1636,7 @@
           <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="122" column="51" selection-start="5255" selection-end="5255" vertical-scroll-proportion="0.0">
+                <state line="127" column="51" selection-start="5384" selection-end="5384" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -1633,7 +1645,7 @@
           <file leaf-file-name="testsResult.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="32" selection-start="480" selection-end="480" vertical-scroll-proportion="-7.5">
+                <state line="13" column="24" selection-start="505" selection-end="505" vertical-scroll-proportion="-8.125">
                   <folding />
                 </state>
               </provider>
@@ -1688,19 +1700,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="120" column="84" selection-start="5038" selection-end="5072" vertical-scroll-proportion="-0.36193028">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+                <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -1733,7 +1736,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js" />
         <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/index.html" />
@@ -1747,8 +1749,9 @@
         <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
         <option value="$PROJECT_DIR$/modules.js/tests/testsResult.html" />
         <option value="$PROJECT_DIR$/modules.js/testsResult.html" />
-        <option value="$PROJECT_DIR$/modules.js/modules.js" />
+        <option value="$PROJECT_DIR$/modules.js/modules_forTests/test/test.html" />
         <option value="$PROJECT_DIR$/modules.js/modulesTests.js" />
+        <option value="$PROJECT_DIR$/modules.js/modules.js" />
       </list>
     </option>
   </component>
@@ -2348,7 +2351,11 @@
       <created>1368538317033</created>
       <updated>1368538317033</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Modules.Loader.load tests complete with event assert and callback assert">
+      <created>1368538922959</created>
+      <updated>1368538922959</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -2490,11 +2497,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="58" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.0" />
@@ -2562,13 +2564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="32" selection-start="480" selection-end="480" vertical-scroll-proportion="-7.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -2576,23 +2571,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.html">
+    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
+    <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="51" selection-start="5255" selection-end="5255" vertical-scroll-proportion="0.0">
+        <state line="13" column="24" selection-start="505" selection-end="505" vertical-scroll-proportion="-8.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="26" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="3" selection-start="3868" selection-end="3868" vertical-scroll-proportion="0.4353562">
+        <state line="10" column="9" selection-start="423" selection-end="423" vertical-scroll-proportion="0.39577836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

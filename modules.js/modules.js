@@ -1,10 +1,15 @@
-//Version 0.99
+//Version 1.0-snapshot
 "use strict";
 var Modules = null;
 (function (Modules) {
     Modules.Loader = (function () {
         function Loader(path) {
-            this._path = path;
+            if (path != undefined) {
+                this._path = path;
+            }
+            else {
+                this._path = "";
+            }
         }
         Loader.prototype = {
             get path () {
