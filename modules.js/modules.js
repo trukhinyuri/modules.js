@@ -142,9 +142,6 @@ var Modules = null;
                 });
             }
         };
-//        Loader.prototype.unload = function() {
-//
-//        };
         Loader.prototype.loadHTML = function(fileName, className, callback) {
             loadAsync(this._path, fileName, className, callback);
             function loadAsync(path, fileName, className, callback) {
@@ -227,7 +224,7 @@ var Modules = null;
                             result += stepResult;
                         }
                     }
-                    renderHTML(result, templateName, className, function(){
+                    renderHTML(result, className, function(){
                         loadJS(templatePath, templateName, function() {
                             document.dispatchEvent(new CustomEvent("template_" + templateName + "_loaded",
                                 {"detail": {"templateName" : templateName, "_path": templatePath, "className": className}}
