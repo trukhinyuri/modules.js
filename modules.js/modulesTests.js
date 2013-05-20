@@ -19,7 +19,7 @@ test("path", function() {
     equal(expectedPath, loaderWithSlash.path, "Loader.path with slash in end of path. Slash removed: " + loaderWithSlash.path);
 });
 asyncTest("load", function() {
-    expect(28);
+    expect(32);
     var path = "modules_forTests";
     var loader = new Modules.Loader(path);
     var moduleName = "test";
@@ -80,58 +80,41 @@ asyncTest("load", function() {
         var expectedHtmlClassName = moduleName;
         var expectedRootClassName = className;
         for (var i = 0; i < htmlsLoadedLength; i++) {
-            var moduleIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_moduleid");
-            ok(moduleIDAttribute != undefined, "Html loaded correctly, modulesjs_moduleID defined correctly (" + comment + "): " + moduleIDAttribute);
+            var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
+            var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
+            ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+            ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
             equal(expectedHtmlClassName, htmlsLoaded[i].className,  "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
-                + "; modulesjs_moduleID: " + moduleIDAttribute);
+                + "; modulesjs_moduleID: " + itemIDAttribute);
             equal(expectedRootClassName, htmlsLoaded[i].parentNode.className, "Html loaded in correct root class (" + comment+ "): " + htmlsLoaded[i].parentNode.className
-                + "; modulesjs_moduleID: " + moduleIDAttribute);
+                + "; modulesjs_moduleID: " + itemIDAttribute);
         }
         //End HTML loaded check
     }
 });
 //asyncTest("loadHTML", function() {
 //    expect(1);
-//    var path = "modules_forTests";
+//    var path = "files_forTests";
 //    var loader = new Modules.Loader(path);
 //    var fileName = "test";
 //    var filePath = path + "/" + fileName;
-//    loader.loadHTML(fileName, "loadHTMLTest", function(){
-//        checkHTMLLoaded(fileName, modulePath, "callback assert");
+//    var containerClassName = "loadHTMLTest";
+//    loader.loadHTML(fileName, containerClassName, function(){
+//        checkHTMLLoaded(fileName, filePath, "callback assert");
 //        start();
 //    });
-//});
-
-//    loader.path = "custom error path";
-//    ok(loader.path == path, "Loader.path is set correctly after rewrite without object instantiation." +
-//        " Path is readonly property.");
-//    loader.load("test", "content", checkModuleLoading);
-//    function checkModuleLoading() {
-//        var modulesCSSprefix = "modulesjs-css-";
-//        var cssLoaded = document.getElementsByClassName(modulesCSSprefix + name)[0];
-//        alert(cssLoaded);
+//    function checkHTMLLoaded(fileName, filePath, comment) {
+//        var htmlsLoaded = document.getElementsByClassName(fileName);
+//        var htmlsLoadedLength = htmlsLoaded.length;
+//        var expectedHtmlClassName = moduleName;
+//        var expectedRootClassName = className;
+//        for (var i = 0; i < htmlsLoadedLength; i++) {
+//            var moduleIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_moduleid");
+//            ok(moduleIDAttribute != undefined, "Html loaded correctly, modulesjs_moduleID defined correctly (" + comment + "): " + moduleIDAttribute);
+//            equal(expectedHtmlClassName, htmlsLoaded[i].className,  "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+//                + "; modulesjs_moduleID: " + moduleIDAttribute);
+//            equal(expectedRootClassName, htmlsLoaded[i].parentNode.className, "Html loaded in correct root class (" + comment+ "): " + htmlsLoaded[i].parentNode.className
+//                + "; modulesjs_moduleID: " + moduleIDAttribute);
+//        }
 //    }
-//    var _path = "modules";
-//    var name = "test";
-//    modules.load(_path, name, "header");
-//    var css = document.getElementsByClassName("modulesjs-css-" + name)[0];
-//    ok(css.href != undefined, "css loaded");
-//    var html = document.getElementsByClassName(name)[0];
-//    ok(html.textContent == 'Hello', "html loaded");
-//    var js = document.getElementsByClassName("modulesjs-js-" + name)[0];
-//    ok(js != undefined, "js loaded");
-//    //load module in different place
-//    modules.load(_path, name, "footer");
-//    var cssCount = document.getElementsByClassName("modulesjs-css-" + name);
-//    ok(cssCount.length == 1, "module`s css loaded only once");
-//    var jsCount = document.getElementsByClassName("modulesjs-js-" + name);
-//    ok(jsCount.length == 1, "module`s js loaded only once");
-//    var html = document.getElementsByClassName(name)[1];
-//    ok(html.textContent == 'Hello', "html loaded in footer too");
-//});
-//test("Modules.Events", function() {
-//
-//});
-//test("Modules.Server", function() {
-//
 //});

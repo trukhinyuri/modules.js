@@ -59,20 +59,21 @@ var Modules = null;
                 }
             }
         }
-        function renderHTML(responseText, className, callback) {
+        function renderHTML(responseText, className, htmlItemType, callback) {
             var elementClasses = document.getElementsByClassName(className);
             var classesCount = elementClasses.length;
-            for (var htmlModuleID = 0; htmlModuleID < classesCount; htmlModuleID++) {
-                elementClasses[htmlModuleID].setAttribute("data-" + "modulesjs_moduleid", htmlModuleID.toString());
-                elementClasses[htmlModuleID].innerHTML = responseText;
+            for (var htmlID = 0; htmlID < classesCount; htmlID++) {
+                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
+                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", htmlItemType);
+                elementClasses[htmlID].innerHTML = responseText;
             }
             if (callback) {
                 callback();
             }
         }
-        function loadHTML(path, name, className, callback) {
+        function loadHTML(path, name, className,attributeType, callback) {
             function loadedHandler(responseText, name) {
-                renderHTML(responseText, className, callback);
+                renderHTML(responseText, className, attributeType, callback);
             }
             loadHTMLInMemory(path, name, loadedHandler);
         }
@@ -122,13 +123,14 @@ var Modules = null;
         }
         Loader.prototype.load = function (moduleName, className, callback) {
             var path = this.path;
+            var htmlItemType = "module";
             setTimeout(function(){
-                load(path, moduleName, className, callback);
+                loadSync(path, moduleName, className, htmlItemType, callback);
             }, 0);
-            function load (path, moduleName, className, callback) {
+            function loadSync (path, moduleName, className, htmlItemType, callback) {
                 var modulePath = buildModulePath(path, moduleName);
                 loadCSS(modulePath, moduleName, function() {
-                    loadHTML(modulePath, moduleName, className, function() {
+                    loadHTML(modulePath, moduleName, className, htmlItemType, function() {
                         loadJS(modulePath, moduleName, function() {
                             var event = document.createEvent("CustomEvent");
                             event.initCustomEvent("module_" + moduleName + "_loaded", true, true,
@@ -143,15 +145,15 @@ var Modules = null;
             }
         };
         Loader.prototype.loadHTML = function(fileName, className, callback) {
-            loadAsync(this._path, fileName, className, callback);
-            function loadAsync(path, fileName, className, callback) {
-                setTimeout(function(){
-                    loadSync(path, fileName, className, callback);
-                }, 0);
-            }
-            function loadSync(path, fileName, className, callback) {
+            var path = this.path;
+            var htmlItemType = "file";
+            setTimeout(function(){
+                loadSync(path, fileName, className, htmlItemType, callback);
+            }, 0);
+            function loadSync(path, fileName, className, htmlItemType, callback) {
+//                if ( fileName.length )
                 var htmlPath = buildFilePath(path, fileName);
-                loadHTML(htmlPath, fileName, className, function() {
+                loadHTML(htmlPath, fileName, className, htmlItemType, function() {
                     document.dispatchEvent(new CustomEvent("html_" + fileName + "_loaded",
                         {"detail": {"fileName" : fileName, "htmlPath": htmlPath, "_path" : path, "className": className}}
                     ));
