@@ -78,6 +78,7 @@ asyncTest("load", function() {
         var htmlsLoaded = document.getElementsByClassName(moduleName);
         var htmlsLoadedLength = htmlsLoaded.length;
         var expectedHtmlClassName = moduleName;
+        var expectedHtmlType = "module";
         var expectedRootClassName = className;
         for (var i = 0; i < htmlsLoadedLength; i++) {
             var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
@@ -106,8 +107,9 @@ asyncTest("load", function() {
 //    function checkHTMLLoaded(fileName, filePath, comment) {
 //        var htmlsLoaded = document.getElementsByClassName(fileName);
 //        var htmlsLoadedLength = htmlsLoaded.length;
-//        var expectedHtmlClassName = moduleName;
-//        var expectedRootClassName = className;
+//        var expectedHtmlClassName = fileName;
+//        var expectedHtmlType = "file";
+//        var expectedRootClassName = containerClassName;
 //        for (var i = 0; i < htmlsLoadedLength; i++) {
 //            var moduleIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_moduleid");
 //            ok(moduleIDAttribute != undefined, "Html loaded correctly, modulesjs_moduleID defined correctly (" + comment + "): " + moduleIDAttribute);
