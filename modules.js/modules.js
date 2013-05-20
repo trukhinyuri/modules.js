@@ -63,7 +63,7 @@ var Modules = null;
             var elementClasses = document.getElementsByClassName(className);
             var classesCount = elementClasses.length;
             for (var htmlModuleID = 0; htmlModuleID < classesCount; htmlModuleID++) {
-                elementClasses[htmlModuleID].dataset.modulesjs_moduleID = htmlModuleID;
+                elementClasses[htmlModuleID].setAttribute("data-" + "modulesjs_moduleid", htmlModuleID.toString());
                 elementClasses[htmlModuleID].innerHTML = responseText;
             }
             if (callback) {

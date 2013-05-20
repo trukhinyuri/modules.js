@@ -80,11 +80,12 @@ asyncTest("load", function() {
         var expectedHtmlClassName = moduleName;
         var expectedRootClassName = className;
         for (var i = 0; i < htmlsLoadedLength; i++) {
-            ok(htmlsLoaded[i].parentNode.dataset.modulesjs_moduleID != undefined, "Html loaded correctly, modulesjs_moduleID defined correctly (" + comment + "): " + htmlsLoaded[i].parentNode.dataset.modulesjs_moduleID);
+            var moduleIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_moduleid");
+            ok(moduleIDAttribute != undefined, "Html loaded correctly, modulesjs_moduleID defined correctly (" + comment + "): " + moduleIDAttribute);
             equal(expectedHtmlClassName, htmlsLoaded[i].className,  "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
-                + "; modulesjs_moduleID: " + htmlsLoaded[i].parentNode.dataset.modulesjs_moduleID);
+                + "; modulesjs_moduleID: " + moduleIDAttribute);
             equal(expectedRootClassName, htmlsLoaded[i].parentNode.className, "Html loaded in correct root class (" + comment+ "): " + htmlsLoaded[i].parentNode.className
-                + "; modulesjs_moduleID: " + htmlsLoaded[i].parentNode.dataset.modulesjs_moduleID);
+                + "; modulesjs_moduleID: " + moduleIDAttribute);
         }
         //End HTML loaded check
     }
