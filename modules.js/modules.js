@@ -116,6 +116,10 @@ var Modules = null;
             element.setAttribute('uuid', itemNumber);
             return element.outerHTML;
         }
+        function buildModulePath(path, name) {
+            var result = path + "/" + name + "/" + name;
+            return result;
+        }
         Loader.prototype.load = function (moduleName, className, callback) {
             var path = this.path;
             setTimeout(function(){
@@ -136,12 +140,11 @@ var Modules = null;
                         });
                     });
                 });
-                function buildModulePath(path, name) {
-                    var result = path + "/" + name + "/" + name;
-                    return result;
-                }
             }
         };
+//        Loader.prototype.unload = function() {
+//
+//        };
         Loader.prototype.loadHTML = function(fileName, className, callback) {
             loadAsync(this._path, fileName, className, callback);
             function loadAsync(path, fileName, className, callback) {
