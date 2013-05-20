@@ -93,6 +93,8 @@ asyncTest("load", function() {
         //End HTML loaded check
     }
 });
+//TODO: getElementByClassName with elementType method in modules.js. More simple getElementByClassName.
+//TODO: when we get Elements by ClassName, check elementType in tests.
 //asyncTest("loadHTML", function() {
 //    expect(1);
 //    var path = "files_forTests";
