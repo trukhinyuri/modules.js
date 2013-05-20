@@ -27,18 +27,19 @@
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modules.js" afterPath="$PROJECT_DIR$/modules.js/modules.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modulesTests.js" afterPath="$PROJECT_DIR$/modules.js/modulesTests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/testsResult.html" afterPath="$PROJECT_DIR$/modules.js/testsResult.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="5df47217-04d1-440a-8b5a-4d0f10be2759" name="crap" comment="" />
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368615142310" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369040573137" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816260904" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365406058433" ignored="false" />
-    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368617532622" ignored="false" />
+    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369042342936" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368608360941" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368984898394" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
@@ -133,10 +134,10 @@
     <file path="/jquery.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350654463193" ignored="false" />
     <file path="/require-config.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350841982138" ignored="false" />
     <file path="/testsuite.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350843157347" ignored="false" />
-    <file path="/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368018216162" ignored="false" />
+    <file path="/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368859709743" ignored="false" />
     <file path="/test.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1350860684838" ignored="false" />
-    <file path="/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1367607939512" ignored="false" />
-    <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368603352383" ignored="false" />
+    <file path="/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368855369832" ignored="false" />
+    <file path="/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369033339865" ignored="false" />
     <file path="/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368601019160" ignored="false" />
     <file path="/globalNavigationMenu.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1359288866846" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringIntegration/lib/spring-integration-support.jar!/resources/schemas/feed/spring-integration-feed-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116646" ignored="false" />
@@ -496,7 +497,7 @@
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-faces-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116638" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-1.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116638" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/SpringWebflow/lib/SpringWebflow.jar!/resources/schemas/spring-webflow-2.0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116638" ignored="false" />
-    <file path="/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361780754525" ignored="false" />
+    <file path="/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368860547391" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354544632681" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354520507061" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/_index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354715045102" ignored="false" />
@@ -537,7 +538,7 @@
     <file path="/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365002661903" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/help/help.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/js/libs/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348091" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/publicAPI/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/publicAPI/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368794268486" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/modules/globalNavigationMenu/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357820413360" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360913800005" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
@@ -553,7 +554,7 @@
     <file path="/upload.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360598494824" ignored="false" />
     <file path="/upload.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360599579142" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
-    <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368542250843" ignored="false" />
+    <file path="$USER_HOME$/semantics/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368793761166" ignored="false" />
     <file path="/upload.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365350969992" ignored="false" />
     <file path="/fileInfo.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360593361063" ignored="false" />
     <file path="/fileInfo.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360598976705" ignored="false" />
@@ -590,10 +591,10 @@
     <file path="/fileInfo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365004516776" ignored="false" />
     <file path="$USER_HOME$/Library/Application Support/IntelliJIdea12/Kotlin/lib/kotlin-plugin.jar!/jet/Unit.jet" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365082514813" ignored="false" />
     <file path="/fragment.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360822817428" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/privateAPI/ConfigREST.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/privateAPI/ConfigREST.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368794345818" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/PrivateServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/PublicServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/privateAPI/UnstructuredDataExchange.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/PublicServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368794153818" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/privateAPI/UnstructuredDataExchange.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368794350946" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/FileInfoInMemory.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/FileUploadInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/JAXBContextResolver.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361735173209" ignored="false" />
@@ -632,7 +633,7 @@
     <file path="$USER_HOME$/semantics/src/main/webapp/index_content_links.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/login.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/SemanticsFX/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361012683986" ignored="false" />
-    <file path="/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368540552614" ignored="false" />
+    <file path="/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368793499632" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/SemanticsFX/src/main/java/com/trukhin/MainApp.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360829190393" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116642" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v10/weblogic-ejb-jar_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116647" ignored="false" />
@@ -643,7 +644,7 @@
     <file path="$USER_HOME$/semantics/src/main/resources/META-INF/ejb-jar.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361798535604" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/WEB-INF/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/WEB-INF/beans.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
-    <file path="$USER_HOME$/semantics/src/main/webapp/WEB-INF/glassfish-web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
+    <file path="$USER_HOME$/semantics/src/main/webapp/WEB-INF/glassfish-web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368793046321" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/observers/DBTransactions.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1363262408611" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/js/bootstrap-alert.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/js/bootstrap-button.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365083348617" ignored="false" />
@@ -1467,7 +1468,7 @@
     <file path="$USER_HOME$/Library/Application Support/IntelliJIdea12/Kotlin/lib/kotlin-plugin.jar!/jet/Library.jet" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365082514812" ignored="false" />
     <file path="$USER_HOME$/Library/Application Support/IntelliJIdea12/Kotlin/lib/kotlin-plugin.jar!/jet/Functions.jet" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365082514813" ignored="false" />
     <file path="$USER_HOME$/Library/Application Support/IntelliJIdea12/Kotlin/lib/kotlin-plugin.jar!/jet/Nothing.jet" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365082514813" ignored="false" />
-    <file path="/glassfish-web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365402809261" ignored="false" />
+    <file path="/glassfish-web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368792417745" ignored="false" />
     <file path="/cloud.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365404762958" ignored="false" />
     <file path="/cloud.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365405932690" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/config/cloud.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1366004180898" ignored="false" />
@@ -1520,7 +1521,7 @@
     <file path="/photo_2.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368016684202" ignored="false" />
     <file path="/photo_3.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368016691546" ignored="false" />
     <file path="/photo_4.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368016700356" ignored="false" />
-    <file path="/price.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368016708576" ignored="false" />
+    <file path="/price.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368695959879" ignored="false" />
     <file path="/service.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368016716993" ignored="false" />
     <file path="/specialist.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368016725429" ignored="false" />
     <file path="$USER_HOME$/semantics.py/run.py" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368019483334" ignored="false" />
@@ -1530,6 +1531,15 @@
     <file path="$USER_HOME$/semantics/src/test/resources/jsTestDriver.conf" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368363208973" ignored="false" />
     <file path="/jsTestDriver.conf" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368363207803" ignored="false" />
     <file path="$USER_HOME$/semantics/src/test/javascript/modules.js/testsResult.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368363150986" ignored="false" />
+    <file path="$USER_HOME$/Desktop/stroy/.idea/misc.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368860397392" ignored="false" />
+    <file path="$USER_HOME$/Desktop/stroy/.idea/workspace.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368893345119" ignored="false" />
+    <file path="$USER_HOME$/Desktop/stroy/struktura/price.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368695959124" ignored="false" />
+    <file path="$USER_HOME$/Desktop/stroy/index.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368859835303" ignored="false" />
+    <file path="$USER_HOME$/int/test.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368855386758" ignored="false" />
+    <file path="$USER_HOME$/int/test.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369033986785" ignored="false" />
+    <file path="$USER_HOME$/Desktop/stroy/price3tabl/polprice.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368859158745" ignored="false" />
+    <file path="$USER_HOME$/Desktop/stroy/price3tabl/stenprice.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368859158745" ignored="false" />
+    <file path="$USER_HOME$/Desktop/stroy/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368860566022" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1554,7 +1564,6 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -1591,6 +1600,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -1607,34 +1617,7 @@
           <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="11" selection-start="305" selection-end="305" vertical-scroll-proportion="0.35620052">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="test.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="test.css" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="131" column="51" selection-start="5559" selection-end="5559" vertical-scroll-proportion="0.0">
+                <state line="86" column="99" selection-start="5351" selection-end="5351" vertical-scroll-proportion="0.6976744">
                   <folding />
                 </state>
               </provider>
@@ -1644,6 +1627,15 @@
             <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="13" column="24" selection-start="505" selection-end="505" vertical-scroll-proportion="-8.125">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test.css" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -1701,9 +1693,11 @@
           <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="17" selection-start="358" selection-end="358" vertical-scroll-proportion="-0.08042896">
+                <state line="126" column="73" selection-start="5267" selection-end="5267" vertical-scroll-proportion="3.2478633">
                   <folding>
-                    <element signature="n#!!doc" expanded="true" />
+                    <marker date="1369040605000" expanded="true" signature="4997:16721" placeholder="{...}" />
+                    <marker date="1369040605000" expanded="true" signature="4997:10848" placeholder="{...}" />
+                    <marker date="1369040605000" expanded="true" signature="4997:6077" placeholder="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -1736,7 +1730,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/fileInfo/fileInfo.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/config/cloud.json" />
@@ -1748,9 +1741,10 @@
         <option value="$PROJECT_DIR$/js/tests/testsResult.html" />
         <option value="$PROJECT_DIR$/js/tests/modulesTests.js" />
         <option value="$PROJECT_DIR$/modules.js/tests/testsResult.html" />
-        <option value="$PROJECT_DIR$/modules.js/testsResult.html" />
         <option value="$PROJECT_DIR$/modules.js/modules_forTests/test/test.html" />
+        <option value="$PROJECT_DIR$/modules.js/modules_forTests/test/test.js" />
         <option value="$PROJECT_DIR$/modules.js/modules.js" />
+        <option value="$PROJECT_DIR$/modules.js/testsResult.html" />
         <option value="$PROJECT_DIR$/modules.js/modulesTests.js" />
       </list>
     </option>
@@ -1796,14 +1790,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files" />
-        <subPane subId="All" />
-      </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1836,30 +1823,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules_forTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1870,20 +1836,20 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="JavaScriptLanguageLevel" value="ES5" />
-    <property name="last_opened_file_path" value="$USER_HOME$/taliya_fashion/account/site/release" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/stroy" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="JavaScriptPreferStrict" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -1919,35 +1885,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="GLUE" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1976,6 +1913,35 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="GLUE" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -1989,13 +1955,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -2017,6 +1976,13 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <list size="0" />
@@ -2363,50 +2329,56 @@
       <created>1368608362971</created>
       <updated>1368608362972</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Added tests for path. path has only getter and must be initialized in constructor only.">
+      <created>1368617628348</created>
+      <updated>1368617628348</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="68467000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="22" width="1676" height="1028" extended-state="6" />
-    <editor active="true" />
+    <frame x="4" y="22" width="1676" height="1028" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15" sideWeight="0.9233129" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14977974" sideWeight="0.9233129" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.6721854" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Kotlin" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19375" sideWeight="0.49756888" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19375" sideWeight="0.49756888" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28373984" sideWeight="0.67083335" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6721854" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22520325" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25092024" sideWeight="0.85" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25092024" sideWeight="0.85022026" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969324" sideWeight="0.8175824" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="IntellijBashOrg" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="IntellijBashOrg" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32604373" sideWeight="0.49754602" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329235" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="21" side_tool="false" content_ui="tabs" />
+      <window_info id="Kotlin" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
+      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329235" sideWeight="0.5" order="20" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3988604" sideWeight="0.49675852" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2452,7 +2424,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added (C)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added tests for path. path has only getter and must be initialized in constructor only." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2466,7 +2438,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="loadTemplateList fix for Chrome and others." />
     <MESSAGE value="fix for readme" />
     <MESSAGE value="Template variable changes from $variable to $variable; . !!Breaking changes!!" />
     <MESSAGE value="Optimize renderHTML for speed (when using for: 0.896ms), (when using forEach: 0.235ms)" />
@@ -2491,6 +2462,7 @@
     <MESSAGE value="Modules.Loader.load tests complete with event assert and callback assert" />
     <MESSAGE value="When you not specify path in Loader constructor, path is set on current directory &quot;&quot;;" />
     <MESSAGE value="Added (C)" />
+    <MESSAGE value="Added tests for path. path has only getter and must be initialized in constructor only." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2519,22 +2491,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="131" column="89" selection-start="7069" selection-end="7069" vertical-scroll-proportion="9.447115" />
       </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="42" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="3" column="42" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules.js/modulesTests_legacy_do_not_use.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="1581" selection-end="2523" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="39" column="0" selection-start="1581" selection-end="2523" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="85" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.css">
@@ -2572,14 +2547,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.css">
+    <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="126" column="73" selection-start="5267" selection-end="5267" vertical-scroll-proportion="3.2478633">
+          <folding>
+            <marker date="1369040605000" expanded="true" signature="4997:16721" placeholder="{...}" />
+            <marker date="1369040605000" expanded="true" signature="4997:10848" placeholder="{...}" />
+            <marker date="1369040605000" expanded="true" signature="4997:6077" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.js">
+    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -2593,23 +2572,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="26" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="51" selection-start="5559" selection-end="5559" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="11" selection-start="305" selection-end="305" vertical-scroll-proportion="0.35620052">
+        <state line="86" column="99" selection-start="5351" selection-end="5351" vertical-scroll-proportion="0.6976744">
           <folding />
         </state>
       </provider>

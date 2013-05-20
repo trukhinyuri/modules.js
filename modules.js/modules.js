@@ -1,5 +1,5 @@
+//version 1.0-snapshot
 // Copyright (C) 2012–2013 Yuri V. Trukhin
-//Version 1.0-snapshot
 "use strict";
 var Modules = null;
 (function (Modules) {
@@ -22,7 +22,7 @@ var Modules = null;
         }
 
         function loadCSS(path, name, callback) {
-            var modulesCSSprefix = "modulesjs-css-";
+            var modulesCSSprefix = "modulesjs_css_";
             var cssLoaded = document.getElementsByClassName(modulesCSSprefix + name)[0];
             if (!cssLoaded) {
                 var css = document.createElement('link');
@@ -37,7 +37,7 @@ var Modules = null;
             }
         }
         function loadJS (path, name, callback) {
-            var modulesJsPrefix = "modulesjs-js-";
+            var modulesJsPrefix = "modulesjs_js_";
             var jsLoaded = document.getElementsByClassName(modulesJsPrefix + name)[0];
             if (jsLoaded) {
                 document.getElementsByTagName("head")[0].removeChild(jsLoaded);
@@ -61,10 +61,11 @@ var Modules = null;
         }
         function renderHTML(responseText, className, callback) {
             var elementClasses = document.getElementsByClassName(className);
-            var forEach = Array.prototype.forEach;
-            forEach.call(elementClasses, function(elementClass) {
-                elementClass.innerHTML = responseText;
-            });
+            var classesCount = elementClasses.length;
+            for (var htmlModuleID = 0; htmlModuleID < classesCount; htmlModuleID++) {
+                elementClasses[htmlModuleID].dataset.modulesjs_moduleID = htmlModuleID;
+                elementClasses[htmlModuleID].innerHTML = responseText;
+            }
             if (callback) {
                 callback();
             }
@@ -115,7 +116,6 @@ var Modules = null;
             element.setAttribute('uuid', itemNumber);
             return element.outerHTML;
         }
-
         Loader.prototype.load = function (moduleName, className, callback) {
             var path = this.path;
             setTimeout(function(){

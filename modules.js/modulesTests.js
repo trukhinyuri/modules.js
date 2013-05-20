@@ -19,23 +19,25 @@ test("path", function() {
     equal(expectedPath, loaderWithSlash.path, "Loader.path with slash in end of path. Slash removed: " + loaderWithSlash.path);
 });
 asyncTest("load", function() {
-    expect(18);
+    expect(28);
     var path = "modules_forTests";
     var loader = new Modules.Loader(path);
     var moduleName = "test";
+    var className = "loadTest";
     var modulePath = path + "/" + moduleName + "/" + moduleName;
-    document.addEventListener("module_" + moduleName + "_loaded", whenModuleLoaded, true);
-    function whenModuleLoaded() {
+    document.addEventListener("module_" + moduleName + "_loaded", whenModuleLoadedWithEvent, true);
+    function whenModuleLoadedWithEvent() {
         checkModuleLoaded(moduleName, modulePath, "event assert");
     }
-    loader.load(moduleName,"loadTest", function(){
+    function whenModuleLoadedWithCallback() {
         checkModuleLoaded(moduleName, modulePath, "callback assert");
         start();
-    });
+    }
+    loader.load(moduleName,className, whenModuleLoadedWithCallback);
 
     function checkModuleLoaded(moduleName, modulePath, comment) {
         //CSS loaded check
-        var modulesCSSprefix = "modulesjs-css-";
+        var modulesCSSprefix = "modulesjs_css_";
         var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
         var loadedCSSHrefWithHost = cssLoaded.href;
         var actualLoadedCSSHref = loadedCSSHrefWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
@@ -53,7 +55,7 @@ asyncTest("load", function() {
         //End CSS Loaded check
 
         //Javascript loaded check
-        var modulesJsPrefix = "modulesjs-js-";
+        var modulesJsPrefix = "modulesjs_js_";
 
         var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
         var loadedJsSrcWithHost = jsLoaded.src;
@@ -73,10 +75,17 @@ asyncTest("load", function() {
         //End Javascript loaded check
 
         //HTML loaded check
-        var htmlLoaded = document.getElementsByClassName(moduleName)[0];
+        var htmlsLoaded = document.getElementsByClassName(moduleName);
+        var htmlsLoadedLength = htmlsLoaded.length;
         var expectedHtmlClassName = moduleName;
-        var actualHtmlClassName = htmlLoaded.className;
-        equal(expectedHtmlClassName, actualHtmlClassName,  "Html loaded correctly, className is found in document (" + comment + "): " + actualHtmlClassName);
+        var expectedRootClassName = className;
+        for (var i = 0; i < htmlsLoadedLength; i++) {
+            ok(htmlsLoaded[i].parentNode.dataset.modulesjs_moduleID != undefined, "Html loaded correctly, modulesjs_moduleID defined correctly (" + comment + "): " + htmlsLoaded[i].parentNode.dataset.modulesjs_moduleID);
+            equal(expectedHtmlClassName, htmlsLoaded[i].className,  "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+                + "; modulesjs_moduleID: " + htmlsLoaded[i].parentNode.dataset.modulesjs_moduleID);
+            equal(expectedRootClassName, htmlsLoaded[i].parentNode.className, "Html loaded in correct root class (" + comment+ "): " + htmlsLoaded[i].parentNode.className
+                + "; modulesjs_moduleID: " + htmlsLoaded[i].parentNode.dataset.modulesjs_moduleID);
+        }
         //End HTML loaded check
     }
 });
