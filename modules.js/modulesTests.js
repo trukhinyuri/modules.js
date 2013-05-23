@@ -75,6 +75,7 @@ asyncTest("load", function() {
         //End Javascript loaded check
 
         //HTML loaded check
+        var dom = new Modules.DOM();
         var htmlsLoaded = document.getElementsByClassName(moduleName);
         var htmlsLoadedLength = htmlsLoaded.length;
         var expectedHtmlClassName = moduleName;

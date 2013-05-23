@@ -25,19 +25,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modules.js" afterPath="$PROJECT_DIR$/modules.js/modules.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modulesTests.js" afterPath="$PROJECT_DIR$/modules.js/modulesTests.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="5df47217-04d1-440a-8b5a-4d0f10be2759" name="crap" comment="" />
     <ignored path="modulesjs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369058911691" ignored="false" />
+    <file path="/modules.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369146951376" ignored="false" />
     <file path="/globalNavigationMenu.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354546726258" ignored="false" />
     <file path="/globalNavigationMenu.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1357816260904" ignored="false" />
     <file path="/index.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365406058433" ignored="false" />
-    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369059363392" ignored="false" />
+    <file path="/modulesTests.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369203090976" ignored="false" />
     <file path="/modules-config.json" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1352718446369" ignored="false" />
-    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369059172824" ignored="false" />
+    <file path="/Dummy.txt" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369210029822" ignored="false" />
     <file path="/t.ts" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1351855516230" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.2.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/Seam/lib/seam-support.jar!/resources/schemas/drools-2.1.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116644" ignored="false" />
@@ -507,7 +508,7 @@
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354867703258" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/modules/about/about.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354868236190" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/web/WEB-INF/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794309508" ignored="false" />
-    <file path="/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1364960153450" ignored="false" />
+    <file path="/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369119345764" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/UnstructuredDataExchange.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354782503645" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/geo4geo/ServerSide/src/com/cnipgis/geo4geo/rest/ApplicationConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794465205" ignored="false" />
     <file path="/ApplicationConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1354794431158" ignored="false" />
@@ -588,7 +589,7 @@
     <file path="$USER_HOME$/semantics/src/main/webapp/protected/semantics/modules/upload/templates/fileInfo/fileInfo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1366004180898" ignored="false" />
     <file path="/fileInfo.js" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365004516776" ignored="false" />
     <file path="$USER_HOME$/Library/Application Support/IntelliJIdea12/Kotlin/lib/kotlin-plugin.jar!/jet/Unit.jet" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365082514813" ignored="false" />
-    <file path="/fragment.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360822817428" ignored="false" />
+    <file path="/fragment.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369119063601" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/privateAPI/ConfigREST.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368794345818" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/PrivateServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854052" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/java/com/trukhin/semantics/rest/PublicServicesConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368794153818" ignored="false" />
@@ -631,7 +632,7 @@
     <file path="$USER_HOME$/semantics/src/main/webapp/index_content_links.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/semantics/src/main/webapp/login.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1365749854110" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/SemanticsFX/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1361012683986" ignored="false" />
-    <file path="/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368793499632" ignored="false" />
+    <file path="/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369120706496" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/SemanticsFX/src/main/java/com/trukhin/MainApp.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360829190393" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.5.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116642" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v10/weblogic-ejb-jar_1_0.xsd" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1360909116647" ignored="false" />
@@ -1538,6 +1539,15 @@
     <file path="$USER_HOME$/Desktop/stroy/price3tabl/polprice.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368859158745" ignored="false" />
     <file path="$USER_HOME$/Desktop/stroy/price3tabl/stenprice.html" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368859158745" ignored="false" />
     <file path="$USER_HOME$/Desktop/stroy/index.css" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1368860566022" ignored="false" />
+    <file path="$USER_HOME$/JaxRS demo/pom.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369120729423" ignored="false" />
+    <file path="$USER_HOME$/JaxRS demo/src/main/java/com/trukhin/jaxrsdemo/ResourceConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369120422160" ignored="false" />
+    <file path="$USER_HOME$/JaxRS demo/src/main/java/com/trukhin/jaxrsdemo/API/SystemInfo.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369120213265" ignored="false" />
+    <file path="$USER_HOME$/JaxRS demo/src/main/web/WEB-INF/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369119406080" ignored="false" />
+    <file path="$USER_HOME$/JaxRS demo/src/main/webapp/WEB-INF/web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369120112000" ignored="false" />
+    <file path="$USER_HOME$/JaxRS demo/src/main/webapp/WEB-INF/glassfish-web.xml" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369119760033" ignored="false" />
+    <file path="/ResourceConfig.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369120362679" ignored="false" />
+    <file path="$USER_HOME$/JaxRS demo/src/main/java/com/trukhin/jaxrsdemo/Startup.java" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369120435078" ignored="false" />
+    <file path="/a.dummy" changelist="bdab963b-5477-46d3-8c6e-fe7ca95a6941" time="1369120623775" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1562,6 +1572,7 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -1598,7 +1609,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -1612,10 +1622,10 @@
     <splitter split-orientation="vertical" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="modulesTests.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="121" column="5" selection-start="5664" selection-end="7233" vertical-scroll-proportion="0.9127907">
+                <state line="77" column="6" selection-start="4323" selection-end="4323" vertical-scroll-proportion="0.04385965">
                   <folding />
                 </state>
               </provider>
@@ -1624,7 +1634,7 @@
           <file leaf-file-name="testsResult.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="24" selection-start="505" selection-end="505" vertical-scroll-proportion="-8.125">
+                <state line="13" column="24" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -1688,25 +1698,14 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="150" column="65" selection-start="6523" selection-end="6523" vertical-scroll-proportion="2.6410255">
+                <state line="11" column="28" selection-start="379" selection-end="379" vertical-scroll-proportion="0.042979944">
                   <folding>
-                    <element signature="e#188#483#0" expanded="false" />
-                    <element signature="e#646#1236#0" expanded="false" />
-                    <element signature="e#1161#1212#0" expanded="false" />
-                    <element signature="e#1284#2255#0" expanded="false" />
-                    <element signature="e#3243#3815#0" expanded="false" />
-                    <element signature="e#3989#4084#0" expanded="false" />
-                    <element signature="e#4171#4570#0" expanded="false" />
-                    <element signature="e#4637#4904#0" expanded="false" />
-                    <element signature="e#4950#5045#0" expanded="false" />
-                    <element signature="e#7262#8027#0" expanded="false" />
-                    <element signature="e#8093#8863#0" expanded="false" />
-                    <marker date="1369058916000" expanded="true" signature="5331:16894" placeholder="{...}" />
-                    <marker date="1369058916000" expanded="true" signature="5331:11021" placeholder="{...}" />
-                    <marker date="1369058916000" expanded="true" signature="5331:6270" placeholder="{...}" />
+                    <marker date="1369147148000" expanded="true" signature="5861:17424" placeholder="{...}" />
+                    <marker date="1369147148000" expanded="true" signature="5861:11551" placeholder="{...}" />
+                    <marker date="1369147148000" expanded="true" signature="5861:6800" placeholder="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -1799,6 +1798,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -1874,7 +1874,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2407,36 +2406,42 @@
       <created>1369059175427</created>
       <updated>1369059175427</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="added itemType for loaded item">
+      <created>1369059429425</created>
+      <updated>1369059429425</updated>
+    </task>
+    <task id="LOCAL-00083" summary="addedTODO">
+      <created>1369059569854</created>
+      <updated>1369059569854</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="68467000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="22" width="1676" height="1028" extended-state="0" />
-    <editor active="true" />
+    <frame x="4" y="22" width="1676" height="1028" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14977974" sideWeight="0.64969325" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15418503" sideWeight="0.64907974" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32599118" sideWeight="0.49754602" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.6721854" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14977974" sideWeight="0.35030675" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15418503" sideWeight="0.35092026" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28373984" sideWeight="0.67083335" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6721854" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22520325" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25092024" sideWeight="0.85022026" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25030676" sideWeight="0.845815" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2445,10 +2450,12 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32599118" sideWeight="0.49754602" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="21" side_tool="false" content_ui="tabs" />
       <window_info id="Kotlin" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -2498,7 +2505,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="added itemType for loaded item" />
+    <option name="LAST_COMMIT_MESSAGE" value="addedTODO" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2512,7 +2519,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="remove workspace.xml" />
     <MESSAGE value="fixed multiple replace placeholder to data" />
     <MESSAGE value="removed AddListener tweak for old browsers as crap. Implemented AddListeners" />
     <MESSAGE value="Start implementing singleton talking, do not use this function" />
@@ -2537,6 +2543,7 @@
     <MESSAGE value="custom attributes in Modules.load fixed for IE10. IE10 can`t work with dataset. using setAttribute(&quot;data-&quot; + ...); and getAttribute(&quot;data-&quot; + ...);" />
     <MESSAGE value="fixed templates render call (semantics internal bug)" />
     <MESSAGE value="added itemType for loaded item" />
+    <MESSAGE value="addedTODO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2581,6 +2588,32 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/files_forTests/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="30" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="6" selection-start="4323" selection-end="4323" vertical-scroll-proportion="0.04385965">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="24" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/fileInfo/fileInfo.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -2616,53 +2649,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modules_forTests/test/test.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/files_forTests/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="30" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="24" selection-start="505" selection-end="505" vertical-scroll-proportion="-8.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="65" selection-start="6523" selection-end="6523" vertical-scroll-proportion="2.6410255">
+        <state line="11" column="28" selection-start="379" selection-end="379" vertical-scroll-proportion="0.042979944">
           <folding>
-            <element signature="e#188#483#0" expanded="false" />
-            <element signature="e#646#1236#0" expanded="false" />
-            <element signature="e#1161#1212#0" expanded="false" />
-            <element signature="e#1284#2255#0" expanded="false" />
-            <element signature="e#3243#3815#0" expanded="false" />
-            <element signature="e#3989#4084#0" expanded="false" />
-            <element signature="e#4171#4570#0" expanded="false" />
-            <element signature="e#4637#4904#0" expanded="false" />
-            <element signature="e#4950#5045#0" expanded="false" />
-            <element signature="e#7262#8027#0" expanded="false" />
-            <element signature="e#8093#8863#0" expanded="false" />
-            <marker date="1369058916000" expanded="true" signature="5331:16894" placeholder="{...}" />
-            <marker date="1369058916000" expanded="true" signature="5331:11021" placeholder="{...}" />
-            <marker date="1369058916000" expanded="true" signature="5331:6270" placeholder="{...}" />
+            <marker date="1369147148000" expanded="true" signature="5861:17424" placeholder="{...}" />
+            <marker date="1369147148000" expanded="true" signature="5861:11551" placeholder="{...}" />
+            <marker date="1369147148000" expanded="true" signature="5861:6800" placeholder="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="5" selection-start="5664" selection-end="7233" vertical-scroll-proportion="0.9127907">
-          <folding />
         </state>
       </provider>
     </entry>

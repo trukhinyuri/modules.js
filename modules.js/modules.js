@@ -3,6 +3,21 @@
 "use strict";
 var Modules = null;
 (function (Modules) {
+    Modules.DOM = (function(){
+        function DOM() {}
+        DOM.prototype = {}
+        function isHTMLModule(element) {
+           return element.parentNode.getAttribute("data-" + "modulesjs_item_id") == "module";
+        }
+        DOM.prototype.getModules = function(className) {
+            var elements = document.getElementsByClassName(className);
+            var elements_length = elements.length;
+            var results = elements.filter(isHTMLModule);
+
+            return results;
+        }
+    return DOM;
+    })();
     Modules.Loader = (function () {
         function Loader(path) {
             if (path != undefined) {
