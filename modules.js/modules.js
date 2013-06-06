@@ -46,9 +46,9 @@ var Modules = null;
                 css.type = "text/css";
                 css.rel = "stylesheet";
                 document.getElementsByTagName("head")[0].appendChild(css);
-                if (callback) {
-                    callback();
-                }
+            }
+            if (callback) {
+                callback();
             }
         }
         function loadJS (path, name, callback) {
