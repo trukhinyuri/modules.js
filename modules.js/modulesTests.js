@@ -94,6 +94,83 @@ asyncTest("load", function() {
         //End HTML loaded check
     }
 });
+asyncTest("loadTemplate", function() {
+    expect(31);
+    var path = "templates_forTests";
+    var loader = new Modules.Loader(path);
+    var templateName = "fileInfo";
+    var className = "loadTemplateTest";
+    var templatePath = path + "/" + templateName + "/" + templateName;
+    var dataSource = {fileName: "one", fileNameRaw: "oneRaw", lastModifiedDate: "02.02.02"};
+    document.addEventListener("template_" + templateName + "_loaded", whenTemplateLoadedWithEvent, true);
+    function whenTemplateLoadedWithEvent() {
+        checkTemplateLoaded(templateName, templatePath, "event assert");
+    }
+    function whenTemplateLoadedWithCallback() {
+        checkTemplateLoaded(templateName, templatePath, "callback assert");
+        start();
+    }
+    loader.loadTemplate(templateName,className, dataSource, whenTemplateLoadedWithCallback);
+
+    function checkTemplateLoaded(moduleName, modulePath, comment) {
+//        //CSS loaded check
+//        var modulesCSSprefix = "modulesjs_css_";
+//        var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
+//        var loadedCSSHrefWithHost = cssLoaded.href;
+//        var actualLoadedCSSHref = loadedCSSHrefWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
+//        var expectedCSSHref = modulePath + ".css";
+//        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+//        var actualLoadedCSSClassName = cssLoaded.className;
+//        var expectedCSSClassName = modulesCSSprefix + moduleName;
+//        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+//        var actualLoadedCSSType = cssLoaded.type;
+//        var expectedCSSType = "text/css";
+//        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+//        var actualLoadedCSSStylesheet = cssLoaded.rel;
+//        var expectedCSSStylesheet = "stylesheet";
+//        equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+//        //End CSS Loaded check
+//
+//        //Javascript loaded check
+//        var modulesJsPrefix = "modulesjs_js_";
+//
+//        var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
+//        var loadedJsSrcWithHost = jsLoaded.src;
+//        var actualLoadedJsSrc = loadedJsSrcWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
+//        var expectedJsSrc = modulePath + ".js";
+//        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+//        var actualLoadedJsClassName = jsLoaded.className;
+//        var expectedJsClassName = modulesJsPrefix + moduleName;
+//        equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+//            + comment + "): " + actualLoadedJsClassName);
+//        var actualLoadedJsType = jsLoaded.type;
+//        var expectedJsType = "text/javascript";
+//        equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+//        var actualLoadedJsAsync = jsLoaded.async;
+//        var expectedJsAsync = true;
+//        equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+//        //End Javascript loaded check
+//
+//        //HTML loaded check
+//        var dom = new Modules.DOM();
+//        var htmlsLoaded = document.getElementsByClassName(moduleName);
+//        var htmlsLoadedLength = htmlsLoaded.length;
+//        var expectedHtmlClassName = moduleName;
+//        var expectedHtmlType = "module";
+//        var expectedRootClassName = className;
+//        for (var i = 0; i < htmlsLoadedLength; i++) {
+//            var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
+//            var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
+//            ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+//            ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
+//            equal(expectedHtmlClassName, htmlsLoaded[i].className,  "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+//                + "; modulesjs_moduleID: " + itemIDAttribute);
+//            equal(expectedRootClassName, htmlsLoaded[i].parentNode.className, "Html loaded in correct root class (" + comment+ "): " + htmlsLoaded[i].parentNode.className
+//                + "; modulesjs_moduleID: " + itemIDAttribute);
+//        }
+        //End HTML loaded check
+    }
+});
 //TODO: getElementByClassName with elementType method in modules.js. More simple getElementByClassName.
 //TODO: when we get Elements by ClassName, check elementType in tests.
 //asyncTest("loadHTML", function() {

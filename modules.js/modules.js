@@ -272,58 +272,62 @@ var Modules = null;
             target.removeEventListener(type, listener, useCapture);
         }
         function Events() {}
-        Events.prototype.addListener = function (target, type, listener) {
-            addListenerImplementation(target, type, listener, true);
+        Events.prototype.addListener = function (target, type, listener, useCapture) {
+            var _useCapture = useCapture || false;
+            addListenerImplementation(target, type, listener, _useCapture);
         };
-        Events.prototype.removeListener = function (target, type, listener) {
-            removeListenerImplementation(target, type, listener, true);
+        Events.prototype.removeListener = function (target, type, listener, useCapture) {
+            var _useCapture = useCapture || false;
+            removeListenerImplementation(target, type, listener, _useCapture);
         };
         Events.prototype.addStartupListener = function (listener) {
-            addListenerImplementation(document, "DOMContentLoaded", listener, true);
+            addListenerImplementation(document, "DOMContentLoaded", listener, false);
         }
         Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
-            addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, true);
+            addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
         }
         Events.prototype.addTemplateLoadedListener = function(templateName, listener) {
-            addListenerImplementation(document, "template_" + templateName + "_loaded", listener, true);
+            addListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
         }
         Events.prototype.addHTMLLoadedListener = function(fileName, listener) {
-            addListenerImplementation(document, "html_" + fileName + "_loaded", listener, true);
+            addListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
         }
         Events.prototype.addCSSLoadedListener = function(fileName, listener) {
-            addListenerImplementation(document, "css_" + fileName + "_loaded", listener, true);
+            addListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
         }
         Events.prototype.addJSLoadedListener = function(fileName, listener) {
-            addListenerImplementation(document, "js_" + fileName + "_loaded", listener, true);
+            addListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
         }
         Events.prototype.removeModuleLoadedListener = function(moduleName, listener) {
-            removeListenerImplementation(document, "module_" + moduleName + "_loaded", listener, true);
+            removeListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
         }
         Events.prototype.removeTemplateLoadedListener = function(templateName, listener) {
-            removeListenerImplementation(document, "template_" + templateName + "_loaded", listener, true);
+            removeListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
         }
         Events.prototype.removeHTMLLoadedListener = function(fileName, listener) {
-            removeListenerImplementation(document, "html_" + fileName + "_loaded", listener, true);
+            removeListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
         }
         Events.prototype.removeCSSLoadedListener = function(fileName, listener) {
-            removeListenerImplementation(document, "css_" + fileName + "_loaded", listener, true);
+            removeListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
         }
         Events.prototype.removeJSLoadedListener = function(fileName, listener) {
-            removeListenerImplementation(document, "js_" + fileName + "_loaded", listener, true);
+            removeListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
         }
         Events.prototype.removeStartupListener = function (listener) {
-            removeListenerImplementation(document, "DOMContentLoaded", listener, true);
+            removeListenerImplementation(document, "DOMContentLoaded", listener, false);
         }
-        Events.prototype.addListeners = function(targets, type, listener) {
+        Events.prototype.addListeners = function(targets, type, listener, useCapture) {
+            var _useCapture = useCapture || false;
             var length = targets.length;
             for (var i = 0; i < length; i++) {
-                addListenerImplementation(targets[i], type, listener, true);
+                addListenerImplementation(targets[i], type, listener, _useCapture);
             }
         }
-        Events.prototype.removeListeners = function(targets, type, listener) {
+        Events.prototype.removeListeners = function(targets, type, listener, useCapture) {
+            var _useCapture = useCapture || false;
             var length = targets.length;
             for (var i = 0; i < length; i++) {
-                removeListenerImplementation(targets[i], type, listener, true);
+                removeListenerImplementation(targets[i], type, listener, _useCapture);
             }
         }
         return Events;
