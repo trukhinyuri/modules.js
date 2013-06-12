@@ -95,7 +95,7 @@ asyncTest("load", function() {
     }
 });
 asyncTest("loadTemplate", function() {
-    expect(31);
+    expect(4);
     var path = "templates_forTests";
     var loader = new Modules.Loader(path);
     var templateName = "fileInfo";
@@ -112,17 +112,17 @@ asyncTest("loadTemplate", function() {
     }
     loader.loadTemplate(templateName,className, dataSource, whenTemplateLoadedWithCallback);
 
-    function checkTemplateLoaded(moduleName, modulePath, comment) {
-//        //CSS loaded check
-//        var modulesCSSprefix = "modulesjs_css_";
-//        var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
-//        var loadedCSSHrefWithHost = cssLoaded.href;
-//        var actualLoadedCSSHref = loadedCSSHrefWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
-//        var expectedCSSHref = modulePath + ".css";
-//        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
-//        var actualLoadedCSSClassName = cssLoaded.className;
-//        var expectedCSSClassName = modulesCSSprefix + moduleName;
-//        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+    function checkTemplateLoaded(templateName, templatePath, comment) {
+        //CSS loaded check
+        var modulesCSSprefix = "modulesjs_css_";
+        var cssLoaded = document.getElementsByClassName(modulesCSSprefix + templateName)[0];
+        var loadedCSSHrefWithHost = cssLoaded.href;
+        var actualLoadedCSSHref = loadedCSSHrefWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
+        var expectedCSSHref = templatePath + ".css";
+        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+        var actualLoadedCSSClassName = cssLoaded.className;
+        var expectedCSSClassName = modulesCSSprefix + templateName;
+        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
 //        var actualLoadedCSSType = cssLoaded.type;
 //        var expectedCSSType = "text/css";
 //        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
@@ -134,13 +134,13 @@ asyncTest("loadTemplate", function() {
 //        //Javascript loaded check
 //        var modulesJsPrefix = "modulesjs_js_";
 //
-//        var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
+//        var jsLoaded = document.getElementsByClassName(modulesJsPrefix + templateName)[0];
 //        var loadedJsSrcWithHost = jsLoaded.src;
 //        var actualLoadedJsSrc = loadedJsSrcWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
-//        var expectedJsSrc = modulePath + ".js";
+//        var expectedJsSrc = templatePath + ".js";
 //        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
 //        var actualLoadedJsClassName = jsLoaded.className;
-//        var expectedJsClassName = modulesJsPrefix + moduleName;
+//        var expectedJsClassName = modulesJsPrefix + templateName;
 //        equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
 //            + comment + "): " + actualLoadedJsClassName);
 //        var actualLoadedJsType = jsLoaded.type;
@@ -153,9 +153,9 @@ asyncTest("loadTemplate", function() {
 //
 //        //HTML loaded check
 //        var dom = new Modules.DOM();
-//        var htmlsLoaded = document.getElementsByClassName(moduleName);
+//        var htmlsLoaded = document.getElementsByClassName(templateName);
 //        var htmlsLoadedLength = htmlsLoaded.length;
-//        var expectedHtmlClassName = moduleName;
+//        var expectedHtmlClassName = templateName;
 //        var expectedHtmlType = "module";
 //        var expectedRootClassName = className;
 //        for (var i = 0; i < htmlsLoadedLength; i++) {

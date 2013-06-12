@@ -16,6 +16,13 @@ var Modules = null;
 
             return results;
         }
+        DOM.prototype.getTemplateRoot = function(eventTarget, templateName) {
+            if (eventTarget.className == templateName) {
+                return eventTarget;
+            } else {
+                return this.getTemplateRoot(eventTarget.parentNode, templateName);
+            }
+        }
     return DOM;
     })();
     Modules.Loader = (function () {
@@ -317,7 +324,7 @@ var Modules = null;
             removeListenerImplementation(document, "DOMContentLoaded", listener, false);
         }
         Events.prototype.addListeners = function(targets, type, listener, useCapture) {
-            var _useCapture = useCapture || false;
+            var _useCapture = useCapture || true;
             var length = targets.length;
             for (var i = 0; i < length; i++) {
                 addListenerImplementation(targets[i], type, listener, _useCapture);

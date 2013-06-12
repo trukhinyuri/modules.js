@@ -24,18 +24,11 @@
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/img/checkedCombobox.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/img/checkedComboboxOnMouseDown.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/img/uncheckedCombobox.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/img/uncheckedComboboxOnMouseDown.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+    <list id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="" />
+    <list default="true" id="69ae3e63-5018-454a-91ae-385dfa8dfd2f" name="prepare modules.js to 1.0: writing unit tests" comment="added">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.js" afterPath="$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modules.js" afterPath="$PROJECT_DIR$/modules.js/modules.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/modulesTests.js" afterPath="$PROJECT_DIR$/modules.js/modulesTests.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules.js/testsResult.html" afterPath="$PROJECT_DIR$/modules.js/testsResult.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="modulesjs.iws" />
@@ -115,22 +108,31 @@
     <favorites_list name="modules.js" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.4790749">
+    <splitter split-orientation="vertical" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="247" column="71" selection-start="11229" selection-end="11229" vertical-scroll-proportion="1.5490909">
+                <state line="18" column="22" selection-start="648" selection-end="663" vertical-scroll-proportion="0.37815127">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/index.js">
+          <file leaf-file-name="fileInfo.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="5" column="0" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0">
+                <state line="26" column="9" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="testsResult.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="16" column="50" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -140,46 +142,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="modulesTests.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="169" column="11" selection-start="6620" selection-end="10688" vertical-scroll-proportion="1.3783784">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="testsResult.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="15" column="28" selection-start="579" selection-end="579" vertical-scroll-proportion="-9.375">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="fileInfo.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="fileInfo.css" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="fileInfo.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                <state line="97" column="12" selection-start="5750" selection-end="5750" vertical-scroll-proportion="0.06465517">
                   <folding />
                 </state>
               </provider>
@@ -195,6 +161,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="SYNC_SETTING" value="DONT" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
@@ -212,7 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/cloud.json" />
         <option value="$PROJECT_DIR$/config/cloud.js" />
         <option value="$PROJECT_DIR$/js/libs/modulesjs_legacy.js" />
         <option value="$PROJECT_DIR$/js/tests/modulesTests_legacy_do_not_use.js" />
@@ -223,11 +189,12 @@
         <option value="$PROJECT_DIR$/modules.js/modules_forTests/test/test.html" />
         <option value="$PROJECT_DIR$/modules.js/modules_forTests/test/test.js" />
         <option value="$PROJECT_DIR$/modules.js/files_forTest/test.html" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/robots.txt" />
-        <option value="$PROJECT_DIR$/modules.js/modules.js" />
-        <option value="$PROJECT_DIR$/modules.js/testsResult.html" />
         <option value="$PROJECT_DIR$/modules.js/modulesTests.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/modules.js/testsResult.html" />
+        <option value="$PROJECT_DIR$/modules.js/modules.js" />
+        <option value="$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.js" />
       </list>
     </option>
   </component>
@@ -272,6 +239,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -329,30 +297,45 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="195" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="197" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="MemberChooser.sorted" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="195" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
-    <property name="JavaScriptLanguageLevel" value="ES5" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/stroy" />
-    <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="last_opened_file_path" value="/usr/bin/git" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="200" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="995" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="995" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="200" />
     <property name="JavaScriptPreferStrict" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="197" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="JavaScriptLanguageLevel" value="ES5" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -513,10 +496,10 @@
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
+    <task id="Default" summary="Default task">
       <changelist id="bdab963b-5477-46d3-8c6e-fe7ca95a6941" name="Default" comment="" />
       <created>1350459500948</created>
-      <updated>1350459500948</updated>
+      <updated>1370778632652</updated>
       <workItem from="1363161445801" duration="483000" />
       <workItem from="1363162104740" duration="1400000" />
       <workItem from="1363178060948" duration="3491000" />
@@ -882,18 +865,42 @@
       <created>1370511157644</created>
       <updated>1370511157644</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
-    <servers />
+    <task id="LOCAL-00088" summary="started implement modules.loadTemplate tests">
+      <created>1370536134062</created>
+      <updated>1370536134062</updated>
+    </task>
+    <task id="LOCAL-00089">
+      <created>1370778628276</created>
+      <updated>1370866593252</updated>
+    </task>
+    <task active="true" id="LOCAL-00090" summary="prepare modules.js to 1.0: writing unit tests">
+      <changelist id="69ae3e63-5018-454a-91ae-385dfa8dfd2f" name="prepare modules.js to 1.0: writing unit tests" comment="" />
+      <created>1370866589480</created>
+      <updated>1370866593256</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
+    <servers>
+      <YouTrack shared="false" url="http://alm.geo4geo.com/youtrack">
+        <commitMessageFormat>{id} {summary}</commitMessageFormat>
+        <option name="defaultSearch" value="for: me sort by: updated #Unresolved" />
+        <password>dfc6dfc3dfc4dfdfdfd2dfd4dfdddfc3dfc4dfcedfc5dfdddfd9df8edfc5dfd9dfd2dff4dff4dfc6dfc3dfc4dfdfdfd2dfd4dfdddfc3dfc4dfcedfc5dfdddfd9df8edfc5dfd9dfd2dff4dff4</password>
+        <option name="loginAnonymously" value="false" />
+        <option name="shouldFormatCommitMessage" value="false" />
+        <option name="useHttpAuthentication" value="false" />
+        <option name="useProxy" value="false" />
+        <username>trukhinyuri</username>
+      </YouTrack>
+    </servers>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="68467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="22" width="1676" height="1028" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29955947" sideWeight="0.9257669" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41189426" sideWeight="0.9257669" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -906,17 +913,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21137026" sideWeight="0.3512195" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28373984" sideWeight="0.67083335" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6721854" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22520325" sideWeight="0.6721854" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13374233" sideWeight="0.7004405" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1582822" sideWeight="0.58810574" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969324" sideWeight="0.8175824" order="2" side_tool="false" content_ui="combo" />
       <window_info id="IntellijBashOrg" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="22" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -973,7 +981,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix for loadCSS internal function. Callback doesnt called when css loaded on page" />
+    <option name="LAST_COMMIT_MESSAGE" value="started implement modules.loadTemplate tests" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -987,7 +995,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Start implementing singleton talking, do not use this function" />
     <MESSAGE value="Added events, when module/html/css/js loaded. It resolve problem: cascade modules loading." />
     <MESSAGE value="Added listeners for loaded event on module, html, css, js" />
     <MESSAGE value="added name detail in event detail on load event" />
@@ -1012,6 +1019,7 @@
     <MESSAGE value="addedTODO" />
     <MESSAGE value="moved to IJ 13" />
     <MESSAGE value="Fix for loadCSS internal function. Callback doesnt called when css loaded on page" />
+    <MESSAGE value="started implement modules.loadTemplate tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1073,49 +1081,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="71" selection-start="11229" selection-end="11229" vertical-scroll-proportion="1.5490909">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="159" selection-end="159" vertical-scroll-proportion="0.048859935" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/templates_forTests/fileInfo/fileInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="9" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules.js/testsResult.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="28" selection-start="579" selection-end="579" vertical-scroll-proportion="-9.375">
+        <state line="16" column="50" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="11" selection-start="6620" selection-end="10688" vertical-scroll-proportion="1.3783784">
+        <state line="97" column="12" selection-start="5750" selection-end="5750" vertical-scroll-proportion="0.06465517">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="22" selection-start="648" selection-end="663" vertical-scroll-proportion="0.37815127">
           <folding />
         </state>
       </provider>
