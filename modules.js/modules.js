@@ -1,5 +1,5 @@
 //version 1.0-snapshot
-// Copyright (C) 2012–2013 Yuri V. Trukhin
+// Copyright (C) 2012–2013 Yuri V. Trukhin/**/
 "use strict";
 var Modules = null;
 (function (Modules) {
