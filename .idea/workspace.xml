@@ -933,7 +933,11 @@
       <created>1371137419631</created>
       <updated>1371137419631</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="reworked modules.loader. Now we must use new loader api for load all item types: modules, templates, html, css, js.&#10;api for modules isn`t changed.">
+      <created>1371137517814</created>
+      <updated>1371137517822</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers>
       <YouTrack shared="false" url="http://alm.geo4geo.com/youtrack">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
