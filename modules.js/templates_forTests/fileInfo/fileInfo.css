@@ -4,6 +4,12 @@
     float: left;
     padding: 1mm 0 1mm 0;
     cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .fileInfo:hover {
     width: 100%;
@@ -12,6 +18,12 @@
     padding: 1mm 0 1mm 0;
     cursor: pointer;
     background: #dadada;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .fileInfo_checkBox {
     background: url("img/uncheckedCombobox.png") no-repeat center;
@@ -21,6 +33,12 @@
     line-height: 4mm;
     float: left;
     margin: 0 1mm 0 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .fileInfo_checkBox_checked {
     background: url("img/checkedCombobox.png") no-repeat center;
@@ -30,6 +48,12 @@
     line-height: 4mm;
     float: left;
     margin: 0 1mm 0 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .fileInfo_checkBox_checkedOnMouseDown {
     background: url("img/checkedComboboxOnMouseDown.png") no-repeat center;
@@ -39,6 +63,12 @@
     line-height: 4mm;
     float: left;
     margin: 0 1mm 0 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .fileInfo_checkBox_uncheckedOnMouseDown {
     background: url("img/uncheckedComboboxOnMouseDown.png") no-repeat center;
@@ -48,14 +78,33 @@
     line-height: 4mm;
     float: left;
     margin: 0 1mm 0 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .fileInfo_name {
     line-height: 5mm;
     float: left;
     padding: 0 1mm 0 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
 }
 .fileInfo_lastModificationDate {
     line-height: 5mm;
     float: left;
     padding: 0 1mm 0 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
