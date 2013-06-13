@@ -1,7 +1,32 @@
 "use strict";
-module("Modules.Loader");
+module("Modules.Loader", {
+    setup: function() {
+        var divloadTest = document.createElement('div');
+        divloadTest.className = "loadTest";
+        document.getElementsByTagName("body")[0].appendChild(divloadTest);
+        var divloadTest = document.createElement('div');
+        divloadTest.className = "loadTest";
+        document.getElementsByTagName("body")[0].appendChild(divloadTest);
+        var divloadHTMLTest = document.createElement('div');
+        divloadHTMLTest.className = "loadHTMLTest";
+        document.getElementsByTagName("body")[0].appendChild(divloadHTMLTest);
+        var divloadTemplateTest = document.createElement('div');
+        divloadTemplateTest.className = "loadTemplateTest";
+        document.getElementsByTagName("body")[0].appendChild(divloadTemplateTest);
+    },
+    teardown: function() {
+        var divloadTest = document.getElementsByClassName("loadTest")[0];
+        document.getElementsByTagName("body")[0].removeChild(divloadTest);
+        var divloadTest = document.getElementsByClassName("loadTest")[0];
+        document.getElementsByTagName("body")[0].removeChild(divloadTest);
+        var divloadHTMLTest = document.getElementsByClassName("loadHTMLTest")[0];
+        document.getElementsByTagName("body")[0].removeChild(divloadHTMLTest);
+        var divloadTemplateTest = document.getElementsByClassName("loadTemplateTest")[0];
+        document.getElementsByTagName("body")[0].removeChild(divloadTemplateTest);
+    }
+});
 test("path", function() {
-    expect(4);
+//    expect(4);
     var expectedPath = "modules_forTests";
     var loader = new Modules.Loader(expectedPath);
     equal(loader.path, expectedPath, "Loader.path is set correctly: " + loader.path);
@@ -18,7 +43,59 @@ test("path", function() {
     var loaderWithSlash = new Modules.Loader("modules_forTests/");
     equal(expectedPath, loaderWithSlash.path, "Loader.path with slash in end of path. Slash removed: " + loaderWithSlash.path);
 });
-asyncTest("load", function() {
+test("itemType", function() {
+    expect(11);
+    var path = "modules_forTests";
+    var loader = new Modules.Loader(path);
+    throws(
+        function() {
+            loader.itemTypes = {};
+        }, Error,
+        "Trying to set loader.itemTypes. Throw exception, loader.itemTypes has defined properties, user can`t change it."
+    );
+    throws(
+        function() {
+            loader.itemTypes.module = {};
+        }, Error,
+        "Trying to set loader.itemTypes.module. Throw exception, loader.itemTypes.module has defined properties, user can`t change it."
+    );
+    throws(
+        function() {
+            loader.itemTypes.template = {};
+        }, Error,
+        "Trying to set loader.itemTypes.template. Throw exception, loader.itemTypes.template has defined properties, user can`t change it."
+    );
+    throws(
+        function() {
+            loader.itemTypes.html = {};
+        }, Error,
+        "Trying to set loader.itemTypes.html. Throw exception, loader.itemTypes.html has defined properties, user can`t change it."
+    );
+    throws(
+        function() {
+            loader.itemTypes.css = {};
+        }, Error,
+        "Trying to set loader.itemTypes.css. Throw exception, loader.itemTypes.css has defined properties, user can`t change it."
+    );
+    throws(
+        function() {
+            loader.itemTypes.javascript = {};
+        }, Error,
+        "Trying to set loader.itemTypes.javascript. Throw exception, loader.itemTypes.javascript has defined properties, user can`t change it."
+    );
+    var expectedModuleItemType = "module";
+    equal(loader.itemTypes.module, expectedModuleItemType, "Loader.itemTypes.module returns correctly: " + loader.itemTypes.module);
+    var expectedTemplateItemType = "template";
+    equal(loader.itemTypes.template, expectedTemplateItemType, "Loader.itemTypes.template returns correctly: " + loader.itemTypes.template);
+    var expectedHTMLItemType = "html";
+    equal(loader.itemTypes.html, expectedHTMLItemType, "Loader.itemTypes.html returns correctly: " + loader.itemTypes.html);
+    var expectedCSSItemType = "css";
+    equal(loader.itemTypes.css, expectedCSSItemType, "Loader.itemTypes.css returns correctly: " + loader.itemTypes.css);
+    var expectedJSItemType = "javascript";
+    equal(loader.itemTypes.javascript, expectedJSItemType, "Loader.itemTypes.javascript returns correctly: " + loader.itemTypes.javascript);
+});
+
+asyncTest("load (loader.itemTypes.module, itemName, className, callback)", function() {
     expect(32);
     var path = "modules_forTests";
     var loader = new Modules.Loader(path);
@@ -33,7 +110,7 @@ asyncTest("load", function() {
         checkModuleLoaded(moduleName, modulePath, "callback assert");
         start();
     }
-    loader.load(moduleName,className, whenModuleLoadedWithCallback);
+    loader.load(moduleName, className, whenModuleLoadedWithCallback);
 
     function checkModuleLoaded(moduleName, modulePath, comment) {
         //CSS loaded check
@@ -94,14 +171,14 @@ asyncTest("load", function() {
         //End HTML loaded check
     }
 });
-asyncTest("loadTemplate", function() {
+asyncTest("load (loader.itemTypes.template, itemType, className, callback, dataSource)", function() {
     expect(4);
     var path = "templates_forTests";
     var loader = new Modules.Loader(path);
     var templateName = "fileInfo";
     var className = "loadTemplateTest";
     var templatePath = path + "/" + templateName + "/" + templateName;
-    var dataSource = {fileName: "one", fileNameRaw: "oneRaw", lastModifiedDate: "02.02.02"};
+    var dataSource = {fileName: "one", fileNameRaw: "oneRaw", lastModifiedDate: "02.02.02", isSelected: "false"};
     document.addEventListener("template_" + templateName + "_loaded", whenTemplateLoadedWithEvent, true);
     function whenTemplateLoadedWithEvent() {
         checkTemplateLoaded(templateName, templatePath, "event assert");
@@ -110,7 +187,7 @@ asyncTest("loadTemplate", function() {
         checkTemplateLoaded(templateName, templatePath, "callback assert");
         start();
     }
-    loader.loadTemplate(templateName,className, dataSource, whenTemplateLoadedWithCallback);
+    loader.load(templateName, className, whenTemplateLoadedWithCallback, loader.itemTypes.template, dataSource);
 
     function checkTemplateLoaded(templateName, templatePath, comment) {
         //CSS loaded check
@@ -123,6 +200,13 @@ asyncTest("loadTemplate", function() {
         var actualLoadedCSSClassName = cssLoaded.className;
         var expectedCSSClassName = modulesCSSprefix + templateName;
         equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+
+
+
+
+
+
+//
 //        var actualLoadedCSSType = cssLoaded.type;
 //        var expectedCSSType = "text/css";
 //        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
@@ -168,7 +252,7 @@ asyncTest("loadTemplate", function() {
 //            equal(expectedRootClassName, htmlsLoaded[i].parentNode.className, "Html loaded in correct root class (" + comment+ "): " + htmlsLoaded[i].parentNode.className
 //                + "; modulesjs_moduleID: " + itemIDAttribute);
 //        }
-        //End HTML loaded check
+//        End HTML loaded check
     }
 });
 //TODO: getElementByClassName with elementType method in modules.js. More simple getElementByClassName.

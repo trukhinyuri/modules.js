@@ -20,8 +20,10 @@
             var fileInfo_checkBox = templateRoot.getElementsByClassName("fileInfo_checkBox")[0];
             var fileInfo_checkBox_checked = templateRoot.getElementsByClassName("fileInfo_checkBox_checked")[0];
             if (fileInfo_checkBox != undefined) {
+                fileInfo_checkBox.parentNode.setAttribute("data-" + "selected", "true");
                 fileInfo_checkBox.className = 'fileInfo_checkBox_checked';
             } else if (fileInfo_checkBox_checked != undefined) {
+                fileInfo_checkBox_checked.parentNode.setAttribute("data-" + "selected", "false");
                 fileInfo_checkBox_checked.className = 'fileInfo_checkBox';
             }
         }
