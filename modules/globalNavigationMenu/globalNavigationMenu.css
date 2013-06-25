@@ -49,7 +49,7 @@
     top: 9mm;
     left: 0;
     z-index: 99999;
-    background: #e7ffee;
+    background: #ffffff;
     float: left;
 }
 .globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList
@@ -87,7 +87,7 @@
 
 .globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item:hover
 {
-    background: #d7ffea;
+    background: #e2ffeb;
 }
 
 .globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item:first-child a
