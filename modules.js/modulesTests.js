@@ -1,28 +1,28 @@
 "use strict";
 module("Modules.Loader", {
     setup: function() {
-        var divloadTest = document.createElement('div');
-        divloadTest.className = "loadTest";
-        document.getElementsByTagName("body")[0].appendChild(divloadTest);
-        var divloadTest = document.createElement('div');
-        divloadTest.className = "loadTest";
-        document.getElementsByTagName("body")[0].appendChild(divloadTest);
-        var divloadHTMLTest = document.createElement('div');
-        divloadHTMLTest.className = "loadHTMLTest";
-        document.getElementsByTagName("body")[0].appendChild(divloadHTMLTest);
-        var divloadTemplateTest = document.createElement('div');
-        divloadTemplateTest.className = "loadTemplateTest";
-        document.getElementsByTagName("body")[0].appendChild(divloadTemplateTest);
+//        var divloadTest = document.createElement('div');
+//        divloadTest.className = "loadTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadTest);
+//        var divloadTest = document.createElement('div');
+//        divloadTest.className = "loadTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadTest);
+//        var divloadHTMLTest = document.createElement('div');
+//        divloadHTMLTest.className = "loadHTMLTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadHTMLTest);
+//        var divloadTemplateTest = document.createElement('div');
+//        divloadTemplateTest.className = "loadTemplateTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadTemplateTest);
     },
     teardown: function() {
-        var divloadTest = document.getElementsByClassName("loadTest")[0];
-        document.getElementsByTagName("body")[0].removeChild(divloadTest);
-        var divloadTest = document.getElementsByClassName("loadTest")[0];
-        document.getElementsByTagName("body")[0].removeChild(divloadTest);
-        var divloadHTMLTest = document.getElementsByClassName("loadHTMLTest")[0];
-        document.getElementsByTagName("body")[0].removeChild(divloadHTMLTest);
-        var divloadTemplateTest = document.getElementsByClassName("loadTemplateTest")[0];
-        document.getElementsByTagName("body")[0].removeChild(divloadTemplateTest);
+//        var divloadTest = document.getElementsByClassName("loadTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadTest);
+//        var divloadTest = document.getElementsByClassName("loadTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadTest);
+//        var divloadHTMLTest = document.getElementsByClassName("loadHTMLTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadHTMLTest);
+//        var divloadTemplateTest = document.getElementsByClassName("loadTemplateTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadTemplateTest);
     }
 });
 test("path", function() {
@@ -95,24 +95,26 @@ test("itemType", function() {
     equal(loader.itemTypes.javascript, expectedJSItemType, "Loader.itemTypes.javascript returns correctly: " + loader.itemTypes.javascript);
 });
 
-asyncTest("load (loader.itemTypes.module, itemName, className, callback)", function() {
-    expect(32);
+asyncTest("load (itemName, className, callback, loader.itemTypes.module)", function() {
+//    expect(32);
     var path = "modules_forTests";
     var loader = new Modules.Loader(path);
     var moduleName = "test";
-    var className = "loadTest";
+    var className = "loadModuleTest";
     var modulePath = path + "/" + moduleName + "/" + moduleName;
     document.addEventListener("module_" + moduleName + "_loaded", whenModuleLoadedWithEvent, true);
-    function whenModuleLoadedWithEvent() {
-        checkModuleLoaded(moduleName, modulePath, "event assert");
+    function whenModuleLoadedWithEvent(event) {
+        if (event.detail.itemInfo.className == className) {
+            checkModuleLoaded(moduleName, modulePath, "event assert");
+        }
     }
     function whenModuleLoadedWithCallback() {
-        checkModuleLoaded(moduleName, modulePath, "callback assert");
+        checkModuleLoaded(moduleName, modulePath, className, "callback assert");
         start();
     }
     loader.load(moduleName, className, whenModuleLoadedWithCallback);
 
-    function checkModuleLoaded(moduleName, modulePath, comment) {
+    function checkModuleLoaded(moduleName, modulePath, className, comment) {
         //CSS loaded check
         var modulesCSSprefix = "modulesjs_css_";
         var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
@@ -165,13 +167,87 @@ asyncTest("load (loader.itemTypes.module, itemName, className, callback)", funct
             ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
             equal(expectedHtmlClassName, htmlsLoaded[i].className,  "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
                 + "; modulesjs_moduleID: " + itemIDAttribute);
-            equal(expectedRootClassName, htmlsLoaded[i].parentNode.className, "Html loaded in correct root class (" + comment+ "): " + htmlsLoaded[i].parentNode.className
+        }
+        //End HTML loaded check
+    }
+});
+asyncTest("load (itemName, className, callback)", function() {
+//    expect(32);
+    var path = "modules_forTests";
+    var loader = new Modules.Loader(path);
+    var moduleName = "test";
+    var className = "loadNullModuleTest";
+    var modulePath = path + "/" + moduleName + "/" + moduleName;
+    document.addEventListener("module_" + moduleName + "_loaded", whenModuleLoadedWithEvent, true);
+    function whenModuleLoadedWithEvent(event) {
+        if (event.detail.itemInfo.className == className) {
+            checkModuleLoaded(moduleName, modulePath, "event assert");
+        }
+    }
+    function whenModuleLoadedWithCallback() {
+        checkModuleLoaded(moduleName, modulePath, className, "callback assert");
+        start();
+    }
+    loader.load(moduleName, className, whenModuleLoadedWithCallback);
+
+    function checkModuleLoaded(moduleName, modulePath, className, comment) {
+        //CSS loaded check
+        var modulesCSSprefix = "modulesjs_css_";
+        var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
+        var loadedCSSHrefWithHost = cssLoaded.href;
+        var actualLoadedCSSHref = loadedCSSHrefWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
+        var expectedCSSHref = modulePath + ".css";
+        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+        var actualLoadedCSSClassName = cssLoaded.className;
+        var expectedCSSClassName = modulesCSSprefix + moduleName;
+        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+        var actualLoadedCSSType = cssLoaded.type;
+        var expectedCSSType = "text/css";
+        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+        var actualLoadedCSSStylesheet = cssLoaded.rel;
+        var expectedCSSStylesheet = "stylesheet";
+        equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+        //End CSS Loaded check
+
+        //Javascript loaded check
+        var modulesJsPrefix = "modulesjs_js_";
+
+        var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
+        var loadedJsSrcWithHost = jsLoaded.src;
+        var actualLoadedJsSrc = loadedJsSrcWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://","");
+        var expectedJsSrc = modulePath + ".js";
+        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+        var actualLoadedJsClassName = jsLoaded.className;
+        var expectedJsClassName = modulesJsPrefix + moduleName;
+        equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+            + comment + "): " + actualLoadedJsClassName);
+        var actualLoadedJsType = jsLoaded.type;
+        var expectedJsType = "text/javascript";
+        equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+        var actualLoadedJsAsync = jsLoaded.async;
+        var expectedJsAsync = true;
+        equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+        //End Javascript loaded check
+
+        //HTML loaded check
+        var dom = new Modules.DOM();
+        var htmlsLoaded = document.getElementsByClassName(moduleName);
+        var htmlsLoadedLength = htmlsLoaded.length;
+        var expectedHtmlClassName = moduleName;
+        var expectedHtmlType = "module";
+        var expectedRootClassName = className;
+        for (var i = 0; i < htmlsLoadedLength; i++) {
+            var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
+            var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
+            ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+            ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
+            equal(expectedHtmlClassName, htmlsLoaded[i].className,  "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
                 + "; modulesjs_moduleID: " + itemIDAttribute);
         }
         //End HTML loaded check
     }
 });
-asyncTest("load (loader.itemTypes.template, itemType, className, callback, dataSource)", function() {
+asyncTest("load (itemType, className, callback, loader.itemTypes.template, dataSource)", function() {
     expect(4);
     var path = "templates_forTests";
     var loader = new Modules.Loader(path);
@@ -180,8 +256,10 @@ asyncTest("load (loader.itemTypes.template, itemType, className, callback, dataS
     var templatePath = path + "/" + templateName + "/" + templateName;
     var dataSource = {fileName: "one", fileNameRaw: "oneRaw", lastModifiedDate: "02.02.02", isSelected: "false"};
     document.addEventListener("template_" + templateName + "_loaded", whenTemplateLoadedWithEvent, true);
-    function whenTemplateLoadedWithEvent() {
-        checkTemplateLoaded(templateName, templatePath, "event assert");
+    function whenTemplateLoadedWithEvent(event) {
+        if (event.detail.itemInfo.className == className) {
+            checkTemplateLoaded(templateName, templatePath, "event assert");
+        }
     }
     function whenTemplateLoadedWithCallback() {
         checkTemplateLoaded(templateName, templatePath, "callback assert");
@@ -201,12 +279,6 @@ asyncTest("load (loader.itemTypes.template, itemType, className, callback, dataS
         var expectedCSSClassName = modulesCSSprefix + templateName;
         equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
 
-
-
-
-
-
-//
 //        var actualLoadedCSSType = cssLoaded.type;
 //        var expectedCSSType = "text/css";
 //        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
@@ -283,4 +355,34 @@ asyncTest("load (loader.itemTypes.template, itemType, className, callback, dataS
 //                + "; modulesjs_moduleID: " + moduleIDAttribute);
 //        }
 //    }
+//});
+module("Modules.DOM", {
+    setup: function() {
+//        var divloadTest = document.createElement('div');
+//        divloadTest.className = "loadTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadTest);
+//        var divloadTest = document.createElement('div');
+//        divloadTest.className = "loadTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadTest);
+//        var divloadHTMLTest = document.createElement('div');
+//        divloadHTMLTest.className = "loadHTMLTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadHTMLTest);
+//        var divloadTemplateTest = document.createElement('div');
+//        divloadTemplateTest.className = "loadTemplateTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadTemplateTest);
+    },
+    teardown: function() {
+//        var divloadTest = document.getElementsByClassName("loadTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadTest);
+//        var divloadTest = document.getElementsByClassName("loadTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadTest);
+//        var divloadHTMLTest = document.getElementsByClassName("loadHTMLTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadHTMLTest);
+//        var divloadTemplateTest = document.getElementsByClassName("loadTemplateTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadTemplateTest);
+    }
+});
+//test("getRootTarget", function() {
+//    var dom = new Modules.DOM();
+//
 //});

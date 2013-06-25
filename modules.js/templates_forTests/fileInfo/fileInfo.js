@@ -16,7 +16,7 @@
         events.addListeners(fileInfos, 'click', fileInfoClickListener, true);
         function fileInfoClickListener(event) {
             var eventTarget = event.target;
-            var templateRoot = dom.getTemplateRoot(eventTarget, "fileInfo");
+            var templateRoot = dom.getRootTarget(eventTarget, "fileInfo");
             var fileInfo_checkBox = templateRoot.getElementsByClassName("fileInfo_checkBox")[0];
             var fileInfo_checkBox_checked = templateRoot.getElementsByClassName("fileInfo_checkBox_checked")[0];
             if (fileInfo_checkBox != undefined) {

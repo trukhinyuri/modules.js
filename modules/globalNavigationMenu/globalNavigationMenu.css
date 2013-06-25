@@ -3,7 +3,7 @@
     padding: 0;
     float: left;
     width: 100%;
-    background: #2b2b2b;
+    background: #ffffff;
 
     height: 9mm;
     white-space: nowrap;
@@ -26,12 +26,12 @@
     height: 100%;
     padding: 0 0 0 4mm;
     line-height: 9mm;
-    color: #d3d3d3;
+    color: #000000;
     text-decoration: none;
 }
 .globalNavigationMenu_unorderedList_item:hover a
 {
-    color: #fafafa;
+    color: #000000;
 }
 .globalNavigationMenu_unorderedList_item:hover .globalNavigationMenu_unorderedList_dropDownListSpace
 {
@@ -49,7 +49,7 @@
     top: 9mm;
     left: 0;
     z-index: 99999;
-    background: #414141;
+    background: #e7ffee;
     float: left;
 }
 .globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList
@@ -66,7 +66,7 @@
     margin: 0;
     padding: 0;
     display: block;
-    box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
+    box-shadow: 0 1px 0 #ffffff, 0 2px 0 #ffffff;
 }
 .globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item:last-child
 {
@@ -80,14 +80,14 @@
     white-space: nowrap;
     float: none;
     text-decoration: none;
-    color: #d3d3d3;
+    color: #ffffff;
 }
 
 
 
 .globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item:hover
 {
-    background: #0186ba;
+    background: #d7ffea;
 }
 
 .globalNavigationMenu_unorderedList_dropDownListSpace_dropDownList_item:first-child a

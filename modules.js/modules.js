@@ -24,11 +24,11 @@ var Modules = null;
 
             return results;
         }
-        DOM.prototype.getTemplateRoot = function(eventTarget, templateName) {
-            if (eventTarget.className == templateName) {
+        DOM.prototype.getRootTarget = function(eventTarget, className) {
+            if (eventTarget.className == className) {
                 return eventTarget;
             } else {
-                return this.getTemplateRoot(eventTarget.parentNode, templateName);
+                return this.getRootTarget(eventTarget.parentNode, className);
             }
         }
     return DOM;
@@ -61,19 +61,7 @@ var Modules = null;
                 return this._itemTypes;
             }
         }
-        Loader.prototype.load = function (itemName, className, callback, itemType, dataSource) {
-            if ((itemType == this.itemTypes.module) || (itemType == null) || (itemType == undefined)) {
-                loadModule(this.path, itemName, className, callback);
-            } else if (itemType == this.itemTypes.template) {
-                loadTemplate(this.path, itemName, className, dataSource, callback);
-            } else if (itemType == this.itemTypes.html) {
-                loadHTML(this.path, itemName, className, callback);
-            } else if (itemType == this.itemTypes.css) {
-                loadCSS(this.path, itemName, callback);
-            } else if (itemType == this.itemTypes.javascript) {
-                loadJS(this.path, itemName, callback);
-            }
-        };
+
         function _loadCSS(path, name, callback) {
             var modulesCSSprefix = "modulesjs_css_";
             var cssLoaded = document.getElementsByClassName(modulesCSSprefix + name)[0];
@@ -186,7 +174,7 @@ var Modules = null;
                         _loadJS(modulePath, moduleName, function() {
                             var event = document.createEvent("CustomEvent");
                             event.initCustomEvent("module_" + moduleName + "_loaded", true, true,
-                                {"detail": {"moduleName" : moduleName, "modulePath": modulePath, "className": className}});
+                                {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className}});
                             document.dispatchEvent(event);
                             if (callback) {
                                 callback();
@@ -224,7 +212,7 @@ var Modules = null;
                         _loadJS(templatePath, templateName, function() {
                             var event = document.createEvent("CustomEvent");
                             event.initCustomEvent("template_" + templateName + "_loaded", true, true,
-                                {"detail": {"templateName" : templateName, "path": templatePath, "className": className}});
+                                {"itemInfo": {"templateName" : templateName, "path": templatePath, "className": className}});
                             document.dispatchEvent(event);
                             if (callback) {
                                 callback();
@@ -297,6 +285,21 @@ var Modules = null;
                 });
             }
         }
+
+        Loader.prototype.load = function (itemName, className, callback, itemType, dataSource) {
+            if ((itemType == this.itemTypes.module) || (itemType == null) || (itemType == undefined)) {
+                loadModule(this.path, itemName, className, callback);
+            } else if (itemType == this.itemTypes.template) {
+                loadTemplate(this.path, itemName, className, dataSource, callback);
+            } else if (itemType == this.itemTypes.html) {
+                loadHTML(this.path, itemName, className, callback);
+            } else if (itemType == this.itemTypes.css) {
+                loadCSS(this.path, itemName, callback);
+            } else if (itemType == this.itemTypes.javascript) {
+                loadJS(this.path, itemName, callback);
+            }
+        };
+
         return Loader;
     })();
     Modules.Events = (function(){
