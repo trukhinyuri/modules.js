@@ -159,7 +159,7 @@ var Modules = null;
             return element.outerHTML;
         }
         function _buildModulePath(path, name) {
-            var result = path + "/" + name + "/" + name;
+            var result = path + "/" + name + "/";
             return result;
         }
         function loadModule (path, moduleName, className, callback) {
@@ -169,9 +169,10 @@ var Modules = null;
             }, 0);
             function loadSync (path, moduleName, className, htmlItemType, callback) {
                 var modulePath = _buildModulePath(path, moduleName);
-                _loadCSS(modulePath, moduleName, function() {
-                    _loadHTML(modulePath, moduleName, className, htmlItemType, function() {
-                        _loadJS(modulePath, moduleName, function() {
+                var pathToModuleFiles = modulePath + moduleName;
+                _loadCSS(pathToModuleFiles, moduleName, function() {
+                    _loadHTML(pathToModuleFiles, moduleName, className, htmlItemType, function() {
+                        _loadJS(pathToModuleFiles, moduleName, function() {
                             var event = document.createEvent("CustomEvent");
                             event.initCustomEvent("module_" + moduleName + "_loaded", true, true,
                                 {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className}});
