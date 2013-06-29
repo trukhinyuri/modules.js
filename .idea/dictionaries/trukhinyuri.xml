@@ -6,6 +6,7 @@
       <w>notificator</w>
       <w>onload</w>
       <w>onreadystatechange</w>
+      <w>unsubscribe</w>
     </words>
   </dictionary>
 </component>

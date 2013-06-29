@@ -1,0 +1,15 @@
+.flexbox_study {
+    display: flex;
+    flex-flow: row wrap;
+}
+.flexbox_study_sale-item {
+    display: flex;        /* Lay out each item using flex layout */
+    flex-flow: column;    /* Lay out item's contents vertically  */
+}
+.flexbox_study_sale-item > img {
+    order: -1;            /* Shift image before other content (in visual order) */
+    align-self: center;   /* Center the image cross-wise (horizontally)         */
+}
+.flexbox_study_sale-item > button {
+    margin-top: auto;     /* Auto top margin pushes button to bottom */
+}

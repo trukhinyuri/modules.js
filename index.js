@@ -3,6 +3,7 @@
     function run() {
         var modules = new Modules.Loader("modules");
         modules.load("globalNavigationMenu", "header");
+        modules.load("flexbox_study", "body");
 
         var templates = new Modules.Loader("/templates");
         var fileInfoData = {filename : 'one.txt', lastModifiedDate: '01.01.2013'};

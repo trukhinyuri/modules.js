@@ -329,6 +329,87 @@ asyncTest("load (itemType, className, callback, loader.itemTypes.template, dataS
 });
 //TODO: getElementByClassName with elementType method in modules.js. More simple getElementByClassName.
 //TODO: when we get Elements by ClassName, check elementType in tests.
+module("Modules.Events", {
+    setup: function() {
+//        var divloadTest = document.createElement('div');
+//        divloadTest.className = "loadTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadTest);
+//        var divloadTest = document.createElement('div');
+//        divloadTest.className = "loadTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadTest);
+//        var divloadHTMLTest = document.createElement('div');
+//        divloadHTMLTest.className = "loadHTMLTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadHTMLTest);
+//        var divloadTemplateTest = document.createElement('div');
+//        divloadTemplateTest.className = "loadTemplateTest";
+//        document.getElementsByTagName("body")[0].appendChild(divloadTemplateTest);
+    },
+    teardown: function() {
+//        var divloadTest = document.getElementsByClassName("loadTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadTest);
+//        var divloadTest = document.getElementsByClassName("loadTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadTest);
+//        var divloadHTMLTest = document.getElementsByClassName("loadHTMLTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadHTMLTest);
+//        var divloadTemplateTest = document.getElementsByClassName("loadTemplateTest")[0];
+//        document.getElementsByTagName("body")[0].removeChild(divloadTemplateTest);
+    }
+});
+test("subscribeMessage&sendMessage&unsubscribeMessage", function() {
+    expect(5);
+    var events = new Modules.Events();
+    var messageID = "testMessageID";
+    var dataObject = {item1: "info1"};
+    var sourceID = "sourceID";
+    var destinationID = "destinationID";
+    events.subscribeMessage(messageID, onMessageWithMessageIDReceived);
+    function onMessageWithMessageIDReceived(e) {
+        var sourceID = e.detail.postAdress.sourceID;
+        var destinationID = e.detail.postAdress.destinationID;
+        equal(dataObject.item1, e.detail.data.item1, "Message received with messageID only," +
+            " data received correctly. sourceid=" + sourceID
+            + "; destinationID=" + destinationID + ";");
+    }
+    events.subscribeMessage(messageID, onMessageWithMessageIDSourceIDReceived, sourceID);
+    function onMessageWithMessageIDSourceIDReceived(e) {
+        var sourceID = e.detail.postAdress.sourceID;
+        var destinationID = e.detail.postAdress.destinationID;
+        equal(dataObject.item1, e.detail.data.item1, "Message received with messageID and sourceID," +
+            " data received correctly. sourceid=" + sourceID
+            + "; destinationID=" + destinationID + ";");
+    }
+    events.subscribeMessage(messageID, onMessageWithMessageIDDestinationIDReceived, null, destinationID);
+    function onMessageWithMessageIDDestinationIDReceived(e) {
+        var sourceID = e.detail.postAdress.sourceID;
+        var destinationID = e.detail.postAdress.destinationID;
+        equal(dataObject.item1, e.detail.data.item1, "Message received with messageID and destinationID," +
+            " data received correctly. sourceid=" + sourceID
+            + "; destinationID=" + destinationID + ";");
+    }
+    events.subscribeMessage(messageID, onMessageWithMessageIDSourceIDDestinationIDReceived, sourceID, destinationID);
+    function onMessageWithMessageIDSourceIDDestinationIDReceived(e) {
+        var sourceID = e.detail.postAdress.sourceID;
+        var destinationID = e.detail.postAdress.destinationID;
+        equal(dataObject.item1, e.detail.data.item1, "Message received with messageID, sourceID and destinationID," +
+            " data received correctly. sourceid=" + sourceID
+            + "; destinationID=" + destinationID + ";");
+    }
+    events.sendMessage(messageID, dataObject);
+    events.sendMessage(messageID, dataObject, sourceID);
+    events.sendMessage(messageID, dataObject, null, destinationID);
+    events.sendMessage(messageID, dataObject, sourceID, null);
+    events.sendMessage(messageID, dataObject, sourceID, destinationID);
+    //must not added callback, because unsubscribed
+    events.unsubscribeMessage(messageID, onMessageWithMessageIDReceived);
+    events.sendMessage(messageID, dataObject);
+    events.unsubscribeMessage(messageID, onMessageWithMessageIDSourceIDReceived, sourceID);
+    events.sendMessage(messageID, dataObject, sourceID);
+    events.unsubscribeMessage(messageID, onMessageWithMessageIDDestinationIDReceived, null, destinationID);
+    events.sendMessage(messageID, dataObject, null, destinationID);
+    events.unsubscribeMessage(messageID, onMessageWithMessageIDSourceIDDestinationIDReceived, sourceID, destinationID);
+    events.sendMessage(messageID, dataObject, sourceID, destinationID);
+
+});
 //asyncTest("loadHTML", function() {
 //    expect(1);
 //    var path = "files_forTests";

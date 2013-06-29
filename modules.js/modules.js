@@ -1,11 +1,12 @@
 //version 1.0-snapshot
-//revision 2
+//revision 3
 //Copyright (C) 2012–2013 Yuri V. Trukhin
 //Author: Yuri V.Trukhin (yuri@trukhin.com)
 //Owner: Yuri V.Trukhin
 //You can`t change and publish code of modules.js without contributor licence from Yuri V.Trukhin
 //You can`t sold this code
 // You must get license this code from Yuri V.Trukhin (yuri@trukhin.com) for commercial use
+// (and/or internal company use)
 //You can use this code in open source projects without license
 //If you don`t agreed with license, you must don`t use this code
 "use strict";
@@ -315,9 +316,17 @@ var Modules = null;
             var _useCapture = useCapture || false;
             addListenerImplementation(target, type, listener, _useCapture);
         };
+        Events.prototype.addDocumentListener = function (type, listener, useCapture) {
+            var _useCapture = useCapture || false;
+            addListenerImplementation(document, type, listener, _useCapture);
+        };
         Events.prototype.removeListener = function (target, type, listener, useCapture) {
             var _useCapture = useCapture || false;
             removeListenerImplementation(target, type, listener, _useCapture);
+        };
+        Events.prototype.removeDocumentListener = function (type, listener, useCapture) {
+            var _useCapture = useCapture || false;
+            removeListenerImplementation(document, type, listener, _useCapture);
         };
         Events.prototype.addStartupListener = function (listener) {
             addListenerImplementation(document, "DOMContentLoaded", listener, false);
@@ -355,6 +364,16 @@ var Modules = null;
         Events.prototype.removeStartupListener = function (listener) {
             removeListenerImplementation(document, "DOMContentLoaded", listener, false);
         }
+        Events.prototype.dispatchDocumentCustomEvent = function (ID, detailsObject) {
+            var event = document.createEvent("CustomEvent");
+            event.initCustomEvent(ID, true, true, detailsObject);
+            document.dispatchEvent(event);
+        }
+        Events.prototype.dispatchCustomEvent = function (target, ID, detailsObject) {
+            var event = target.createEvent("CustomEvent");
+            event.initCustomEvent(ID, true, true, detailsObject);
+            target.dispatchEvent(event);
+        }
         Events.prototype.addListeners = function(targets, type, listener, useCapture) {
             var _useCapture = useCapture || true;
             var length = targets.length;
@@ -367,6 +386,65 @@ var Modules = null;
             var length = targets.length;
             for (var i = 0; i < length; i++) {
                 removeListenerImplementation(targets[i], type, listener, _useCapture);
+            }
+        }
+        Events.prototype.sendMessage = function(messageID, dataObject, sourceID, destinationID) {
+            var messagePrefix = "modulesjs_message";
+            if ((sourceID == null) || (sourceID == undefined)) {
+                if ((destinationID == null) || (destinationID == undefined)) {
+                    send(this, messagePrefix + "_" + messageID);
+                } else {
+                    send(this, messagePrefix + "_" + messageID + "__" + destinationID);
+                }
+            } else {
+                if ((destinationID == null) || (destinationID == undefined)) {
+                    send(this, messagePrefix + "_" + messageID + "_" + sourceID);
+                } else {
+                    send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+                }
+            }
+            function send(scope, ID) {
+                var details = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
+                    , "data": dataObject};
+                scope.dispatchDocumentCustomEvent(ID, details);
+            }
+        }
+        Events.prototype.subscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
+            var messagePrefix = "modulesjs_message";
+            if ((sourceID == null) || (sourceID == undefined)) {
+                if ((destinationID == null) || (destinationID == undefined)) {
+                    subscribe(this, messagePrefix + "_" + messageID);
+                } else {
+                    subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+                }
+            } else {
+                if ((destinationID == null) || (destinationID == undefined)) {
+                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+                } else {
+                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+                }
+            }
+            function subscribe(scope, ID){
+                scope.addDocumentListener(ID, onMessageReceived);
+            }
+        }
+        Events.prototype.unsubscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
+            var messagePrefix = "modulesjs_message";
+            if ((sourceID == null) || (sourceID == undefined)) {
+                if ((destinationID == null) || (destinationID == undefined)) {
+                    unsubscribe(this, messagePrefix + "_" + messageID);
+                } else {
+                    unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+                }
+            } else {
+                if ((destinationID == null) || (destinationID == undefined)) {
+                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+                } else {
+                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+                }
+            }
+            function unsubscribe(scope, ID) {
+                scope.removeDocumentListener(ID, onMessageReceived);
             }
         }
         return Events;
