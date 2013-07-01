@@ -404,9 +404,9 @@ var Modules = null;
                 }
             }
             function send(scope, ID) {
-                var details = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
-                    , "data": dataObject};
-                scope.dispatchDocumentCustomEvent(ID, details);
+                var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
+                    , "dataObject": dataObject};
+                scope.dispatchDocumentCustomEvent(ID, detail);
             }
         }
         Events.prototype.subscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
