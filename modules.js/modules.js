@@ -13,8 +13,38 @@
 var Modules = null;
 (function (Modules) {
     Modules.DOM = (function(){
-        function DOM() {}
-        DOM.prototype = {}
+        function DOM() {
+            this._DOM = null;
+            this._Loader = null;
+            this._Events = null;
+            this._Server = null;
+        }
+        DOM.prototype = {
+            get DOM() {
+                if (this._DOM == null) {
+                    this._DOM = new Modules.DOM();
+                }
+                return this._DOM;
+            },
+            get Loader() {
+                if (this._Loader == null) {
+                    this._Loader = new Modules.Loader();
+                }
+                return this._Loader;
+            },
+            get Events() {
+                if (this._Events == null) {
+                    this._Events = new Modules.Events();
+                }
+                return this._Events;
+            },
+            get Server() {
+                if (this._Server == null) {
+                    this._Server = new Modules.Server();
+                }
+                return this._Server;
+            }
+        }
         function isHTMLModule(element) {
            return element.parentNode.getAttribute("data-" + "modulesjs_item_id") == "module";
         }
@@ -53,6 +83,10 @@ var Modules = null;
             Object.defineProperty(this._itemTypes, "css", {value: "css", writable: false});
             Object.defineProperty(this._itemTypes, "javascript", {value: "javascript", writable: false});
 
+            this._DOM = null;
+            this._Loader = null;
+            this._Events = null;
+            this._Server = null;
         }
         Loader.prototype = {
             get path () {
@@ -60,6 +94,30 @@ var Modules = null;
             },
             get itemTypes() {
                 return this._itemTypes;
+            },
+            get DOM() {
+                if (this._DOM == null) {
+                    this._DOM = new Modules.DOM();
+                }
+                return this._DOM;
+            },
+            get Loader() {
+                if (this._Loader == null) {
+                    this._Loader = new Modules.Loader();
+                }
+                return this._Loader;
+            },
+            get Events() {
+                if (this._Events == null) {
+                    this._Events = new Modules.Events();
+                }
+                return this._Events;
+            },
+            get Server() {
+                if (this._Server == null) {
+                    this._Server = new Modules.Server();
+                }
+                return this._Server;
             }
         }
 
@@ -101,8 +159,20 @@ var Modules = null;
                 }
             }
         }
-        function _renderHTML(responseText, className, htmlItemType, callback) {
-            var elementClasses = document.getElementsByClassName(className);
+        function _loadHTML(path, name, className, attributeType, container, callback) {
+            function loadedHandler(responseText, name) {
+                _renderHTML(responseText, className, attributeType, container, callback);
+            }
+            _loadHTMLInMemory(path, name, loadedHandler);
+        }
+        function _renderHTML(responseText, className, htmlItemType, container, callback) {
+            var elementClasses = null;
+            if ((container != null) && (container != undefined)) {
+                var containerElement = document.getElementsByClassName(container)[0];
+                elementClasses = containerElement.getElementsByClassName(className);
+            } else {
+                elementClasses = document.getElementsByClassName(className);
+            }
             var classesCount = elementClasses.length;
             for (var htmlID = 0; htmlID < classesCount; htmlID++) {
                 elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
@@ -112,12 +182,6 @@ var Modules = null;
             if (callback) {
                 callback();
             }
-        }
-        function _loadHTML(path, name, className, attributeType, callback) {
-            function loadedHandler(responseText, name) {
-                _renderHTML(responseText, className, attributeType, callback);
-            }
-            _loadHTMLInMemory(path, name, loadedHandler);
         }
         function _loadHTMLInMemory(path, name, callback) {
             var xhrHtmlLoader = new XMLHttpRequest();
@@ -163,21 +227,21 @@ var Modules = null;
             var result = path + "/" + name + "/";
             return result;
         }
-        function loadModule (path, moduleName, className, callback) {
+        function loadModule (scope, path, moduleName, className, callback, container) {
             var htmlItemType = "module";
             setTimeout(function(){
-                loadSync(path, moduleName, className, htmlItemType, callback);
+                loadSync(scope, path, moduleName, className, htmlItemType, callback, container);
             }, 0);
-            function loadSync (path, moduleName, className, htmlItemType, callback) {
+            function loadSync (scope, path, moduleName, className, htmlItemType, callback, container) {
                 var modulePath = _buildModulePath(path, moduleName);
+                scope.Events.dispatchDocumentCustomEvent("module_" + moduleName + "_loadingStarted",
+                    {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className}});
                 var pathToModuleFiles = modulePath + moduleName;
                 _loadCSS(pathToModuleFiles, moduleName, function() {
-                    _loadHTML(pathToModuleFiles, moduleName, className, htmlItemType, function() {
+                    _loadHTML(pathToModuleFiles, moduleName, className, htmlItemType, container, function() {
                         _loadJS(pathToModuleFiles, moduleName, function() {
-                            var event = document.createEvent("CustomEvent");
-                            event.initCustomEvent("module_" + moduleName + "_loaded", true, true,
-                                {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className}});
-                            document.dispatchEvent(event);
+                            scope.Events.dispatchDocumentCustomEvent("module_" + moduleName + "_loaded"
+                                ,{"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className}});
                             if (callback) {
                                 callback();
                             }
@@ -186,14 +250,16 @@ var Modules = null;
                 });
             }
         }
-        function loadTemplate (path, templateName, className, dataSource, callback) {
+        function loadTemplate (scope, path, templateName, className, dataSource, callback, container) {
             document.getElementsByClassName(className).innerHTML = "";
             var htmlItemType = "template";
             setTimeout(function(){
-                loadSync(path, templateName, className, dataSource, htmlItemType, callback);
+                loadSync(scope, path, templateName, className, dataSource, htmlItemType, callback, container);
             }, 0);
-            function loadSync(path, templateName, className, dataSource, htmlItemType, callback) {
+            function loadSync(scope, path, templateName, className, dataSource, htmlItemType, callback, container) {
                 var templatePath = _buildTemplatePath(path, templateName);
+                scope.Events.dispatchCustomEvent(document, "template_" + templateName + "_loadingStarted",
+                    {"itemInfo": {"itemName" : templateName, "path": templatePath, "className": className}});
                 function htmlLoadedHandler(responseText, name) {
                     var result = '';
                     var stepResult = '';
@@ -210,12 +276,10 @@ var Modules = null;
                             result += stepResult;
                         }
                     }
-                    _renderHTML(result, className, htmlItemType, function(){
+                    _renderHTML(result, className, htmlItemType, container, function(){
                         _loadJS(templatePath, templateName, function() {
-                            var event = document.createEvent("CustomEvent");
-                            event.initCustomEvent("template_" + templateName + "_loaded", true, true,
-                                {"itemInfo": {"templateName" : templateName, "path": templatePath, "className": className}});
-                            document.dispatchEvent(event);
+                            scope.Events.dispatchDocumentCustomEvent("template_" + templateName + "_loaded"
+                                ,{"itemInfo": {"itemName" : templateName, "path": templatePath, "className": className}});
                             if (callback) {
                                 callback();
                             }
@@ -228,59 +292,59 @@ var Modules = null;
 
             }
         };
-        function loadHTML (path, fileName, className, callback) {
+        function loadHTML (scope, path, fileName, className, callback, container) {
             var htmlItemType = "file";
             setTimeout(function(){
-                loadSync(path, fileName, className, htmlItemType, callback);
+                loadSync(scope, path, fileName, className, htmlItemType, callback, container);
             }, 0);
-            function loadSync(path, fileName, className, htmlItemType, callback) {
+            function loadSync(scope, path, fileName, className, htmlItemType, callback, container) {
 //                if ( fileName.length )
                 var htmlPath = _buildFilePath(path, fileName);
-                _loadHTML(htmlPath, fileName, className, htmlItemType, function() {
-                    var event = document.createEvent("CustomEvent");
-                    event.initCustomEvent("html_" + fileName + "_loaded", true, true,
-                        {"detail": {"fileName" : fileName, "htmlPath": htmlPath, "path" : path, "className": className}});
-                    document.dispatchEvent(event);
+                scope.Events.dispatchCustomEvent(document, "html_" + fileName + "_loadingStarted",
+                    {"detail": {"itemName" : fileName, "htmlPath": htmlPath, "path" : path, "className": className}});
+                _loadHTML(htmlPath, fileName, className, htmlItemType, container, function() {
+                    scope.Events.dispatchDocumentCustomEvent("html_" + fileName + "_loaded"
+                        ,{"detail": {"fileName" : fileName, "htmlPath": htmlPath, "path" : path, "className": className}});
                     if (callback) {
                         callback();
                     }
                 });
             }
         }
-        function loadJS (path, fileName, callback) {
-            loadAsync(path, fileName, callback);
-            function loadAsync(path, fileName, callback) {
+        function loadJS (scope, path, fileName, callback) {
+            loadAsync(scope, path, fileName, callback);
+            function loadAsync(scope, path, fileName, callback) {
                 setTimeout(function(){
-                    loadSync(path, fileName, callback);
+                    loadSync(scope, path, fileName, callback);
                 }, 0);
             }
-            function loadSync(path, fileName,  callback) {
+            function loadSync(scope, path, fileName,  callback) {
                 var jsPath = _buildFilePath(path, fileName);
+                scope.Events.dispatchCustomEvent(document, "js_" + fileName + "_loadingStarted",
+                    {"detail": {"itemName" : fileName, "jsPath": jsPath, "path" : path}});
                 _loadJS(jsPath, fileName, function() {
-                    var event = document.createEvent("CustomEvent");
-                    event.initCustomEvent("js_" + fileName + "_loaded", true, true,
-                        {"detail": {"fileName" : fileName, "jsPath": jsPath, "path" : path}});
-                    document.dispatchEvent(event);
+                    scope.Events.dispatchDocumentCustomEvent("js_" + fileName + "_loaded"
+                        ,{"detail": {"fileName" : fileName, "jsPath": jsPath, "path" : path}});
                     if (callback) {
                         callback();
                     }
                 });
             }
         }
-        function loadCSS (path, fileName, callback) {
-            loadAsync(path, fileName, callback);
-            function loadAsync(path, fileName, callback) {
+        function loadCSS (scope, path, fileName, callback) {
+            loadAsync(scope, path, fileName, callback);
+            function loadAsync(scope, path, fileName, callback) {
                 setTimeout(function(){
-                    loadSync(path, fileName, callback);
+                    loadSync(scope, path, fileName, callback);
                 }, 0);
             }
-            function loadSync(path, fileName, callback) {
+            function loadSync(scope, path, fileName, callback) {
                 var cssPath = _buildFilePath(path, fileName);
+                scope.Events.dispatchCustomEvent(document, "css_" + fileName + "_loadingStarted",
+                    {"detail": {"itemName" : fileName, "cssPath": cssPath, "path" : path}});
                 _loadCSS(cssPath, fileName, function() {
-                    var event = document.createEvent("CustomEvent");
-                    event.initCustomEvent("css_" + fileName + "_loaded", true, true,
-                        {"detail": {"fileName" : fileName, "cssPath": cssPath, "path" : path}});
-                    document.dispatchEvent(event);
+                    scope.Events.dispatchDocumentCustomEvent("css_" + fileName + "_loaded"
+                        ,{"detail": {"fileName" : fileName, "cssPath": cssPath, "path" : path}});
                     if (callback) {
                         callback();
                     }
@@ -288,30 +352,66 @@ var Modules = null;
             }
         }
 
-        Loader.prototype.load = function (itemName, className, callback, itemType, dataSource) {
+        Loader.prototype.load = function (itemName, className, callback, itemType, dataSource, container) {
             if ((itemType == this.itemTypes.module) || (itemType == null) || (itemType == undefined)) {
-                loadModule(this.path, itemName, className, callback);
+                loadModule(this, this.path, itemName, className, callback, container);
             } else if (itemType == this.itemTypes.template) {
-                loadTemplate(this.path, itemName, className, dataSource, callback);
+                loadTemplate(this, this.path, itemName, className, dataSource, callback, container);
             } else if (itemType == this.itemTypes.html) {
-                loadHTML(this.path, itemName, className, callback);
+                loadHTML(this, this.path, itemName, className, callback, container);
             } else if (itemType == this.itemTypes.css) {
-                loadCSS(this.path, itemName, callback);
+                loadCSS(this, this.path, itemName, callback);
             } else if (itemType == this.itemTypes.javascript) {
-                loadJS(this.path, itemName, callback);
+                loadJS(this, this.path, itemName, callback);
             }
         };
 
         return Loader;
     })();
     Modules.Events = (function(){
+        function Events() {
+            this._DOM = null;
+            this._Loader = null;
+            this._Events = null;
+            this._Server = null;
+        }
+        Events.prototype = {
+            get DOM() {
+                if (this._DOM == null) {
+                    this._DOM = new Modules.DOM();
+                }
+                return this._DOM;
+            },
+            get Loader() {
+                if (this._Loader == null) {
+                    this._Loader = new Modules.Loader();
+                }
+                return this._Loader;
+            },
+            get Events() {
+                if (this._Events == null) {
+                    this._Events = new Modules.Events();
+                }
+                return this._Events;
+            },
+            get Server() {
+                if (this._Server == null) {
+                    this._Server = new Modules.Server();
+                }
+                return this._Server;
+            }
+        }
         function addListenerImplementation(target, type, listener, useCapture) {
             target.addEventListener(type, listener, useCapture);
         }
         function removeListenerImplementation(target, type, listener, useCapture) {
             target.removeEventListener(type, listener, useCapture);
         }
-        function Events() {}
+        function Events() {
+            this._DOM = new Modules.DOM();
+            this._Loader = new Modules.Loader();
+            this._Server = new Modules.Server();
+        }
         Events.prototype.addListener = function (target, type, listener, useCapture) {
             var _useCapture = useCapture || false;
             addListenerImplementation(target, type, listener, _useCapture);
@@ -451,11 +551,40 @@ var Modules = null;
     }());
     Modules.Server = (function(){
         function Server(path) {
-            this._path = path;
+            this._DOM = null;
+            this._Loader = null;
+            this._Events = null;
+            this._Server = null;
 //            loadJSONConfig(this._path, "cloud", function() {
 //                alert(ModulesJsConfigCloud.trackers);
 //                alert(getRandomInt(0, ModulesJsConfigCloud.trackers.length - 1));
 //            });
+        }
+        Server.prototype = {
+            get DOM() {
+                if (this._DOM == null) {
+                    this._DOM = new Modules.DOM();
+                }
+                return this._DOM;
+            },
+            get Loader() {
+                if (this._Loader == null) {
+                    this._Loader = new Modules.Loader();
+                }
+                return this._Loader;
+            },
+            get Events() {
+                if (this._Events == null) {
+                    this._Events = new Modules.Events();
+                }
+                return this._Events;
+            },
+            get Server() {
+                if (this._Server == null) {
+                    this._Server = new Modules.Server();
+                }
+                return this._Server;
+            }
         }
         Server.prototype.getString = function(url) {
             var xhr = new XMLHttpRequest();
