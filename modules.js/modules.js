@@ -1,5 +1,5 @@
 //version 1.0-snapshot
-//revision 3
+//revision 4
 //Copyright (C) 2012–2013 Yuri V. Trukhin
 //Author: Yuri V.Trukhin (yuri@trukhin.com)
 //Owner: Yuri V.Trukhin

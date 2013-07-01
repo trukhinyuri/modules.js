@@ -109,13 +109,11 @@
     <splitter split-orientation="vertical" split-proportion="0.5938272">
       <split-first>
         <leaf>
-          <file leaf-file-name="modules.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="modules.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="586" column="13" selection-start="27340" selection-end="27340" vertical-scroll-proportion="18.783186" vertical-offset="300" max-vertical-offset="9645">
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
+                <state line="1" column="12" selection-start="35" selection-end="35" vertical-scroll-proportion="0.03318584" vertical-offset="0" max-vertical-offset="9645">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -133,10 +131,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="modulesTests.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="modulesTests.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="261" column="21" selection-start="14946" selection-end="14946" vertical-scroll-proportion="0.23255815" vertical-offset="3855" max-vertical-offset="7110">
+                <state line="261" column="21" selection-start="14946" selection-end="14946" vertical-scroll-proportion="3.8372092" vertical-offset="2925" max-vertical-offset="7110">
                   <folding />
                 </state>
               </provider>
@@ -238,8 +236,8 @@
         <option value="$PROJECT_DIR$/modules/globalNavigationMenu/globalNavigationMenu.html" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenuVertical/globalNavigationMenuVertical.html" />
         <option value="$PROJECT_DIR$/modules/globalNavigationMenuVertical/globalNavigationMenuVertical.js" />
-        <option value="$PROJECT_DIR$/modules.js/modules.js" />
         <option value="$PROJECT_DIR$/modules.js/modulesTests.js" />
+        <option value="$PROJECT_DIR$/modules.js/modules.js" />
       </list>
     </option>
   </component>
@@ -1232,18 +1230,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
+    <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="586" column="13" selection-start="27340" selection-end="27340" vertical-scroll-proportion="18.783186" vertical-offset="300" max-vertical-offset="9645">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="261" column="21" selection-start="14946" selection-end="14946" vertical-scroll-proportion="3.8372092" vertical-offset="2925" max-vertical-offset="7110">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js/modulesTests.js">
+    <entry file="file://$PROJECT_DIR$/modules.js/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="21" selection-start="14946" selection-end="14946" vertical-scroll-proportion="0.23255815" vertical-offset="3855" max-vertical-offset="7110">
+        <state line="1" column="12" selection-start="35" selection-end="35" vertical-scroll-proportion="0.03318584" vertical-offset="0" max-vertical-offset="9645">
           <folding />
         </state>
       </provider>
