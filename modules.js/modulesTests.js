@@ -366,7 +366,7 @@ test("subscribeMessage&sendMessage&unsubscribeMessage", function() {
     function onMessageWithMessageIDReceived(e) {
         var sourceID = e.detail.postAdress.sourceID;
         var destinationID = e.detail.postAdress.destinationID;
-        equal(dataObject.item1, e.detail.data.item1, "Message received with messageID only," +
+        equal(dataObject.item1, e.detail.dataObject.item1, "Message received with messageID only," +
             " data received correctly. sourceid=" + sourceID
             + "; destinationID=" + destinationID + ";");
     }
@@ -374,7 +374,7 @@ test("subscribeMessage&sendMessage&unsubscribeMessage", function() {
     function onMessageWithMessageIDSourceIDReceived(e) {
         var sourceID = e.detail.postAdress.sourceID;
         var destinationID = e.detail.postAdress.destinationID;
-        equal(dataObject.item1, e.detail.data.item1, "Message received with messageID and sourceID," +
+        equal(dataObject.item1, e.detail.dataObject.item1, "Message received with messageID and sourceID," +
             " data received correctly. sourceid=" + sourceID
             + "; destinationID=" + destinationID + ";");
     }
@@ -382,7 +382,7 @@ test("subscribeMessage&sendMessage&unsubscribeMessage", function() {
     function onMessageWithMessageIDDestinationIDReceived(e) {
         var sourceID = e.detail.postAdress.sourceID;
         var destinationID = e.detail.postAdress.destinationID;
-        equal(dataObject.item1, e.detail.data.item1, "Message received with messageID and destinationID," +
+        equal(dataObject.item1, e.detail.dataObject.item1, "Message received with messageID and destinationID," +
             " data received correctly. sourceid=" + sourceID
             + "; destinationID=" + destinationID + ";");
     }
@@ -390,7 +390,7 @@ test("subscribeMessage&sendMessage&unsubscribeMessage", function() {
     function onMessageWithMessageIDSourceIDDestinationIDReceived(e) {
         var sourceID = e.detail.postAdress.sourceID;
         var destinationID = e.detail.postAdress.destinationID;
-        equal(dataObject.item1, e.detail.data.item1, "Message received with messageID, sourceID and destinationID," +
+        equal(dataObject.item1, e.detail.dataObject.item1, "Message received with messageID, sourceID and destinationID," +
             " data received correctly. sourceid=" + sourceID
             + "; destinationID=" + destinationID + ";");
     }
