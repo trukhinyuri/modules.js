@@ -21,32 +21,32 @@ var Modules = null;
         }
         DOM.prototype = {
             get DOM() {
-                if (this._DOM == null) {
+                if (this._DOM === null) {
                     this._DOM = new Modules.DOM();
                 }
                 return this._DOM;
             },
             get Loader() {
-                if (this._Loader == null) {
+                if (this._Loader === null) {
                     this._Loader = new Modules.Loader();
                 }
                 return this._Loader;
             },
             get Events() {
-                if (this._Events == null) {
+                if (this._Events === null) {
                     this._Events = new Modules.Events();
                 }
                 return this._Events;
             },
             get Server() {
-                if (this._Server == null) {
+                if (this._Server === null) {
                     this._Server = new Modules.Server();
                 }
                 return this._Server;
             }
         }
         function isHTMLModule(element) {
-           return element.parentNode.getAttribute("data-" + "modulesjs_item_id") == "module";
+           return element.parentNode.getAttribute("data-" + "modulesjs_item_id") === "module";
         }
         DOM.prototype.getModules = function(className) {
             var elements = document.getElementsByClassName(className);
@@ -56,7 +56,7 @@ var Modules = null;
             return results;
         }
         DOM.prototype.getRootTarget = function(eventTarget, className) {
-            if (eventTarget.className == className) {
+            if (eventTarget.className === className) {
                 return eventTarget;
             } else {
                 return this.getRootTarget(eventTarget.parentNode, className);
@@ -96,25 +96,25 @@ var Modules = null;
                 return this._itemTypes;
             },
             get DOM() {
-                if (this._DOM == null) {
+                if (this._DOM === null) {
                     this._DOM = new Modules.DOM();
                 }
                 return this._DOM;
             },
             get Loader() {
-                if (this._Loader == null) {
+                if (this._Loader === null) {
                     this._Loader = new Modules.Loader();
                 }
                 return this._Loader;
             },
             get Events() {
-                if (this._Events == null) {
+                if (this._Events === null) {
                     this._Events = new Modules.Events();
                 }
                 return this._Events;
             },
             get Server() {
-                if (this._Server == null) {
+                if (this._Server === null) {
                     this._Server = new Modules.Server();
                 }
                 return this._Server;
@@ -151,7 +151,7 @@ var Modules = null;
             var done = false;
             script.onreadystatechange = script.onload = function () {
                 var state = script.readyState;
-                if (!done && (!state || state == "loaded" || state == "complete")) {
+                if (!done && (!state || state === "loaded" || state === "complete")) {
                     done = true;
                     if (callback) {
                         callback(name);
@@ -167,7 +167,7 @@ var Modules = null;
         }
         function _renderHTML(responseText, className, htmlItemType, container, callback) {
             var elementClasses = null;
-            if ((container != null) && (container != undefined)) {
+            if (container != null) {
                 var containerElement = document.getElementsByClassName(container)[0];
                 elementClasses = containerElement.getElementsByClassName(className);
             } else {
@@ -187,8 +187,8 @@ var Modules = null;
             var xhrHtmlLoader = new XMLHttpRequest();
             xhrHtmlLoader.open("GET", path  + ".html", true);
             xhrHtmlLoader.onreadystatechange = function() {
-                if (xhrHtmlLoader.readyState == 4 /* complete */) {
-                    if (xhrHtmlLoader.status == 200 || xhrHtmlLoader.status == 304) {
+                if (xhrHtmlLoader.readyState === 4 /* complete */) {
+                    if (xhrHtmlLoader.status === 200 || xhrHtmlLoader.status === 304) {
                         if (callback) {
                             callback(xhrHtmlLoader.responseText, name);
                         }
@@ -264,7 +264,7 @@ var Modules = null;
                     var result = '';
                     var stepResult = '';
                     //plain object
-                    if (dataSource.length == undefined) {
+                    if (dataSource.length === undefined) {
                         result = _replace$PlaceholdersInTemplate(responseText, name, dataSource);
                         result = _addUUIDAttribute(result, 0, templateName);
                     }
@@ -353,19 +353,18 @@ var Modules = null;
         }
 
         Loader.prototype.load = function (itemName, className, callback, itemType, dataSource, container) {
-            if ((itemType == this.itemTypes.module) || (itemType == null) || (itemType == undefined)) {
+            if ((itemType === this.itemTypes.module) || (itemType == null)) {
                 loadModule(this, this.path, itemName, className, callback, container);
-            } else if (itemType == this.itemTypes.template) {
+            } else if (itemType === this.itemTypes.template) {
                 loadTemplate(this, this.path, itemName, className, dataSource, callback, container);
-            } else if (itemType == this.itemTypes.html) {
+            } else if (itemType === this.itemTypes.html) {
                 loadHTML(this, this.path, itemName, className, callback, container);
-            } else if (itemType == this.itemTypes.css) {
+            } else if (itemType === this.itemTypes.css) {
                 loadCSS(this, this.path, itemName, callback);
-            } else if (itemType == this.itemTypes.javascript) {
+            } else if (itemType === this.itemTypes.javascript) {
                 loadJS(this, this.path, itemName, callback);
             }
         };
-
         return Loader;
     })();
     Modules.Events = (function(){
@@ -377,25 +376,25 @@ var Modules = null;
         }
         Events.prototype = {
             get DOM() {
-                if (this._DOM == null) {
+                if (this._DOM === null) {
                     this._DOM = new Modules.DOM();
                 }
                 return this._DOM;
             },
             get Loader() {
-                if (this._Loader == null) {
+                if (this._Loader === null) {
                     this._Loader = new Modules.Loader();
                 }
                 return this._Loader;
             },
             get Events() {
-                if (this._Events == null) {
+                if (this._Events === null) {
                     this._Events = new Modules.Events();
                 }
                 return this._Events;
             },
             get Server() {
-                if (this._Server == null) {
+                if (this._Server === null) {
                     this._Server = new Modules.Server();
                 }
                 return this._Server;
@@ -433,6 +432,9 @@ var Modules = null;
         }
         Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
             addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
+        }
+        Events.prototype.addBeforeItemLoadedListener = function(moduleName, itemType, listener) {
+            addListenerImplementation(document, "module_" + moduleName + "_loadingStarted", false);
         }
         Events.prototype.addTemplateLoadedListener = function(templateName, listener) {
             addListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
@@ -490,14 +492,14 @@ var Modules = null;
         }
         Events.prototype.sendMessage = function(messageID, dataObject, sourceID, destinationID) {
             var messagePrefix = "modulesjs_message";
-            if ((sourceID == null) || (sourceID == undefined)) {
-                if ((destinationID == null) || (destinationID == undefined)) {
+            if (sourceID == null) {
+                if (destinationID == null) {
                     send(this, messagePrefix + "_" + messageID);
                 } else {
                     send(this, messagePrefix + "_" + messageID + "__" + destinationID);
                 }
             } else {
-                if ((destinationID == null) || (destinationID == undefined)) {
+                if (destinationID == null) {
                     send(this, messagePrefix + "_" + messageID + "_" + sourceID);
                 } else {
                     send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
@@ -511,14 +513,14 @@ var Modules = null;
         }
         Events.prototype.subscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
             var messagePrefix = "modulesjs_message";
-            if ((sourceID == null) || (sourceID == undefined)) {
-                if ((destinationID == null) || (destinationID == undefined)) {
+            if (sourceID == null) {
+                if (destinationID == null) {
                     subscribe(this, messagePrefix + "_" + messageID);
                 } else {
                     subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
                 }
             } else {
-                if ((destinationID == null) || (destinationID == undefined)) {
+                if (destinationID == null) {
                     subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
                 } else {
                     subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
@@ -530,14 +532,14 @@ var Modules = null;
         }
         Events.prototype.unsubscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
             var messagePrefix = "modulesjs_message";
-            if ((sourceID == null) || (sourceID == undefined)) {
-                if ((destinationID == null) || (destinationID == undefined)) {
+            if (sourceID == null) {
+                if (destinationID == null) {
                     unsubscribe(this, messagePrefix + "_" + messageID);
                 } else {
                     unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
                 }
             } else {
-                if ((destinationID == null) || (destinationID == undefined)) {
+                if (destinationID == null) {
                     unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
                 } else {
                     unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
@@ -562,25 +564,25 @@ var Modules = null;
         }
         Server.prototype = {
             get DOM() {
-                if (this._DOM == null) {
+                if (this._DOM === null) {
                     this._DOM = new Modules.DOM();
                 }
                 return this._DOM;
             },
             get Loader() {
-                if (this._Loader == null) {
+                if (this._Loader === null) {
                     this._Loader = new Modules.Loader();
                 }
                 return this._Loader;
             },
             get Events() {
-                if (this._Events == null) {
+                if (this._Events === null) {
                     this._Events = new Modules.Events();
                 }
                 return this._Events;
             },
             get Server() {
-                if (this._Server == null) {
+                if (this._Server === null) {
                     this._Server = new Modules.Server();
                 }
                 return this._Server;
@@ -596,8 +598,8 @@ var Modules = null;
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 /* complete */) {
-                    if (xhr.status == 200 || xhr.status == 304) {
+                if (xhr.readyState === 4 /* complete */) {
+                    if (xhr.status === 200 || xhr.status === 304) {
                         handler(xhr.responseText);
                     }
                 }
@@ -618,7 +620,7 @@ var Modules = null;
 
             script.onreadystatechange = script.onload = function () {
                 var state = script.readyState;
-                if (!done && (!state || state == "loaded" || state == "complete")) {
+                if (!done && (!state || state === "loaded" || state === "complete")) {
                     done = true;
                     document.dispatchEvent(new CustomEvent("config_" + name + "_loaded",
                         {"detail": {"configName" : name, "_path": path}}
