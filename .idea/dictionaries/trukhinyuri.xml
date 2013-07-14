@@ -7,6 +7,8 @@
       <w>nsparts</w>
       <w>onload</w>
       <w>onreadystatechange</w>
+      <w>qunit</w>
+      <w>teardown</w>
       <w>unsubscribe</w>
     </words>
   </dictionary>
