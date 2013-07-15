@@ -15,8 +15,13 @@ window.exports = window.exports || (window.exports = {});
 (function (Modules) {
     //Module for Modules.js special DOM functions
     (function (DOM) {
+        //True, if htmlElement is a module
         function isHTMLModule (htmlElement) {
-            return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === "module";
+            if (htmlElement.parentNode != null) {
+                return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === "module";
+            } else {
+                return false;
+            }
         }
         function getModules (className) {
             var elements = document.getElementsByClassName(className);

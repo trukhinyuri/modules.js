@@ -39,13 +39,25 @@ module("Modules.DOM", {
         (function (Setup) {
             function isHTMLModule () {
                 var moduleItemType = "module";
-                var divIsHTMLModule = document.createElement('div');
-                divIsHTMLModule.className = "isHTMLModule";
-                divIsHTMLModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
-                var divModule = document.createElement("div");
-                divModule.className = "testModule";
-                divIsHTMLModule.appendChild(divModule);
-                document.getElementsByTagName("body")[0].appendChild(divIsHTMLModule);
+                var anotherItemType = "template";
+                var body = document.getElementsByTagName("body")[0];
+
+                var divHTMLModule = document.createElement('div');
+                divHTMLModule.className = "HTMLModule";
+                divHTMLModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
+                var testModuleInHTMLModule = document.createElement("div");
+                testModuleInHTMLModule.className = "testModuleInHTMLModule";
+                divHTMLModule.appendChild(testModuleInHTMLModule);
+                body.appendChild(divHTMLModule);
+
+                var divNotHTMLModule = document.createElement("div");
+                divNotHTMLModule.className = "NotHTMLModule";
+                divNotHTMLModule.setAttribute("data-" + "modulesjs_item_type", anotherItemType);
+                var testModuleInNotHTMLModule = document.createElement("div");
+                testModuleInNotHTMLModule.className = "testModuleInNotHTMLModule";
+                divNotHTMLModule.appendChild(testModuleInNotHTMLModule);
+                body.appendChild(divNotHTMLModule);
+
             }
             Setup.isHTMLModule = isHTMLModule;
         }(window.exports.Setup || (window.exports.Setup = {})));
@@ -62,8 +74,13 @@ module("Modules.DOM", {
         window.exports = window.exports || (window.exports = {});
         (function (Teardown) {
             function isHTMLModule () {
-                var divIsHTMLModule = document.getElementsByClassName("isHTMLModule")[0];
-                document.getElementsByTagName("body")[0].removeChild(divIsHTMLModule);
+                var body = document.getElementsByTagName("body")[0];
+
+                var divHTMLModule = document.getElementsByClassName("HTMLModule")[0];
+                body.removeChild(divHTMLModule);
+
+                var divNotHTMLModule = document.getElementsByClassName("NotHTMLModule")[0];
+                body.removeChild(divNotHTMLModule);
             }
             Teardown.isHTMLModule = isHTMLModule;
         }(window.exports.Teardown || (window.exports.Teardown = {})));
@@ -75,10 +92,21 @@ module("Modules.DOM", {
     }
 });
 test("isHTMLModule", function() {
-    var divModule = document.getElementsByClassName("testModule")[0];
+    var testModuleInHTMLModule = document.getElementsByClassName("testModuleInHTMLModule")[0];
     var expected = true;
-    var actual = Modules.DOM.isHTMLModule(divModule);
-    equal(actual, expected, "testModule is html module");
+    var actual = Modules.DOM.isHTMLModule(testModuleInHTMLModule);
+    equal(actual, expected, "testModule is a html module");
+
+    var testModuleInNotHTMLModule = document.getElementsByClassName("testModuleInNotHTMLModule")[0];
+    var expected = false;
+    var actual = Modules.DOM.isHTMLModule(testModuleInNotHTMLModule);
+    equal(actual, expected, "testModule is not a html module (another module)");
+
+    var expected = false;
+    var actual = Modules.DOM.isHTMLModule(window);
+    equal(actual, expected, "window is not a html module");
+
+
 });
 
 //module("Modules.Loader", {
