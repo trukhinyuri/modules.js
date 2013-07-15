@@ -1,7 +1,8 @@
 /** Version 1.0
  * Copyright (C) 2012–2013 Yuri V. Trukhin
  * Author: Yuri V.Trukhin (yuri@trukhin.com)
- * Usage requires a licence. For get price and buy license write to yuri@trukhin.com
+ * Usage requires a licence. For getting price and purchase license write to yuri@trukhin.com
+ * Accepted paypal and bank transactions.
  */
 
 "use strict";
