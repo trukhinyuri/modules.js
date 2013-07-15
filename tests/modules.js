@@ -11,11 +11,18 @@
 
 "use strict";
 //noinspection JSUnresolvedVariable
+
 window.exports = window.exports || (window.exports = {});
 (function (Modules) {
-    //Module for Modules.js special DOM functions
+    /**
+     * Module for Modules.js special DOM functions
+     */
     (function (DOM) {
-        //True, if htmlElement is a module
+        /**
+         * True, if htmlElement is a module
+         * @param htmlElement
+         * @returns {boolean}
+         */
         function isHTMLModule (htmlElement) {
             if (htmlElement.parentNode != null) {
                 return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === "module";

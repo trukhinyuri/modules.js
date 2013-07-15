@@ -28,9 +28,8 @@
 ////noinspection JSUnresolvedVariable
 //var Teardown = exports.Teardown;
 
-//noinspection JSUnresolvedFunction
 "use strict";
-
+//noinspection JSUnresolvedFunction
 module("Modules.DOM", {
     setup: function() {
         //Definition of Setup module
@@ -92,6 +91,8 @@ module("Modules.DOM", {
     }
 });
 test("isHTMLModule", function() {
+    //noinspection JSUnresolvedFunction
+    expect(3);
     var testModuleInHTMLModule = document.getElementsByClassName("testModuleInHTMLModule")[0];
     var expected = true;
     var actual = Modules.DOM.isHTMLModule(testModuleInHTMLModule);
@@ -105,10 +106,8 @@ test("isHTMLModule", function() {
     var expected = false;
     var actual = Modules.DOM.isHTMLModule(window);
     equal(actual, expected, "window is not a html module");
-
-
 });
-
+//test("getModules", function(){});
 //module("Modules.Loader", {
 //    setup: function() {
 ////        var divloadTest = document.createElement('div');
