@@ -1,24 +1,31 @@
 /**
- * Copyright (C) Yuri V. Trukhin
- * Author: Yuri V.Trukhin (yuri@trukhin.com)
- * Usage requires a licence. For getting price and purchase license write to yuri@trukhin.com
- */
-
-/**
- * Version 1.0
+ * @fileOverview
+ * @copyright (C) Yuri V. Trukhin.
+ * @author Yuri V.Trukhin
+ * @version 1.0-snapshot
+ * @license Usage requires a licence. For getting price and purchase license subscription write to <a href="mailto:yuri@trukhin.com">yuri@trukhin.com</a>
  */
 
 "use strict";
 //noinspection JSUnresolvedVariable
-
+/**
+ * Exports object for global modules
+ * @type {exports|*|{}}
+ */
 window.exports = window.exports || (window.exports = {});
+/**
+ * @namespace Modules
+ */
 (function (Modules) {
     /**
-     * Module for Modules.js special DOM functions
+     * @namespace DOM
+     * @memberOf Modules
      */
     (function (DOM) {
         /**
-         * True, if htmlElement is a module
+         * Return true if htmlElement is module
+         * @method isHTMLModule
+         * @memberOf Modules.DOM
          * @param htmlElement
          * @returns {boolean}
          */
@@ -540,4 +547,8 @@ window.exports = window.exports || (window.exports = {});
     }());
 })(window.exports.Modules || (window.exports.Modules = {}));
 //noinspection JSUnresolvedVariable
+/**
+ *
+ * @type {{}|*}
+ */
 var Modules = window.exports.Modules;
