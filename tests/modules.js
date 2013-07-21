@@ -18,7 +18,7 @@ window.exports = window.exports || (window.exports = {});
  */
 (function (Modules) {
     /**
-     * @namespace DOM
+     * @namespace Modules.DOM
      * @memberOf Modules
      */
     (function (DOM) {
@@ -26,7 +26,7 @@ window.exports = window.exports || (window.exports = {});
          * Return true if htmlElement is module
          * @method isHTMLModule
          * @memberOf Modules.DOM
-         * @param htmlElement
+         * @param {HTMLElement} htmlElement Any html element
          * @returns {boolean}
          */
         function isHTMLModule (htmlElement) {
@@ -36,10 +36,23 @@ window.exports = window.exports || (window.exports = {});
                 return false;
             }
         }
+
+        /**
+         * Return Array of modules from all htmlElements with className
+         * @method getModules
+         * @memberOf Modules.DOM
+         * @param {String} className ClassName for filter by module type
+         * @returns {Array}
+         */
         function getModules (className) {
             var elements = document.getElementsByClassName(className);
-            var results = elements.filter(isHTMLModule);
-            return results;
+            var result = new Array();
+            for (var i = 0; i < elements.length; i++) {
+                if (isHTMLModule(elements[i])) {
+                    result.push(elements[i]);
+                }
+            }
+            return result;
         }
         function getRootTarget (eventTarget, className) {
             if (eventTarget.className === className) {
@@ -321,7 +334,6 @@ window.exports = window.exports || (window.exports = {});
                 });
             }
         }
-
         Loader.prototype.load = function (itemName, className, callback, itemType, dataSource, container) {
             if ((itemType === this.itemTypes.module) || (itemType == null)) {
                 loadModule(this.path, itemName, className, callback, container);
@@ -487,23 +499,26 @@ window.exports = window.exports || (window.exports = {});
         }
         return Events;
     }());
-    Modules.Server = (function(){
-        function Server(path) {
-//            loadJSONConfig(this._path, "cloud", function() {
-//                alert(ModulesJsConfigCloud.trackers);
-//                alert(getRandomInt(0, ModulesJsConfigCloud.trackers.length - 1));
-//            });
-        }
-        Server.prototype = {
-            constructor : Server
-        }
-        Server.prototype.getString = function(url) {
+
+    /**
+     * @namespace Modules.Server
+     * @memberOf Modules
+     */
+    (function (Server) {
+        /**
+         * Get String from URL
+         * @method getString
+         * @memberOf Modules.Server
+         * @param {String} url URL for request
+         * @returns {string}
+         */
+        function getString (url) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, false);
             xhr.send(null);
             return xhr.responseText;
-        };
-        Server.prototype.getStringAsync = function(url, handler) {
+        }
+        function getStringAsync(url, handler) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function() {
@@ -514,7 +529,7 @@ window.exports = window.exports || (window.exports = {});
                 }
             };
             xhr.send();
-        };
+        }
         function loadJSONConfig(path, name, callback) {
             var jsLoaded = document.getElementsByClassName("modulesjs-config-" + name)[0];
             if (jsLoaded) {
@@ -543,8 +558,12 @@ window.exports = window.exports || (window.exports = {});
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-        return Server;
-    }());
+        Server.getString = getString;
+        Server.getStringAsync = getStringAsync;
+        Server.loadJSONConfig = loadJSONConfig;
+        Server.getRandomInt = getRandomInt;
+    })(Modules.Server || (Modules.Server = {}));
+
 })(window.exports.Modules || (window.exports.Modules = {}));
 //noinspection JSUnresolvedVariable
 /**

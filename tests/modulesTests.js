@@ -1,11 +1,9 @@
 /**
- * Copyright (C) Yuri V. Trukhin
- * Author: Yuri V.Trukhin (yuri@trukhin.com)
- * Usage requires a licence. For getting price and purchase license write to yuri@trukhin.com
- */
-
-/**
- * Version 1.0
+ * @fileOverview
+ * @copyright (C) Yuri V. Trukhin.
+ * @author Yuri V.Trukhin
+ * @version 1.0-snapshot
+ * @license Usage requires a licence. For getting price and purchase license subscription write to <a href="mailto:yuri@trukhin.com">yuri@trukhin.com</a>
  */
 
 ////Definition of Setup module
@@ -40,7 +38,6 @@ module("Modules.DOM", {
                 var moduleItemType = "module";
                 var anotherItemType = "template";
                 var body = document.getElementsByTagName("body")[0];
-
                 var divHTMLModule = document.createElement('div');
                 divHTMLModule.className = "HTMLModule";
                 divHTMLModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
@@ -56,15 +53,45 @@ module("Modules.DOM", {
                 testModuleInNotHTMLModule.className = "testModuleInNotHTMLModule";
                 divNotHTMLModule.appendChild(testModuleInNotHTMLModule);
                 body.appendChild(divNotHTMLModule);
+            }
+            function getModules() {
+                var moduleItemType = "module";
+                var anotherItemType = "template";
+                var body = document.getElementsByTagName("body")[0];
 
+                var divHTMLModule = document.createElement('div');
+                divHTMLModule.className = "MayBeHTMLModuleContainer";
+                divHTMLModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
+                var testModuleInHTMLModule = document.createElement("div");
+                testModuleInHTMLModule.className = "MayBeHTMLModule";
+                divHTMLModule.appendChild(testModuleInHTMLModule);
+                body.appendChild(divHTMLModule);
+
+                var divNotHTMLModule = document.createElement("div");
+                divNotHTMLModule.className = "MayBeHTMLModuleContainer";
+                divNotHTMLModule.setAttribute("data-" + "modulesjs_item_type", anotherItemType);
+                var testModuleInNotHTMLModule = document.createElement("div");
+                testModuleInNotHTMLModule.className = "MayBeHTMLModule";
+                divNotHTMLModule.appendChild(testModuleInNotHTMLModule);
+                body.appendChild(divNotHTMLModule);
+
+                var divHTMLSecondModule = document.createElement('div');
+                divHTMLSecondModule.className = "MayBeHTMLModuleContainer";
+                divHTMLSecondModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
+                var testModuleSecondInHTMLModule = document.createElement("div");
+                testModuleSecondInHTMLModule.className = "MayBeHTMLModule";
+                divHTMLSecondModule.appendChild(testModuleSecondInHTMLModule);
+                body.appendChild(divHTMLSecondModule);
             }
             Setup.isHTMLModule = isHTMLModule;
+            Setup.getModules = getModules;
         }(window.exports.Setup || (window.exports.Setup = {})));
         //noinspection JSUnresolvedVariable
         var Setup = window.exports.Setup;
 
         //Setup excecution
         Setup.isHTMLModule();
+        Setup.getModules();
 
     },
     teardown: function() {
@@ -81,13 +108,24 @@ module("Modules.DOM", {
                 var divNotHTMLModule = document.getElementsByClassName("NotHTMLModule")[0];
                 body.removeChild(divNotHTMLModule);
             }
+            function getModules () {
+                var body = document.getElementsByTagName("body")[0];
+
+                var divHTMLModule = document.getElementsByClassName("MayBeHTMLModuleContainer")[0];
+                body.removeChild(divHTMLModule);
+
+                var divNotHTMLModule = document.getElementsByClassName("MayBeHTMLModuleContainer")[0];
+                body.removeChild(divNotHTMLModule);
+            }
             Teardown.isHTMLModule = isHTMLModule;
+            Teardown.getModules = getModules;
         }(window.exports.Teardown || (window.exports.Teardown = {})));
         //noinspection JSUnresolvedVariable
         var Teardown = window.exports.Teardown;
 
         //Teardown execution
         Teardown.isHTMLModule();
+        Teardown.getModules();
     }
 });
 test("isHTMLModule", function() {
@@ -106,6 +144,18 @@ test("isHTMLModule", function() {
     var expected = false;
     var actual = Modules.DOM.isHTMLModule(window);
     equal(actual, expected, "window is not a html module");
+});
+test("getModules", function() {
+   //noinspection JSUnresolvedFunction
+    expect(2);
+    var className = "MayBeHTMLModule";
+    var modulesArray = Modules.DOM.getModules(className);
+    var expectedAttribute = "module";
+    for (var i = 0; i < modulesArray.length; i++) {
+        equal(expectedAttribute, modulesArray[i].parentNode.getAttribute("data-" + "modulesjs_item_type"), "item is "
+            + expectedAttribute);
+    }
+
 });
 //test("getModules", function(){});
 //module("Modules.Loader", {
