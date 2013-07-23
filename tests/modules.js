@@ -54,16 +54,28 @@ window.exports = window.exports || (window.exports = {});
             }
             return result;
         }
-        function getRootTarget (eventTarget, className) {
-            if (eventTarget.className === className) {
-                return eventTarget;
+        /**
+         * Return htmlElement by className, which contains current htmlElement or Null, if container isn`t exist
+         * @method getFirstContainerElementByClassName
+         * @memberOf Modules.DOM
+         * @param {HTMLElement|Node} htmlElement HTMLElement or Node, which contains in container with className
+         * @param {String} className ClassName for container element
+         * @returns {HTMLElement|Null}
+         */
+        function getFirstContainerElementByClassName (htmlElement, className) {
+            if (htmlElement.tagName != "body") {
+                if (htmlElement.className === className) {
+                    return htmlElement;
+                } else {
+                    return getFirstContainerElementByClassName(htmlElement.parentNode, className);
+                }
             } else {
-                return this.getRootTarget(eventTarget.parentNode, className);
+                return null;
             }
         }
         DOM.isHTMLModule = isHTMLModule;
         DOM.getModules = getModules;
-        DOM.getRootTarget = getRootTarget;
+        DOM.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
     })(Modules.DOM || (Modules.DOM = {}));
     var DOM = Modules.DOM;
 

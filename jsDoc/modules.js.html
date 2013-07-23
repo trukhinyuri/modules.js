@@ -73,19 +73,36 @@ window.exports = window.exports || (window.exports = {});
          */
         function getModules (className) {
             var elements = document.getElementsByClassName(className);
-            var results = elements.filter(isHTMLModule);
-            return results;
+            var result = new Array();
+            for (var i = 0; i &lt; elements.length; i++) {
+                if (isHTMLModule(elements[i])) {
+                    result.push(elements[i]);
+                }
+            }
+            return result;
         }
-        function getRootTarget (eventTarget, className) {
-            if (eventTarget.className === className) {
-                return eventTarget;
+        /**
+         * Return htmlElement by className, which contains current htmlElement or Null, if container isn`t exist
+         * @method getFirstContainerElementByClassName
+         * @memberOf Modules.DOM
+         * @param {HTMLElement|Node} htmlElement HTMLElement or Node, which contains in container with className
+         * @param {String} className ClassName for container element
+         * @returns {HTMLElement|Null}
+         */
+        function getFirstContainerElementByClassName (htmlElement, className) {
+            if (htmlElement.tagName != "body") {
+                if (htmlElement.className === className) {
+                    return htmlElement;
+                } else {
+                    return getFirstContainerElementByClassName(htmlElement.parentNode, className);
+                }
             } else {
-                return this.getRootTarget(eventTarget.parentNode, className);
+                return null;
             }
         }
         DOM.isHTMLModule = isHTMLModule;
         DOM.getModules = getModules;
-        DOM.getRootTarget = getRootTarget;
+        DOM.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
     })(Modules.DOM || (Modules.DOM = {}));
     var DOM = Modules.DOM;
 
@@ -356,7 +373,6 @@ window.exports = window.exports || (window.exports = {});
                 });
             }
         }
-
         Loader.prototype.load = function (itemName, className, callback, itemType, dataSource, container) {
             if ((itemType === this.itemTypes.module) || (itemType == null)) {
                 loadModule(this.path, itemName, className, callback, container);
@@ -522,23 +538,26 @@ window.exports = window.exports || (window.exports = {});
         }
         return Events;
     }());
-    Modules.Server = (function(){
-        function Server(path) {
-//            loadJSONConfig(this._path, "cloud", function() {
-//                alert(ModulesJsConfigCloud.trackers);
-//                alert(getRandomInt(0, ModulesJsConfigCloud.trackers.length - 1));
-//            });
-        }
-        Server.prototype = {
-            constructor : Server
-        }
-        Server.prototype.getString = function(url) {
+
+    /**
+     * @namespace Modules.Server
+     * @memberOf Modules
+     */
+    (function (Server) {
+        /**
+         * Get String from URL
+         * @method getString
+         * @memberOf Modules.Server
+         * @param {String} url URL for request
+         * @returns {string}
+         */
+        function getString (url) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, false);
             xhr.send(null);
             return xhr.responseText;
-        };
-        Server.prototype.getStringAsync = function(url, handler) {
+        }
+        function getStringAsync(url, handler) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function() {
@@ -549,7 +568,7 @@ window.exports = window.exports || (window.exports = {});
                 }
             };
             xhr.send();
-        };
+        }
         function loadJSONConfig(path, name, callback) {
             var jsLoaded = document.getElementsByClassName("modulesjs-config-" + name)[0];
             if (jsLoaded) {
@@ -578,28 +597,10 @@ window.exports = window.exports || (window.exports = {});
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-        return Server;
-    }());
-    /**
-     * @namespace Modules.Server
-     * @memberOf Modules
-     */
-    (function (Server) {
-        /**
-         * Get String from URL
-         * @method getString
-         * @memberOf Modules.Server
-         * @param {String} url URL for request
-         * @returns {string}
-         */
-        function getString (url) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, false);
-            xhr.send(null);
-            return xhr.responseText;
-        };
-
         Server.getString = getString;
+        Server.getStringAsync = getStringAsync;
+        Server.loadJSONConfig = loadJSONConfig;
+        Server.getRandomInt = getRandomInt;
     })(Modules.Server || (Modules.Server = {}));
 
 })(window.exports.Modules || (window.exports.Modules = {}));
@@ -625,7 +626,7 @@ var Modules = window.exports.Modules;
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Tue Jul 16 2013 15:54:26 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Tue Jul 23 2013 15:16:43 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>

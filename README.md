@@ -1,10 +1,10 @@
 #modules.js framework
 ###The framework for creating modular web clients
-[Repository](https://github.com/trukhinyuri/modules.js)
+[Repository @GitHub](https://github.com/trukhinyuri/modules.js)
 
-[Bugtracker](https://github.com/trukhinyuri/modules.js/issues?state=open")
+[Bugtracker @GitHub](https://github.com/trukhinyuri/modules.js/issues?state=open")
 
-[Internal Repository](http://alm.geo4geo.com/gitblit) Login: guest , Password: guest
+[Repository @BitBucket](https://bitbucket.org/trukhinyuri/modules.js)
 
-[Internal Bugtracker](http://alm.geo4geo.com/youtrack) User registration required.
+[Bugtracker @BitBucket](https://bitbucket.org/trukhinyuri/modules.js/issues?status=new&status=open)
 
