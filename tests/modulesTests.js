@@ -116,6 +116,9 @@ module("Modules.DOM", {
 
                 var divNotHTMLModule = document.getElementsByClassName("MayBeHTMLModuleContainer")[0];
                 body.removeChild(divNotHTMLModule);
+
+                var divHTMLModule = document.getElementsByClassName("MayBeHTMLModuleContainer")[0];
+                body.removeChild(divHTMLModule);
             }
             Teardown.isHTMLModule = isHTMLModule;
             Teardown.getModules = getModules;
