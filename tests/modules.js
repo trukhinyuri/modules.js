@@ -63,14 +63,15 @@ window.exports = window.exports || (window.exports = {});
          * @returns {HTMLElement|Null}
          */
         function getFirstContainerElementByClassName (htmlElement, className) {
-            if (htmlElement.tagName != "body") {
-                if (htmlElement.className === className) {
-                    return htmlElement;
-                } else {
+            if (htmlElement.className === className) {
+                return htmlElement;
+            } else {
+                if (htmlElement.parentNode != null) {
                     return getFirstContainerElementByClassName(htmlElement.parentNode, className);
                 }
-            } else {
-                return null;
+                else {
+                    return null;
+                }
             }
         }
         DOM.isHTMLModule = isHTMLModule;

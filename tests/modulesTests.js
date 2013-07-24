@@ -83,8 +83,34 @@ module("Modules.DOM", {
                 divHTMLSecondModule.appendChild(testModuleSecondInHTMLModule);
                 body.appendChild(divHTMLSecondModule);
             }
+            function getFirstContainerElementByClassName() {
+                var body = document.getElementsByTagName("body")[0];
+
+                var container = document.createElement('div');
+                container.className = "Container";
+                var internal = document.createElement("div");
+                internal.className = "Element";
+                container.appendChild(internal);
+                body.appendChild(container);
+
+                var containerTwo = document.createElement('div');
+                containerTwo.className = "Container";
+                containerTwo.id = "ContainerTwo";
+                var internalOneLevel = document.createElement("div");
+                internalOneLevel.className = "ElementOneLevel";
+                var internalSecondLevel = document.createElement("div");
+                internalSecondLevel.className = "ElementSecondLevel";
+                internalOneLevel.appendChild(internalSecondLevel);
+                containerTwo.appendChild(internalOneLevel);
+                body.appendChild(containerTwo);
+
+                var elementWithoutContainer = document.createElement("div");
+                elementWithoutContainer.className = "ElementWithoutContainer";
+                body.appendChild(elementWithoutContainer);
+            }
             Setup.isHTMLModule = isHTMLModule;
             Setup.getModules = getModules;
+            Setup.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
         }(window.exports.Setup || (window.exports.Setup = {})));
         //noinspection JSUnresolvedVariable
         var Setup = window.exports.Setup;
@@ -92,6 +118,7 @@ module("Modules.DOM", {
         //Setup excecution
         Setup.isHTMLModule();
         Setup.getModules();
+        Setup.getFirstContainerElementByClassName();
 
     },
     teardown: function() {
@@ -120,8 +147,21 @@ module("Modules.DOM", {
                 var divHTMLModule = document.getElementsByClassName("MayBeHTMLModuleContainer")[0];
                 body.removeChild(divHTMLModule);
             }
+            function getFirstContainerElementByClassName() {
+                var body = document.getElementsByTagName("body")[0];
+
+                var container = document.getElementsByClassName("Container")[0];
+                body.removeChild(container);
+
+                var container = document.getElementsByClassName("Container")[0];
+                body.removeChild(container);
+
+                var elementWithoutContainer = document.getElementsByClassName("ElementWithoutContainer")[0];
+                body.removeChild(elementWithoutContainer);
+            }
             Teardown.isHTMLModule = isHTMLModule;
             Teardown.getModules = getModules;
+            Teardown.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
         }(window.exports.Teardown || (window.exports.Teardown = {})));
         //noinspection JSUnresolvedVariable
         var Teardown = window.exports.Teardown;
@@ -129,6 +169,7 @@ module("Modules.DOM", {
         //Teardown execution
         Teardown.isHTMLModule();
         Teardown.getModules();
+        Teardown.getFirstContainerElementByClassName();
     }
 });
 test("isHTMLModule", function() {
@@ -158,7 +199,30 @@ test("getModules", function() {
         equal(expectedAttribute, modulesArray[i].parentNode.getAttribute("data-" + "modulesjs_item_type"), "item is "
             + expectedAttribute);
     }
+});
+test("getFirstContainerElementByClassName", function() {
+    //noinspection JSUnresolvedFunction
+    expect(3);
+    var className = "Container";
+    var elementClassName = "Element";
+    var element = document.getElementsByClassName(elementClassName)[0];
+    var result = Modules.DOM.getFirstContainerElementByClassName(element, className);
+    var actual = result.className;
+    var expected = className;
+    equal(actual, expected, "Find first container element by className");
 
+    var className = "Container";
+    var containerID = "ContainerTwo";
+    var elementClassName = "ElementSecondLevel";
+    var element = document.getElementsByClassName(elementClassName)[0];
+    var result = Modules.DOM.getFirstContainerElementByClassName(element, className);
+    var actual = result.id;
+    var expected = containerID;
+    equal(actual, expected, "Find first container element by className. First container element selected correctly.");
+    var elementWithoutContainer = document.getElementsByClassName("ElementWithoutContainer")[0];
+    var expected = Modules.DOM.getFirstContainerElementByClassName(elementWithoutContainer, "Container");
+    var actual = null;
+    equal(actual, expected, "Not desired container for element without container");
 });
 //test("getModules", function(){});
 //module("Modules.Loader", {
