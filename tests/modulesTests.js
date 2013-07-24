@@ -108,9 +108,23 @@ module("Modules.DOM", {
                 elementWithoutContainer.className = "ElementWithoutContainer";
                 body.appendChild(elementWithoutContainer);
             }
+            function getFirstElementByClassName() {
+                var body = document.getElementsByTagName("body")[0];
+
+                var element1 = document.createElement('div');
+                element1.className = "DesiredElement";
+                element1.id = "first";
+                body.appendChild(element1);
+
+                var element2 = document.createElement('div');
+                element2.className = "DesiredElement";
+                element2.id = "second";
+                body.appendChild(element2);
+            }
             Setup.isHTMLModule = isHTMLModule;
             Setup.getModules = getModules;
             Setup.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
+            Setup.getFirstElementByClassName = getFirstElementByClassName;
         }(window.exports.Setup || (window.exports.Setup = {})));
         //noinspection JSUnresolvedVariable
         var Setup = window.exports.Setup;
@@ -119,6 +133,7 @@ module("Modules.DOM", {
         Setup.isHTMLModule();
         Setup.getModules();
         Setup.getFirstContainerElementByClassName();
+        Setup.getFirstElementByClassName();
 
     },
     teardown: function() {
@@ -159,9 +174,17 @@ module("Modules.DOM", {
                 var elementWithoutContainer = document.getElementsByClassName("ElementWithoutContainer")[0];
                 body.removeChild(elementWithoutContainer);
             }
+            function getFirstElementByClassName() {
+                var body = document.getElementsByTagName("body")[0];
+                var element = document.getElementsByClassName("DesiredElement")[0];
+                body.removeChild(element);
+                var element = document.getElementsByClassName("DesiredElement")[0];
+                body.removeChild(element);
+            }
             Teardown.isHTMLModule = isHTMLModule;
             Teardown.getModules = getModules;
             Teardown.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
+            Teardown.getFirstElementByClassName = getFirstElementByClassName;
         }(window.exports.Teardown || (window.exports.Teardown = {})));
         //noinspection JSUnresolvedVariable
         var Teardown = window.exports.Teardown;
@@ -170,6 +193,7 @@ module("Modules.DOM", {
         Teardown.isHTMLModule();
         Teardown.getModules();
         Teardown.getFirstContainerElementByClassName();
+        Teardown.getFirstElementByClassName();
     }
 });
 test("isHTMLModule", function() {
@@ -224,7 +248,17 @@ test("getFirstContainerElementByClassName", function() {
     var actual = null;
     equal(actual, expected, "Not desired container for element without container");
 });
-//test("getModules", function(){});
+test("getFirstElementByClassName", function(){
+    expect(2);
+    var className = "DesiredElement";
+    var expectedElement = document.getElementsByClassName(className)[0];
+    var actualElement = Modules.DOM.getFirstElementByClassName(document, className);
+    equal(actualElement, expectedElement, "Find first element by className");
+    var expectedId = "first";
+    var actualId = actualElement.id;
+    equal(actualId, expectedId, "Find first element by className, selected correct element (check by id)");
+});
+
 //module("Modules.Loader", {
 //    setup: function() {
 ////        var divloadTest = document.createElement('div');

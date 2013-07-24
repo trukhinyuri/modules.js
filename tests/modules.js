@@ -74,9 +74,22 @@ window.exports = window.exports || (window.exports = {});
                 }
             }
         }
+
+        /**
+         * Wrapper for htmlElement.getElementsByClassName(className)[0];
+         * @method getFirstElementByClassName
+         * @memberOf Modules.DOM
+         * @param {HTMLDocument} htmlDocument HTMLElement or Node, which contains desired element
+         * @param {String} className ClassName for desired element
+         * @returns {NodeList}
+         */
+        function getFirstElementByClassName (htmlDocument, className) {
+            return htmlDocument.getElementsByClassName(className)[0];
+        }
         DOM.isHTMLModule = isHTMLModule;
         DOM.getModules = getModules;
         DOM.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
+        DOM.getFirstElementByClassName = getFirstElementByClassName;
     })(Modules.DOM || (Modules.DOM = {}));
     var DOM = Modules.DOM;
 
