@@ -18,4 +18,7 @@ export module Module {
             return className;
         }
     }
+    export module Loader {
+
+    }
 }
