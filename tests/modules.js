@@ -98,25 +98,31 @@ window.exports = window.exports || (window.exports = {});
      * @memberOf Modules
      */
     (function (Loader) {
-        Loader._itemTypes = {};
-        Object.defineProperty(Loader._itemTypes, "module", {value: "module", writable: false});
-        Object.defineProperty(Loader._itemTypes, "template", {value: "template", writable: false});
-        Object.defineProperty(Loader._itemTypes, "html", {value: "html", writable: false});
-        Object.defineProperty(Loader._itemTypes, "css", {value: "css", writable: false});
-        Object.defineProperty(Loader._itemTypes, "javascript", {value: "javascript", writable: false});
-        Object.defineProperty(Loader, "itemTypes", {
-            /** Get object with supported itemTypes properties (readonly)
-             * @type {Object}
-             * @instance
-             * @name itemTypes
-             * @memberOf Modules.Loader
-             */
-            get: function() {
-                return this._itemTypes;
+        Object.defineProperties(Loader, {
+            "itemTypes" : {
+                /** Get object with supported itemTypes properties (readonly)
+                 * @type {Object}
+                 * @instance
+                 * @name itemTypes
+                 * @memberOf Modules.Loader
+                 */
+                get: function() {
+                    return this._itemTypes;
+                }
+                , enumerable: true
+                , configurable: false
             }
-            , enumerable: true
-            , configurable: false
         });
+
+        Loader._itemTypes = {};
+        Object.defineProperties(Loader._itemTypes,{
+            "module": {value: "module", writable: false}
+            , "template": {value: "template", writable: false}
+            , "html": {value: "html", writable: false}
+            , "css": {value: "css", writable: false}
+            , "javascript": {value: "javascript", writable: false}
+        });
+
 //        /**
 //         * Return true if htmlElement is module
 //         * @method isHTMLModule
