@@ -144,6 +144,24 @@ window.exports = window.exports || (window.exports = {});
             }
             return result;
         }
+
+        /**
+         * Return Array of templates from all htmlElements with className
+         * @method getTemplates
+         * @memberOf Modules.DOM
+         * @param {String} className ClassName for filter by module type
+         * @returns {Array}
+         */
+        function getTemplates (className) {
+            var elements = document.getElementsByClassName(className);
+            var result = new Array();
+            for (var i = 0; i < elements.length; i++) {
+                if (isHTMLTemplate(elements[i])) {
+                    result.push(elements[i]);
+                }
+            }
+            return result;
+        }
         /**
          * Return htmlElement by className, which contains current htmlElement or Null, if container isn`t exist
          * @method getFirstContainerElementByClassName
@@ -179,6 +197,7 @@ window.exports = window.exports || (window.exports = {});
         DOM.isHTMLModule = isHTMLModule;
         DOM.isHTMLTemplate = isHTMLTemplate;
         DOM.getModules = getModules;
+        DOM.getTemplates = getTemplates;
         DOM.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
         DOM.getFirstElementByClassName = getFirstElementByClassName;
     })(Modules.DOM || (Modules.DOM = {}));

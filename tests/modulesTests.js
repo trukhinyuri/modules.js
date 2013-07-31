@@ -162,34 +162,64 @@ module("Modules.DOM", {
             }
 
             function getModules() {
-                var moduleItemType = "module";
-                var anotherItemType = "template";
+                var itemType = Modules.MODULE;
+                var anotherItemType = Modules.TEMPLATE;
                 var body = document.getElementsByTagName("body")[0];
 
-                var divHTMLModule = document.createElement('div');
-                divHTMLModule.className = "MayBeHTMLModuleContainer";
-                divHTMLModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
-                var testModuleInHTMLModule = document.createElement("div");
-                testModuleInHTMLModule.className = "MayBeHTMLModule";
-                divHTMLModule.appendChild(testModuleInHTMLModule);
-                body.appendChild(divHTMLModule);
+                var divHTMLItemType = document.createElement('div');
+                divHTMLItemType.className = "MayBeHTMLItemTypeContainer";
+                divHTMLItemType.setAttribute("data-" + "modulesjs_item_type", itemType);
+                var testItemTypeInHTMLItemType = document.createElement("div");
+                testItemTypeInHTMLItemType.className = "MayBeHTMLModule";
+                divHTMLItemType.appendChild(testItemTypeInHTMLItemType);
+                body.appendChild(divHTMLItemType);
 
-                var divNotHTMLModule = document.createElement("div");
-                divNotHTMLModule.className = "MayBeHTMLModuleContainer";
-                divNotHTMLModule.setAttribute("data-" + "modulesjs_item_type", anotherItemType);
-                var testModuleInNotHTMLModule = document.createElement("div");
-                testModuleInNotHTMLModule.className = "MayBeHTMLModule";
-                divNotHTMLModule.appendChild(testModuleInNotHTMLModule);
-                body.appendChild(divNotHTMLModule);
+                var divNotHTMLItemType = document.createElement("div");
+                divNotHTMLItemType.className = "MayBeHTMLItemTypeContainer";
+                divNotHTMLItemType.setAttribute("data-" + "modulesjs_item_type", anotherItemType);
+                var testItemTypeInNotHTMLItemType = document.createElement("div");
+                testItemTypeInNotHTMLItemType.className = "MayBeHTMLModule";
+                divNotHTMLItemType.appendChild(testItemTypeInNotHTMLItemType);
+                body.appendChild(divNotHTMLItemType);
 
-                var divHTMLSecondModule = document.createElement('div');
-                divHTMLSecondModule.className = "MayBeHTMLModuleContainer";
-                divHTMLSecondModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
-                var testModuleSecondInHTMLModule = document.createElement("div");
-                testModuleSecondInHTMLModule.className = "MayBeHTMLModule";
-                divHTMLSecondModule.appendChild(testModuleSecondInHTMLModule);
-                body.appendChild(divHTMLSecondModule);
+                var divHTMLSecondItemType = document.createElement('div');
+                divHTMLSecondItemType.className = "MayBeHTMLItemTypeContainer";
+                divHTMLSecondItemType.setAttribute("data-" + "modulesjs_item_type", itemType);
+                var testItemTypeSecondInHTMLItemType = document.createElement("div");
+                testItemTypeSecondInHTMLItemType.className = "MayBeHTMLModule";
+                divHTMLSecondItemType.appendChild(testItemTypeSecondInHTMLItemType);
+                body.appendChild(divHTMLSecondItemType);
             }
+            function getTemplates() {
+                var itemType = Modules.TEMPLATE;
+                var anotherItemType = Modules.MODULE;
+                var body = document.getElementsByTagName("body")[0];
+
+                var divHTMLItemType = document.createElement('div');
+                divHTMLItemType.className = "MayBeHTMLItemTypeContainer";
+                divHTMLItemType.setAttribute("data-" + "modulesjs_item_type", itemType);
+                var testItemTypeInHTMLItemType = document.createElement("div");
+                testItemTypeInHTMLItemType.className = "MayBeHTMLTemplate";
+                divHTMLItemType.appendChild(testItemTypeInHTMLItemType);
+                body.appendChild(divHTMLItemType);
+
+                var divNotHTMLItemType = document.createElement("div");
+                divNotHTMLItemType.className = "MayBeHTMLItemTypeContainer";
+                divNotHTMLItemType.setAttribute("data-" + "modulesjs_item_type", anotherItemType);
+                var testItemTypeInNotHTMLItemType = document.createElement("div");
+                testItemTypeInNotHTMLItemType.className = "MayBeHTMLTemplate";
+                divNotHTMLItemType.appendChild(testItemTypeInNotHTMLItemType);
+                body.appendChild(divNotHTMLItemType);
+
+                var divHTMLSecondItemType = document.createElement('div');
+                divHTMLSecondItemType.className = "MayBeHTMLItemTypeContainer";
+                divHTMLSecondItemType.setAttribute("data-" + "modulesjs_item_type", itemType);
+                var testItemTypeSecondInHTMLItemType = document.createElement("div");
+                testItemTypeSecondInHTMLItemType.className = "MayBeHTMLTemplate";
+                divHTMLSecondItemType.appendChild(testItemTypeSecondInHTMLItemType);
+                body.appendChild(divHTMLSecondItemType);
+            }
+
             function getFirstContainerElementByClassName() {
                 var body = document.getElementsByTagName("body")[0];
 
@@ -231,6 +261,7 @@ module("Modules.DOM", {
             Setup.isHTMLModule = isHTMLModule;
             Setup.isHTMLTemplate = isHTMLTemplate;
             Setup.getModules = getModules;
+            Setup.getTemplates = getTemplates;
             Setup.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
             Setup.getFirstElementByClassName = getFirstElementByClassName;
         }(window.exports.Setup || (window.exports.Setup = {})));
@@ -241,6 +272,7 @@ module("Modules.DOM", {
         Setup.isHTMLModule();
         Setup.isHTMLTemplate();
         Setup.getModules();
+        Setup.getTemplates();
         Setup.getFirstContainerElementByClassName();
         Setup.getFirstElementByClassName();
 
@@ -271,14 +303,26 @@ module("Modules.DOM", {
             function getModules () {
                 var body = document.getElementsByTagName("body")[0];
 
-                var divHTMLModule = document.getElementsByClassName("MayBeHTMLModuleContainer")[0];
-                body.removeChild(divHTMLModule);
+                var divHTMLItemType = document.getElementsByClassName("MayBeHTMLItemTypeContainer")[0];
+                body.removeChild(divHTMLItemType);
 
-                var divNotHTMLModule = document.getElementsByClassName("MayBeHTMLModuleContainer")[0];
-                body.removeChild(divNotHTMLModule);
+                var divNotHTMLItemType = document.getElementsByClassName("MayBeHTMLItemTypeContainer")[0];
+                body.removeChild(divNotHTMLItemType);
 
-                var divHTMLModule = document.getElementsByClassName("MayBeHTMLModuleContainer")[0];
-                body.removeChild(divHTMLModule);
+                var divHTMLItemType = document.getElementsByClassName("MayBeHTMLItemTypeContainer")[0];
+                body.removeChild(divHTMLItemType);
+            }
+            function getTemplates () {
+                var body = document.getElementsByTagName("body")[0];
+
+                var divHTMLItemType = document.getElementsByClassName("MayBeHTMLItemTypeContainer")[0];
+                body.removeChild(divHTMLItemType);
+
+                var divNotHTMLItemType = document.getElementsByClassName("MayBeHTMLItemTypeContainer")[0];
+                body.removeChild(divNotHTMLItemType);
+
+                var divHTMLItemType = document.getElementsByClassName("MayBeHTMLItemTypeContainer")[0];
+                body.removeChild(divHTMLItemType);
             }
             function getFirstContainerElementByClassName() {
                 var body = document.getElementsByTagName("body")[0];
@@ -302,6 +346,7 @@ module("Modules.DOM", {
             Teardown.isHTMLModule = isHTMLModule;
             Teardown.isHTMLTemplate = isHTMLTemplate;
             Teardown.getModules = getModules;
+            Teardown.getTemplates = getTemplates;
             Teardown.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
             Teardown.getFirstElementByClassName = getFirstElementByClassName;
         }(window.exports.Teardown || (window.exports.Teardown = {})));
@@ -312,6 +357,7 @@ module("Modules.DOM", {
         Teardown.isHTMLModule();
         Teardown.isHTMLTemplate();
         Teardown.getModules();
+        Teardown.getTemplates();
         Teardown.getFirstContainerElementByClassName();
         Teardown.getFirstElementByClassName();
     }
@@ -354,10 +400,21 @@ test("getModules", function() {
    //noinspection JSUnresolvedFunction
     expect(2);
     var className = "MayBeHTMLModule";
-    var modulesArray = Modules.DOM.getModules(className);
-    var expectedAttribute = "module";
-    for (var i = 0; i < modulesArray.length; i++) {
-        equal(expectedAttribute, modulesArray[i].parentNode.getAttribute("data-" + "modulesjs_item_type"), "item is "
+    var itemTypesArray = Modules.DOM.getModules(className);
+    var expectedAttribute = Modules.MODULE;
+    for (var i = 0; i < itemTypesArray.length; i++) {
+        equal(expectedAttribute, itemTypesArray[i].parentNode.getAttribute("data-" + "modulesjs_item_type"), "item is "
+            + expectedAttribute);
+    }
+});
+test("getTemplates", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var className = "MayBeHTMLTemplate";
+    var itemTypesArray = Modules.DOM.getTemplates(className);
+    var expectedAttribute = Modules.TEMPLATE;
+    for (var i = 0; i < itemTypesArray.length; i++) {
+        equal(expectedAttribute, itemTypesArray[i].parentNode.getAttribute("data-" + "modulesjs_item_type"), "item is "
             + expectedAttribute);
     }
 });
