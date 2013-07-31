@@ -224,6 +224,7 @@ window.exports = window.exports || (window.exports = {});
         DOM.isHTMLModule = isHTMLModule;
         DOM.isHTMLTemplate = isHTMLTemplate;
         DOM.getModules = getModules;
+        DOM.getTemplates = getTemplates;
         DOM.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
         DOM.getFirstElementByClassName = getFirstElementByClassName;
     })(Modules.DOM || (Modules.DOM = {}));
@@ -255,6 +256,100 @@ window.exports = window.exports || (window.exports = {});
     })(Modules.Loader || (Modules.Loader = {}));
     var Loader = Modules.Loader;
 
+    /**
+     * @namespace Modules.Events
+     * @memberOf Modules
+     */
+    (function (Events) {
+         /**
+          * addEventListener Wrapper
+          * @method addListener
+          * @memberOf Modules.Events
+          * @param {HTMLElement} target Any html element
+          * @param {String} type The event type for which the user is registering
+          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+          * contains the methods to be called when the event occurs.
+          * @param {boolean} [useCapture="false"] useCapture If true, useCapture indicates that the user wishes to initiate capture.
+          * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+          * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
+          * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
+          */
+        function addListener (target, type, listener, useCapture) {
+            var _useCapture = useCapture || false;
+            target.addEventListener(type, listener, _useCapture);
+        };
+//        Events.prototype.addDocumentListener = function (type, listener, useCapture) {
+//            var _useCapture = useCapture || false;
+//            addListenerImplementation(document, type, listener, _useCapture);
+//        };
+//        Events.prototype.removeListener = function (target, type, listener, useCapture) {
+//            var _useCapture = useCapture || false;
+//            removeListenerImplementation(target, type, listener, _useCapture);
+//        };
+//        Events.prototype.removeDocumentListener = function (type, listener, useCapture) {
+//            var _useCapture = useCapture || false;
+//            removeListenerImplementation(document, type, listener, _useCapture);
+//        };
+//        Events.prototype.addStartupListener = function (listener) {
+//            addListenerImplementation(document, "DOMContentLoaded", listener, false);
+//        }
+//        Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
+//            addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
+//        }
+//        Events.prototype.addBeforeItemLoadedListener = function(moduleName, itemType, listener) {
+//            addListenerImplementation(document, "module_" + moduleName + "_loadingStarted", false);
+//        }
+//        Events.prototype.addTemplateLoadedListener = function(templateName, listener) {
+//            addListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
+//        }
+//        Events.prototype.addHTMLLoadedListener = function(fileName, listener) {
+//            addListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.addCSSLoadedListener = function(fileName, listener) {
+//            addListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.addJSLoadedListener = function(fileName, listener) {
+//            addListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeModuleLoadedListener = function(moduleName, listener) {
+//            removeListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeTemplateLoadedListener = function(templateName, listener) {
+//            removeListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeHTMLLoadedListener = function(fileName, listener) {
+//            removeListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeCSSLoadedListener = function(fileName, listener) {
+//            removeListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeJSLoadedListener = function(fileName, listener) {
+//            removeListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeStartupListener = function (listener) {
+//            removeListenerImplementation(document, "DOMContentLoaded", listener, false);
+//        }
+
+//        /**
+//         * Return true if htmlElement is module
+//         * @method isHTMLModule
+//         * @memberOf Modules.DOM
+//         * @param {HTMLElement} htmlElement Any html element
+//         * @returns {boolean}
+//         */
+//        function isHTMLModule (htmlElement) {
+//            if (htmlElement.parentNode != null) {
+//                return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === "module";
+//            } else {
+//                return false;
+//            }
+//        }
+//
+//        Loader.isHTMLModule = isHTMLModule;
+        Events.addListener = addListener;
+    })(Modules.Events || (Modules.Events = {}));
+    var Events = Modules.Events;
+
 //    Modules.Loader = (function () {
 //        function Loader(path) {
 //            if (path != undefined) {
@@ -267,22 +362,15 @@ window.exports = window.exports || (window.exports = {});
 //                this._path = "";
 //            }
 //
-//            this._itemTypes = {};
-//            Object.defineProperty(this._itemTypes, "module", {value: "module", writable: false});
-//            Object.defineProperty(this._itemTypes, "template", {value: "template", writable: false});
-//            Object.defineProperty(this._itemTypes, "html", {value: "html", writable: false});
-//            Object.defineProperty(this._itemTypes, "css", {value: "css", writable: false});
-//            Object.defineProperty(this._itemTypes, "javascript", {value: "javascript", writable: false});
+
 //
 //        }
 //        Loader.prototype = {
 //            constructor: Loader,
 //            get path () {
 //                return this._path;
-//            },
-//            get itemTypes() {
-//                return this._itemTypes;
 //            }
+
 //        }
 //        function dispatchDocumentCustomEvent (ID, detailsObject) {
 //            dispatchCustomEvent(document, ID, detailsObject);
@@ -538,156 +626,151 @@ window.exports = window.exports || (window.exports = {});
 //        return Loader;
 //    })();
 
-    Modules.Events = (function(){
-        function Events() {
-        }
-        Events.prototype = {
-            constructor: Events
-        }
-        function addListenerImplementation(target, type, listener, useCapture) {
-            target.addEventListener(type, listener, useCapture);
-        }
-        function removeListenerImplementation(target, type, listener, useCapture) {
-            target.removeEventListener(type, listener, useCapture);
-        }
-        Events.prototype.addListener = function (target, type, listener, useCapture) {
-            var _useCapture = useCapture || false;
-            addListenerImplementation(target, type, listener, _useCapture);
-        };
-        Events.prototype.addDocumentListener = function (type, listener, useCapture) {
-            var _useCapture = useCapture || false;
-            addListenerImplementation(document, type, listener, _useCapture);
-        };
-        Events.prototype.removeListener = function (target, type, listener, useCapture) {
-            var _useCapture = useCapture || false;
-            removeListenerImplementation(target, type, listener, _useCapture);
-        };
-        Events.prototype.removeDocumentListener = function (type, listener, useCapture) {
-            var _useCapture = useCapture || false;
-            removeListenerImplementation(document, type, listener, _useCapture);
-        };
-        Events.prototype.addStartupListener = function (listener) {
-            addListenerImplementation(document, "DOMContentLoaded", listener, false);
-        }
-        Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
-            addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
-        }
-        Events.prototype.addBeforeItemLoadedListener = function(moduleName, itemType, listener) {
-            addListenerImplementation(document, "module_" + moduleName + "_loadingStarted", false);
-        }
-        Events.prototype.addTemplateLoadedListener = function(templateName, listener) {
-            addListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
-        }
-        Events.prototype.addHTMLLoadedListener = function(fileName, listener) {
-            addListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
-        }
-        Events.prototype.addCSSLoadedListener = function(fileName, listener) {
-            addListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
-        }
-        Events.prototype.addJSLoadedListener = function(fileName, listener) {
-            addListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
-        }
-        Events.prototype.removeModuleLoadedListener = function(moduleName, listener) {
-            removeListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
-        }
-        Events.prototype.removeTemplateLoadedListener = function(templateName, listener) {
-            removeListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
-        }
-        Events.prototype.removeHTMLLoadedListener = function(fileName, listener) {
-            removeListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
-        }
-        Events.prototype.removeCSSLoadedListener = function(fileName, listener) {
-            removeListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
-        }
-        Events.prototype.removeJSLoadedListener = function(fileName, listener) {
-            removeListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
-        }
-        Events.prototype.removeStartupListener = function (listener) {
-            removeListenerImplementation(document, "DOMContentLoaded", listener, false);
-        }
-        Events.prototype.dispatchDocumentCustomEvent = function (ID, detailsObject) {
-            this.dispatchCustomEvent(document, ID, detailsObject);
-        }
-        Events.prototype.dispatchCustomEvent = function (target, ID, detailsObject) {
-            var event = target.createEvent("CustomEvent");
-            event.initCustomEvent(ID, true, true, detailsObject);
-            target.dispatchEvent(event);
-        }
-        Events.prototype.addListeners = function(targets, type, listener, useCapture) {
-            var _useCapture = useCapture || true;
-            var length = targets.length;
-            for (var i = 0; i &lt; length; i++) {
-                addListenerImplementation(targets[i], type, listener, _useCapture);
-            }
-        }
-        Events.prototype.removeListeners = function(targets, type, listener, useCapture) {
-            var _useCapture = useCapture || false;
-            var length = targets.length;
-            for (var i = 0; i &lt; length; i++) {
-                removeListenerImplementation(targets[i], type, listener, _useCapture);
-            }
-        }
-        Events.prototype.sendMessage = function(messageID, dataObject, sourceID, destinationID) {
-            var messagePrefix = "modulesjs_message";
-            if (sourceID == null) {
-                if (destinationID == null) {
-                    send(this, messagePrefix + "_" + messageID);
-                } else {
-                    send(this, messagePrefix + "_" + messageID + "__" + destinationID);
-                }
-            } else {
-                if (destinationID == null) {
-                    send(this, messagePrefix + "_" + messageID + "_" + sourceID);
-                } else {
-                    send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-                }
-            }
-            function send(scope, ID) {
-                var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
-                    , "dataObject": dataObject};
-                scope.dispatchDocumentCustomEvent(ID, detail);
-            }
-        }
-        Events.prototype.subscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
-            var messagePrefix = "modulesjs_message";
-            if (sourceID == null) {
-                if (destinationID == null) {
-                    subscribe(this, messagePrefix + "_" + messageID);
-                } else {
-                    subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
-                }
-            } else {
-                if (destinationID == null) {
-                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
-                } else {
-                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-                }
-            }
-            function subscribe(scope, ID){
-                scope.addDocumentListener(ID, onMessageReceived);
-            }
-        }
-        Events.prototype.unsubscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
-            var messagePrefix = "modulesjs_message";
-            if (sourceID == null) {
-                if (destinationID == null) {
-                    unsubscribe(this, messagePrefix + "_" + messageID);
-                } else {
-                    unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
-                }
-            } else {
-                if (destinationID == null) {
-                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
-                } else {
-                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-                }
-            }
-            function unsubscribe(scope, ID) {
-                scope.removeDocumentListener(ID, onMessageReceived);
-            }
-        }
-        return Events;
-    }());
+//    Modules.Events = (function(){
+//        function Events() {
+//        }
+//        Events.prototype = {
+//            constructor: Events
+//        }
+
+//        Events.prototype.addListener = function (target, type, listener, useCapture) {
+//            var _useCapture = useCapture || false;
+//            addListenerImplementation(target, type, listener, _useCapture);
+//        };
+//        Events.prototype.addDocumentListener = function (type, listener, useCapture) {
+//            var _useCapture = useCapture || false;
+//            addListenerImplementation(document, type, listener, _useCapture);
+//        };
+//        Events.prototype.removeListener = function (target, type, listener, useCapture) {
+//            var _useCapture = useCapture || false;
+//            removeListenerImplementation(target, type, listener, _useCapture);
+//        };
+//        Events.prototype.removeDocumentListener = function (type, listener, useCapture) {
+//            var _useCapture = useCapture || false;
+//            removeListenerImplementation(document, type, listener, _useCapture);
+//        };
+//        Events.prototype.addStartupListener = function (listener) {
+//            addListenerImplementation(document, "DOMContentLoaded", listener, false);
+//        }
+//        Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
+//            addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
+//        }
+//        Events.prototype.addBeforeItemLoadedListener = function(moduleName, itemType, listener) {
+//            addListenerImplementation(document, "module_" + moduleName + "_loadingStarted", false);
+//        }
+//        Events.prototype.addTemplateLoadedListener = function(templateName, listener) {
+//            addListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
+//        }
+//        Events.prototype.addHTMLLoadedListener = function(fileName, listener) {
+//            addListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.addCSSLoadedListener = function(fileName, listener) {
+//            addListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.addJSLoadedListener = function(fileName, listener) {
+//            addListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeModuleLoadedListener = function(moduleName, listener) {
+//            removeListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeTemplateLoadedListener = function(templateName, listener) {
+//            removeListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeHTMLLoadedListener = function(fileName, listener) {
+//            removeListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeCSSLoadedListener = function(fileName, listener) {
+//            removeListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeJSLoadedListener = function(fileName, listener) {
+//            removeListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
+//        }
+//        Events.prototype.removeStartupListener = function (listener) {
+//            removeListenerImplementation(document, "DOMContentLoaded", listener, false);
+//        }
+//        Events.prototype.dispatchDocumentCustomEvent = function (ID, detailsObject) {
+//            this.dispatchCustomEvent(document, ID, detailsObject);
+//        }
+//        Events.prototype.dispatchCustomEvent = function (target, ID, detailsObject) {
+//            var event = target.createEvent("CustomEvent");
+//            event.initCustomEvent(ID, true, true, detailsObject);
+//            target.dispatchEvent(event);
+//        }
+//        Events.prototype.addListeners = function(targets, type, listener, useCapture) {
+//            var _useCapture = useCapture || true;
+//            var length = targets.length;
+//            for (var i = 0; i &lt; length; i++) {
+//                addListenerImplementation(targets[i], type, listener, _useCapture);
+//            }
+//        }
+//        Events.prototype.removeListeners = function(targets, type, listener, useCapture) {
+//            var _useCapture = useCapture || false;
+//            var length = targets.length;
+//            for (var i = 0; i &lt; length; i++) {
+//                removeListenerImplementation(targets[i], type, listener, _useCapture);
+//            }
+//        }
+//        Events.prototype.sendMessage = function(messageID, dataObject, sourceID, destinationID) {
+//            var messagePrefix = "modulesjs_message";
+//            if (sourceID == null) {
+//                if (destinationID == null) {
+//                    send(this, messagePrefix + "_" + messageID);
+//                } else {
+//                    send(this, messagePrefix + "_" + messageID + "__" + destinationID);
+//                }
+//            } else {
+//                if (destinationID == null) {
+//                    send(this, messagePrefix + "_" + messageID + "_" + sourceID);
+//                } else {
+//                    send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+//                }
+//            }
+//            function send(scope, ID) {
+//                var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
+//                    , "dataObject": dataObject};
+//                scope.dispatchDocumentCustomEvent(ID, detail);
+//            }
+//        }
+//        Events.prototype.subscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
+//            var messagePrefix = "modulesjs_message";
+//            if (sourceID == null) {
+//                if (destinationID == null) {
+//                    subscribe(this, messagePrefix + "_" + messageID);
+//                } else {
+//                    subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+//                }
+//            } else {
+//                if (destinationID == null) {
+//                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+//                } else {
+//                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+//                }
+//            }
+//            function subscribe(scope, ID){
+//                scope.addDocumentListener(ID, onMessageReceived);
+//            }
+//        }
+//        Events.prototype.unsubscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
+//            var messagePrefix = "modulesjs_message";
+//            if (sourceID == null) {
+//                if (destinationID == null) {
+//                    unsubscribe(this, messagePrefix + "_" + messageID);
+//                } else {
+//                    unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+//                }
+//            } else {
+//                if (destinationID == null) {
+//                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+//                } else {
+//                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+//                }
+//            }
+//            function unsubscribe(scope, ID) {
+//                scope.removeDocumentListener(ID, onMessageReceived);
+//            }
+//        }
+//        return Events;
+//    }());
 
     /**
      * @namespace Modules.Server
@@ -772,13 +855,13 @@ var Modules = window.exports.Modules;
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Namespaces</h3><ul><li><a href="Modules.DOM.html">DOM</a></li><li><a href="Modules.Loader.html">Loader</a></li><li><a href="Modules.Server.html">Server</a></li><li><a href="window.exports.html">exports</a></li><li><a href="window.exports.Modules.html">Modules</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Modules">Modules</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Namespaces</h3><ul><li><a href="Modules.DOM.html">DOM</a></li><li><a href="Modules.Events.html">Events</a></li><li><a href="Modules.Loader.html">Loader</a></li><li><a href="Modules.Server.html">Server</a></li><li><a href="window.exports.html">exports</a></li><li><a href="window.exports.Modules.html">Modules</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Modules">Modules</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Wed Jul 31 2013 16:38:17 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Wed Jul 31 2013 18:15:53 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>

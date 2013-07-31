@@ -452,6 +452,59 @@ test("getFirstElementByClassName", function(){
     var actualId = actualElement.id;
     equal(actualId, expectedId, "Find first element by className, selected correct element (check by id)");
 });
+
+//noinspection JSUnresolvedFunction
+module("Modules.Events", {
+    setup: function() {
+        //Definition of Setup module
+        //noinspection JSUnresolvedVariable
+        window.exports = window.exports || (window.exports = {});
+        (function (Setup) {
+            function addListener () {
+
+            }
+            Setup.addListener = addListener;
+        }(window.exports.Setup || (window.exports.Setup = {})));
+        //noinspection JSUnresolvedVariable
+        var Setup = window.exports.Setup;
+
+        //Setup excecution
+        Setup.addListener();
+    },
+    teardown: function() {
+        //Definition of Teardown module
+        //noinspection JSUnresolvedVariable
+        window.exports = window.exports || (window.exports = {});
+        (function (Teardown) {
+            function addListener() {
+
+            }
+
+            Teardown.addListener = addListener;
+
+        }(window.exports.Teardown || (window.exports.Teardown = {})));
+        //noinspection JSUnresolvedVariable
+        var Teardown = window.exports.Teardown;
+
+        //Teardown execution
+        Teardown.addListener();
+    }
+});
+
+//noinspection JSUnresolvedFunction
+//TODO: research addEventListener memory leaks and problems
+//asyncTest("addListener", function() {
+//    //noinspection JSUnresolvedFunction
+////    expect(5);
+//    var target = window;
+//    //noinspection JSCheckFunctionSignatures
+//    Modules.Events.addListener(target, "DOMContentLoaded", function() {
+//        //noinspection JSUnresolvedFunction
+//        start();
+//        var expected = true;
+//        var actual = target.
+//    });
+//});
 //
 //"use strict";
 ////noinspection JSUnresolvedFunction
