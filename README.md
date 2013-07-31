@@ -16,7 +16,7 @@
 
 API DOCS path: /jsDoc
 
-Preparе for release (1.0).
+####Preparе for release (1.0).
 
 Status:
 
