@@ -62,7 +62,7 @@ module("Modules", {
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
         (function (Setup) {
-            function isHTMLModule () {
+            function ITEM_TYPE_CONSTANTS () {
                 var moduleItemType = "module";
                 var anotherItemType = "template";
                 var body = document.getElementsByTagName("body")[0];
@@ -82,20 +82,20 @@ module("Modules", {
                 divNotHTMLModule.appendChild(testModuleInNotHTMLModule);
                 body.appendChild(divNotHTMLModule);
             }
-            Setup.isHTMLModule = isHTMLModule;
+            Setup.ITEM_TYPE_CONSTANTS = ITEM_TYPE_CONSTANTS;
         }(window.exports.Setup || (window.exports.Setup = {})));
         //noinspection JSUnresolvedVariable
         var Setup = window.exports.Setup;
 
         //Setup excecution
-        Setup.isHTMLModule();
+        Setup.ITEM_TYPE_CONSTANTS();
     },
     teardown: function() {
         //Definition of Teardown module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
         (function (Teardown) {
-            function isHTMLModule () {
+            function ITEM_TYPE_CONSTANTS() {
                 var body = document.getElementsByTagName("body")[0];
 
                 var divHTMLModule = document.getElementsByClassName("HTMLModule")[0];
@@ -105,18 +105,18 @@ module("Modules", {
                 body.removeChild(divNotHTMLModule);
             }
 
-            Teardown.isHTMLModule = isHTMLModule;
+            Teardown.ITEM_TYPE_CONSTANTS = ITEM_TYPE_CONSTANTS;
 
         }(window.exports.Teardown || (window.exports.Teardown = {})));
         //noinspection JSUnresolvedVariable
         var Teardown = window.exports.Teardown;
 
         //Teardown execution
-        Teardown.isHTMLModule();
+        Teardown.ITEM_TYPE_CONSTANTS();
     }
 });
 
-test("itemTypes", function() {
+test("ITEM_TYPE_CONSTANTS", function() {
     //noinspection JSUnresolvedFunction
     expect(5);
 
