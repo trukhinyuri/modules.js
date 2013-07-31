@@ -14,3 +14,17 @@
 
 [Bugtracker @BitBucket](https://bitbucket.org/trukhinyuri/modules.js/issues?status=new&status=open)
 
+Preparе for release (1.0).
+
+Status:
+
+Modules: 100% (may be extended)
+
+Modules.DOM: 100%
+
+Modules.Loader 0%
+
+Modules.Events 0%
+
+Modules.Server 100% (may be extended)
+
