@@ -107,7 +107,21 @@ window.exports = window.exports || (window.exports = {});
          */
         function isHTMLModule (htmlElement) {
             if (htmlElement.parentNode != null) {
-                return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === "module";
+                return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === Modules.MODULE;
+            } else {
+                return false;
+            }
+        }
+        /**
+         * Return true if htmlElement is template
+         * @method isHTMLTemplate
+         * @memberOf Modules.DOM
+         * @param {HTMLElement} htmlElement Any html element
+         * @returns {boolean}
+         */
+        function isHTMLTemplate (htmlElement) {
+            if (htmlElement.parentNode != null) {
+                return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === Modules.TEMPLATE;
             } else {
                 return false;
             }
@@ -163,6 +177,7 @@ window.exports = window.exports || (window.exports = {});
             return htmlDocument.getElementsByClassName(className)[0];
         }
         DOM.isHTMLModule = isHTMLModule;
+        DOM.isHTMLTemplate = isHTMLTemplate;
         DOM.getModules = getModules;
         DOM.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
         DOM.getFirstElementByClassName = getFirstElementByClassName;
