@@ -10,13 +10,89 @@
 //noinspection JSUnresolvedVariable
 /**
  * Exports object for global modules
- * @type {exports|*|{}}
+ * @namespace exports
+ * @memberOf window
  */
 window.exports = window.exports || (window.exports = {});
 /**
  * @namespace Modules
+ * @memberOf window.exports
+ *
  */
 (function (Modules) {
+    Object.defineProperties(Modules, {
+        "MODULE" : {
+            /** Module item type constant
+             * @instance
+             * @name MODULE
+             * @memberOf window.exports.Modules
+             * @readonly
+             * @returns {String}
+             */
+            get: function() {
+                return "module";
+            }
+            , enumerable: true
+            , configurable: false
+        }
+        , "TEMPLATE" : {
+            /** Template item type constant
+             * @instance
+             * @name TEMPLATE
+             * @memberOf window.exports.Modules
+             * @readonly
+             * @returns {String}
+             */
+            get: function() {
+                return "template";
+            }
+            , enumerable: true
+            , configurable: false
+        }
+        , "HTML" : {
+            /** Template item type constant
+             * @instance
+             * @name HTML
+             * @memberOf window.exports.Modules
+             * @readonly
+             * @returns {String}
+             */
+            get: function() {
+                return "html";
+            }
+            , enumerable: true
+            , configurable: false
+        }
+        , "CSS" : {
+            /** Template item type constant
+             * @instance
+             * @name CSS
+             * @memberOf window.exports.Modules
+             * @readonly
+             * @returns {String}
+             */
+            get: function() {
+                return "css";
+            }
+            , enumerable: true
+            , configurable: false
+        }
+        , "JAVASCRIPT" : {
+            /** Template item type constant
+             * @instance
+             * @name JAVASCRIPT
+             * @memberOf window.exports.Modules
+             * @readonly
+             * @returns {String}
+             */
+            get: function() {
+                return "javascript";
+            }
+            , enumerable: true
+            , configurable: false
+        }
+    });
+
     /**
      * @namespace Modules.DOM
      * @memberOf Modules
@@ -98,30 +174,7 @@ window.exports = window.exports || (window.exports = {});
      * @memberOf Modules
      */
     (function (Loader) {
-        Object.defineProperties(Loader, {
-            "itemTypes" : {
-                /** Get object with supported itemTypes properties (readonly)
-                 * @type {Object}
-                 * @instance
-                 * @name itemTypes
-                 * @memberOf Modules.Loader
-                 */
-                get: function() {
-                    return this._itemTypes;
-                }
-                , enumerable: true
-                , configurable: false
-            }
-        });
 
-        Loader._itemTypes = {};
-        Object.defineProperties(Loader._itemTypes,{
-            "module": {value: "module", writable: false}
-            , "template": {value: "template", writable: false}
-            , "html": {value: "html", writable: false}
-            , "css": {value: "css", writable: false}
-            , "javascript": {value: "javascript", writable: false}
-        });
 
 //        /**
 //         * Return true if htmlElement is module
@@ -643,7 +696,9 @@ window.exports = window.exports || (window.exports = {});
 })(window.exports.Modules || (window.exports.Modules = {}));
 //noinspection JSUnresolvedVariable
 /**
- *
- * @type {{}|*}
+ * Global Modules.JS object, contains window.exports.Modules namespace
+ * @instance
+ * @global
+ * @name Modules
  */
 var Modules = window.exports.Modules;

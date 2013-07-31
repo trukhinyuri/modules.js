@@ -26,6 +26,7 @@
 ////noinspection JSUnresolvedVariable
 //var Teardown = exports.Teardown;
 
+//Teamcity reporter
 "use strict";
 //QUnit.moduleStart({ name })
 QUnit.moduleStart = function(settings){
@@ -51,6 +52,87 @@ QUnit.testDone = function(settings){
     }
     console.log("##teamcity[testFinished name='" + settings.name + "']");
 };
+// end Teamcity reporter
+
+"use strict";
+//noinspection JSUnresolvedFunction
+module("Modules", {
+    setup: function() {
+        //Definition of Setup module
+        //noinspection JSUnresolvedVariable
+        window.exports = window.exports || (window.exports = {});
+        (function (Setup) {
+            function isHTMLModule () {
+                var moduleItemType = "module";
+                var anotherItemType = "template";
+                var body = document.getElementsByTagName("body")[0];
+                var divHTMLModule = document.createElement('div');
+                divHTMLModule.className = "HTMLModule";
+                divHTMLModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
+                var testModuleInHTMLModule = document.createElement("div");
+                testModuleInHTMLModule.className = "testModuleInHTMLModule";
+                divHTMLModule.appendChild(testModuleInHTMLModule);
+                body.appendChild(divHTMLModule);
+
+                var divNotHTMLModule = document.createElement("div");
+                divNotHTMLModule.className = "NotHTMLModule";
+                divNotHTMLModule.setAttribute("data-" + "modulesjs_item_type", anotherItemType);
+                var testModuleInNotHTMLModule = document.createElement("div");
+                testModuleInNotHTMLModule.className = "testModuleInNotHTMLModule";
+                divNotHTMLModule.appendChild(testModuleInNotHTMLModule);
+                body.appendChild(divNotHTMLModule);
+            }
+            Setup.isHTMLModule = isHTMLModule;
+        }(window.exports.Setup || (window.exports.Setup = {})));
+        //noinspection JSUnresolvedVariable
+        var Setup = window.exports.Setup;
+
+        //Setup excecution
+        Setup.isHTMLModule();
+    },
+    teardown: function() {
+        //Definition of Teardown module
+        //noinspection JSUnresolvedVariable
+        window.exports = window.exports || (window.exports = {});
+        (function (Teardown) {
+            function isHTMLModule () {
+                var body = document.getElementsByTagName("body")[0];
+
+                var divHTMLModule = document.getElementsByClassName("HTMLModule")[0];
+                body.removeChild(divHTMLModule);
+
+                var divNotHTMLModule = document.getElementsByClassName("NotHTMLModule")[0];
+                body.removeChild(divNotHTMLModule);
+            }
+
+            Teardown.isHTMLModule = isHTMLModule;
+
+        }(window.exports.Teardown || (window.exports.Teardown = {})));
+        //noinspection JSUnresolvedVariable
+        var Teardown = window.exports.Teardown;
+
+        //Teardown execution
+        Teardown.isHTMLModule();
+    }
+});
+
+test("itemTypes", function() {
+    //noinspection JSUnresolvedFunction
+    expect(5);
+
+    var expectedModuleItemType = "module";
+    equal(Modules.MODULE, expectedModuleItemType, "Modules.MODULE is set correctly: " + Modules.MODULE);
+    var expectedTemplateItemType = "template";
+    equal(Modules.TEMPLATE, expectedTemplateItemType, "Modules.TEMPLATE is set correctly: " + Modules.TEMPLATE);
+    var expectedHTMLItemType = "html";
+    equal(Modules.HTML, expectedHTMLItemType, "Modules.HTML is set correctly: " + Modules.HTML);
+    var expectedCSSItemType = "css";
+    equal(Modules.CSS, expectedCSSItemType, "Modules.CSS is set correctly: " + Modules.CSS);
+    var expectedJSItemType = "javascript";
+    equal(Modules.JAVASCRIPT, expectedJSItemType, "Modules.JAVASCRIPT is set correctly: " + Modules.JAVASCRIPT);
+});
+
+
 //noinspection JSUnresolvedFunction
 module("Modules.DOM", {
     setup: function() {
@@ -282,68 +364,68 @@ test("getFirstElementByClassName", function(){
     var actualId = actualElement.id;
     equal(actualId, expectedId, "Find first element by className, selected correct element (check by id)");
 });
-
-"use strict";
-//noinspection JSUnresolvedFunction
-module("Modules.Loader", {
-    setup: function() {
-        //Definition of Setup module
-        //noinspection JSUnresolvedVariable
-        window.exports = window.exports || (window.exports = {});
-        (function (Setup) {
-            function isHTMLModule () {
-                var moduleItemType = "module";
-                var anotherItemType = "template";
-                var body = document.getElementsByTagName("body")[0];
-                var divHTMLModule = document.createElement('div');
-                divHTMLModule.className = "HTMLModule";
-                divHTMLModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
-                var testModuleInHTMLModule = document.createElement("div");
-                testModuleInHTMLModule.className = "testModuleInHTMLModule";
-                divHTMLModule.appendChild(testModuleInHTMLModule);
-                body.appendChild(divHTMLModule);
-
-                var divNotHTMLModule = document.createElement("div");
-                divNotHTMLModule.className = "NotHTMLModule";
-                divNotHTMLModule.setAttribute("data-" + "modulesjs_item_type", anotherItemType);
-                var testModuleInNotHTMLModule = document.createElement("div");
-                testModuleInNotHTMLModule.className = "testModuleInNotHTMLModule";
-                divNotHTMLModule.appendChild(testModuleInNotHTMLModule);
-                body.appendChild(divNotHTMLModule);
-            }
-            Setup.isHTMLModule = isHTMLModule;
-        }(window.exports.Setup || (window.exports.Setup = {})));
-        //noinspection JSUnresolvedVariable
-        var Setup = window.exports.Setup;
-
-        //Setup excecution
-        Setup.isHTMLModule();
-    },
-    teardown: function() {
-        //Definition of Teardown module
-        //noinspection JSUnresolvedVariable
-        window.exports = window.exports || (window.exports = {});
-        (function (Teardown) {
-            function isHTMLModule () {
-                var body = document.getElementsByTagName("body")[0];
-
-                var divHTMLModule = document.getElementsByClassName("HTMLModule")[0];
-                body.removeChild(divHTMLModule);
-
-                var divNotHTMLModule = document.getElementsByClassName("NotHTMLModule")[0];
-                body.removeChild(divNotHTMLModule);
-            }
-
-            Teardown.isHTMLModule = isHTMLModule;
-
-        }(window.exports.Teardown || (window.exports.Teardown = {})));
-        //noinspection JSUnresolvedVariable
-        var Teardown = window.exports.Teardown;
-
-        //Teardown execution
-        Teardown.isHTMLModule();
-    }
-});
+//
+//"use strict";
+////noinspection JSUnresolvedFunction
+//module("Modules", {
+//    setup: function() {
+//        //Definition of Setup module
+//        //noinspection JSUnresolvedVariable
+//        window.exports = window.exports || (window.exports = {});
+//        (function (Setup) {
+//            function isHTMLModule () {
+//                var moduleItemType = "module";
+//                var anotherItemType = "template";
+//                var body = document.getElementsByTagName("body")[0];
+//                var divHTMLModule = document.createElement('div');
+//                divHTMLModule.className = "HTMLModule";
+//                divHTMLModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
+//                var testModuleInHTMLModule = document.createElement("div");
+//                testModuleInHTMLModule.className = "testModuleInHTMLModule";
+//                divHTMLModule.appendChild(testModuleInHTMLModule);
+//                body.appendChild(divHTMLModule);
+//
+//                var divNotHTMLModule = document.createElement("div");
+//                divNotHTMLModule.className = "NotHTMLModule";
+//                divNotHTMLModule.setAttribute("data-" + "modulesjs_item_type", anotherItemType);
+//                var testModuleInNotHTMLModule = document.createElement("div");
+//                testModuleInNotHTMLModule.className = "testModuleInNotHTMLModule";
+//                divNotHTMLModule.appendChild(testModuleInNotHTMLModule);
+//                body.appendChild(divNotHTMLModule);
+//            }
+//            Setup.isHTMLModule = isHTMLModule;
+//        }(window.exports.Setup || (window.exports.Setup = {})));
+//        //noinspection JSUnresolvedVariable
+//        var Setup = window.exports.Setup;
+//
+//        //Setup excecution
+//        Setup.isHTMLModule();
+//    },
+//    teardown: function() {
+//        //Definition of Teardown module
+//        //noinspection JSUnresolvedVariable
+//        window.exports = window.exports || (window.exports = {});
+//        (function (Teardown) {
+//            function isHTMLModule () {
+//                var body = document.getElementsByTagName("body")[0];
+//
+//                var divHTMLModule = document.getElementsByClassName("HTMLModule")[0];
+//                body.removeChild(divHTMLModule);
+//
+//                var divNotHTMLModule = document.getElementsByClassName("NotHTMLModule")[0];
+//                body.removeChild(divNotHTMLModule);
+//            }
+//
+//            Teardown.isHTMLModule = isHTMLModule;
+//
+//        }(window.exports.Teardown || (window.exports.Teardown = {})));
+//        //noinspection JSUnresolvedVariable
+//        var Teardown = window.exports.Teardown;
+//
+//        //Teardown execution
+//        Teardown.isHTMLModule();
+//    }
+//});
 
 //module("Modules.Loader", {
 //    setup: function() {
@@ -389,55 +471,6 @@ module("Modules.Loader", {
 //    var loaderWithSlash = new Modules.Loader("modules_forTests/");
 //    equal(expectedPath, loaderWithSlash.path, "Loader.path with slash in end of path. Slash removed: " + loaderWithSlash.path);
 //});
-test("itemTypes", function() {
-    expect(11);
-    throws(
-        function() {
-            Modules.Loader.itemTypes = {};
-        }, Error,
-        "Trying to set loader.itemTypes. Throw exception, loader.itemTypes has defined properties, user can`t change it."
-    );
-    throws(
-        function() {
-            Modules.Loader.itemTypes.module = {};
-        }, Error,
-        "Trying to set loader.itemTypes.module. Throw exception, loader.itemTypes.module has defined properties, user can`t change it."
-    );
-    throws(
-        function() {
-            Modules.Loader.itemTypes.template = {};
-        }, Error,
-        "Trying to set loader.itemTypes.template. Throw exception, loader.itemTypes.template has defined properties, user can`t change it."
-    );
-    throws(
-        function() {
-            Modules.Loader.itemTypes.html = {};
-        }, Error,
-        "Trying to set loader.itemTypes.html. Throw exception, loader.itemTypes.html has defined properties, user can`t change it."
-    );
-    throws(
-        function() {
-            Modules.Loader.itemTypes.css = {};
-        }, Error,
-        "Trying to set loader.itemTypes.css. Throw exception, loader.itemTypes.css has defined properties, user can`t change it."
-    );
-    throws(
-        function() {
-            Modules.Loader.itemTypes.javascript = {};
-        }, Error,
-        "Trying to set loader.itemTypes.javascript. Throw exception, loader.itemTypes.javascript has defined properties, user can`t change it."
-    );
-    var expectedModuleItemType = "module";
-    equal(Modules.Loader.itemTypes.module, expectedModuleItemType, "Loader.itemTypes.module returns correctly: " + Modules.Loader.itemTypes.module);
-    var expectedTemplateItemType = "template";
-    equal(Modules.Loader.itemTypes.template, expectedTemplateItemType, "Loader.itemTypes.template returns correctly: " + Modules.Loader.itemTypes.template);
-    var expectedHTMLItemType = "html";
-    equal(Modules.Loader.itemTypes.html, expectedHTMLItemType, "Loader.itemTypes.html returns correctly: " + Modules.Loader.itemTypes.html);
-    var expectedCSSItemType = "css";
-    equal(Modules.Loader.itemTypes.css, expectedCSSItemType, "Loader.itemTypes.css returns correctly: " + Modules.Loader.itemTypes.css);
-    var expectedJSItemType = "javascript";
-    equal(Modules.Loader.itemTypes.javascript, expectedJSItemType, "Loader.itemTypes.javascript returns correctly: " + Modules.Loader.itemTypes.javascript);
-});
 
 //asyncTest("load (itemName, className, callback, loader.itemTypes.module)", function() {
 ////    expect(32);

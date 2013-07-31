@@ -22,3 +22,7 @@ export module Module {
 
     }
 }
+
+class itemTypes() {
+
+}
