@@ -15,6 +15,7 @@
 [Bugtracker @BitBucket](https://bitbucket.org/trukhinyuri/modules.js/issues?status=new&status=open)
 
 API DOCS path: /jsDoc
+
 Preparе for release (1.0).
 
 Status:
