@@ -505,6 +505,7 @@ asyncTest("addListener", function() {
     Modules.Events.addListener(target, "testEvent", listener);
 
     function listener() {
+        target.removeEventListener("testEvent", listener);
         ok(true, "Test listener launched");
         var actual = 1;
         equal(expected, actual, "Can`t use context this, where listener was registered");
@@ -516,8 +517,6 @@ asyncTest("addListener", function() {
     //noinspection JSUnresolvedFunction
     event.initCustomEvent("testEvent", true, true, {});
     target.dispatchEvent(event);
-    //Clearing phase
-    target.removeEventListener("testEvent", listener);
 });
 
 //noinspection JSUnresolvedFunction
@@ -527,13 +526,14 @@ asyncTest("addContextListener", function() {
     var target = document;
     //noinspection JSCheckFunctionSignatures
     var i = 1;
+    var expected = this.i;
     //Event must be handled one time only
     //noinspection JSCheckFunctionSignatures
     Modules.Events.addContextListener(target, "testContextEvent", listener);
 
     function listener() {
+        target.removeEventListener("testContextEvent", listener);
         ok(true, "Test listener launched");
-        var expected = 1;
         var actual = this.i;
         equal(actual, expected, "Context this was binded correctly");
         start();
@@ -543,8 +543,8 @@ asyncTest("addContextListener", function() {
     event.initCustomEvent("testContextEvent", true, true, {});
     target.dispatchEvent(event);
 
-    //Clearing phase
-    target.removeEventListener("testContextEvent", listener);
+
+//    Modules.Events.addContextListener(target, "testEvent", listener, document());
 });
 //
 //"use strict";

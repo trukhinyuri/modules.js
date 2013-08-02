@@ -265,10 +265,11 @@ window.exports = window.exports || (window.exports = {});
          * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
          * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
          */
-        function addContextListener(target, type, listener, useCapture) {
+        function addContextListener(target, type, listener, context, useCapture) {
             var _useCapture = useCapture || false;
+            var _context = context || this;
             //noinspection JSUnresolvedFunction
-            target.addEventListener(type, listener.bind(this), _useCapture);
+            target.addEventListener(type, listener.bind(_context), _useCapture);
         }
 //        Events.prototype.addDocumentListener = function (type, listener, useCapture) {
 //            var _useCapture = useCapture || false;
