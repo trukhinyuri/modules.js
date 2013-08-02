@@ -493,18 +493,58 @@ module("Modules.Events", {
 
 //noinspection JSUnresolvedFunction
 //TODO: research addEventListener memory leaks and problems
-//asyncTest("addListener", function() {
-//    //noinspection JSUnresolvedFunction
-////    expect(5);
-//    var target = window;
-//    //noinspection JSCheckFunctionSignatures
-//    Modules.Events.addListener(target, "DOMContentLoaded", function() {
-//        //noinspection JSUnresolvedFunction
-//        start();
-//        var expected = true;
-//        var actual = target.
-//    });
-//});
+asyncTest("addListener", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var expected = 1;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    Modules.Events.addListener(target, "testEvent", listener);
+    Modules.Events.addListener(target, "testEvent", listener);
+
+    function listener() {
+        ok(true, "Test listener launched");
+        var actual = 1;
+        equal(expected, actual, "Can`t use context this, where listener was registered");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("testEvent", true, true, {});
+    target.dispatchEvent(event);
+    //Clearing phase
+    target.removeEventListener("testEvent", listener);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addContextListener", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    //noinspection JSCheckFunctionSignatures
+    var i = 1;
+    var expected = this.i;
+    //Event must be handled one time only
+    Modules.Events.addContextListener(target, "testEvent", listener);
+
+    function listener() {
+        ok(true, "Test listener launched");
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("testEvent", true, true, {});
+    target.dispatchEvent(event);
+
+    //Clearing phase
+    target.removeEventListener("testEvent", listener);
+});
 //
 //"use strict";
 ////noinspection JSUnresolvedFunction
