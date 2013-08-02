@@ -493,7 +493,7 @@ module("Modules.Events", {
 
 //noinspection JSUnresolvedFunction
 //TODO: research addEventListener memory leaks and problems
-asyncTest("addListener", function() {
+asyncTest("addListener (target, type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -504,11 +504,12 @@ asyncTest("addListener", function() {
     Modules.Events.addListener(target, "testEvent", listener);
     Modules.Events.addListener(target, "testEvent", listener);
 
-    function listener() {
+    function listener(e) {
         target.removeEventListener("testEvent", listener);
+        e.stopPropagation();
         ok(true, "Test listener launched");
-        var actual = 1;
-        equal(expected, actual, "Can`t use context this, where listener was registered");
+        var actual = this.i;
+        notEqual(expected, actual, "Can`t use context this, where listener was registered");
         //noinspection JSUnresolvedFunction
         start();
     }
@@ -516,6 +517,32 @@ asyncTest("addListener", function() {
     var event = target.createEvent("CustomEvent");
     //noinspection JSUnresolvedFunction
     event.initCustomEvent("testEvent", true, true, {});
+    target.dispatchEvent(event);
+});
+
+asyncTest("addListener (target, type, listener, useCapture)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var expected = 1;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    Modules.Events.addListener(target, "testEventWithUseCapture", listener, true);
+
+    function listener(e) {
+        target.removeEventListener("testEventWithUseCapture", listener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var actual = this.i;
+        notEqual(expected, actual, "Can`t use context this, where listener was registered");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("testEventWithUseCapture", true, true, {});
     target.dispatchEvent(event);
 });
 
@@ -531,8 +558,9 @@ asyncTest("addContextListener", function() {
     //noinspection JSCheckFunctionSignatures
     Modules.Events.addContextListener(target, "testContextEvent", listener);
 
-    function listener() {
+    function listener(e) {
         target.removeEventListener("testContextEvent", listener);
+        e.stopPropagation();
         ok(true, "Test listener launched");
         var actual = this.i;
         equal(actual, expected, "Context this was binded correctly");
