@@ -290,6 +290,17 @@ window.exports = window.exports || (window.exports = {});
             var _useCapture = useCapture || false;
             target.removeEventListener(type, listener, _useCapture);
         };
+
+        /**
+         * Launch listener, when Document Object Model (DOM) Content Loaded
+         * @method addStartupListener
+         * @memberOf Modules.Events
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs.
+         */
+        function addStartupListener (listener) {
+            addListener(document, "DOMContentLoaded", listener, false);
+        };
 //        Events.prototype.addDocumentListener = function (type, listener, useCapture) {
 //            var _useCapture = useCapture || false;
 //            addListenerImplementation(document, type, listener, _useCapture);
@@ -299,9 +310,6 @@ window.exports = window.exports || (window.exports = {});
 //            var _useCapture = useCapture || false;
 //            removeListenerImplementation(document, type, listener, _useCapture);
 //        };
-//        Events.prototype.addStartupListener = function (listener) {
-//            addListenerImplementation(document, "DOMContentLoaded", listener, false);
-//        }
 //        Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
 //            addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
 //        }
@@ -358,6 +366,7 @@ window.exports = window.exports || (window.exports = {});
         Events.addListener = addListener;
         Events.addContextListener = addContextListener;
         Events.removeListener = removeListener;
+        Events.addStartupListener = addStartupListener;
     })(Modules.Events || (Modules.Events = {}));
     var Events = Modules.Events;
 
