@@ -529,7 +529,8 @@ asyncTest("addContextListener", function() {
     var i = 1;
     var expected = this.i;
     //Event must be handled one time only
-    Modules.Events.addContextListener(target, "testEvent", listener);
+    //noinspection JSCheckFunctionSignatures
+    Modules.Events.addContextListener(target, "testContextEvent", listener);
 
     function listener() {
         ok(true, "Test listener launched");
@@ -539,11 +540,11 @@ asyncTest("addContextListener", function() {
     }
 
     var event = target.createEvent("CustomEvent");
-    event.initCustomEvent("testEvent", true, true, {});
+    event.initCustomEvent("testContextEvent", true, true, {});
     target.dispatchEvent(event);
 
     //Clearing phase
-    target.removeEventListener("testEvent", listener);
+    target.removeEventListener("testContextEvent", listener);
 });
 //
 //"use strict";
