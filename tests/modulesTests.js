@@ -570,9 +570,29 @@ asyncTest("addContextListener", function() {
     var event = target.createEvent("CustomEvent");
     event.initCustomEvent("testContextEvent", true, true, {});
     target.dispatchEvent(event);
+});
 
+//noinspection JSUnresolvedFunction
+asyncTest("removeListener", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
 
-//    Modules.Events.addContextListener(target, "testEvent", listener, document());
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("testRemoveEvent", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures
+        Modules.Events.removeListener(target, "testRemoveEvent", listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("testRemoveEvent", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
 });
 //
 //"use strict";

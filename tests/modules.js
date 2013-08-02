@@ -242,7 +242,7 @@ window.exports = window.exports || (window.exports = {});
           * @param {String} type The event type for which the user is registering
           * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
           * contains the methods to be called when the event occurs.
-          * @param {boolean} [useCapture="false"] useCapture If true, useCapture indicates that the user wishes to initiate capture.
+          * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
           * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
           * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
           * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
@@ -260,7 +260,7 @@ window.exports = window.exports || (window.exports = {});
          * @param {String} type The event type for which the user is registering
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
          * contains the methods to be called when the event occurs.
-         * @param {boolean} [useCapture="false"] useCapture If true, useCapture indicates that the user wishes to initiate capture.
+         * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
          * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
          * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
          * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
@@ -271,14 +271,30 @@ window.exports = window.exports || (window.exports = {});
             //noinspection JSUnresolvedFunction
             target.addEventListener(type, listener.bind(_context), _useCapture);
         }
+
+        /**
+         * removeEventListener wrapper
+         * @method removeListener
+         * @memberOf Modules.Events
+         * @param {HTMLElement} target Any html element
+         * @param {String} type The event type for which the user is removing
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs.
+         * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
+         * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+         * before being dispatched to any EventTargets beneath them in the tree.
+         * If a listener was registered twice, one with capture and one without, each must be removed separately.
+         * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.
+         */
+        function removeListener (target, type, listener, useCapture) {
+            var _useCapture = useCapture || false;
+            target.removeEventListener(type, listener, _useCapture);
+        };
 //        Events.prototype.addDocumentListener = function (type, listener, useCapture) {
 //            var _useCapture = useCapture || false;
 //            addListenerImplementation(document, type, listener, _useCapture);
 //        };
-//        Events.prototype.removeListener = function (target, type, listener, useCapture) {
-//            var _useCapture = useCapture || false;
-//            removeListenerImplementation(target, type, listener, _useCapture);
-//        };
+
 //        Events.prototype.removeDocumentListener = function (type, listener, useCapture) {
 //            var _useCapture = useCapture || false;
 //            removeListenerImplementation(document, type, listener, _useCapture);
@@ -341,6 +357,7 @@ window.exports = window.exports || (window.exports = {});
 //        Loader.isHTMLModule = isHTMLModule;
         Events.addListener = addListener;
         Events.addContextListener = addContextListener;
+        Events.removeListener = removeListener;
     })(Modules.Events || (Modules.Events = {}));
     var Events = Modules.Events;
 
