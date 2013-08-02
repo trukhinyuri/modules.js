@@ -527,13 +527,13 @@ asyncTest("addContextListener", function() {
     var target = document;
     //noinspection JSCheckFunctionSignatures
     var i = 1;
-    var expected = this.i;
     //Event must be handled one time only
     //noinspection JSCheckFunctionSignatures
     Modules.Events.addContextListener(target, "testContextEvent", listener);
 
     function listener() {
         ok(true, "Test listener launched");
+        var expected = 1;
         var actual = this.i;
         equal(actual, expected, "Context this was binded correctly");
         start();
