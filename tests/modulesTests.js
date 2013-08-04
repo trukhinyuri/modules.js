@@ -494,13 +494,14 @@ module("Modules.Events", {
 //noinspection JSUnresolvedFunction
 asyncTest("addListener (target, type, listener)", function() {
     //noinspection JSUnresolvedFunction
-    expect(2);
+    expect(3);
     var target = document;
     var expected = 1;
     //noinspection JSCheckFunctionSignatures
 
     //Event must be handled one time only
-    Modules.Events.addListener(target, "testEvent", listener);
+    var returnedListener = Modules.Events.addListener(target, "testEvent", listener);
+    equal(returnedListener, listener, "Event return listener correctly");
     Modules.Events.addListener(target, "testEvent", listener);
 
     function listener(e) {
@@ -677,12 +678,13 @@ asyncTest("removeListener(target, type, listener, useCapture)", function() {
 //noinspection JSUnresolvedFunction
 asyncTest("addStartupListener", function() {
     //noinspection JSUnresolvedFunction
-    expect(1);
+    expect(2);
     var target = document;
 
     //Event must be handled one time only
     //noinspection JSCheckFunctionSignatures
-    Modules.Events.addStartupListener(listener);
+    var returnedListener = Modules.Events.addStartupListener(listener);
+    equal(returnedListener, listener, "Event return listener correctly");
 //
     function listener(e) {
         //noinspection JSCheckFunctionSignatures
@@ -705,11 +707,11 @@ asyncTest("addStartupContextListener", function() {
     var expected = this.i;
     //Event must be handled one time only
     //noinspection JSCheckFunctionSignatures
-    Modules.Events.addStartupContextListener(listener);
+    var bindedListener = Modules.Events.addStartupContextListener(listener);
 //
     function listener(e) {
         //noinspection JSCheckFunctionSignatures
-        Modules.Events.removeListener(target, "DOMContentLoaded", listener);
+        target.removeEventListener("DOMContentLoaded", bindedListener);
         ok(true, "Test listener launched once, not launched after removing listener");
         var actual = this.i;
         equal(actual, expected, "Context this was binded correctly");

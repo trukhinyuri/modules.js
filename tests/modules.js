@@ -248,8 +248,9 @@ window.exports = window.exports || (window.exports = {});
           * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
           */
         function addListener (target, type, listener, useCapture) {
-            var _useCapture = useCapture || false;
-            target.addEventListener(type, listener, _useCapture);
+             var _useCapture = useCapture || false;
+             target.addEventListener(type, listener, _useCapture);
+             return listener;
         };
         /**
          * Add event listener with bind context. Bypass problems where it's unclear what this will be,
@@ -269,6 +270,7 @@ window.exports = window.exports || (window.exports = {});
          */
         function addContextListener(target, type, listener, context, useCapture) {
             var _context = context || this;
+            var _useCapture = useCapture || false;
             var bindedListener = listener.bind(_context);
             //noinspection JSUnresolvedFunction,JSUnresolvedVariable
             addListener(target, type, bindedListener, useCapture);
@@ -303,6 +305,7 @@ window.exports = window.exports || (window.exports = {});
          */
         function addStartupListener (listener) {
             addListener(document, "DOMContentLoaded", listener, false);
+            return listener;
         };
 
         /**
@@ -315,7 +318,8 @@ window.exports = window.exports || (window.exports = {});
          */
         function addStartupContextListener (listener, context) {
             var _context = context || this;
-            addListener(document, "DOMContentLoaded", listener, false);
+            var bindedListener = addContextListener(document, "DOMContentLoaded", listener, _context, false);
+            return bindedListener;
         };
 
         /**
