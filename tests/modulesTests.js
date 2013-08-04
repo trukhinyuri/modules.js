@@ -676,7 +676,7 @@ asyncTest("removeListener(target, type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addStartupListener", function() {
+asyncTest("addStartupListener(listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -699,7 +699,7 @@ asyncTest("addStartupListener", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addStartupContextListener", function() {
+asyncTest("addStartupContextListener(listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -723,7 +723,31 @@ asyncTest("addStartupContextListener", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeStartupListener", function() {
+asyncTest("addStartupContextListener(listener, context)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var obj = { i : 1};
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addStartupContextListener(listener, obj);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures
+        target.removeEventListener("DOMContentLoaded", bindedListener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        var expected = 1;
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        start();
+    }
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("DOMContentLoaded", true, true, {});
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeStartupListener(listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -746,7 +770,7 @@ asyncTest("removeStartupListener", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addDocumentListener", function() {
+asyncTest("addDocumentListener(type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -768,10 +792,37 @@ asyncTest("addDocumentListener", function() {
     //noinspection JSUnresolvedFunction
     event.initCustomEvent("testDocumentEvent", true, true, {});
     target.dispatchEvent(event);
+    target.dispatchEvent(event);
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addDocumentContextListener", function() {
+asyncTest("addDocumentListener(type, listener, useCapture)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    Modules.Events.addDocumentListener("testDocument2Event", listener, true);
+
+    function listener(e) {
+        target.removeEventListener("testDocument2Event", listener, true);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("testDocument2Event", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addDocumentContextListener(type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -781,10 +832,10 @@ asyncTest("addDocumentContextListener", function() {
 
     //Event must be handled one time only
     //noinspection JSCheckFunctionSignatures
-    Modules.Events.addDocumentListener("testDocumentContextEvent", listener);
+    var bindedListener = Modules.Events.addDocumentListener("testDocumentContextEvent", listener);
 
     function listener(e) {
-        target.removeEventListener("testDocumentContextEvent", listener);
+        target.removeEventListener("testDocumentContextEvent", bindedListener);
         e.stopPropagation();
         ok(true, "Test listener launched");
         var actual = this.i;
@@ -797,27 +848,81 @@ asyncTest("addDocumentContextListener", function() {
     //noinspection JSUnresolvedFunction
     event.initCustomEvent("testDocumentContextEvent", true, true, {});
     target.dispatchEvent(event);
+    target.dispatchEvent(event);
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeDocumentListener", function() {
+asyncTest("addDocumentContextListener(type, listener, useCapture)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var i = 1;
+    var expected = this.i;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addDocumentListener("testDocumentContext2Event", listener, true);
+
+    function listener(e) {
+        target.removeEventListener("testDocumentContext2Event", bindedListener, true);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("testDocumentContext2Event", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeDocumentListener(type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
 
     //Event must be handled one time only
     //noinspection JSCheckFunctionSignatures
-    target.addEventListener("testRemoveEvent", listener);
+    target.addEventListener("testRemoveDocumentEvent", listener);
 //
     function listener(e) {
         //noinspection JSCheckFunctionSignatures
-        Modules.Events.removeDocumentListener("testRemoveEvent", listener);
+        Modules.Events.removeDocumentListener("testRemoveDocumentEvent", listener);
         ok(true, "Test listener launched once, not launched after removing listener");
         start();
     }
 
     var event = target.createEvent("CustomEvent");
-    event.initCustomEvent("testRemoveEvent", true, true, {});
+    event.initCustomEvent("testRemoveDocumentEvent", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeDocumentListener(type, listener, useCapture)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("testRemoveDocumentEvent2", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures
+        Modules.Events.removeDocumentListener("testRemoveDocumentEvent2", listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("testRemoveDocumentEvent2", true, true, {});
     target.dispatchEvent(event);
     target.dispatchEvent(event);
 });
