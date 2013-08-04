@@ -362,7 +362,7 @@ module("Modules.DOM", {
         Teardown.getFirstElementByClassName();
     }
 });
-test("isHTMLModule", function() {
+test("isHTMLModule(htmlElement)", function() {
     //noinspection JSUnresolvedFunction
     expect(3);
     var testModuleInHTMLModule = document.getElementsByClassName("testModuleItemTypeInHTMLItemType")[0];
@@ -379,7 +379,7 @@ test("isHTMLModule", function() {
     var actual = Modules.DOM.isHTMLModule(window);
     equal(actual, expected, "window is not a html module");
 });
-test("isHTMLTemplate", function() {
+test("isHTMLTemplate(htmlElement)", function() {
     //noinspection JSUnresolvedFunction
     expect(3);
     var testTemplateInHTMLModule = document.getElementsByClassName("testTemplateItemTypeInHTMLItemType")[0];
@@ -396,7 +396,7 @@ test("isHTMLTemplate", function() {
     var actual = Modules.DOM.isHTMLTemplate(window);
     equal(actual, expected, "window is not a html template");
 });
-test("getModules", function() {
+test("getModules(className)", function() {
    //noinspection JSUnresolvedFunction
     expect(2);
     var className = "MayBeHTMLModule";
@@ -407,7 +407,7 @@ test("getModules", function() {
             + expectedAttribute);
     }
 });
-test("getTemplates", function() {
+test("getTemplates(className(htmlElement, className))", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var className = "MayBeHTMLTemplate";
