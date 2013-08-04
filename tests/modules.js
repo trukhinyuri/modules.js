@@ -301,6 +301,17 @@ window.exports = window.exports || (window.exports = {});
         function addStartupListener (listener) {
             addListener(document, "DOMContentLoaded", listener, false);
         };
+
+        /**
+         * Remove listener, which launches when Document Object Model (DOM) Content Loaded
+         * @method removeStartupListener
+         * @memberOf Modules.Events
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs.
+         */
+        function removeStartupListener (listener) {
+            removeListener(document, "DOMContentLoaded", listener, false);
+        };
 //        Events.prototype.addDocumentListener = function (type, listener, useCapture) {
 //            var _useCapture = useCapture || false;
 //            addListenerImplementation(document, type, listener, _useCapture);
@@ -343,9 +354,6 @@ window.exports = window.exports || (window.exports = {});
 //        Events.prototype.removeJSLoadedListener = function(fileName, listener) {
 //            removeListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
 //        }
-//        Events.prototype.removeStartupListener = function (listener) {
-//            removeListenerImplementation(document, "DOMContentLoaded", listener, false);
-//        }
 
 //        /**
 //         * Return true if htmlElement is module
@@ -367,6 +375,7 @@ window.exports = window.exports || (window.exports = {});
         Events.addContextListener = addContextListener;
         Events.removeListener = removeListener;
         Events.addStartupListener = addStartupListener;
+        Events.removeStartupListener = removeStartupListener;
     })(Modules.Events || (Modules.Events = {}));
     var Events = Modules.Events;
 
