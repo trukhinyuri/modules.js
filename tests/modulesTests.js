@@ -531,7 +531,7 @@ asyncTest("addListener (target, type, listener, useCapture)", function() {
     Modules.Events.addListener(target, "testEventWithUseCapture", listener, true);
 
     function listener(e) {
-        target.removeEventListener("testEventWithUseCapture", listener);
+        target.removeEventListener("testEventWithUseCapture", listener, true);
         e.stopPropagation();
         ok(true, "Test listener launched");
         var actual = this.i;
@@ -543,6 +543,7 @@ asyncTest("addListener (target, type, listener, useCapture)", function() {
     var event = target.createEvent("CustomEvent");
     //noinspection JSUnresolvedFunction
     event.initCustomEvent("testEventWithUseCapture", true, true, {});
+    target.dispatchEvent(event);
     target.dispatchEvent(event);
 });
 
