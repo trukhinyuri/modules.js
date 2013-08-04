@@ -265,11 +265,14 @@ window.exports = window.exports || (window.exports = {});
          * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
          * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
          * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
+         * @returns {Function} Listener in context. Need for remove listener.
          */
         function addContextListener(target, type, listener, context, useCapture) {
             var _context = context || this;
+            var bindedListener = listener.bind(_context);
             //noinspection JSUnresolvedFunction,JSUnresolvedVariable
-            addListener(target, type, listener.bind(_context), useCapture);
+            addListener(target, type, bindedListener, useCapture);
+            return bindedListener;
         }
 
         /**

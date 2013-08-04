@@ -523,7 +523,8 @@ asyncTest("addListener (target, type, listener, useCapture)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
-    var expected = 1;
+    var i = 1;
+    var expected = i;
     //noinspection JSCheckFunctionSignatures
 
     //Event must be handled one time only
@@ -557,10 +558,10 @@ asyncTest("addContextListener(target, type, listener)", function() {
     var expected = this.i;
     //Event must be handled one time only
     //noinspection JSCheckFunctionSignatures
-    Modules.Events.addContextListener(target, "testContextEvent", listener);
+    var bindedListener = Modules.Events.addContextListener(target, "testContextEvent", listener);
 
     function listener(e) {
-        target.removeEventListener("testContextEvent", listener);
+        target.removeEventListener("testContextEvent", bindedListener);
         e.stopPropagation();
         ok(true, "Test listener launched");
         var actual = this.i;
@@ -582,10 +583,10 @@ asyncTest("addContextListener(target, type, listener, context)", function() {
     var obj = {i:1}
     //Event must be handled one time only
     //noinspection JSCheckFunctionSignatures
-    Modules.Events.addContextListener(target, "testContext2Event", listener, obj);
+    var bindedListener = Modules.Events.addContextListener(target, "testContext2Event", listener, obj);
 
     function listener(e) {
-        target.removeEventListener("testContext2Event", listener);
+        target.removeEventListener("testContext2Event", bindedListener);
         e.stopPropagation();
         ok(true, "Test listener launched");
         var expected = 1;
@@ -596,6 +597,33 @@ asyncTest("addContextListener(target, type, listener, context)", function() {
 
     var event = target.createEvent("CustomEvent");
     event.initCustomEvent("testContext2Event", true, true, {});
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addContextListener(target, type, listener, context, useCapture)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    //noinspection JSCheckFunctionSignatures
+    var i = 1;
+    var expected = this.i;
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addContextListener(target, "testContext3Event", listener, null, true);
+
+    function listener(e) {
+        target.removeEventListener("testContext3Event", bindedListener, true);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("testContext3Event", true, true, {});
+    target.dispatchEvent(event);
     target.dispatchEvent(event);
 });
 
