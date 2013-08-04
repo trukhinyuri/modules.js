@@ -594,6 +594,28 @@ asyncTest("removeListener", function() {
     target.dispatchEvent(event);
     target.dispatchEvent(event);
 });
+
+//noinspection JSUnresolvedFunction
+asyncTest("addStartupListener", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    Modules.Events.addStartupListener(listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures
+        Modules.Events.removeListener(target, "DOMContentLoaded", listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("DOMContentLoaded", true, true, {});
+    target.dispatchEvent(event);
+});
 //
 //"use strict";
 ////noinspection JSUnresolvedFunction
