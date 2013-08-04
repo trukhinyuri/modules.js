@@ -492,7 +492,6 @@ module("Modules.Events", {
 });
 
 //noinspection JSUnresolvedFunction
-//TODO: research addEventListener memory leaks and problems
 asyncTest("addListener (target, type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
@@ -528,6 +527,7 @@ asyncTest("addListener (target, type, listener, useCapture)", function() {
     //noinspection JSCheckFunctionSignatures
 
     //Event must be handled one time only
+    //noinspection JSValidateTypes
     Modules.Events.addListener(target, "testEventWithUseCapture", listener, true);
 
     function listener(e) {
@@ -618,6 +618,30 @@ asyncTest("addStartupListener", function() {
 });
 
 //noinspection JSUnresolvedFunction
+asyncTest("addStartupContextListener", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var i = 1;
+    var expected = this.i;
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    Modules.Events.addStartupContextListener(listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures
+        Modules.Events.removeListener(target, "DOMContentLoaded", listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        start();
+    }
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("DOMContentLoaded", true, true, {});
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
 asyncTest("removeStartupListener", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
@@ -639,6 +663,84 @@ asyncTest("removeStartupListener", function() {
     target.dispatchEvent(event);
     target.dispatchEvent(event);
 });
+
+//noinspection JSUnresolvedFunction
+asyncTest("addDocumentListener", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    Modules.Events.addDocumentListener("testDocumentEvent", listener);
+
+    function listener(e) {
+        target.removeEventListener("testDocumentEvent", listener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("testDocumentEvent", true, true, {});
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addDocumentContextListener", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var i = 1;
+    var expected = this.i;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    Modules.Events.addDocumentListener("testDocumentContextEvent", listener);
+
+    function listener(e) {
+        target.removeEventListener("testDocumentContextEvent", listener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("testDocumentContextEvent", true, true, {});
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeDocumentListener", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("testRemoveEvent", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures
+        Modules.Events.removeDocumentListener("testRemoveEvent", listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("testRemoveEvent", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
 //
 //"use strict";
 ////noinspection JSUnresolvedFunction

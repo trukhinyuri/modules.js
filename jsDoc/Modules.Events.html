@@ -98,7 +98,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="addContextListener"><span class="type-signature">&lt;static> </span>addContextListener<span class="signature">(target, type, listener, <span class="optional">useCapture</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="addContextListener"><span class="type-signature">&lt;static> </span>addContextListener<span class="signature">(target, type, listener, <span class="optional">context</span>, <span class="optional">useCapture</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -106,7 +106,7 @@
     
     
     <div class="description">
-        addEventListener wrapper with bind this context. Bypass problems where it's unclear what this will be,
+        Add event listener with bind context. Bypass problems where it's unclear what this will be,
 depending on the context from which function was called
     </div>
     
@@ -251,6 +251,45 @@ contains the methods to be called when the event occurs.</td>
 	
         <tr>
             
+                <td class="name"><code>context</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "this"
+                
+                </td>
+            
+            
+            <td class="description last">Context scope for this inside listener</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>useCapture</code></td>
             
             
@@ -345,6 +384,469 @@ the tree will not trigger an EventListener designated to use capture. Event phas
         
             
 <dt>
+    <h4 class="name" id="addDocumentContextListener"><span class="type-signature">&lt;static> </span>addDocumentContextListener<span class="signature">(type, listener, <span class="optional">context</span>, <span class="optional">useCapture</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Add event listener for document target with bind this context. Bypass problems where it's unclear what this will be,
+depending on the context from which function was called
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The event type for which the user is registering</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">EventListener</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The listener parameter takes an interface implemented by the user which
+contains the methods to be called when the event occurs.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "this"
+                
+                </td>
+            
+            
+            <td class="description last">Context scope for this inside listener</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>useCapture</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "false"
+                
+                </td>
+            
+            
+            <td class="description last">If true, useCapture indicates that the user wishes to initiate capture.
+After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
+the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line347">line 347</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="addDocumentListener"><span class="type-signature">&lt;static> </span>addDocumentListener<span class="signature">(type, listener, <span class="optional">useCapture</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Add event listener for document target
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The event type for which the user is removing</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">EventListener</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The listener parameter takes an interface implemented by the user which
+contains the methods to be called when the event occurs.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>useCapture</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "false"
+                
+                </td>
+            
+            
+            <td class="description last">If true, useCapture indicates that the user wishes to initiate capture.
+After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+before being dispatched to any EventTargets beneath them in the tree.
+If a listener was registered twice, one with capture and one without, each must be removed separately.
+Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line329">line 329</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="addListener"><span class="type-signature">&lt;static> </span>addListener<span class="signature">(target, type, listener, <span class="optional">useCapture</span>)</span><span class="type-signature"></span></h4>
     
     
@@ -353,7 +855,7 @@ the tree will not trigger an EventListener designated to use capture. Event phas
     
     
     <div class="description">
-        addEventListener wrapper
+        Add event listener
     </div>
     
 
@@ -591,6 +1093,179 @@ the tree will not trigger an EventListener designated to use capture. Event phas
         
             
 <dt>
+    <h4 class="name" id="addStartupContextListener"><span class="type-signature">&lt;static> </span>addStartupContextListener<span class="signature">(listener, <span class="optional">context</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Add event listener with bind context, which launches when Document Object Model (DOM) Content Loaded
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">EventListener</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The listener parameter takes an interface implemented by the user which
+contains the methods to be called when the event occurs.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "this"
+                
+                </td>
+            
+            
+            <td class="description last">Context scope for this inside listener</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line305">line 305</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="addStartupListener"><span class="type-signature">&lt;static> </span>addStartupListener<span class="signature">(listener)</span><span class="type-signature"></span></h4>
     
     
@@ -599,7 +1274,7 @@ the tree will not trigger an EventListener designated to use capture. Event phas
     
     
     <div class="description">
-        Launch listener, when Document Object Model (DOM) Content Loaded
+        Add event listener, which launches when Document Object Model (DOM) Content Loaded
     </div>
     
 
@@ -709,6 +1384,218 @@ contains the methods to be called when the event occurs.</td>
         
             
 <dt>
+    <h4 class="name" id="removeDocumentListener"><span class="type-signature">&lt;static> </span>removeDocumentListener<span class="signature">(type, listener, <span class="optional">useCapture</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Remove event listener for document target
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The event type for which the user is removing</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">EventListener</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The listener parameter takes an interface implemented by the user which
+contains the methods to be called when the event occurs.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>useCapture</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "false"
+                
+                </td>
+            
+            
+            <td class="description last">If true, useCapture indicates that the user wishes to initiate capture.
+After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+before being dispatched to any EventTargets beneath them in the tree.
+If a listener was registered twice, one with capture and one without, each must be removed separately.
+Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line366">line 366</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="removeListener"><span class="type-signature">&lt;static> </span>removeListener<span class="signature">(target, type, listener, <span class="optional">useCapture</span>)</span><span class="type-signature"></span></h4>
     
     
@@ -717,7 +1604,7 @@ contains the methods to be called when the event occurs.</td>
     
     
     <div class="description">
-        removeEventListener wrapper
+        Remove event listener
     </div>
     
 
@@ -964,7 +1851,7 @@ Removal of a capturing listener does not affect a non-capturing version of the s
     
     
     <div class="description">
-        Remove listener, which launches when Document Object Model (DOM) Content Loaded
+        Remove event listener, which launches when Document Object Model (DOM) Content Loaded
     </div>
     
 
@@ -1046,7 +1933,7 @@ contains the methods to be called when the event occurs.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line305">line 305</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line318">line 318</a>
     </li></ul></dd>
     
     
@@ -1093,7 +1980,7 @@ contains the methods to be called when the event occurs.</td>
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sun Aug 04 2013 15:52:56 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sun Aug 04 2013 17:32:38 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>

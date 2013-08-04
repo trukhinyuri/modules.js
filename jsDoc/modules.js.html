@@ -262,7 +262,7 @@ window.exports = window.exports || (window.exports = {});
      */
     (function (Events) {
          /**
-          * addEventListener wrapper
+          * Add event listener
           * @method addListener
           * @memberOf Modules.Events
           * @param {HTMLElement} target Any html element
@@ -279,7 +279,7 @@ window.exports = window.exports || (window.exports = {});
             target.addEventListener(type, listener, _useCapture);
         };
         /**
-         * addEventListener wrapper with bind this context. Bypass problems where it's unclear what this will be,
+         * Add event listener with bind context. Bypass problems where it's unclear what this will be,
          * depending on the context from which function was called
          * @method addContextListener
          * @memberOf Modules.Events
@@ -287,20 +287,20 @@ window.exports = window.exports || (window.exports = {});
          * @param {String} type The event type for which the user is registering
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
          * contains the methods to be called when the event occurs.
+         * @param {object} [context="this"] Context scope for this inside listener
          * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
          * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
          * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
          * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
          */
         function addContextListener(target, type, listener, context, useCapture) {
-            var _useCapture = useCapture || false;
             var _context = context || this;
-            //noinspection JSUnresolvedFunction
-            target.addEventListener(type, listener.bind(_context), _useCapture);
+            //noinspection JSUnresolvedFunction,JSUnresolvedVariable
+            addListener(target, type, listener.bind(_context), useCapture);
         }
 
         /**
-         * removeEventListener wrapper
+         * Remove event listener
          * @method removeListener
          * @memberOf Modules.Events
          * @param {HTMLElement} target Any html element
@@ -319,7 +319,7 @@ window.exports = window.exports || (window.exports = {});
         };
 
         /**
-         * Launch listener, when Document Object Model (DOM) Content Loaded
+         * Add event listener, which launches when Document Object Model (DOM) Content Loaded
          * @method addStartupListener
          * @memberOf Modules.Events
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
@@ -330,7 +330,20 @@ window.exports = window.exports || (window.exports = {});
         };
 
         /**
-         * Remove listener, which launches when Document Object Model (DOM) Content Loaded
+         * Add event listener with bind context, which launches when Document Object Model (DOM) Content Loaded
+         * @method addStartupContextListener
+         * @memberOf Modules.Events
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs.
+         * @param {object} [context="this"] Context scope for this inside listener
+         */
+        function addStartupContextListener (listener, context) {
+            var _context = context || this;
+            addListener(document, "DOMContentLoaded", listener, false);
+        };
+
+        /**
+         * Remove event listener, which launches when Document Object Model (DOM) Content Loaded
          * @method removeStartupListener
          * @memberOf Modules.Events
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
@@ -339,15 +352,62 @@ window.exports = window.exports || (window.exports = {});
         function removeStartupListener (listener) {
             removeListener(document, "DOMContentLoaded", listener, false);
         };
-//        Events.prototype.addDocumentListener = function (type, listener, useCapture) {
-//            var _useCapture = useCapture || false;
-//            addListenerImplementation(document, type, listener, _useCapture);
-//        };
 
-//        Events.prototype.removeDocumentListener = function (type, listener, useCapture) {
-//            var _useCapture = useCapture || false;
-//            removeListenerImplementation(document, type, listener, _useCapture);
-//        };
+        /**
+         * Add event listener for document target
+         * @method addDocumentListener
+         * @memberOf Modules.Events
+         * @param {String} type The event type for which the user is removing
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs.
+         * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
+         * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+         * before being dispatched to any EventTargets beneath them in the tree.
+         * If a listener was registered twice, one with capture and one without, each must be removed separately.
+         * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.
+         */
+        function addDocumentListener (type, listener, useCapture) {
+            //noinspection JSUnresolvedVariable
+            addListener(document, type, listener, useCapture);
+        };
+
+        /**
+         * Add event listener for document target with bind this context. Bypass problems where it's unclear what this will be,
+         * depending on the context from which function was called
+         * @method addDocumentContextListener
+         * @memberOf Modules.Events
+         * @param {String} type The event type for which the user is registering
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs.
+         * @param {object} [context="this"] Context scope for this inside listener
+         * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
+         * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+         * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
+         * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
+         */
+        function addDocumentContextListener(type, listener, context, useCapture) {
+            //noinspection JSUnresolvedFunction
+            addContextListener(document, type, listener, context, useCapture)
+        }
+
+        /**
+         * Remove event listener for document target
+         * @method removeDocumentListener
+         * @memberOf Modules.Events
+         * @param {String} type The event type for which the user is removing
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs.
+         * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
+         * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+         * before being dispatched to any EventTargets beneath them in the tree.
+         * If a listener was registered twice, one with capture and one without, each must be removed separately.
+         * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.
+         */
+        function removeDocumentListener (type, listener, useCapture) {
+            var _useCapture = useCapture || false;
+            removeListener(document, type, listener, _useCapture);
+        };
+
 //        Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
 //            addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
 //        }
@@ -402,7 +462,11 @@ window.exports = window.exports || (window.exports = {});
         Events.addContextListener = addContextListener;
         Events.removeListener = removeListener;
         Events.addStartupListener = addStartupListener;
+        Events.addStartupContextListener = addStartupContextListener;
         Events.removeStartupListener = removeStartupListener;
+        Events.addDocumentListener = addDocumentListener;
+        Events.addDocumentContextListener = addDocumentContextListener;
+        Events.removeDocumentListener = removeDocumentListener;
     })(Modules.Events || (Modules.Events = {}));
     var Events = Modules.Events;
 
@@ -917,7 +981,7 @@ var Modules = window.exports.Modules;
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sun Aug 04 2013 15:52:56 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sun Aug 04 2013 17:32:38 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>
