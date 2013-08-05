@@ -928,7 +928,7 @@ asyncTest("removeDocumentListener(type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedListener(ITEM_TYPE[=Modules.MODULE], itemName, listener)", function() {
+asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -953,7 +953,7 @@ asyncTest("addItemLoadedListener(ITEM_TYPE[=Modules.MODULE], itemName, listener)
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedListener(ITEM_TYPE[=Modules.TEMPLATE], itemName, listener)", function() {
+asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -978,7 +978,7 @@ asyncTest("addItemLoadedListener(ITEM_TYPE[=Modules.TEMPLATE], itemName, listene
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedListener(ITEM_TYPE[=Modules.HTML], itemName, listener)", function() {
+asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1003,7 +1003,7 @@ asyncTest("addItemLoadedListener(ITEM_TYPE[=Modules.HTML], itemName, listener)",
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedListener(ITEM_TYPE[=Modules.CSS], itemName, listener)", function() {
+asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1028,7 +1028,7 @@ asyncTest("addItemLoadedListener(ITEM_TYPE[=Modules.CSS], itemName, listener)", 
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedListener(ITEM_TYPE[=Modules.JAVASCRIPT], itemName, listener)", function() {
+asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1053,7 +1053,7 @@ asyncTest("addItemLoadedListener(ITEM_TYPE[=Modules.JAVASCRIPT], itemName, liste
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.MODULE], itemName, listener)", function() {
+asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1084,7 +1084,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.MODULE], itemName, li
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.TEMPLATE], itemName, listener)", function() {
+asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1115,7 +1115,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.TEMPLATE], itemName, 
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.HTML], itemName, listener)", function() {
+asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1146,7 +1146,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.HTML], itemName, list
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.CSS], itemName, listener)", function() {
+asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1177,7 +1177,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.CSS], itemName, liste
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.JAVASCRIPT], itemName, listener)", function() {
+asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1208,7 +1208,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.JAVASCRIPT], itemName
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.MODULE], itemName, listener, context)", function() {
+asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1239,7 +1239,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.MODULE], itemName, li
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.TEMPLATE], itemName, listener, context)", function() {
+asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1270,7 +1270,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.TEMPLATE], itemName, 
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.HTML], itemName, listener, context)", function() {
+asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1301,7 +1301,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.HTML], itemName, list
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.CSS], itemName, listener, context)", function() {
+asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1332,7 +1332,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.CSS], itemName, liste
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.JAVASCRIPT], itemName, listener, context)", function() {
+asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
