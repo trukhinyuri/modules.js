@@ -1480,6 +1480,561 @@ asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  lis
     target.dispatchEvent(event);
     target.dispatchEvent(event);
 });
+
+//nexttest
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item1";
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    var returnedListener = Modules.Events.addBeforeItemLoadedListener(Modules.MODULE, itemName, listener);
+
+    function listener(e) {
+        target.removeEventListener("module_" + itemName + "_loadingStarted", returnedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("module_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item1";
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    var returnedListener = Modules.Events.addBeforeItemLoadedListener(Modules.TEMPLATE, itemName, listener);
+
+    function listener(e) {
+        target.removeEventListener("template_" + itemName + "_loadingStarted", returnedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("template_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item1";
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    var returnedListener = Modules.Events.addBeforeItemLoadedListener(Modules.HTML, itemName, listener);
+
+    function listener(e) {
+        target.removeEventListener("html_" + itemName + "_loadingStarted", returnedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("html_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item1";
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    var returnedListener = Modules.Events.addBeforeItemLoadedListener(Modules.CSS, itemName, listener);
+
+    function listener(e) {
+        target.removeEventListener("css_" + itemName + "_loadingStarted", returnedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("css_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item1";
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    var returnedListener = Modules.Events.addBeforeItemLoadedListener(Modules.JAVASCRIPT, itemName, listener);
+
+    function listener(e) {
+        target.removeEventListener("js_" + itemName + "_loadingStarted", returnedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("js_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var itemName = "item1";
+    var i = 1;
+    var expected = this.i;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addBeforeItemLoadedContextListener(Modules.MODULE, itemName, listener);
+
+    function listener(e) {
+        target.removeEventListener("module_" + itemName + "_loadingStarted", bindedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("module_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var itemName = "item1";
+    var i = 1;
+    var expected = this.i;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addBeforeItemLoadedContextListener(Modules.TEMPLATE, itemName, listener);
+
+    function listener(e) {
+        target.removeEventListener("template_" + itemName + "_loadingStarted", bindedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("template_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var itemName = "item1";
+    var i = 1;
+    var expected = this.i;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addBeforeItemLoadedContextListener(Modules.HTML, itemName, listener);
+
+    function listener(e) {
+        target.removeEventListener("html_" + itemName + "_loadingStarted", bindedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("html_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var itemName = "item1";
+    var i = 1;
+    var expected = this.i;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addBeforeItemLoadedContextListener(Modules.CSS, itemName, listener);
+
+    function listener(e) {
+        target.removeEventListener("css_" + itemName + "_loadingStarted", bindedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("css_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var itemName = "item1";
+    var i = 1;
+    var expected = this.i;
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addBeforeItemLoadedContextListener(Modules.JAVASCRIPT, itemName, listener);
+
+    function listener(e) {
+        target.removeEventListener("js_" + itemName + "_loadingStarted", bindedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("js_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener, context)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var itemName = "item1";
+    var obj = {i : 1};
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addBeforeItemLoadedContextListener(Modules.MODULE, itemName, listener, obj);
+
+    function listener(e) {
+        target.removeEventListener("module_" + itemName + "_loadingStarted", bindedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var expected = 1;
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("module_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener, context)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var itemName = "item1";
+    var obj = {i : 1};
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addBeforeItemLoadedContextListener(Modules.TEMPLATE, itemName, listener, obj);
+
+    function listener(e) {
+        target.removeEventListener("template_" + itemName + "_loadingStarted", bindedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var expected = 1;
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("template_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener, context)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var itemName = "item1";
+    var obj = {i : 1};
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addBeforeItemLoadedContextListener(Modules.HTML, itemName, listener, obj);
+
+    function listener(e) {
+        target.removeEventListener("html_" + itemName + "_loadingStarted", bindedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var expected = 1;
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("html_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener, context)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var itemName = "item1";
+    var obj = {i : 1};
+    //noinspection JSCheckFunctionSignatures
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addBeforeItemLoadedContextListener(Modules.CSS, itemName, listener, obj);
+
+    function listener(e) {
+        target.removeEventListener("css_" + itemName + "_loadingStarted", bindedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var expected = 1;
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("css_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener, context)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(2);
+    var target = document;
+    var itemName = "item1";
+    var obj = {i : 1};
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    var bindedListener = Modules.Events.addBeforeItemLoadedContextListener(Modules.JAVASCRIPT, itemName, listener, obj);
+
+    function listener(e) {
+        target.removeEventListener("js_" + itemName + "_loadingStarted", bindedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        var expected = 1;
+        var actual = this.i;
+        equal(actual, expected, "Context this was binded correctly");
+        //noinspection JSUnresolvedFunction
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("js_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item2";
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("module_" + itemName + "_loadingStarted", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures,JSValidateTypes
+        Modules.Events.removeBeforeItemLoadedListener(Modules.MODULE, itemName, listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("module_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item2";
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("template_" + itemName + "_loadingStarted", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures,JSValidateTypes
+        Modules.Events.removeBeforeItemLoadedListener(Modules.TEMPLATE, itemName, listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("template_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item2";
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("html_" + itemName + "_loadingStarted", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures,JSValidateTypes
+        Modules.Events.removeBeforeItemLoadedListener(Modules.HTML, itemName, listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("html_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item2";
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("css_" + itemName + "_loadingStarted", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures,JSValidateTypes
+        Modules.Events.removeBeforeItemLoadedListener(Modules.CSS, itemName, listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("css_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item2";
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("js_" + itemName + "_loadingStarted", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures,JSValidateTypes
+        Modules.Events.removeBeforeItemLoadedListener(Modules.JAVASCRIPT, itemName, listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("js_" + itemName + "_loadingStarted", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
 //
 //"use strict";
 ////noinspection JSUnresolvedFunction
