@@ -98,6 +98,458 @@
         <dl>
             
 <dt>
+    <h4 class="name" id="addBeforeItemLoadedContextListener"><span class="type-signature">&lt;static> </span>addBeforeItemLoadedContextListener<span class="signature">(ITEM_TYPE, itemName, listener, <span class="optional">context</span>)</span><span class="type-signature"> &rarr; {EventListener}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Add event listener, which launches before Modules.ITEM_TYPE start loading, with bind this context.
+Bypass problems where it's unclear what this will be, depending on the context from which function was called
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>ITEM_TYPE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Modules.ITEM_TYPE constant</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The name of item, where we want to track loading</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">EventListener</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The listener parameter takes an interface implemented by the user which
+contains the methods to be called when the event occurs</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "this"
+                
+                </td>
+            
+            
+            <td class="description last">Context scope for this inside listener</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line495">line 495</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Listener in context. Need for remove listener
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">EventListener</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="addBeforeItemLoadedListener"><span class="type-signature">&lt;static> </span>addBeforeItemLoadedListener<span class="signature">(ITEM_TYPE, itemName, listener)</span><span class="type-signature"> &rarr; {EventListener}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Add event listener, which launches before Modules.ITEM_TYPE start loading
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>ITEM_TYPE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Modules.ITEM_TYPE constant</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The name of item, where we want to track loading</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">EventListener</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The listener parameter takes an interface implemented by the user which
+contains the methods to be called when the event occurs</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line471">line 471</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Listener in context. Need for remove listener
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">EventListener</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="addContextListener"><span class="type-signature">&lt;static> </span>addContextListener<span class="signature">(target, type, listener, <span class="optional">context</span>, <span class="optional">useCapture</span>)</span><span class="type-signature"> &rarr; {EventListener}</span></h4>
     
     
@@ -244,7 +696,7 @@ depending on the context from which function was called
             
             
             <td class="description last">The listener parameter takes an interface implemented by the user which
-contains the methods to be called when the event occurs.</td>
+contains the methods to be called when the event occurs</td>
         </tr>
 	
 	
@@ -325,7 +777,7 @@ contains the methods to be called when the event occurs.</td>
             <td class="description last">If true, useCapture indicates that the user wishes to initiate capture.
 After initiating capture, all events of the specified type will be dispatched to the registered EventListener
 before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
-the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.</td>
+the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble</td>
         </tr>
 	
 	
@@ -381,7 +833,7 @@ the tree will not trigger an EventListener designated to use capture. Event phas
     
             
 <div class="param-desc">
-    Listener in context. Need for remove listener.
+    Listener in context. Need for remove listener
 </div>
 
 
@@ -517,7 +969,7 @@ depending on the context from which function was called
             
             
             <td class="description last">The listener parameter takes an interface implemented by the user which
-contains the methods to be called when the event occurs.</td>
+contains the methods to be called when the event occurs</td>
         </tr>
 	
 	
@@ -598,7 +1050,7 @@ contains the methods to be called when the event occurs.</td>
             <td class="description last">If true, useCapture indicates that the user wishes to initiate capture.
 After initiating capture, all events of the specified type will be dispatched to the registered EventListener
 before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
-the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.</td>
+the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble</td>
         </tr>
 	
 	
@@ -654,7 +1106,7 @@ the tree will not trigger an EventListener designated to use capture. Event phas
     
             
 <div class="param-desc">
-    Listener in context. Need for remove listener.
+    Listener in context. Need for remove listener
 </div>
 
 
@@ -789,7 +1241,7 @@ the tree will not trigger an EventListener designated to use capture. Event phas
             
             
             <td class="description last">The listener parameter takes an interface implemented by the user which
-contains the methods to be called when the event occurs.</td>
+contains the methods to be called when the event occurs</td>
         </tr>
 	
 	
@@ -830,9 +1282,9 @@ contains the methods to be called when the event occurs.</td>
             
             <td class="description last">If true, useCapture indicates that the user wishes to initiate capture.
 After initiating capture, all events of the specified type will be dispatched to the registered EventListener
-before being dispatched to any EventTargets beneath them in the tree.
-If a listener was registered twice, one with capture and one without, each must be removed separately.
-Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.</td>
+before being dispatched to any EventTargets beneath them in the tree
+If a listener was registered twice, one with capture and one without, each must be removed separately
+Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa</td>
         </tr>
 	
 	
@@ -889,6 +1341,458 @@ Removal of a capturing listener does not affect a non-capturing version of the s
             
 <div class="param-desc">
     Passed listener.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">EventListener</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="addItemLoadedContextListener"><span class="type-signature">&lt;static> </span>addItemLoadedContextListener<span class="signature">(ITEM_TYPE, itemName, listener, <span class="optional">context</span>)</span><span class="type-signature"> &rarr; {EventListener}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Add event listener, which launches when Modules.ITEM_TYPE loaded with bind this context.
+Bypass problems where it's unclear what this will be, depending on the context from which function was called
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>ITEM_TYPE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Modules.ITEM_TYPE constant</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The name of item, where we want to track loading</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">EventListener</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The listener parameter takes an interface implemented by the user which
+contains the methods to be called when the event occurs</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "this"
+                
+                </td>
+            
+            
+            <td class="description last">Context scope for this inside listener</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line421">line 421</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Listener in context. Need for remove listener
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">EventListener</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="addItemLoadedListener"><span class="type-signature">&lt;static> </span>addItemLoadedListener<span class="signature">(ITEM_TYPE, itemName, listener)</span><span class="type-signature"> &rarr; {EventListener}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Add event listener, which launches when Modules.ITEM_TYPE loaded
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>ITEM_TYPE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Modules.ITEM_TYPE constant</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The name of item, where we want to track loading</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">EventListener</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The listener parameter takes an interface implemented by the user which
+contains the methods to be called when the event occurs</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line397">line 397</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Listener in context. Need for remove listener
 </div>
 
 
@@ -1058,7 +1962,7 @@ Removal of a capturing listener does not affect a non-capturing version of the s
             
             
             <td class="description last">The listener parameter takes an interface implemented by the user which
-contains the methods to be called when the event occurs.</td>
+contains the methods to be called when the event occurs</td>
         </tr>
 	
 	
@@ -1100,7 +2004,7 @@ contains the methods to be called when the event occurs.</td>
             <td class="description last">If true, useCapture indicates that the user wishes to initiate capture.
 After initiating capture, all events of the specified type will be dispatched to the registered EventListener
 before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
-the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.</td>
+the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble</td>
         </tr>
 	
 	
@@ -1256,7 +2160,7 @@ the tree will not trigger an EventListener designated to use capture. Event phas
             
             
             <td class="description last">The listener parameter takes an interface implemented by the user which
-contains the methods to be called when the event occurs.</td>
+contains the methods to be called when the event occurs</td>
         </tr>
 	
 	
@@ -1351,7 +2255,7 @@ contains the methods to be called when the event occurs.</td>
     
             
 <div class="param-desc">
-    Listener in context. Need for remove listener.
+    Listener in context. Need for remove listener
 </div>
 
 
@@ -1435,7 +2339,7 @@ contains the methods to be called when the event occurs.</td>
             
             
             <td class="description last">The listener parameter takes an interface implemented by the user which
-contains the methods to be called when the event occurs.</td>
+contains the methods to be called when the event occurs</td>
         </tr>
 	
 	
@@ -1491,7 +2395,7 @@ contains the methods to be called when the event occurs.</td>
     
             
 <div class="param-desc">
-    Passed listener.
+    Passed listener
 </div>
 
 
@@ -1509,6 +2413,170 @@ contains the methods to be called when the event occurs.</td>
 </dl>
 
         
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="removeBeforeItemLoadedListener"><span class="type-signature">&lt;static> </span>removeBeforeItemLoadedListener<span class="signature">(ITEM_TYPE, itemName, listener)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Remove event listener, which launches before Modules.ITEM_TYPE start loading
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>ITEM_TYPE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Modules.ITEM_TYPE constant</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The name of item, where we don`t want to track loading</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">EventListener</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The listener parameter takes an interface implemented by the user which
+contains the methods to be called when the event occurs</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line522">line 522</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
     
     
 </dd>
@@ -1626,7 +2694,7 @@ contains the methods to be called when the event occurs.</td>
             
             
             <td class="description last">The listener parameter takes an interface implemented by the user which
-contains the methods to be called when the event occurs.</td>
+contains the methods to be called when the event occurs</td>
         </tr>
 	
 	
@@ -1667,9 +2735,9 @@ contains the methods to be called when the event occurs.</td>
             
             <td class="description last">If true, useCapture indicates that the user wishes to initiate capture.
 After initiating capture, all events of the specified type will be dispatched to the registered EventListener
-before being dispatched to any EventTargets beneath them in the tree.
-If a listener was registered twice, one with capture and one without, each must be removed separately.
-Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.</td>
+before being dispatched to any EventTargets beneath them in the tree
+If a listener was registered twice, one with capture and one without, each must be removed separately
+Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa</td>
         </tr>
 	
 	
@@ -1701,6 +2769,170 @@ Removal of a capturing listener does not affect a non-capturing version of the s
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line379">line 379</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="removeItemLoadedListener"><span class="type-signature">&lt;static> </span>removeItemLoadedListener<span class="signature">(ITEM_TYPE, itemName, listener)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Remove event listener, which launches when Modules.ITEM_TYPE loaded
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>ITEM_TYPE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Modules.ITEM_TYPE constant</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The name of item, where we don`t want to track loading</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">EventListener</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The listener parameter takes an interface implemented by the user which
+contains the methods to be called when the event occurs</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line448">line 448</a>
     </li></ul></dd>
     
     
@@ -1873,7 +3105,7 @@ Removal of a capturing listener does not affect a non-capturing version of the s
             
             
             <td class="description last">The listener parameter takes an interface implemented by the user which
-contains the methods to be called when the event occurs.</td>
+contains the methods to be called when the event occurs</td>
         </tr>
 	
 	
@@ -1914,9 +3146,9 @@ contains the methods to be called when the event occurs.</td>
             
             <td class="description last">If true, useCapture indicates that the user wishes to initiate capture.
 After initiating capture, all events of the specified type will be dispatched to the registered EventListener
-before being dispatched to any EventTargets beneath them in the tree.
-If a listener was registered twice, one with capture and one without, each must be removed separately.
-Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.</td>
+before being dispatched to any EventTargets beneath them in the tree
+If a listener was registered twice, one with capture and one without, each must be removed separately
+Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa</td>
         </tr>
 	
 	
@@ -1983,7 +3215,7 @@ Removal of a capturing listener does not affect a non-capturing version of the s
     
     
     <div class="description">
-        Remove event listener, which launches when Document Object Model (DOM) Content Loaded
+        Remove event listener, which launches when Document Object Model (DOM) Content loaded
     </div>
     
 
@@ -2034,7 +3266,7 @@ Removal of a capturing listener does not affect a non-capturing version of the s
             
             
             <td class="description last">The listener parameter takes an interface implemented by the user which
-contains the methods to be called when the event occurs.</td>
+contains the methods to be called when the event occurs</td>
         </tr>
 	
 	
@@ -2112,7 +3344,7 @@ contains the methods to be called when the event occurs.</td>
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sun Aug 04 2013 20:38:36 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Mon Aug 05 2013 10:27:22 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>

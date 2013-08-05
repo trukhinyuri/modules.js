@@ -9,7 +9,7 @@
 "use strict";
 //noinspection JSUnresolvedVariable
 /**
- * Exports object for global modules
+ * Exports object for global modules.
  * @namespace exports
  * @memberOf window
  */
@@ -22,7 +22,7 @@ window.exports = window.exports || (window.exports = {});
 (function (Modules) {
     Object.defineProperties(Modules, {
         "MODULE" : {
-            /** Module item type constant
+            /** Module ITEM_TYPE constant
              * @instance
              * @name MODULE
              * @memberOf window.exports.Modules
@@ -36,7 +36,7 @@ window.exports = window.exports || (window.exports = {});
             , configurable: false
         }
         , "TEMPLATE" : {
-            /** Template item type constant
+            /** Template ITEM_TYPE constant
              * @instance
              * @name TEMPLATE
              * @memberOf window.exports.Modules
@@ -50,7 +50,7 @@ window.exports = window.exports || (window.exports = {});
             , configurable: false
         }
         , "HTML" : {
-            /** Template item type constant
+            /** Template ITEM_TYPE constant
              * @instance
              * @name HTML
              * @memberOf window.exports.Modules
@@ -64,7 +64,7 @@ window.exports = window.exports || (window.exports = {});
             , configurable: false
         }
         , "CSS" : {
-            /** Template item type constant
+            /** Template ITEM_TYPE constant
              * @instance
              * @name CSS
              * @memberOf window.exports.Modules
@@ -78,7 +78,7 @@ window.exports = window.exports || (window.exports = {});
             , configurable: false
         }
         , "JAVASCRIPT" : {
-            /** Template item type constant
+            /** Template ITEM_TYPE constant
              * @instance
              * @name JAVASCRIPT
              * @memberOf window.exports.Modules
@@ -241,11 +241,11 @@ window.exports = window.exports || (window.exports = {});
           * @param {HTMLElement} target Any html element
           * @param {String} type The event type for which the user is registering
           * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
-          * contains the methods to be called when the event occurs.
+          * contains the methods to be called when the event occurs
           * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
           * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
           * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
-          * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
+          * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble
           * @returns {EventListener} Passed listener.
           */
         function addListener (target, type, listener, useCapture) {
@@ -261,13 +261,13 @@ window.exports = window.exports || (window.exports = {});
          * @param {HTMLElement} target Any html element
          * @param {String} type The event type for which the user is registering
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
-         * contains the methods to be called when the event occurs.
+         * contains the methods to be called when the event occurs
          * @param {object} [context="this"] Context scope for this inside listener
          * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
          * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
          * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
-         * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
-         * @returns {EventListener} Listener in context. Need for remove listener.
+         * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble
+         * @returns {EventListener} Listener in context. Need for remove listener
          */
         function addContextListener(target, type, listener, context, useCapture) {
             var _context = context || this;
@@ -285,12 +285,12 @@ window.exports = window.exports || (window.exports = {});
          * @param {HTMLElement} target Any html element
          * @param {String} type The event type for which the user is removing
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
-         * contains the methods to be called when the event occurs.
+         * contains the methods to be called when the event occurs
          * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
          * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
-         * before being dispatched to any EventTargets beneath them in the tree.
-         * If a listener was registered twice, one with capture and one without, each must be removed separately.
-         * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.
+         * before being dispatched to any EventTargets beneath them in the tree
+         * If a listener was registered twice, one with capture and one without, each must be removed separately
+         * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa
          */
         function removeListener (target, type, listener, useCapture) {
             var _useCapture = useCapture || false;
@@ -302,8 +302,8 @@ window.exports = window.exports || (window.exports = {});
          * @method addStartupListener
          * @memberOf Modules.Events
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
-         * contains the methods to be called when the event occurs.
-         * @returns {EventListener} Passed listener.
+         * contains the methods to be called when the event occurs
+         * @returns {EventListener} Passed listener
          */
         function addStartupListener (listener) {
             addListener(document, "DOMContentLoaded", listener, false);
@@ -315,9 +315,9 @@ window.exports = window.exports || (window.exports = {});
          * @method addStartupContextListener
          * @memberOf Modules.Events
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
-         * contains the methods to be called when the event occurs.
+         * contains the methods to be called when the event occurs
          * @param {object} [context="this"] Context scope for this inside listener
-         * @returns {EventListener} Listener in context. Need for remove listener.
+         * @returns {EventListener} Listener in context. Need for remove listener
          */
         function addStartupContextListener (listener, context) {
             var _context = context || this;
@@ -325,11 +325,11 @@ window.exports = window.exports || (window.exports = {});
         };
 
         /**
-         * Remove event listener, which launches when Document Object Model (DOM) Content Loaded
+         * Remove event listener, which launches when Document Object Model (DOM) Content loaded
          * @method removeStartupListener
          * @memberOf Modules.Events
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
-         * contains the methods to be called when the event occurs.
+         * contains the methods to be called when the event occurs
          */
         function removeStartupListener (listener) {
             removeListener(document, "DOMContentLoaded", listener, false);
@@ -341,12 +341,12 @@ window.exports = window.exports || (window.exports = {});
          * @memberOf Modules.Events
          * @param {String} type The event type for which the user is removing
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
-         * contains the methods to be called when the event occurs.
+         * contains the methods to be called when the event occurs
          * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
          * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
-         * before being dispatched to any EventTargets beneath them in the tree.
-         * If a listener was registered twice, one with capture and one without, each must be removed separately.
-         * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.
+         * before being dispatched to any EventTargets beneath them in the tree
+         * If a listener was registered twice, one with capture and one without, each must be removed separately
+         * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa
          * @returns {EventListener} Passed listener.
          */
         function addDocumentListener (type, listener, useCapture) {
@@ -362,13 +362,13 @@ window.exports = window.exports || (window.exports = {});
          * @memberOf Modules.Events
          * @param {String} type The event type for which the user is registering
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
-         * contains the methods to be called when the event occurs.
+         * contains the methods to be called when the event occurs
          * @param {object} [context="this"] Context scope for this inside listener
          * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
          * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
          * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
-         * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble.
-         * @returns {EventListener} Listener in context. Need for remove listener.
+         * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble
+         * @returns {EventListener} Listener in context. Need for remove listener
          */
         function addDocumentContextListener(type, listener, context, useCapture) {
             var _context = context || this;
@@ -382,68 +382,166 @@ window.exports = window.exports || (window.exports = {});
          * @memberOf Modules.Events
          * @param {String} type The event type for which the user is removing
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
-         * contains the methods to be called when the event occurs.
+         * contains the methods to be called when the event occurs
          * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
          * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
-         * before being dispatched to any EventTargets beneath them in the tree.
-         * If a listener was registered twice, one with capture and one without, each must be removed separately.
-         * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa.
+         * before being dispatched to any EventTargets beneath them in the tree
+         * If a listener was registered twice, one with capture and one without, each must be removed separately
+         * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa
          */
         function removeDocumentListener (type, listener, useCapture) {
             var _useCapture = useCapture || false;
             removeListener(document, type, listener, _useCapture);
         };
 
-//        Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
-//            addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
-//        }
-//        Events.prototype.addBeforeItemLoadedListener = function(moduleName, itemType, listener) {
-//            addListenerImplementation(document, "module_" + moduleName + "_loadingStarted", false);
-//        }
-//        Events.prototype.addTemplateLoadedListener = function(templateName, listener) {
-//            addListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
-//        }
-//        Events.prototype.addHTMLLoadedListener = function(fileName, listener) {
-//            addListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.addCSSLoadedListener = function(fileName, listener) {
-//            addListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.addJSLoadedListener = function(fileName, listener) {
-//            addListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeModuleLoadedListener = function(moduleName, listener) {
-//            removeListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeTemplateLoadedListener = function(templateName, listener) {
-//            removeListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeHTMLLoadedListener = function(fileName, listener) {
-//            removeListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeCSSLoadedListener = function(fileName, listener) {
-//            removeListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeJSLoadedListener = function(fileName, listener) {
-//            removeListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
-//        }
+        /**
+         * Add event listener, which launches when Modules.ITEM_TYPE loaded
+         * @method addItemLoadedListener
+         * @memberOf Modules.Events
+         * @param {String} ITEM_TYPE Modules.ITEM_TYPE constant
+         * @param {String} itemName The name of item, where we want to track loading
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs
+         * @returns {EventListener} Listener in context. Need for remove listener
+         */
+        function addItemLoadedListener(ITEM_TYPE, itemName, listener) {
+             if (ITEM_TYPE === Modules.MODULE) {
+                 return addListener(document, "module_" + itemName + "_loaded", listener, false);
+             } else if (ITEM_TYPE === Modules.TEMPLATE) {
+                 return addListener(document, "template_" + itemName + "_loaded", listener, false);
+             } else if (ITEM_TYPE === Modules.HTML) {
+                 return addListener(document, "html_" + itemName + "_loaded", listener, false);
+             } else if (ITEM_TYPE === Modules.CSS) {
+                 return addListener(document, "css_" + itemName + "_loaded", listener, false);
+             } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+                 return addListener(document, "js_" + itemName + "_loaded", listener, false);
+             }
+        }
 
-//        /**
-//         * Return true if htmlElement is module
-//         * @method isHTMLModule
-//         * @memberOf Modules.DOM
-//         * @param {HTMLElement} htmlElement Any html element
-//         * @returns {boolean}
-//         */
-//        function isHTMLModule (htmlElement) {
-//            if (htmlElement.parentNode != null) {
-//                return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === "module";
-//            } else {
-//                return false;
-//            }
-//        }
-//
-//        Loader.isHTMLModule = isHTMLModule;
+        /**
+         * Add event listener, which launches when Modules.ITEM_TYPE loaded with bind this context.
+         * Bypass problems where it's unclear what this will be, depending on the context from which function was called
+         * @method addItemLoadedContextListener
+         * @memberOf Modules.Events
+         * @param {String} ITEM_TYPE Modules.ITEM_TYPE constant
+         * @param {String} itemName The name of item, where we want to track loading
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs
+         * @param {object} [context="this"] Context scope for this inside listener
+         * @returns {EventListener} Listener in context. Need for remove listener
+         */
+        function addItemLoadedContextListener (ITEM_TYPE, itemName, listener, context) {
+            var _context = context || this;
+            if (ITEM_TYPE === Modules.MODULE) {
+                return addContextListener(document, "module_" + itemName + "_loaded", listener, _context, false);
+            } else if (ITEM_TYPE === Modules.TEMPLATE) {
+                return addContextListener(document, "template_" + itemName + "_loaded", listener, _context, false);
+            } else if (ITEM_TYPE === Modules.HTML) {
+                return addContextListener(document, "html_" + itemName + "_loaded", listener, _context, false);
+            } else if (ITEM_TYPE === Modules.CSS) {
+                return addContextListener(document, "css_" + itemName + "_loaded", listener, _context, false);
+            } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+                return addContextListener(document, "js_" + itemName + "_loaded", listener, _context, false);
+            }
+        }
+
+        /**
+         * Remove event listener, which launches when Modules.ITEM_TYPE loaded
+         * @method removeItemLoadedListener
+         * @memberOf Modules.Events
+         * @param {String} ITEM_TYPE Modules.ITEM_TYPE constant
+         * @param {String} itemName The name of item, where we don`t want to track loading
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs
+         */
+        function removeItemLoadedListener(ITEM_TYPE, itemName, listener) {
+            if (ITEM_TYPE === Modules.MODULE) {
+                removeListener(document, "module_" + itemName + "_loaded", listener, false);
+            } else if (ITEM_TYPE === Modules.TEMPLATE) {
+                removeListener(document, "template_" + itemName + "_loaded", listener, false);
+            } else if (ITEM_TYPE === Modules.HTML) {
+                removeListener(document, "html_" + itemName + "_loaded", listener, false);
+            } else if (ITEM_TYPE === Modules.CSS) {
+                removeListener(document, "css_" + itemName + "_loaded", listener, false);
+            } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+                removeListener(document, "js_" + itemName + "_loaded", listener, false);
+            }
+        }
+
+        /**
+         * Add event listener, which launches before Modules.ITEM_TYPE start loading
+         * @method addBeforeItemLoadedListener
+         * @memberOf Modules.Events
+         * @param {String} ITEM_TYPE Modules.ITEM_TYPE constant
+         * @param {String} itemName The name of item, where we want to track loading
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs
+         * @returns {EventListener} Listener in context. Need for remove listener
+         */
+        function addBeforeItemLoadedListener(ITEM_TYPE, itemName, listener) {
+            if (ITEM_TYPE === Modules.MODULE) {
+                return addListener(document, "module_" + itemName + "_loadingStarted", listener, false);
+            } else if (ITEM_TYPE === Modules.TEMPLATE) {
+                return addListener(document, "template_" + itemName + "_loadingStarted", listener, false);
+            } else if (ITEM_TYPE === Modules.HTML) {
+                return addListener(document, "html_" + itemName + "_loadingStarted", listener, false);
+            } else if (ITEM_TYPE === Modules.CSS) {
+                return addListener(document, "css_" + itemName + "_loadingStarted", listener, false);
+            } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+                return addListener(document, "js_" + itemName + "_loadingStarted", listener, false);
+            }
+        }
+
+        /**
+         * Add event listener, which launches before Modules.ITEM_TYPE start loading, with bind this context.
+         * Bypass problems where it's unclear what this will be, depending on the context from which function was called
+         * @method addBeforeItemLoadedContextListener
+         * @memberOf Modules.Events
+         * @param {String} ITEM_TYPE Modules.ITEM_TYPE constant
+         * @param {String} itemName The name of item, where we want to track loading
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs
+         * @param {object} [context="this"] Context scope for this inside listener
+         * @returns {EventListener} Listener in context. Need for remove listener
+         */
+        function addBeforeItemLoadedContextListener (ITEM_TYPE, itemName, listener, context) {
+            var _context = context || this;
+            if (ITEM_TYPE === Modules.MODULE) {
+                return addContextListener(document, "module_" + itemName + "_loadingStarted", listener, _context, false);
+            } else if (ITEM_TYPE === Modules.TEMPLATE) {
+                return addContextListener(document, "template_" + itemName + "_loadingStarted", listener, _context, false);
+            } else if (ITEM_TYPE === Modules.HTML) {
+                return addContextListener(document, "html_" + itemName + "_loadingStarted", listener, _context, false);
+            } else if (ITEM_TYPE === Modules.CSS) {
+                return addContextListener(document, "css_" + itemName + "_loadingStarted", listener, _context, false);
+            } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+                return addContextListener(document, "js_" + itemName + "_loadingStarted", listener, _context, false);
+            }
+        }
+
+        /**
+         * Remove event listener, which launches before Modules.ITEM_TYPE start loading
+         * @method removeBeforeItemLoadedListener
+         * @memberOf Modules.Events
+         * @param {String} ITEM_TYPE Modules.ITEM_TYPE constant
+         * @param {String} itemName The name of item, where we don`t want to track loading
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs
+         */
+        function removeBeforeItemLoadedListener(ITEM_TYPE, itemName, listener) {
+            if (ITEM_TYPE === Modules.MODULE) {
+                removeListener(document, "module_" + itemName + "_loadingStarted", listener, false);
+            } else if (ITEM_TYPE === Modules.TEMPLATE) {
+                removeListener(document, "template_" + itemName + "_loadingStarted", listener, false);
+            } else if (ITEM_TYPE === Modules.HTML) {
+                removeListener(document, "html_" + itemName + "_loadingStarted", listener, false);
+            } else if (ITEM_TYPE === Modules.CSS) {
+                removeListener(document, "css_" + itemName + "_loadingStarted", listener, false);
+            } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+                removeListener(document, "js_" + itemName + "_loadingStarted", listener, false);
+            }
+        }
+
         Events.addListener = addListener;
         Events.addContextListener = addContextListener;
         Events.removeListener = removeListener;
@@ -453,6 +551,12 @@ window.exports = window.exports || (window.exports = {});
         Events.addDocumentListener = addDocumentListener;
         Events.addDocumentContextListener = addDocumentContextListener;
         Events.removeDocumentListener = removeDocumentListener;
+        Events.addItemLoadedListener = addItemLoadedListener;
+        Events.addItemLoadedContextListener = addItemLoadedContextListener;
+        Events.removeItemLoadedListener = removeItemLoadedListener;
+        Events.addBeforeItemLoadedListener = addBeforeItemLoadedListener;
+        Events.addBeforeItemLoadedContextListener = addBeforeItemLoadedContextListener;
+        Events.removeBeforeItemLoadedListener = removeBeforeItemLoadedListener;
     })(Modules.Events || (Modules.Events = {}));
     var Events = Modules.Events;
 
