@@ -460,34 +460,46 @@ module("Modules.Events", {
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
         (function (Setup) {
-            function addListener () {
-
+            function addListeners () {
+                var body = document.getElementsByTagName("body")[0];
+                var divRoot0 = document.createElement('div');
+                divRoot0.className = "addListenersTest";
+                body.appendChild(divRoot0);
+                var divRoot1 = document.createElement("div");
+                divRoot1.className = "addListenersTest";
+                body.appendChild(divRoot1);
             }
-            Setup.addListener = addListener;
+            Setup.addListeners = addListeners;
         }(window.exports.Setup || (window.exports.Setup = {})));
         //noinspection JSUnresolvedVariable
         var Setup = window.exports.Setup;
 
         //Setup excecution
-        Setup.addListener();
+        Setup.addListeners();
     },
     teardown: function() {
         //Definition of Teardown module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
         (function (Teardown) {
-            function addListener() {
+            function addListeners() {
+                var body = document.getElementsByTagName("body")[0];
 
+                var divRoot = document.getElementsByClassName("addListenersTest")[0];
+                body.removeChild(divRoot);
+
+                var divRoot = document.getElementsByClassName("addListenersTest")[0];
+                body.removeChild(divRoot);
             }
 
-            Teardown.addListener = addListener;
+            Teardown.addListeners = addListeners;
 
         }(window.exports.Teardown || (window.exports.Teardown = {})));
         //noinspection JSUnresolvedVariable
         var Teardown = window.exports.Teardown;
 
         //Teardown execution
-        Teardown.addListener();
+        Teardown.addListeners();
     }
 });
 
@@ -2034,6 +2046,225 @@ asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName
     target.dispatchEvent(event);
     target.dispatchEvent(event);
 });
+
+//nexttests
+
+//noinspection JSUnresolvedFunction
+asyncTest("addListeners (targets, type, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(3);
+    var targets = document.getElementsByClassName("addListenersTest");
+    //noinspection JSCheckFunctionSignatures
+
+    //noinspection JSCheckFunctionSignatures
+    var returnedListener = Modules.Events.addListeners(targets, "testAddListeners", listener);
+    equal(returnedListener, listener, "Event return listener correctly");
+    var listen = 0;
+    function listener(e) {
+        start();
+        e.target.removeEventListener("testAddListeners", returnedListener);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        listen++;
+        if (listen < 2) {
+            stop();
+        }
+    }
+
+    var event = document.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("testAddListeners", true, true, {});
+    for (var i = 0; i < targets.length; i++) {
+        targets[i].dispatchEvent(event);
+    }
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("addListeners (targets, type, listener, useCapture)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(3);
+    var targets = document.getElementsByClassName("addListenersTest");
+    //noinspection JSCheckFunctionSignatures
+
+    //noinspection JSCheckFunctionSignatures
+    var returnedListener = Modules.Events.addListeners(targets, "testAddListeners", listener, true);
+    equal(returnedListener, listener, "Event return listener correctly");
+    var listen = 0;
+    function listener(e) {
+        start();
+        e.target.removeEventListener("testAddListeners", returnedListener, true);
+        e.stopPropagation();
+        ok(true, "Test listener launched");
+        listen++;
+        if (listen < 2) {
+            stop();
+        }
+    }
+
+    var event = document.createEvent("CustomEvent");
+    //noinspection JSUnresolvedFunction
+    event.initCustomEvent("testAddListeners", true, true, {});
+    for (var i = 0; i < targets.length; i++) {
+        targets[i].dispatchEvent(event);
+    }
+});
+//
+//asyncTest("addListener (target, type, listener, useCapture)", function() {
+//    //noinspection JSUnresolvedFunction
+//    expect(2);
+//    var target = document;
+//    var i = 1;
+//    var expected = i;
+//    //noinspection JSCheckFunctionSignatures
+//
+//    //Event must be handled one time only
+//    //noinspection JSValidateTypes
+//    Modules.Events.addListener(target, "testEventWithUseCapture", listener, true);
+//
+//    function listener(e) {
+//        target.removeEventListener("testEventWithUseCapture", listener, true);
+//        e.stopPropagation();
+//        ok(true, "Test listener launched");
+//        var actual = this.i;
+//        notEqual(expected, actual, "Can`t use context this, where listener was registered");
+//        //noinspection JSUnresolvedFunction
+//        start();
+//    }
+//
+//    var event = target.createEvent("CustomEvent");
+//    //noinspection JSUnresolvedFunction
+//    event.initCustomEvent("testEventWithUseCapture", true, true, {});
+//    target.dispatchEvent(event);
+//    target.dispatchEvent(event);
+//});
+//
+////noinspection JSUnresolvedFunction
+//asyncTest("addContextListener(target, type, listener)", function() {
+//    //noinspection JSUnresolvedFunction
+//    expect(2);
+//    var target = document;
+//    //noinspection JSCheckFunctionSignatures
+//    var i = 1;
+//    var expected = this.i;
+//    //Event must be handled one time only
+//    //noinspection JSCheckFunctionSignatures
+//    var bindedListener = Modules.Events.addContextListener(target, "testContextEvent", listener);
+//
+//    function listener(e) {
+//        target.removeEventListener("testContextEvent", bindedListener);
+//        e.stopPropagation();
+//        ok(true, "Test listener launched");
+//        var actual = this.i;
+//        equal(actual, expected, "Context this was binded correctly");
+//        start();
+//    }
+//
+//    var event = target.createEvent("CustomEvent");
+//    event.initCustomEvent("testContextEvent", true, true, {});
+//    target.dispatchEvent(event);
+//});
+//
+////noinspection JSUnresolvedFunction
+//asyncTest("addContextListener(target, type, listener, context)", function() {
+//    //noinspection JSUnresolvedFunction
+//    expect(2);
+//    var target = document;
+//    //noinspection JSCheckFunctionSignatures
+//    var obj = {i:1}
+//    //Event must be handled one time only
+//    //noinspection JSCheckFunctionSignatures
+//    var bindedListener = Modules.Events.addContextListener(target, "testContext2Event", listener, obj);
+//
+//    function listener(e) {
+//        target.removeEventListener("testContext2Event", bindedListener);
+//        e.stopPropagation();
+//        ok(true, "Test listener launched");
+//        var expected = 1;
+//        var actual = this.i;
+//        equal(actual, expected, "Context this was binded correctly");
+//        start();
+//    }
+//
+//    var event = target.createEvent("CustomEvent");
+//    event.initCustomEvent("testContext2Event", true, true, {});
+//    target.dispatchEvent(event);
+//});
+//
+////noinspection JSUnresolvedFunction
+//asyncTest("addContextListener(target, type, listener, context, useCapture)", function() {
+//    //noinspection JSUnresolvedFunction
+//    expect(2);
+//    var target = document;
+//    //noinspection JSCheckFunctionSignatures
+//    var i = 1;
+//    var expected = this.i;
+//    //Event must be handled one time only
+//    //noinspection JSCheckFunctionSignatures
+//    var bindedListener = Modules.Events.addContextListener(target, "testContext3Event", listener, null, true);
+//
+//    function listener(e) {
+//        target.removeEventListener("testContext3Event", bindedListener, true);
+//        e.stopPropagation();
+//        ok(true, "Test listener launched");
+//        var actual = this.i;
+//        equal(actual, expected, "Context this was binded correctly");
+//        start();
+//    }
+//
+//    var event = target.createEvent("CustomEvent");
+//    event.initCustomEvent("testContext3Event", true, true, {});
+//    target.dispatchEvent(event);
+//    target.dispatchEvent(event);
+//});
+//
+////noinspection JSUnresolvedFunction
+//asyncTest("removeListener(target, type, listener)", function() {
+//    //noinspection JSUnresolvedFunction
+//    expect(1);
+//    var target = document;
+//
+//    //Event must be handled one time only
+//    //noinspection JSCheckFunctionSignatures
+//    target.addEventListener("testRemoveEvent", listener);
+////
+//    function listener(e) {
+//        //noinspection JSCheckFunctionSignatures
+//        Modules.Events.removeListener(target, "testRemoveEvent", listener);
+//        ok(true, "Test listener launched once, not launched after removing listener");
+//        start();
+//    }
+//
+//    var event = target.createEvent("CustomEvent");
+//    event.initCustomEvent("testRemoveEvent", true, true, {});
+//    target.dispatchEvent(event);
+//    target.dispatchEvent(event);
+//});
+//
+////noinspection JSUnresolvedFunction
+//asyncTest("removeListener(target, type, listener, useCapture)", function() {
+//    //noinspection JSUnresolvedFunction
+//    expect(1);
+//    var target = document;
+//
+//    //Event must be handled one time only
+//    //noinspection JSCheckFunctionSignatures
+//    target.addEventListener("testRemoveEventWC", listenerWithUseCapture, true);
+//
+//    function listenerWithUseCapture(e) {
+//        //noinspection JSCheckFunctionSignatures
+//        Modules.Events.removeListener(target, "testRemoveEventWC", listenerWithUseCapture, true);
+//        ok(true, "Test listener launched once, not launched after removing listener with useCapture = true");
+//        start();
+//    }
+//
+//    var event = target.createEvent("CustomEvent");
+//    event.initCustomEvent("testRemoveEventWC", true, true, {});
+//    target.dispatchEvent(event);
+//    target.dispatchEvent(event);
+//
+//});
+
+
 //
 //"use strict";
 ////noinspection JSUnresolvedFunction

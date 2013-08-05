@@ -274,7 +274,7 @@ window.exports = window.exports || (window.exports = {});
             var _useCapture = useCapture || false;
             var bindedListener = listener.bind(_context);
             //noinspection JSUnresolvedFunction,JSUnresolvedVariable
-            addListener(target, type, bindedListener, useCapture);
+            target.addEventListener(type, bindedListener, _useCapture);
             return bindedListener;
         }
 
@@ -542,6 +542,78 @@ window.exports = window.exports || (window.exports = {});
             }
         }
 
+        /**
+         * Add event listener to all targets
+         * @method addListeners
+         * @memberOf Modules.Events
+         * @param {NodeList} targets NodeList of any html elements
+         * @param {String} type The event type for which the user is registering
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs
+         * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
+         * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+         * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
+         * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble
+         * @returns {EventListener} Passed listener
+         */
+        function addListeners(targets, type, listener, useCapture) {
+            var _useCapture = useCapture || false;
+            var length = targets.length;
+            for (var i = 0; i < length; i++) {
+                targets[i].addEventListener(type, listener, _useCapture);
+            }
+            return listener;
+        }
+
+        /**
+         * Add event listener to all targets with bind this context. Bypass problems where it's unclear what this will be,
+         * depending on the context from which function was called
+         * @method addContextListeners
+         * @memberOf Modules.Events
+         * @param {NodeList} targets NodeList of any html elements
+         * @param {String} type The event type for which the user is registering
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs
+         * @param {object} context Context scope for this inside listener
+         * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
+         * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+         * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
+         * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble
+         * @returns {EventListener} Listener in context. Need for remove listener
+         */
+        function addContextListeners(targets, type, listener, context, useCapture) {
+            var _useCapture = useCapture || false;
+            var _context = context || this;
+            //noinspection JSUnresolvedFunction
+            var bindedListener = listener.bind(_context);
+            var length = targets.length;
+            for (var i = 0; i < length; i++) {
+                targets[i].addEventListener(type, bindedListener, _useCapture);
+            }
+            return bindedListener;
+        }
+
+        /**
+         * Remove event listener from all targets
+         * @method removeListeners
+         * @memberOf Modules.Events
+         * @param {NodeList} targets NodeList of any html elements
+         * @param {String} type The event type for which the user is removing
+         * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
+         * contains the methods to be called when the event occurs
+         * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
+         * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
+         * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
+         * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble
+         */
+        function removeListeners (targets, type, listener, useCapture) {
+            var _useCapture = useCapture || false;
+            var length = targets.length;
+            for (var i = 0; i < length; i++) {
+                removeListener(targets[i], type, listener, _useCapture);
+            }
+        }
+
         Events.addListener = addListener;
         Events.addContextListener = addContextListener;
         Events.removeListener = removeListener;
@@ -557,8 +629,82 @@ window.exports = window.exports || (window.exports = {});
         Events.addBeforeItemLoadedListener = addBeforeItemLoadedListener;
         Events.addBeforeItemLoadedContextListener = addBeforeItemLoadedContextListener;
         Events.removeBeforeItemLoadedListener = removeBeforeItemLoadedListener;
+        Events.addListeners = addListeners;
+        Events.addContextListeners = addContextListeners;
+        Events.removeListeners = removeListeners;
     })(Modules.Events || (Modules.Events = {}));
     var Events = Modules.Events;
+
+
+//        Events.prototype.dispatchDocumentCustomEvent = function (ID, detailsObject) {
+//            this.dispatchCustomEvent(document, ID, detailsObject);
+//        }
+//        Events.prototype.dispatchCustomEvent = function (target, ID, detailsObject) {
+//            var event = target.createEvent("CustomEvent");
+//            event.initCustomEvent(ID, true, true, detailsObject);
+//            target.dispatchEvent(event);
+//        }
+//        Events.prototype.sendMessage = function(messageID, dataObject, sourceID, destinationID) {
+//            var messagePrefix = "modulesjs_message";
+//            if (sourceID == null) {
+//                if (destinationID == null) {
+//                    send(this, messagePrefix + "_" + messageID);
+//                } else {
+//                    send(this, messagePrefix + "_" + messageID + "__" + destinationID);
+//                }
+//            } else {
+//                if (destinationID == null) {
+//                    send(this, messagePrefix + "_" + messageID + "_" + sourceID);
+//                } else {
+//                    send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+//                }
+//            }
+//            function send(scope, ID) {
+//                var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
+//                    , "dataObject": dataObject};
+//                scope.dispatchDocumentCustomEvent(ID, detail);
+//            }
+//        }
+//        Events.prototype.subscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
+//            var messagePrefix = "modulesjs_message";
+//            if (sourceID == null) {
+//                if (destinationID == null) {
+//                    subscribe(this, messagePrefix + "_" + messageID);
+//                } else {
+//                    subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+//                }
+//            } else {
+//                if (destinationID == null) {
+//                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+//                } else {
+//                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+//                }
+//            }
+//            function subscribe(scope, ID){
+//                scope.addDocumentListener(ID, onMessageReceived);
+//            }
+//        }
+//        Events.prototype.unsubscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
+//            var messagePrefix = "modulesjs_message";
+//            if (sourceID == null) {
+//                if (destinationID == null) {
+//                    unsubscribe(this, messagePrefix + "_" + messageID);
+//                } else {
+//                    unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+//                }
+//            } else {
+//                if (destinationID == null) {
+//                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+//                } else {
+//                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+//                }
+//            }
+//            function unsubscribe(scope, ID) {
+//                scope.removeDocumentListener(ID, onMessageReceived);
+//            }
+//        }
+//        return Events;
+//    }());
 
 //    Modules.Loader = (function () {
 //        function Loader(path) {
@@ -835,152 +981,6 @@ window.exports = window.exports || (window.exports = {});
 //        };
 //        return Loader;
 //    })();
-
-//    Modules.Events = (function(){
-//        function Events() {
-//        }
-//        Events.prototype = {
-//            constructor: Events
-//        }
-
-//        Events.prototype.addListener = function (target, type, listener, useCapture) {
-//            var _useCapture = useCapture || false;
-//            addListenerImplementation(target, type, listener, _useCapture);
-//        };
-//        Events.prototype.addDocumentListener = function (type, listener, useCapture) {
-//            var _useCapture = useCapture || false;
-//            addListenerImplementation(document, type, listener, _useCapture);
-//        };
-//        Events.prototype.removeListener = function (target, type, listener, useCapture) {
-//            var _useCapture = useCapture || false;
-//            removeListenerImplementation(target, type, listener, _useCapture);
-//        };
-//        Events.prototype.removeDocumentListener = function (type, listener, useCapture) {
-//            var _useCapture = useCapture || false;
-//            removeListenerImplementation(document, type, listener, _useCapture);
-//        };
-//        Events.prototype.addStartupListener = function (listener) {
-//            addListenerImplementation(document, "DOMContentLoaded", listener, false);
-//        }
-//        Events.prototype.addModuleLoadedListener = function(moduleName, listener) {
-//            addListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
-//        }
-//        Events.prototype.addBeforeItemLoadedListener = function(moduleName, itemType, listener) {
-//            addListenerImplementation(document, "module_" + moduleName + "_loadingStarted", false);
-//        }
-//        Events.prototype.addTemplateLoadedListener = function(templateName, listener) {
-//            addListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
-//        }
-//        Events.prototype.addHTMLLoadedListener = function(fileName, listener) {
-//            addListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.addCSSLoadedListener = function(fileName, listener) {
-//            addListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.addJSLoadedListener = function(fileName, listener) {
-//            addListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeModuleLoadedListener = function(moduleName, listener) {
-//            removeListenerImplementation(document, "module_" + moduleName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeTemplateLoadedListener = function(templateName, listener) {
-//            removeListenerImplementation(document, "template_" + templateName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeHTMLLoadedListener = function(fileName, listener) {
-//            removeListenerImplementation(document, "html_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeCSSLoadedListener = function(fileName, listener) {
-//            removeListenerImplementation(document, "css_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeJSLoadedListener = function(fileName, listener) {
-//            removeListenerImplementation(document, "js_" + fileName + "_loaded", listener, false);
-//        }
-//        Events.prototype.removeStartupListener = function (listener) {
-//            removeListenerImplementation(document, "DOMContentLoaded", listener, false);
-//        }
-//        Events.prototype.dispatchDocumentCustomEvent = function (ID, detailsObject) {
-//            this.dispatchCustomEvent(document, ID, detailsObject);
-//        }
-//        Events.prototype.dispatchCustomEvent = function (target, ID, detailsObject) {
-//            var event = target.createEvent("CustomEvent");
-//            event.initCustomEvent(ID, true, true, detailsObject);
-//            target.dispatchEvent(event);
-//        }
-//        Events.prototype.addListeners = function(targets, type, listener, useCapture) {
-//            var _useCapture = useCapture || true;
-//            var length = targets.length;
-//            for (var i = 0; i < length; i++) {
-//                addListenerImplementation(targets[i], type, listener, _useCapture);
-//            }
-//        }
-//        Events.prototype.removeListeners = function(targets, type, listener, useCapture) {
-//            var _useCapture = useCapture || false;
-//            var length = targets.length;
-//            for (var i = 0; i < length; i++) {
-//                removeListenerImplementation(targets[i], type, listener, _useCapture);
-//            }
-//        }
-//        Events.prototype.sendMessage = function(messageID, dataObject, sourceID, destinationID) {
-//            var messagePrefix = "modulesjs_message";
-//            if (sourceID == null) {
-//                if (destinationID == null) {
-//                    send(this, messagePrefix + "_" + messageID);
-//                } else {
-//                    send(this, messagePrefix + "_" + messageID + "__" + destinationID);
-//                }
-//            } else {
-//                if (destinationID == null) {
-//                    send(this, messagePrefix + "_" + messageID + "_" + sourceID);
-//                } else {
-//                    send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-//                }
-//            }
-//            function send(scope, ID) {
-//                var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
-//                    , "dataObject": dataObject};
-//                scope.dispatchDocumentCustomEvent(ID, detail);
-//            }
-//        }
-//        Events.prototype.subscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
-//            var messagePrefix = "modulesjs_message";
-//            if (sourceID == null) {
-//                if (destinationID == null) {
-//                    subscribe(this, messagePrefix + "_" + messageID);
-//                } else {
-//                    subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
-//                }
-//            } else {
-//                if (destinationID == null) {
-//                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
-//                } else {
-//                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-//                }
-//            }
-//            function subscribe(scope, ID){
-//                scope.addDocumentListener(ID, onMessageReceived);
-//            }
-//        }
-//        Events.prototype.unsubscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
-//            var messagePrefix = "modulesjs_message";
-//            if (sourceID == null) {
-//                if (destinationID == null) {
-//                    unsubscribe(this, messagePrefix + "_" + messageID);
-//                } else {
-//                    unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
-//                }
-//            } else {
-//                if (destinationID == null) {
-//                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
-//                } else {
-//                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-//                }
-//            }
-//            function unsubscribe(scope, ID) {
-//                scope.removeDocumentListener(ID, onMessageReceived);
-//            }
-//        }
-//        return Events;
-//    }());
 
     /**
      * @namespace Modules.Server
