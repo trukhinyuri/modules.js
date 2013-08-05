@@ -1338,7 +1338,6 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE[=Modules.JAVASCRIPT], itemName
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
-    //noinspection JSCheckFunctionSignatures
 
     //Event must be handled one time only
     //noinspection JSCheckFunctionSignatures
