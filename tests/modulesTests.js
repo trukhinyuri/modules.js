@@ -2063,7 +2063,6 @@ asyncTest("addListeners (targets, type, listener)", function() {
     function listener(e) {
         start();
         e.target.removeEventListener("testAddListeners", returnedListener);
-        e.stopPropagation();
         ok(true, "Test listener launched");
         listen++;
         if (listen < 2) {
@@ -2087,13 +2086,12 @@ asyncTest("addListeners (targets, type, listener, useCapture)", function() {
     //noinspection JSCheckFunctionSignatures
 
     //noinspection JSCheckFunctionSignatures
-    var returnedListener = Modules.Events.addListeners(targets, "testAddListeners", listener, true);
+    var returnedListener = Modules.Events.addListeners(targets, "testAddListeners2", listener, true);
     equal(returnedListener, listener, "Event return listener correctly");
     var listen = 0;
     function listener(e) {
         start();
-        e.target.removeEventListener("testAddListeners", returnedListener, true);
-        e.stopPropagation();
+        e.target.removeEventListener("testAddListeners2", returnedListener, true);
         ok(true, "Test listener launched");
         listen++;
         if (listen < 2) {
@@ -2103,12 +2101,12 @@ asyncTest("addListeners (targets, type, listener, useCapture)", function() {
 
     var event = document.createEvent("CustomEvent");
     //noinspection JSUnresolvedFunction
-    event.initCustomEvent("testAddListeners", true, true, {});
+    event.initCustomEvent("testAddListeners2", true, true, {});
     for (var i = 0; i < targets.length; i++) {
         targets[i].dispatchEvent(event);
     }
 });
-//
+
 //asyncTest("addListener (target, type, listener, useCapture)", function() {
 //    //noinspection JSUnresolvedFunction
 //    expect(2);

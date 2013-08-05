@@ -575,7 +575,7 @@ window.exports = window.exports || (window.exports = {});
          * @param {EventListener} listener The listener parameter takes an interface implemented by the user which
          * contains the methods to be called when the event occurs
          * @param {object} context Context scope for this inside listener
-         * @param {boolean} [useCapture="false"] If true, useCapture indicates that the user wishes to initiate capture.
+         * @param {boolean} [useCapture=false="false"] If true, useCapture indicates that the user wishes to initiate capture.
          * After initiating capture, all events of the specified type will be dispatched to the registered EventListener
          * before being dispatched to any EventTargets beneath them in the tree. Events which are bubbling upward through
          * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble
