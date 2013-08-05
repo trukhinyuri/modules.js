@@ -1481,7 +1481,6 @@ asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  lis
     target.dispatchEvent(event);
 });
 
-//nexttest
 //noinspection JSUnresolvedFunction
 asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
