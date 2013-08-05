@@ -1360,6 +1360,126 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, 
     target.dispatchEvent(event);
     target.dispatchEvent(event);
 });
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item2";
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("module_" + itemName + "_loaded", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures,JSValidateTypes
+        Modules.Events.removeItemLoadedListener(Modules.MODULE, itemName, listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("module_" + itemName + "_loaded", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item2";
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("template_" + itemName + "_loaded", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures,JSValidateTypes
+        Modules.Events.removeItemLoadedListener(Modules.TEMPLATE, itemName, listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("template_" + itemName + "_loaded", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item2";
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("html_" + itemName + "_loaded", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures,JSValidateTypes
+        Modules.Events.removeItemLoadedListener(Modules.HTML, itemName, listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("html_" + itemName + "_loaded", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item2";
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("css_" + itemName + "_loaded", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures,JSValidateTypes
+        Modules.Events.removeItemLoadedListener(Modules.CSS, itemName, listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("css_" + itemName + "_loaded", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var target = document;
+    var itemName = "item2";
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    target.addEventListener("js_" + itemName + "_loaded", listener);
+//
+    function listener(e) {
+        //noinspection JSCheckFunctionSignatures,JSValidateTypes
+        Modules.Events.removeItemLoadedListener(Modules.JAVASCRIPT, itemName, listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        start();
+    }
+
+    var event = target.createEvent("CustomEvent");
+    event.initCustomEvent("js_" + itemName + "_loaded", true, true, {});
+    target.dispatchEvent(event);
+    target.dispatchEvent(event);
+});
 //
 //"use strict";
 ////noinspection JSUnresolvedFunction
