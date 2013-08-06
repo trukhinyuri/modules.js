@@ -2220,14 +2220,13 @@ asyncTest("addContextListeners (targets, type, listener, context, useCapture)", 
     //noinspection JSUnresolvedFunction
     expect(4);
     var targets = document.getElementsByClassName("addContextListenersTest");
-    var obj = {i:1, listen:0}
     //noinspection JSCheckFunctionSignatures
-
+    var obj = {i:1, listen:0, scope: this}
     //noinspection JSCheckFunctionSignatures
     var bindedListener = Modules.Events.addContextListeners(targets, "testAddListeners3", listener, obj, true);
     function listener(e) {
         start();
-        e.target.removeEventListener("testAddListeners3", bindedListener, true);
+        e.target.removeEventListener("testAddListeners3", e.detail.listener, true);
         ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
@@ -2240,12 +2239,11 @@ asyncTest("addContextListeners (targets, type, listener, context, useCapture)", 
 
     var event = document.createEvent("CustomEvent");
     //noinspection JSUnresolvedFunction
-    event.initCustomEvent("testAddListeners3", true, true, {});
+    event.initCustomEvent("testAddListeners3", true, true, {listener: bindedListener});
     for (var i = 0; i < targets.length; i++) {
         targets[i].dispatchEvent(event);
     }
 });
-
 
 //noinspection JSUnresolvedFunction
 asyncTest("removeListeners(target, type, listener)", function() {
