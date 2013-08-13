@@ -587,7 +587,7 @@ window.exports = window.exports || (window.exports = {});
             //noinspection JSUnresolvedFunction
             var bindedListener = listener.bind(_context);
             var length = targets.length;
-            for (var i = 0; i < length; i++) {
+            for (var i = 0; i < targets.length; i++) {
                 targets[i].addEventListener(type, bindedListener, _useCapture);
             }
             return bindedListener;
