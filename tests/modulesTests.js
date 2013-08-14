@@ -487,9 +487,16 @@ module("Modules.Events", {
                 divRoot1.className = "removeListenersTest";
                 body.appendChild(divRoot1);
             }
+            function dispatchCustomEvent () {
+                var body = document.getElementsByTagName("body")[0];
+                var divRoot = document.createElement('div');
+                divRoot.className = "dispatchCustomEventTest";
+                body.appendChild(divRoot);
+            }
             Setup.addListeners = addListeners;
             Setup.addContextListener = addContextListeners;
             Setup.removeListeners = removeListeners;
+            Setup.dispatchCustomEvent = dispatchCustomEvent;
         }(window.exports.Setup || (window.exports.Setup = {})));
         //noinspection JSUnresolvedVariable
         var Setup = window.exports.Setup;
@@ -498,6 +505,7 @@ module("Modules.Events", {
         Setup.addListeners();
         Setup.addContextListener();
         Setup.removeListeners();
+        Setup.dispatchCustomEvent();
     },
     teardown: function() {
         //Definition of Teardown module
@@ -522,7 +530,6 @@ module("Modules.Events", {
                 var divRoot = document.getElementsByClassName("addContextListenersTest")[0];
                 body.removeChild(divRoot);
             }
-
             function removeListeners() {
                 var body = document.getElementsByTagName("body")[0];
 
@@ -532,10 +539,17 @@ module("Modules.Events", {
                 var divRoot = document.getElementsByClassName("removeListenersTest")[0];
                 body.removeChild(divRoot);
             }
+            function dispatchCustomEvent() {
+                var body = document.getElementsByTagName("body")[0];
+
+                var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
+                body.removeChild(divRoot);
+            }
 
             Teardown.addListeners = addListeners;
             Teardown.addContextListeners = addContextListeners;
             Teardown.removeListeners = removeListeners;
+            Teardown.dispatchCustomEvent = dispatchCustomEvent;
 
         }(window.exports.Teardown || (window.exports.Teardown = {})));
         //noinspection JSUnresolvedVariable
@@ -545,6 +559,7 @@ module("Modules.Events", {
         Teardown.addListeners();
         Teardown.addContextListeners();
         Teardown.removeListeners();
+        Teardown.dispatchCustomEvent();
     }
 });
 
@@ -2296,6 +2311,55 @@ asyncTest("removeListeners(target, type, listener, useCapture)", function() {
     start();
 });
 
+//noinspection JSUnresolvedFunction
+asyncTest("dispatchCustomEvent (target, type)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    document.addEventListener("customEvent", listener);
+    //noinspection JSCheckFunctionSignatures
+    Modules.Events.dispatchCustomEvent(document, "customEvent");
+
+    function listener(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        //Remove all listeners
+        document.removeEventListener("customEvent", listener);
+        ok(true, "Custom event dispatched");
+    }
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("dispatchCustomEvent (target, type, detail)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    document.addEventListener("customEvent", listener);
+    //noinspection JSCheckFunctionSignatures
+    Modules.Events.dispatchCustomEvent(document, "customEvent", {parameter: true});
+
+    function listener(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        document.removeEventListener("customEvent", listener);
+        ok(e.detail.parameter, "Custom event dispatched, parameter is set correctly");
+    }
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("dispatchCustomEvent (target, type, detail, canBubble)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
+    divRoot.addEventListener("customEvent", listener);
+    //noinspection JSCheckFunctionSignatures
+    Modules.Events.dispatchCustomEvent(divRoot, "customEvent", {parameter: true}, true);
+
+    function listener(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        divRoot.removeEventListener("customEvent", listener);
+        ok(e.detail.parameter, "Custom event dispatched, parameter is set correctly");
+    }
+});
 
 //
 //"use strict";

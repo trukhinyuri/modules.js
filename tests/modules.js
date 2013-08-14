@@ -614,6 +614,36 @@ window.exports = window.exports || (window.exports = {});
             }
         }
 
+        /**
+         * Dispatch the DOM event, initialized by an application for any purpose
+         * @method dispatchCustomEvent
+         * @memberOf Modules.Events
+         * @param {HTMLElement} target Any html element
+         * @param {String} type The name of the custom event
+         * @param {Object|Null} [detail="Null"] A user-defined object that can contain additional information about the event
+         * @param {boolean} [canBubble="true"] Whether the event propagates upward
+         * @param {boolean} [cancelable="true"] Whether the event is cancelable and so preventDefault can be called
+         */
+        function dispatchCustomEvent (target, type, detail, canBubble, cancelable) {
+            var _canBubble = canBubble || true;
+            var _cancelable = cancelable || true;
+            var _detail = detail || {};
+            var event = target.createEvent("CustomEvent");
+            event.initCustomEvent(type, _canBubble, _cancelable, _detail);
+            target.dispatchEvent(event);
+        }
+
+        /**
+         * Dispatch the DOM event in document element, initialized by an application for any purpose
+         * @method dispatchDocumentCustomEvent
+         * @memberOf Modules.Events
+         * @param {String} type The name of the custom event
+         * @param {Object|Null} [detail="Null"] A user-defined object that can contain additional information about the event
+         */
+        function dispatchDocumentCustomEvent (type, detail) {
+            this.dispatchCustomEvent(document, type, detail);
+        }
+
         Events.addListener = addListener;
         Events.addContextListener = addContextListener;
         Events.removeListener = removeListener;
@@ -632,18 +662,12 @@ window.exports = window.exports || (window.exports = {});
         Events.addListeners = addListeners;
         Events.addContextListeners = addContextListeners;
         Events.removeListeners = removeListeners;
+        Events.dispatchCustomEvent = dispatchCustomEvent;
+        Events.dispatchDocumentCustomEvent = dispatchDocumentCustomEvent;
     })(Modules.Events || (Modules.Events = {}));
     var Events = Modules.Events;
 
 
-//        Events.prototype.dispatchDocumentCustomEvent = function (ID, detailsObject) {
-//            this.dispatchCustomEvent(document, ID, detailsObject);
-//        }
-//        Events.prototype.dispatchCustomEvent = function (target, ID, detailsObject) {
-//            var event = target.createEvent("CustomEvent");
-//            event.initCustomEvent(ID, true, true, detailsObject);
-//            target.dispatchEvent(event);
-//        }
 //        Events.prototype.sendMessage = function(messageID, dataObject, sourceID, destinationID) {
 //            var messagePrefix = "modulesjs_message";
 //            if (sourceID == null) {
