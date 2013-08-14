@@ -2221,7 +2221,7 @@ asyncTest("addContextListeners (targets, type, listener, context, useCapture)", 
     var bindedListener = Modules.Events.addContextListeners(targets, "testAddListeners3", listener, obj, true);
     function listener(e) {
         start();
-        e.target.removeEventListener("testAddListeners3", e.detail.listener, true);
+        e.target.removeEventListener("testAddListeners3", bindedListener, true);
         ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
@@ -2238,57 +2238,63 @@ asyncTest("addContextListeners (targets, type, listener, context, useCapture)", 
     start();
 });
 
-////noinspection JSUnresolvedFunction
-//asyncTest("removeListeners(target, type, listener)", function() {
-//    //noinspection JSUnresolvedFunction
-//    expect(2);
-//    var targets = document.getElementsByClassName("removeListenersTest");
-//
-//    //Event must be handled one time only
-//    //noinspection JSCheckFunctionSignatures
-//    for (var i = 0; i < targets.length; i++) {
-//        targets[i].addEventListener("testRemoveListeners", listener);
-//    }
-//
-//    function listener(e) {
-//        start();
-//        //noinspection JSCheckFunctionSignatures
-//        Modules.Events.removeListeners(targets, "testRemoveListeners", listener);
-//        ok(true, "Test listener launched once, not launched after removing listener");
-//        stop();
-//    }
-//
-//    var event = document.createEvent("CustomEvent");
-//    event.initCustomEvent("testRemoveListeners", true, true, {});
-//    for (var i = 0; i < targets.length; i++) {
-//        targets[i].dispatchEvent(event);
-//    }
-//    start();
-//});
-//
-////noinspection JSUnresolvedFunction
-//asyncTest("removeListener(target, type, listener, useCapture)", function() {
-//    //noinspection JSUnresolvedFunction
-//    expect(1);
-//    var target = document;
-//
-//    //Event must be handled one time only
-//    //noinspection JSCheckFunctionSignatures
-//    target.addEventListener("testRemoveEventWC", listenerWithUseCapture, true);
-//
-//    function listenerWithUseCapture(e) {
-//        //noinspection JSCheckFunctionSignatures
-//        Modules.Events.removeListener(target, "testRemoveEventWC", listenerWithUseCapture, true);
-//        ok(true, "Test listener launched once, not launched after removing listener with useCapture = true");
-//        start();
-//    }
-//
-//    var event = target.createEvent("CustomEvent");
-//    event.initCustomEvent("testRemoveEventWC", true, true, {});
-//    target.dispatchEvent(event);
-//    target.dispatchEvent(event);
-//
-//});
+//noinspection JSUnresolvedFunction
+asyncTest("removeListeners(target, type, listener)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var targets = document.getElementsByClassName("removeListenersTest");
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    for (var i = 0; i < targets.length; i++) {
+        targets[i].addEventListener("testRemoveListeners", listener);
+    }
+
+    function listener(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        //Remove all listeners
+        Modules.Events.removeListeners(targets, "testRemoveListeners", listener);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        stop();
+    }
+
+    var event = document.createEvent("CustomEvent");
+    event.initCustomEvent("testRemoveListeners", true, true, {});
+    for (var i = 0; i < targets.length; i++) {
+        targets[i].dispatchEvent(event);
+    }
+    start();
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("removeListeners(target, type, listener, useCapture)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var targets = document.getElementsByClassName("removeListenersTest");
+
+    //Event must be handled one time only
+    //noinspection JSCheckFunctionSignatures
+    for (var i = 0; i < targets.length; i++) {
+        targets[i].addEventListener("testRemoveListenersWC", listener, true);
+    }
+
+    function listener(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        //Remove all listeners
+        Modules.Events.removeListeners(targets, "testRemoveListenersWC", listener, true);
+        ok(true, "Test listener launched once, not launched after removing listener");
+        stop();
+    }
+
+    var event = document.createEvent("CustomEvent");
+    event.initCustomEvent("testRemoveListenersWC", true, true, {});
+    for (var i = 0; i < targets.length; i++) {
+        targets[i].dispatchEvent(event);
+    }
+    start();
+});
 
 
 //
