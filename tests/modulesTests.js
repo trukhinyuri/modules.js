@@ -2332,36 +2332,109 @@ asyncTest("dispatchCustomEvent (target, type)", function() {
 asyncTest("dispatchCustomEvent (target, type, detail)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
-    document.addEventListener("customEvent", listener);
+    document.addEventListener("customEvent2", listener);
     //noinspection JSCheckFunctionSignatures
-    Modules.Events.dispatchCustomEvent(document, "customEvent", {parameter: true});
+    Modules.Events.dispatchCustomEvent(document, "customEvent2", {parameter: true});
 
     function listener(e) {
         start();
         //noinspection JSCheckFunctionSignatures
-        document.removeEventListener("customEvent", listener);
+        document.removeEventListener("customEvent2", listener);
         ok(e.detail.parameter, "Custom event dispatched, parameter is set correctly");
     }
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("dispatchCustomEvent (target, type, detail, canBubble)", function() {
+asyncTest("dispatchCustomEvent (target, type, detail, canBubble=false)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(1);
+    var body = document.getElementsByTagName("body")[0];
+    var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
+    document.addEventListener("customEvent3", listener);
+    //noinspection JSCheckFunctionSignatures
+    function listener(e) {
+
+        //noinspection JSCheckFunctionSignatures
+        document.removeEventListener("customEvent3", listener);
+        ok(false, "Error, event listen second time");
+    }
+
+    Modules.Events.dispatchCustomEvent(divRoot, "customEvent3", {parameter: true}, false);
+    start();
+    ok(true, "Custom event is not dispatched in top element, bubbling disabled");
+
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("dispatchCustomEvent (target, type, detail, canBubble=true)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
-    divRoot.addEventListener("customEvent", listener);
+    document.addEventListener("customEvent5", listener);
     //noinspection JSCheckFunctionSignatures
 
     function listener(e) {
         start();
         //noinspection JSCheckFunctionSignatures
-        divRoot.removeEventListener("customEvent", listener);
-        ok(e.detail.parameter, "Custom event dispatched, parameter is set correctly");
+        document.removeEventListener("customEvent5", listener);
+        ok(e.detail.parameter, "Custom event dispatched in top element, bubbling enabled");
     }
 
-    Modules.Events.dispatchCustomEvent(divRoot, "customEvent", {parameter: true}, true);
-
+    Modules.Events.dispatchCustomEvent(divRoot, "customEvent5", {parameter: true}, true);
 });
+
+//Offtopic: Events in the JS distributed under the item: first up (bubbling), then down (capturing).
+// If the event occurred on the item under a handler - a handler on the element above event will see.
+// Thus an event handler must be in the same cell where it occurred or lower.
+
+//noinspection JSUnresolvedFunction
+asyncTest("dispatchCustomEvent (target, type, detail, canBubble, cancellable=false)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(3);
+    var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
+    document.addEventListener("customEvent7", listener);
+    //noinspection JSCheckFunctionSignatures
+
+    function listener(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        e.preventDefault();
+        document.removeEventListener("customEvent7", listener);
+        ok(e.detail.parameter, "Custom event dispatched in top element, bubbling enabled");
+        stop();
+    }
+
+    var cancellableStatus = Modules.Events.dispatchCustomEvent(divRoot, "customEvent7", {parameter: true}, true, false);
+    equal(cancellableStatus, true, "Default not prevented");
+    var cancellableStatus = Modules.Events.dispatchCustomEvent(divRoot, "customEvent7", {parameter: true}, true, false);
+    equal(cancellableStatus, true, "Default is not prevented in previous listener call, cancellable == false, return == true");
+    start();
+});
+
+//noinspection JSUnresolvedFunction
+asyncTest("dispatchCustomEvent (target, type, detail, canBubble, cancellable=true)", function() {
+    //noinspection JSUnresolvedFunction
+    expect(3);
+    var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
+    document.addEventListener("customEvent6", listener);
+    //noinspection JSCheckFunctionSignatures
+
+    function listener(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        e.preventDefault();
+        document.removeEventListener("customEvent6", listener);
+        ok(e.detail.parameter, "Custom event dispatched in top element, bubbling enabled");
+        stop();
+    }
+
+    var cancellableStatus = Modules.Events.dispatchCustomEvent(divRoot, "customEvent6", {parameter: true}, true, true);
+    equal(cancellableStatus, false, "Default is prevented");
+    var cancellableStatus = Modules.Events.dispatchCustomEvent(divRoot, "customEvent6", {parameter: true}, true, true);
+    equal(cancellableStatus, true, "Default is not prevented");
+    start();
+});
+
 
 //
 //"use strict";

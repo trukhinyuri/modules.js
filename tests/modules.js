@@ -623,6 +623,8 @@ window.exports = window.exports || (window.exports = {});
          * @param {any} [detail="Null"] A user-defined object that can contain additional information about the event
          * @param {boolean} [canBubble="true"] Whether the event propagates upward
          * @param {boolean} [cancelable="true"] Whether the event is cancelable and so preventDefault can be called
+         * @returns {boolean} The return value is false if at least one of the event handlers which handled this event
+         * called Event.preventDefault(). Otherwise it returns true
          */
         function dispatchCustomEvent (target, type, detail, canBubble, cancelable) {
             var _canBubble = canBubble || false;
@@ -630,18 +632,7 @@ window.exports = window.exports || (window.exports = {});
             var _detail = detail || undefined;
             var event = document.createEvent("CustomEvent");
             event.initCustomEvent(type, _canBubble, _cancelable, _detail);
-            target.dispatchEvent(event);
-        }
-
-        /**
-         * Dispatch the DOM event in document element, initialized by an application for any purpose
-         * @method dispatchDocumentCustomEvent
-         * @memberOf Modules.Events
-         * @param {String} type The name of the custom event
-         * @param {any} [detail="Null"] A user-defined object that can contain additional information about the event
-         */
-        function dispatchDocumentCustomEvent (type, detail) {
-            this.dispatchCustomEvent(document, type, detail);
+            return target.dispatchEvent(event);
         }
 
         Events.addListener = addListener;
@@ -663,7 +654,6 @@ window.exports = window.exports || (window.exports = {});
         Events.addContextListeners = addContextListeners;
         Events.removeListeners = removeListeners;
         Events.dispatchCustomEvent = dispatchCustomEvent;
-        Events.dispatchDocumentCustomEvent = dispatchDocumentCustomEvent;
     })(Modules.Events || (Modules.Events = {}));
     var Events = Modules.Events;
 
