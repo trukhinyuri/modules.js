@@ -2351,7 +2351,6 @@ asyncTest("dispatchCustomEvent (target, type, detail, canBubble)", function() {
     var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
     divRoot.addEventListener("customEvent", listener);
     //noinspection JSCheckFunctionSignatures
-    Modules.Events.dispatchCustomEvent(divRoot, "customEvent", {parameter: true}, true);
 
     function listener(e) {
         start();
@@ -2359,6 +2358,9 @@ asyncTest("dispatchCustomEvent (target, type, detail, canBubble)", function() {
         divRoot.removeEventListener("customEvent", listener);
         ok(e.detail.parameter, "Custom event dispatched, parameter is set correctly");
     }
+
+    Modules.Events.dispatchCustomEvent(divRoot, "customEvent", {parameter: true}, true);
+
 });
 
 //

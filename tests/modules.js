@@ -620,15 +620,15 @@ window.exports = window.exports || (window.exports = {});
          * @memberOf Modules.Events
          * @param {HTMLElement} target Any html element
          * @param {String} type The name of the custom event
-         * @param {Object|Null} [detail="Null"] A user-defined object that can contain additional information about the event
+         * @param {any} [detail="Null"] A user-defined object that can contain additional information about the event
          * @param {boolean} [canBubble="true"] Whether the event propagates upward
          * @param {boolean} [cancelable="true"] Whether the event is cancelable and so preventDefault can be called
          */
         function dispatchCustomEvent (target, type, detail, canBubble, cancelable) {
-            var _canBubble = canBubble || true;
-            var _cancelable = cancelable || true;
-            var _detail = detail || {};
-            var event = target.createEvent("CustomEvent");
+            var _canBubble = canBubble || false;
+            var _cancelable = cancelable || false;
+            var _detail = detail || undefined;
+            var event = document.createEvent("CustomEvent");
             event.initCustomEvent(type, _canBubble, _cancelable, _detail);
             target.dispatchEvent(event);
         }
@@ -638,7 +638,7 @@ window.exports = window.exports || (window.exports = {});
          * @method dispatchDocumentCustomEvent
          * @memberOf Modules.Events
          * @param {String} type The name of the custom event
-         * @param {Object|Null} [detail="Null"] A user-defined object that can contain additional information about the event
+         * @param {any} [detail="Null"] A user-defined object that can contain additional information about the event
          */
         function dispatchDocumentCustomEvent (type, detail) {
             this.dispatchCustomEvent(document, type, detail);
