@@ -663,17 +663,75 @@ window.exports = window.exports || (window.exports = {});
         }
 
         /**
-         * Dispatch the DOM event in document element, initialized by an application for any purpose
-         * @method dispatchDocumentCustomEvent
+         * Communication between itemTypes within the document
+         * @namespace Modules.Events.Messages
          * @memberOf Modules.Events
-         * @param {String} type The name of the custom event
-         * @param {any} [detail="Null"] A user-defined object that can contain additional information about the event
-         * @returns {boolean} The return value is false if at least one of the event handlers which handled this event
-         * called Event.preventDefault(). Otherwise it returns true
          */
-        function dispatchDocumentCustomEvent (type, detail) {
-            return this.dispatchCustomEvent(document, type, detail);
-        }
+        (function (Messages) {
+            function send (messageID, dataObject, sourceID, destinationID) {
+                var messagePrefix = "modulesjs_message";
+                if (sourceID == null) {
+                    if (destinationID == null) {
+                        _send(this, messagePrefix + "_" + messageID);
+                    } else {
+                        _send(this, messagePrefix + "_" + messageID + "__" + destinationID);
+                    }
+                } else {
+                    if (destinationID == null) {
+                        _send(this, messagePrefix + "_" + messageID + "_" + sourceID);
+                    } else {
+                        _send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+                    }
+                }
+                function _send(scope, ID) {
+                    var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
+                        , "dataObject": dataObject};
+                    scope.dispatchDocumentCustomEvent(ID, detail);
+                }
+            }
+            function subscribe (messageID, onMessageReceived, sourceID, destinationID) {
+                var messagePrefix = "modulesjs_message";
+                if (sourceID == null) {
+                    if (destinationID == null) {
+                        _subscribe(this, messagePrefix + "_" + messageID);
+                    } else {
+                        _subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+                    }
+                } else {
+                    if (destinationID == null) {
+                        _subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+                    } else {
+                        _subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+                    }
+                }
+                function _subscribe(scope, ID){
+                    scope.addDocumentListener(ID, onMessageReceived);
+                }
+            }
+            function unsubscribe (messageID, onMessageReceived, sourceID, destinationID) {
+                var messagePrefix = "modulesjs_message";
+                if (sourceID == null) {
+                    if (destinationID == null) {
+                        _unsubscribe(this, messagePrefix + "_" + messageID);
+                    } else {
+                        _unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+                    }
+                } else {
+                    if (destinationID == null) {
+                        _unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+                    } else {
+                        _unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+                    }
+                }
+                function _unsubscribe(scope, ID) {
+                    scope.removeDocumentListener(ID, onMessageReceived);
+                }
+            }
+            Messages.send = send;
+            Messages.subscribe = subscribe;
+            Messages.unsubscribe = unsubscribe;
+        })(Modules.Events.Messages || (Modules.Events.Messages = {}));
+        var Messages = Modules.Events.Messages;
 
         Events.addListener = addListener;
         Events.addContextListener = addContextListener;
@@ -694,72 +752,10 @@ window.exports = window.exports || (window.exports = {});
         Events.addContextListeners = addContextListeners;
         Events.removeListeners = removeListeners;
         Events.dispatchCustomEvent = dispatchCustomEvent;
-        Events.dispatchDocumentCustomEvent = dispatchDocumentCustomEvent;
     })(Modules.Events || (Modules.Events = {}));
     var Events = Modules.Events;
 
 
-//        Events.prototype.sendMessage = function(messageID, dataObject, sourceID, destinationID) {
-//            var messagePrefix = "modulesjs_message";
-//            if (sourceID == null) {
-//                if (destinationID == null) {
-//                    send(this, messagePrefix + "_" + messageID);
-//                } else {
-//                    send(this, messagePrefix + "_" + messageID + "__" + destinationID);
-//                }
-//            } else {
-//                if (destinationID == null) {
-//                    send(this, messagePrefix + "_" + messageID + "_" + sourceID);
-//                } else {
-//                    send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-//                }
-//            }
-//            function send(scope, ID) {
-//                var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
-//                    , "dataObject": dataObject};
-//                scope.dispatchDocumentCustomEvent(ID, detail);
-//            }
-//        }
-//        Events.prototype.subscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
-//            var messagePrefix = "modulesjs_message";
-//            if (sourceID == null) {
-//                if (destinationID == null) {
-//                    subscribe(this, messagePrefix + "_" + messageID);
-//                } else {
-//                    subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
-//                }
-//            } else {
-//                if (destinationID == null) {
-//                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
-//                } else {
-//                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-//                }
-//            }
-//            function subscribe(scope, ID){
-//                scope.addDocumentListener(ID, onMessageReceived);
-//            }
-//        }
-//        Events.prototype.unsubscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
-//            var messagePrefix = "modulesjs_message";
-//            if (sourceID == null) {
-//                if (destinationID == null) {
-//                    unsubscribe(this, messagePrefix + "_" + messageID);
-//                } else {
-//                    unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
-//                }
-//            } else {
-//                if (destinationID == null) {
-//                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
-//                } else {
-//                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-//                }
-//            }
-//            function unsubscribe(scope, ID) {
-//                scope.removeDocumentListener(ID, onMessageReceived);
-//            }
-//        }
-//        return Events;
-//    }());
 
 //    Modules.Loader = (function () {
 //        function Loader(path) {
@@ -1120,13 +1116,13 @@ var Modules = window.exports.Modules;
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Namespaces</h3><ul><li><a href="Modules.DOM.html">DOM</a></li><li><a href="Modules.Events.html">Events</a></li><li><a href="Modules.Loader.html">Loader</a></li><li><a href="Modules.Server.html">Server</a></li><li><a href="window.exports.html">exports</a></li><li><a href="window.exports.Modules.html">Modules</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Modules">Modules</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Namespaces</h3><ul><li><a href="Modules.DOM.html">DOM</a></li><li><a href="Modules.Events.html">Events</a></li><li><a href="Modules.Events.Messages.html">Messages</a></li><li><a href="Modules.Loader.html">Loader</a></li><li><a href="Modules.Server.html">Server</a></li><li><a href="window.exports.html">exports</a></li><li><a href="window.exports.Modules.html">Modules</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Modules">Modules</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Thu Aug 15 2013 17:50:30 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Thu Aug 15 2013 18:21:28 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>

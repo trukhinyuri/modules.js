@@ -635,6 +635,77 @@ window.exports = window.exports || (window.exports = {});
             return target.dispatchEvent(event);
         }
 
+        /**
+         * Communication between itemTypes within the document
+         * @namespace Modules.Events.Messages
+         * @memberOf Modules.Events
+         */
+        (function (Messages) {
+//            function send (messageID, dataObject, sourceID, destinationID) {
+//                var messagePrefix = "modulesjs_message";
+//                if (sourceID == null) {
+//                    if (destinationID == null) {
+//                        _send(this, messagePrefix + "_" + messageID);
+//                    } else {
+//                        _send(this, messagePrefix + "_" + messageID + "__" + destinationID);
+//                    }
+//                } else {
+//                    if (destinationID == null) {
+//                        _send(this, messagePrefix + "_" + messageID + "_" + sourceID);
+//                    } else {
+//                        _send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+//                    }
+//                }
+//                function _send(scope, ID) {
+//                    var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
+//                        , "dataObject": dataObject};
+//                    scope.dispatchDocumentCustomEvent(ID, detail);
+//                }
+//            }
+//            function subscribe (messageID, onMessageReceived, sourceID, destinationID) {
+//                var messagePrefix = "modulesjs_message";
+//                if (sourceID == null) {
+//                    if (destinationID == null) {
+//                        _subscribe(this, messagePrefix + "_" + messageID);
+//                    } else {
+//                        _subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+//                    }
+//                } else {
+//                    if (destinationID == null) {
+//                        _subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+//                    } else {
+//                        _subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+//                    }
+//                }
+//                function _subscribe(scope, ID){
+//                    scope.addDocumentListener(ID, onMessageReceived);
+//                }
+//            }
+//            function unsubscribe (messageID, onMessageReceived, sourceID, destinationID) {
+//                var messagePrefix = "modulesjs_message";
+//                if (sourceID == null) {
+//                    if (destinationID == null) {
+//                        _unsubscribe(this, messagePrefix + "_" + messageID);
+//                    } else {
+//                        _unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+//                    }
+//                } else {
+//                    if (destinationID == null) {
+//                        _unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+//                    } else {
+//                        _unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+//                    }
+//                }
+//                function _unsubscribe(scope, ID) {
+//                    scope.removeDocumentListener(ID, onMessageReceived);
+//                }
+//            }
+//            Messages.send = send;
+//            Messages.subscribe = subscribe;
+//            Messages.unsubscribe = unsubscribe;
+        })(Modules.Events.Messages || (Modules.Events.Messages = {}));
+        var Messages = Modules.Events.Messages;
+
         Events.addListener = addListener;
         Events.addContextListener = addContextListener;
         Events.removeListener = removeListener;
@@ -658,67 +729,6 @@ window.exports = window.exports || (window.exports = {});
     var Events = Modules.Events;
 
 
-//        Events.prototype.sendMessage = function(messageID, dataObject, sourceID, destinationID) {
-//            var messagePrefix = "modulesjs_message";
-//            if (sourceID == null) {
-//                if (destinationID == null) {
-//                    send(this, messagePrefix + "_" + messageID);
-//                } else {
-//                    send(this, messagePrefix + "_" + messageID + "__" + destinationID);
-//                }
-//            } else {
-//                if (destinationID == null) {
-//                    send(this, messagePrefix + "_" + messageID + "_" + sourceID);
-//                } else {
-//                    send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-//                }
-//            }
-//            function send(scope, ID) {
-//                var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
-//                    , "dataObject": dataObject};
-//                scope.dispatchDocumentCustomEvent(ID, detail);
-//            }
-//        }
-//        Events.prototype.subscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
-//            var messagePrefix = "modulesjs_message";
-//            if (sourceID == null) {
-//                if (destinationID == null) {
-//                    subscribe(this, messagePrefix + "_" + messageID);
-//                } else {
-//                    subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
-//                }
-//            } else {
-//                if (destinationID == null) {
-//                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
-//                } else {
-//                    subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-//                }
-//            }
-//            function subscribe(scope, ID){
-//                scope.addDocumentListener(ID, onMessageReceived);
-//            }
-//        }
-//        Events.prototype.unsubscribeMessage = function(messageID, onMessageReceived, sourceID, destinationID) {
-//            var messagePrefix = "modulesjs_message";
-//            if (sourceID == null) {
-//                if (destinationID == null) {
-//                    unsubscribe(this, messagePrefix + "_" + messageID);
-//                } else {
-//                    unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
-//                }
-//            } else {
-//                if (destinationID == null) {
-//                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
-//                } else {
-//                    unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
-//                }
-//            }
-//            function unsubscribe(scope, ID) {
-//                scope.removeDocumentListener(ID, onMessageReceived);
-//            }
-//        }
-//        return Events;
-//    }());
 
 //    Modules.Loader = (function () {
 //        function Loader(path) {
