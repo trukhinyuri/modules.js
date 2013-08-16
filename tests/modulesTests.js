@@ -2435,6 +2435,73 @@ asyncTest("dispatchCustomEvent (target, type, detail, canBubble, cancellable=tru
     start();
 });
 
+//noinspection JSUnresolvedFunction
+module("Modules.Events.Messages", {
+    setup: function() {
+        //Definition of Setup module
+        //noinspection JSUnresolvedVariable
+        window.exports = window.exports || (window.exports = {});
+        (function (Setup) {
+            function addListeners () {
+                var body = document.getElementsByTagName("body")[0];
+                var divRoot0 = document.createElement('div');
+                divRoot0.className = "addListenersTest";
+                body.appendChild(divRoot0);
+                var divRoot1 = document.createElement("div");
+                divRoot1.className = "addListenersTest";
+                body.appendChild(divRoot1);
+            }
+
+            Setup.addListeners = addListeners;
+
+        }(window.exports.Setup || (window.exports.Setup = {})));
+        //noinspection JSUnresolvedVariable
+        var Setup = window.exports.Setup;
+
+        //Setup excecution
+        Setup.addListeners();
+    },
+    teardown: function() {
+        //Definition of Teardown module
+        //noinspection JSUnresolvedVariable
+        window.exports = window.exports || (window.exports = {});
+        (function (Teardown) {
+            function addListeners() {
+                var body = document.getElementsByTagName("body")[0];
+
+                var divRoot = document.getElementsByClassName("addListenersTest")[0];
+                body.removeChild(divRoot);
+
+                var divRoot = document.getElementsByClassName("addListenersTest")[0];
+                body.removeChild(divRoot);
+            }
+            Teardown.addListeners = addListeners;
+        }(window.exports.Teardown || (window.exports.Teardown = {})));
+        //noinspection JSUnresolvedVariable
+        var Teardown = window.exports.Teardown;
+
+        //Teardown execution
+        Teardown.addListeners();
+    }
+});
+
+////noinspection JSUnresolvedFunction
+//asyncTest("subscribe (theme, listener, sourceID, destinationID)", function() {
+//    //noinspection JSUnresolvedFunction
+//    expect(1);
+//    document.addEventListener("customEvent2", listener);
+//    //noinspection JSCheckFunctionSignatures
+//    Modules.Events.dispatchCustomEvent(document, "customEvent2", {parameter: true});
+//
+//    function listener(e) {
+//        start();
+//        //noinspection JSCheckFunctionSignatures
+//        document.removeEventListener("customEvent2", listener);
+//        ok(e.detail.parameter, "Custom event dispatched, parameter is set correctly");
+//    }
+//});
+
+
 
 //
 //"use strict";

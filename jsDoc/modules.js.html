@@ -668,63 +668,93 @@ window.exports = window.exports || (window.exports = {});
          * @memberOf Modules.Events
          */
         (function (Messages) {
-            function send (messageID, dataObject, sourceID, destinationID) {
+
+            /**
+             * Send message to subscribed listeners
+             * @method send
+             * @memberOf Modules.Events.Messages
+             * @param {String} theme Unique theme of message within the page
+             * @param {any} [detail = null] A user-defined object that can contain detail information in message
+             * @param {String} [sourceID = null] Unique ID of sender
+             * @param {String} [destinationID = null] Unique ID of receiver
+             */
+            function send (theme, detail, sourceID, destinationID) {
                 var messagePrefix = "modulesjs_message";
                 if (sourceID == null) {
                     if (destinationID == null) {
-                        _send(this, messagePrefix + "_" + messageID);
+                        _send(this, messagePrefix + "_" + theme);
                     } else {
-                        _send(this, messagePrefix + "_" + messageID + "__" + destinationID);
+                        _send(this, messagePrefix + "_" + theme + "__" + destinationID);
                     }
                 } else {
                     if (destinationID == null) {
-                        _send(this, messagePrefix + "_" + messageID + "_" + sourceID);
+                        _send(this, messagePrefix + "_" + theme + "_" + sourceID);
                     } else {
-                        _send(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+                        _send(this, messagePrefix + "_" + theme + "_" + sourceID + "_" + destinationID);
                     }
                 }
-                function _send(scope, ID) {
+                function _send(scope, theme) {
                     var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
-                        , "dataObject": dataObject};
-                    scope.dispatchDocumentCustomEvent(ID, detail);
+                        , "dataObject": detail};
+                    scope.dispatchCustomEvent(document, theme, detail);
                 }
             }
-            function subscribe (messageID, onMessageReceived, sourceID, destinationID) {
+
+            /**
+             * Subscribe listener on messages theme
+             * @method subscribe
+             * @memberOf Modules.Events.Messages
+             * @param {String} theme Unique theme of message within the page
+             * @param {EventListener} listener Listener for receive messages
+             * @param {String} [sourceID = null] Unique ID of sender
+             * @param {String} [destinationID = null] Unique ID of receiver
+             */
+            function subscribe (theme, listener, sourceID, destinationID) {
                 var messagePrefix = "modulesjs_message";
                 if (sourceID == null) {
                     if (destinationID == null) {
-                        _subscribe(this, messagePrefix + "_" + messageID);
+                        _subscribe(this, messagePrefix + "_" + theme);
                     } else {
-                        _subscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+                        _subscribe(this, messagePrefix + "_" + theme + "__" + destinationID);
                     }
                 } else {
                     if (destinationID == null) {
-                        _subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+                        _subscribe(this, messagePrefix + "_" + theme + "_" + sourceID);
                     } else {
-                        _subscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+                        _subscribe(this, messagePrefix + "_" + theme + "_" + sourceID + "_" + destinationID);
                     }
                 }
                 function _subscribe(scope, ID){
-                    scope.addDocumentListener(ID, onMessageReceived);
+                    scope.addDocumentListener(ID, listener);
                 }
             }
-            function unsubscribe (messageID, onMessageReceived, sourceID, destinationID) {
+
+            /**
+             * Subscribe listener on messages theme
+             * @method unsubscribe
+             * @memberOf Modules.Events.Messages
+             * @param {String} theme Unique theme of message within the page
+             * @param {EventListener} listener Listener for unsubscribe, used for receive messages
+             * @param {String} [sourceID = null] Unique ID of sender
+             * @param {String} [destinationID = null] Unique ID of receiver
+             */
+            function unsubscribe (theme, listener, sourceID, destinationID) {
                 var messagePrefix = "modulesjs_message";
                 if (sourceID == null) {
                     if (destinationID == null) {
-                        _unsubscribe(this, messagePrefix + "_" + messageID);
+                        _unsubscribe(this, messagePrefix + "_" + theme);
                     } else {
-                        _unsubscribe(this, messagePrefix + "_" + messageID + "__" + destinationID);
+                        _unsubscribe(this, messagePrefix + "_" + theme + "__" + destinationID);
                     }
                 } else {
                     if (destinationID == null) {
-                        _unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID);
+                        _unsubscribe(this, messagePrefix + "_" + theme + "_" + sourceID);
                     } else {
-                        _unsubscribe(this, messagePrefix + "_" + messageID + "_" + sourceID + "_" + destinationID);
+                        _unsubscribe(this, messagePrefix + "_" + theme + "_" + sourceID + "_" + destinationID);
                     }
                 }
                 function _unsubscribe(scope, ID) {
-                    scope.removeDocumentListener(ID, onMessageReceived);
+                    scope.removeDocumentListener(ID, listener);
                 }
             }
             Messages.send = send;
@@ -1122,7 +1152,7 @@ var Modules = window.exports.Modules;
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Thu Aug 15 2013 18:21:28 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Fri Aug 16 2013 17:05:39 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>
