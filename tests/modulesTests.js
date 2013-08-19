@@ -2442,48 +2442,195 @@ module("Modules.Events.Messages", {
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
         (function (Setup) {
-            function addListeners () {
+            function subscribe () {
                 var body = document.getElementsByTagName("body")[0];
                 var divRoot0 = document.createElement('div');
-                divRoot0.className = "addListenersTest";
+                divRoot0.className = "subscribe_el1";
                 body.appendChild(divRoot0);
                 var divRoot1 = document.createElement("div");
-                divRoot1.className = "addListenersTest";
+                divRoot1.className = "subscribe_el2";
                 body.appendChild(divRoot1);
             }
 
-            Setup.addListeners = addListeners;
+            Setup.subscribe = subscribe;
 
         }(window.exports.Setup || (window.exports.Setup = {})));
         //noinspection JSUnresolvedVariable
         var Setup = window.exports.Setup;
 
         //Setup excecution
-        Setup.addListeners();
+        Setup.subscribe();
     },
     teardown: function() {
         //Definition of Teardown module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
         (function (Teardown) {
-            function addListeners() {
+            function subscribe() {
                 var body = document.getElementsByTagName("body")[0];
 
-                var divRoot = document.getElementsByClassName("addListenersTest")[0];
+                var divRoot = document.getElementsByClassName("subscribe_el1")[0];
                 body.removeChild(divRoot);
 
-                var divRoot = document.getElementsByClassName("addListenersTest")[0];
+                var divRoot = document.getElementsByClassName("subscribe_el2")[0];
                 body.removeChild(divRoot);
             }
-            Teardown.addListeners = addListeners;
+            Teardown.subscribe = subscribe;
         }(window.exports.Teardown || (window.exports.Teardown = {})));
         //noinspection JSUnresolvedVariable
         var Teardown = window.exports.Teardown;
 
         //Teardown execution
-        Teardown.addListeners();
+        Teardown.subscribe();
     }
 });
+
+asyncTest("subscribe (theme, listener)", function() {
+    expect(1);
+    var msg = Modules.Events.Messages;
+    var evt = Modules.Events;
+    var theme = "greetings";
+    var detail = {message: "true"};
+    //noinspection JSCheckFunctionSignatures
+    msg.subscribe(theme, receiver);
+    function receiver(e) {
+        //noinspection JSCheckFunctionSignatures
+        evt.removeDocumentListener("modulesjs_message_" + theme, receiver);
+        equal(e.detail.message, "true", "Message received");
+        start();
+    }
+    //noinspection JSCheckFunctionSignatures
+    evt.dispatchCustomEvent(document, "modulesjs_message_" + theme, detail);
+});
+
+asyncTest("subscribe (theme, listener, sourceID)", function() {
+    expect(1);
+    var msg = Modules.Events.Messages;
+    var evt = Modules.Events;
+    var theme = "greetings";
+    var detail = {message: "true"};
+    var sourceID = "element1";
+    //noinspection JSCheckFunctionSignatures
+    msg.subscribe(theme, receiver, sourceID);
+    function receiver(e) {
+        //noinspection JSCheckFunctionSignatures
+        evt.removeDocumentListener("modulesjs_message_" + theme + "_" + sourceID, receiver);
+        equal(e.detail.message, "true", "Message received");
+        start();
+    }
+    //noinspection JSCheckFunctionSignatures
+    evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID, detail);
+});
+
+asyncTest("subscribe (theme, listener, sourceID, destinationID)", function() {
+    expect(1);
+    var msg = Modules.Events.Messages;
+    var evt = Modules.Events;
+    var theme = "greetings";
+    var detail = {message: "true"};
+    var sourceID = "element1";
+    var destinationID = "element2";
+    //noinspection JSCheckFunctionSignatures
+    msg.subscribe(theme, receiver, sourceID, destinationID);
+    function receiver(e) {
+        //noinspection JSCheckFunctionSignatures
+        evt.removeDocumentListener("modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, receiver);
+        equal(e.detail.message, "true", "Message received");
+        start();
+    }
+    //noinspection JSCheckFunctionSignatures
+    evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, detail);
+});
+
+asyncTest("subscribe (theme, listener, undefined, destinationID)", function() {
+    expect(1);
+    var msg = Modules.Events.Messages;
+    var evt = Modules.Events;
+    var theme = "greetings";
+    var detail = {message: "true"};
+    var sourceID = undefined;
+    var destinationID = "element2";
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    msg.subscribe(theme, receiver, sourceID, destinationID);
+    function receiver(e) {
+        //noinspection JSCheckFunctionSignatures
+        evt.removeDocumentListener("modulesjs_message_" + theme + "__" + destinationID, receiver);
+        equal(e.detail.message, "true", "Message received");
+        start();
+    }
+    //noinspection JSCheckFunctionSignatures
+    evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "__" + destinationID, detail);
+});
+
+asyncTest("subscribe (theme, listener, null, destinationID)", function() {
+    expect(1);
+    var msg = Modules.Events.Messages;
+    var evt = Modules.Events;
+    var theme = "greetings";
+    var detail = {message: "true"};
+    var sourceID = null;
+    var destinationID = "element2";
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    msg.subscribe(theme, receiver, sourceID, destinationID);
+    function receiver(e) {
+        //noinspection JSCheckFunctionSignatures
+        evt.removeDocumentListener("modulesjs_message_" + theme + "__" + destinationID, receiver);
+        equal(e.detail.message, "true", "Message received");
+        start();
+    }
+    //noinspection JSCheckFunctionSignatures
+    evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "__" + destinationID, detail);
+});
+
+//asyncTest("send (theme, detail)", function() {
+//    expect(1);
+//    var msg = Modules.Events.Messages;
+//    var evt = Modules.Events;
+//    var theme = "greetings";
+//    var detail = {message: "true"};
+//    var sourceID = null;
+//    var destinationID = null;
+//    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+//    evt.addDocumentListener("modulesjs_messages_" + theme, receiver);
+//    function receiver(e) {
+//        //noinspection JSCheckFunctionSignatures
+//        evt.removeDocumentListener("modulesjs_message_" + theme, receiver);
+//        equal(e.detail.message, "true", "Message received");
+//        start();
+//    }
+//    //noinspection JSCheckFunctionSignatures
+//    msg.send(theme, detail);
+//});
+//asyncTest("subscribe (theme, listener); send(theme, detail); unsubscribe(theme, listener)", function() {
+//    expect(1);
+//    var msg = Modules.Events.Messages;
+//    //noinspection JSCheckFunctionSignatures
+//    msg.subscribe("subscribeTest0", messageListener0);
+//    msg.send("subscribeTest0", "hello");
+//    function messageListener0 (e) {
+//        equal(e.detail.message, "hello", "Received message");
+//        start();
+//    }
+//    msg.unsubscribe("subscribeTest0", messageListener0);
+//    msg.send("subscribeTest0", "hello");
+//});
+//
+//asyncTest("subscribe (theme, listener, sourceID, destinationID); send(theme, detail, sourceID, destinationID); " +
+//    "unsubscribe(theme, listener, sourceID, destinationID)", function() {
+//    expect(3);
+//    var msg = Modules.Events.Messages;
+//    //noinspection JSCheckFunctionSignatures
+//    msg.subscribe("subscribeTest0", messageListener0, "source", "destination");
+//    msg.send("subscribeTest0", "hello", "source", "destination");
+//    function messageListener0 (e) {
+//        equal(e.detail.message, "hello", "Received message");
+//        equal(e.detail.postAdress.sourceID, "source", "source correct");
+//        equal(e.detail.postAdress.destinationID, "destination", "destination correct");
+//        start();
+//    }
+//    msg.unsubscribe("subscribeTest0", messageListener0, "source", "destination");
+//    msg.send("subscribeTest0", "hello", "source", "destination");
+//});
 
 ////noinspection JSUnresolvedFunction
 //asyncTest("subscribe (theme, listener, sourceID, destinationID)", function() {

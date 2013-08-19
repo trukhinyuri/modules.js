@@ -643,6 +643,42 @@ window.exports = window.exports || (window.exports = {});
         (function (Messages) {
 
             /**
+             * Subscribe listener on messages theme
+             * @method subscribe
+             * @memberOf Modules.Events.Messages
+             * @param {String} theme Unique theme of message within the page
+             * @param {EventListener} listener Listener for receive messages
+             * @param {String} [sourceID = null] Unique ID of sender
+             * @param {String} [destinationID = null] Unique ID of receiver
+             */
+            function subscribe (theme, listener, sourceID, destinationID) {
+                var messagePrefix = "modulesjs_message_";
+                var calculatedTheme = calculateTheme();
+
+                function calculateTheme() {
+                    var _calculatedTheme = "";
+                    if (sourceID == null) {
+                        if (destinationID == null) {
+                            _calculatedTheme = messagePrefix + theme;
+                        } else {
+                            _calculatedTheme = messagePrefix + theme + "__" + destinationID;
+                        }
+                    } else {
+                        if (destinationID == null) {
+                            _calculatedTheme = messagePrefix + theme + "_" + sourceID;
+                        } else {
+                            _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
+                        }
+                    }
+                    return _calculatedTheme;
+                }
+
+                if (calculatedTheme != "") {
+                    Modules.Events.addDocumentListener(calculatedTheme, listener, false);
+                }
+            }
+
+            /**
              * Send message to subscribed listeners
              * @method send
              * @memberOf Modules.Events.Messages
@@ -653,52 +689,30 @@ window.exports = window.exports || (window.exports = {});
              */
             function send (theme, detail, sourceID, destinationID) {
                 var messagePrefix = "modulesjs_message";
-                if (sourceID == null) {
-                    if (destinationID == null) {
-                        _send(this, messagePrefix + "_" + theme);
-                    } else {
-                        _send(this, messagePrefix + "_" + theme + "__" + destinationID);
-                    }
-                } else {
-                    if (destinationID == null) {
-                        _send(this, messagePrefix + "_" + theme + "_" + sourceID);
-                    } else {
-                        _send(this, messagePrefix + "_" + theme + "_" + sourceID + "_" + destinationID);
-                    }
-                }
-                function _send(scope, theme) {
-                    var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
-                        , "dataObject": detail};
-                    scope.dispatchCustomEvent(document, theme, detail);
-                }
-            }
+                var calculatedTheme = calculateTheme();
 
-            /**
-             * Subscribe listener on messages theme
-             * @method subscribe
-             * @memberOf Modules.Events.Messages
-             * @param {String} theme Unique theme of message within the page
-             * @param {EventListener} listener Listener for receive messages
-             * @param {String} [sourceID = null] Unique ID of sender
-             * @param {String} [destinationID = null] Unique ID of receiver
-             */
-            function subscribe (theme, listener, sourceID, destinationID) {
-                var messagePrefix = "modulesjs_message";
-                if (sourceID == null) {
-                    if (destinationID == null) {
-                        _subscribe(this, messagePrefix + "_" + theme);
+                function calculateTheme() {
+                    var _calculatedTheme = "";
+                    if (sourceID == null) {
+                        if (destinationID == null) {
+                            _calculatedTheme = messagePrefix + "_" + theme;
+                        } else {
+                            _calculatedTheme = messagePrefix + "_" + theme + "__" + destinationID;
+                        }
                     } else {
-                        _subscribe(this, messagePrefix + "_" + theme + "__" + destinationID);
+                        if (destinationID == null) {
+                            _calculatedTheme = messagePrefix + "_" + theme + "_" + sourceID;
+                        } else {
+                            _calculatedTheme = messagePrefix + "_" + theme + "_" + sourceID + "_" + destinationID;
+                        }
                     }
-                } else {
-                    if (destinationID == null) {
-                        _subscribe(this, messagePrefix + "_" + theme + "_" + sourceID);
-                    } else {
-                        _subscribe(this, messagePrefix + "_" + theme + "_" + sourceID + "_" + destinationID);
-                    }
+                    return _calculatedTheme;
                 }
-                function _subscribe(scope, ID){
-                    scope.addDocumentListener(ID, listener);
+
+                var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
+
+                if (calculatedTheme != "") {
+                    Modules.Events.dispatchCustomEvent(document, calculatedTheme, detail);
                 }
             }
 
@@ -715,19 +729,19 @@ window.exports = window.exports || (window.exports = {});
                 var messagePrefix = "modulesjs_message";
                 if (sourceID == null) {
                     if (destinationID == null) {
-                        _unsubscribe(this, messagePrefix + "_" + theme);
+                        _unsubscribe(messagePrefix + "_" + theme);
                     } else {
-                        _unsubscribe(this, messagePrefix + "_" + theme + "__" + destinationID);
+                        _unsubscribe(messagePrefix + "_" + theme + "__" + destinationID);
                     }
                 } else {
                     if (destinationID == null) {
-                        _unsubscribe(this, messagePrefix + "_" + theme + "_" + sourceID);
+                        _unsubscribe(messagePrefix + "_" + theme + "_" + sourceID);
                     } else {
-                        _unsubscribe(this, messagePrefix + "_" + theme + "_" + sourceID + "_" + destinationID);
+                        _unsubscribe(messagePrefix + "_" + theme + "_" + sourceID + "_" + destinationID);
                     }
                 }
-                function _unsubscribe(scope, ID) {
-                    scope.removeDocumentListener(ID, listener);
+                function _unsubscribe(theme) {
+                    Modules.Events.removeDocumentListener(theme, listener);
                 }
             }
             Messages.send = send;
