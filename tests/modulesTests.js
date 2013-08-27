@@ -2582,25 +2582,72 @@ asyncTest("subscribe (theme, listener, null, destinationID)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "__" + destinationID, detail);
 });
 
-//asyncTest("send (theme, detail)", function() {
-//    expect(1);
+asyncTest("send (theme, detail)", function() {
+    expect(3);
+    var msg = Modules.Events.Messages;
+    var evt = Modules.Events;
+    var theme = "greetings";
+    var detail = {item: "true"};
+    var sourceID = null;
+    var destinationID = null;
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    evt.addDocumentListener("modulesjs_messages_" + theme, receiver);
+    function receiver(e) {
+        //noinspection JSCheckFunctionSignatures
+        evt.removeDocumentListener("modulesjs_message_" + theme, receiver);
+        equal(e.detail.message.item, "true", "Message received");
+        equal(e.detail.postAdress.sourceID, null, "Source undefined");
+        equal(e.detail.postAdress.destinationID, null, "Destination undefined");
+        start();
+    }
+    //noinspection JSCheckFunctionSignatures
+    msg.send(theme, detail);
+});
+//Work, incorrect test passed
+asyncTest("send (theme, detail, sourceID)", function() {
+    expect(3);
+    var msg = Modules.Events.Messages;
+    var evt = Modules.Events;
+    var theme = "greetings";
+    var detail = {item: "true"};
+    var sourceID = "source";
+    var destinationID = null;
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    evt.addDocumentListener("modulesjs_messages_" + theme + "_" + sourceID, receiver);
+    function receiver(e) {
+        //noinspection JSCheckFunctionSignatures
+        evt.removeDocumentListener("modulesjs_message_" + theme + "_" + sourceID, receiver);
+        equal(e.detail.message.item, "true", "Message received");
+        equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
+        equal(e.detail.postAdress.destinationID, null, "Destination undefined");
+        start();
+    }
+    //noinspection JSCheckFunctionSignatures
+    msg.send(theme, detail);
+});
+
+//asyncTest("send (theme, detail, null, destinationID)", function() {
+//    expect(3);
 //    var msg = Modules.Events.Messages;
 //    var evt = Modules.Events;
 //    var theme = "greetings";
-//    var detail = {message: "true"};
+//    var detail = {item: "true"};
 //    var sourceID = null;
-//    var destinationID = null;
+//    var destinationID = "destination";
 //    //noinspection JSCheckFunctionSignatures,JSValidateTypes
-//    evt.addDocumentListener("modulesjs_messages_" + theme, receiver);
+//    evt.addDocumentListener("modulesjs_messages_" + theme + "_" + sourceID, receiver);
 //    function receiver(e) {
 //        //noinspection JSCheckFunctionSignatures
-//        evt.removeDocumentListener("modulesjs_message_" + theme, receiver);
-//        equal(e.detail.message, "true", "Message received");
+//        evt.removeDocumentListener("modulesjs_message_" + theme + "_" + sourceID, receiver);
+//        equal(e.detail.message.item, "true", "Message received");
+//        equal(e.detail.postAdress.sourceID, null, "Source correct");
+//        equal(e.detail.postAdress.destinationID, null, "Destination undefined");
 //        start();
 //    }
 //    //noinspection JSCheckFunctionSignatures
 //    msg.send(theme, detail);
 //});
+
 //asyncTest("subscribe (theme, listener); send(theme, detail); unsubscribe(theme, listener)", function() {
 //    expect(1);
 //    var msg = Modules.Events.Messages;

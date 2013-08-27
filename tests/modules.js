@@ -688,7 +688,7 @@ window.exports = window.exports || (window.exports = {});
              * @param {String} [destinationID = null] Unique ID of receiver
              */
             function send (theme, detail, sourceID, destinationID) {
-                var messagePrefix = "modulesjs_message";
+                var messagePrefix = "modulesjs_messages";
                 var calculatedTheme = calculateTheme();
 
                 function calculateTheme() {
@@ -709,10 +709,10 @@ window.exports = window.exports || (window.exports = {});
                     return _calculatedTheme;
                 }
 
-                var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
+                var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
 
-                if (calculatedTheme != "") {
-                    Modules.Events.dispatchCustomEvent(document, calculatedTheme, detail);
+                if (calculatedTheme !== "") {
+                    Modules.Events.dispatchCustomEvent(document, calculatedTheme, detailObject, false, false);
                 }
             }
 
