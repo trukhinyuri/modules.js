@@ -2770,6 +2770,89 @@ asyncTest("unsubscribe (theme, listener, sourceID, destinationID)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, detailObject);
 });
 
+asyncTest("subscribe, send, unsubscribe (theme, detail)", function() {
+    expect(3);
+    var msg = Modules.Events.Messages;
+    var theme = "greetings";
+    var detail = {item: "true"};
+    var sourceID = null;
+    var destinationID = null;
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    msg.subscribe(theme, receiver);
+    function receiver(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        msg.unsubscribe(theme, receiver);
+        equal(e.detail.message.item, "true", "Message received");
+        equal(e.detail.postAdress.sourceID, sourceID, "Source undefined");
+        equal(e.detail.postAdress.destinationID, destinationID, "Destination undefined");
+    }
+    //noinspection JSCheckFunctionSignatures
+    msg.send(theme, detail);
+});
+
+asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID)", function() {
+    expect(3);
+    var msg = Modules.Events.Messages;
+    var theme = "greetings";
+    var detail = {item: "true"};
+    var sourceID = "source";
+    var destinationID = null;
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    msg.subscribe(theme, receiver, sourceID);
+    function receiver(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        msg.unsubscribe(theme, receiver, sourceID);
+        equal(e.detail.message.item, "true", "Message received");
+        equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
+        equal(e.detail.postAdress.destinationID, destinationID, "Destination undefined");
+    }
+    //noinspection JSCheckFunctionSignatures
+    msg.send(theme, detail, sourceID);
+});
+
+asyncTest("subscribe, send, unsubscribe (theme, detail, null, destinationID)", function() {
+    expect(3);
+    var msg = Modules.Events.Messages;
+    var theme = "greetings";
+    var detail = {item: "true"};
+    var sourceID = null;
+    var destinationID = "destination";
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    msg.subscribe(theme, receiver, null, destinationID);
+    function receiver(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        msg.unsubscribe(theme, receiver, null, destinationID);
+        equal(e.detail.message.item, "true", "Message received");
+        equal(e.detail.postAdress.sourceID, sourceID, "Source undefined");
+        equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
+    }
+    //noinspection JSCheckFunctionSignatures
+    msg.send(theme, detail, null, destinationID);
+});
+
+asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID, destinationID)", function() {
+    expect(3);
+    var msg = Modules.Events.Messages;
+    var theme = "greetings";
+    var detail = {item: "true"};
+    var sourceID = "source";
+    var destinationID = "destination";
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    msg.subscribe(theme, receiver, sourceID, destinationID);
+    function receiver(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        msg.unsubscribe(theme, receiver, sourceID, destinationID);
+        equal(e.detail.message.item, "true", "Message received");
+        equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
+        equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
+    }
+    //noinspection JSCheckFunctionSignatures
+    msg.send(theme, detail, sourceID, destinationID);
+});
 //asyncTest("send (theme, detail, null, destinationID)", function() {
 //    expect(3);
 //    var msg = Modules.Events.Messages;
