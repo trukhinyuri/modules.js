@@ -747,7 +747,7 @@ window.exports = window.exports || (window.exports = {});
                 }
 
                 if (calculatedTheme !== "") {
-                    Modules.Events.removeDocumentListener(theme, listener);
+                    Modules.Events.removeDocumentListener(calculatedTheme, listener);
                 }
             }
             Messages.send = send;

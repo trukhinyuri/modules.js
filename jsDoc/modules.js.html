@@ -679,22 +679,29 @@ window.exports = window.exports || (window.exports = {});
              * @param {String} [destinationID = null] Unique ID of receiver
              */
             function subscribe (theme, listener, sourceID, destinationID) {
-                var messagePrefix = "modulesjs_message";
-                if (sourceID == null) {
-                    if (destinationID == null) {
-                        _subscribe(messagePrefix + "_" + theme);
+                var messagePrefix = "modulesjs_message_";
+                var calculatedTheme = calculateTheme();
+
+                function calculateTheme() {
+                    var _calculatedTheme = "";
+                    if (sourceID == null) {
+                        if (destinationID == null) {
+                            _calculatedTheme = messagePrefix + theme;
+                        } else {
+                            _calculatedTheme = messagePrefix + theme + "__" + destinationID;
+                        }
                     } else {
-                        _subscribe(messagePrefix + "_" + theme + "__" + destinationID);
+                        if (destinationID == null) {
+                            _calculatedTheme = messagePrefix + theme + "_" + sourceID;
+                        } else {
+                            _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
+                        }
                     }
-                } else {
-                    if (destinationID == null) {
-                        _subscribe(messagePrefix + "_" + theme + "_" + sourceID);
-                    } else {
-                        _subscribe(messagePrefix + "_" + theme + "_" + sourceID + "_" + destinationID);
-                    }
+                    return _calculatedTheme;
                 }
-                function _subscribe(theme){
-                    Modules.Events.addDocumentListener(theme, listener);
+
+                if (calculatedTheme != "") {
+                    Modules.Events.addDocumentListener(calculatedTheme, listener, false);
                 }
             }
 
@@ -708,25 +715,31 @@ window.exports = window.exports || (window.exports = {});
              * @param {String} [destinationID = null] Unique ID of receiver
              */
             function send (theme, detail, sourceID, destinationID) {
-                var messagePrefix = "modulesjs_message";
-                var _theme = messagePrefix + "_" + theme;
-                if (sourceID == null) {
-                    if (destinationID == null) {
-                        _send(_theme, detail);
+                var messagePrefix = "modulesjs_message_";
+                var calculatedTheme = calculateTheme();
+
+                function calculateTheme() {
+                    var _calculatedTheme = "";
+                    if (sourceID == null) {
+                        if (destinationID == null) {
+                            _calculatedTheme = messagePrefix + theme;
+                        } else {
+                            _calculatedTheme = messagePrefix + theme + "__" + destinationID;
+                        }
                     } else {
-                        _send(_theme + "__" + destinationID, detail);
+                        if (destinationID == null) {
+                            _calculatedTheme = messagePrefix + theme + "_" + sourceID;
+                        } else {
+                            _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
+                        }
                     }
-                } else {
-                    if (destinationID == null) {
-                        _send(_theme + "_" + sourceID, detail);
-                    } else {
-                        _send(_theme + "_" + sourceID + "_" + destinationID, detail);
-                    }
+                    return _calculatedTheme;
                 }
-                function _send(theme, detail, sourceID, destinationID) {
-                    var detail = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}
-                        , "message": detail};
-                    Modules.Events.dispatchCustomEvent(document, theme, detail);
+
+                var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
+
+                if (calculatedTheme !== "") {
+                    Modules.Events.dispatchCustomEvent(document, calculatedTheme, detailObject, false, false);
                 }
             }
 
@@ -740,22 +753,28 @@ window.exports = window.exports || (window.exports = {});
              * @param {String} [destinationID = null] Unique ID of receiver
              */
             function unsubscribe (theme, listener, sourceID, destinationID) {
-                var messagePrefix = "modulesjs_message";
-                if (sourceID == null) {
-                    if (destinationID == null) {
-                        _unsubscribe(messagePrefix + "_" + theme);
+                var messagePrefix = "modulesjs_message_";
+                var calculatedTheme = calculateTheme();
+                function calculateTheme() {
+                    var _calculatedTheme = "";
+                    if (sourceID == null) {
+                        if (destinationID == null) {
+                            _calculatedTheme = messagePrefix + theme;
+                        } else {
+                            _calculatedTheme = messagePrefix + theme + "__" + destinationID;
+                        }
                     } else {
-                        _unsubscribe(messagePrefix + "_" + theme + "__" + destinationID);
+                        if (destinationID == null) {
+                            _calculatedTheme = messagePrefix + theme + "_" + sourceID;
+                        } else {
+                            _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
+                        }
                     }
-                } else {
-                    if (destinationID == null) {
-                        _unsubscribe(messagePrefix + "_" + theme + "_" + sourceID);
-                    } else {
-                        _unsubscribe(messagePrefix + "_" + theme + "_" + sourceID + "_" + destinationID);
-                    }
+                    return _calculatedTheme;
                 }
-                function _unsubscribe(theme) {
-                    Modules.Events.removeDocumentListener(theme, listener);
+
+                if (calculatedTheme !== "") {
+                    Modules.Events.removeDocumentListener(calculatedTheme, listener);
                 }
             }
             Messages.send = send;
@@ -1153,7 +1172,7 @@ var Modules = window.exports.Modules;
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Mon Aug 19 2013 10:40:09 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Wed Aug 28 2013 17:25:08 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>
