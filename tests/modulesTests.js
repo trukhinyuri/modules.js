@@ -2591,19 +2591,19 @@ asyncTest("send (theme, detail)", function() {
     var sourceID = null;
     var destinationID = null;
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
-    evt.addDocumentListener("modulesjs_messages_" + theme, receiver);
+    evt.addDocumentListener("modulesjs_message_" + theme, receiver);
     function receiver(e) {
         //noinspection JSCheckFunctionSignatures
+        start();
         evt.removeDocumentListener("modulesjs_message_" + theme, receiver);
         equal(e.detail.message.item, "true", "Message received");
         equal(e.detail.postAdress.sourceID, null, "Source undefined");
         equal(e.detail.postAdress.destinationID, null, "Destination undefined");
-        start();
     }
     //noinspection JSCheckFunctionSignatures
     msg.send(theme, detail);
 });
-//Work, incorrect test passed
+
 asyncTest("send (theme, detail, sourceID)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
@@ -2613,18 +2613,84 @@ asyncTest("send (theme, detail, sourceID)", function() {
     var sourceID = "source";
     var destinationID = null;
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
-    evt.addDocumentListener("modulesjs_messages_" + theme + "_" + sourceID, receiver);
+    evt.addDocumentListener("modulesjs_message_" + theme + "_" + sourceID, receiver);
     function receiver(e) {
+        start();
         //noinspection JSCheckFunctionSignatures
         evt.removeDocumentListener("modulesjs_message_" + theme + "_" + sourceID, receiver);
         equal(e.detail.message.item, "true", "Message received");
         equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
         equal(e.detail.postAdress.destinationID, null, "Destination undefined");
-        start();
     }
     //noinspection JSCheckFunctionSignatures
-    msg.send(theme, detail);
+    msg.send(theme, detail, sourceID);
 });
+
+asyncTest("send (theme, detail, null, destinationID)", function() {
+    expect(3);
+    var msg = Modules.Events.Messages;
+    var evt = Modules.Events;
+    var theme = "greetings";
+    var detail = {item: "true"};
+    var sourceID = null;
+    var destinationID = "destination";
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    evt.addDocumentListener("modulesjs_message_" + theme + "__" + destinationID, receiver);
+    function receiver(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        evt.removeDocumentListener("modulesjs_message_" + theme + "__" + destinationID, receiver);
+        equal(e.detail.message.item, "true", "Message received");
+        equal(e.detail.postAdress.sourceID, null, "Source undefined");
+        equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
+    }
+    //noinspection JSCheckFunctionSignatures
+    msg.send(theme, detail, undefined, destinationID);
+});
+
+asyncTest("send (theme, detail, sourceID, destinationID)", function() {
+    expect(3);
+    var msg = Modules.Events.Messages;
+    var evt = Modules.Events;
+    var theme = "greetings";
+    var detail = {item: "true"};
+    var sourceID = "source";
+    var destinationID = "destination";
+    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+    evt.addDocumentListener("modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, receiver);
+    function receiver(e) {
+        start();
+        //noinspection JSCheckFunctionSignatures
+        evt.removeDocumentListener("modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, receiver);
+        equal(e.detail.message.item, "true", "Message received");
+        equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
+        equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
+    }
+    //noinspection JSCheckFunctionSignatures
+    msg.send(theme, detail, sourceID, destinationID);
+});
+
+//asyncTest("unsubscribe (theme, listener)", function() {
+//    expect(3);
+//    var msg = Modules.Events.Messages;
+//    var evt = Modules.Events;
+//    var theme = "greetings";
+//    var detail = {item: "true"};
+//    var sourceID = null;
+//    var destinationID = null;
+//    //noinspection JSCheckFunctionSignatures,JSValidateTypes
+//    evt.addDocumentListener("modulesjs_message_" + theme, receiver);
+//    function receiver(e) {
+//        start();
+//        //noinspection JSCheckFunctionSignatures
+//        msg.unsubscribe(theme, receiver);
+//        equal(e.detail.message.item, "true", "Message received");
+//        equal(e.detail.postAdress.sourceID, null, "Source undefined");
+//        equal(e.detail.postAdress.destinationID, null, "Destination undefined");
+//    }
+//    //noinspection JSCheckFunctionSignatures
+//    evt.dispatchCustomEvent(document, "modulesjs_message_" + theme, detail);
+//});
 
 //asyncTest("send (theme, detail, null, destinationID)", function() {
 //    expect(3);
