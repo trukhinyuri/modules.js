@@ -1,5 +1,4 @@
-var test = new function() {
-    this.run = function() {
-        return "correct";
-    };
-};
+(function test() {
+    "use strict";
+
+}());

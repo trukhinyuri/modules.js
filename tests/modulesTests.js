@@ -2861,117 +2861,56 @@ module("Modules.Loader", {
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
         (function (Setup) {
-            function test1 () {
+            function loadModuleSimple () {
                 var body = document.getElementsByTagName("body")[0];
                 var divRoot0 = document.createElement('div');
-                divRoot0.className = "addListenersTest";
+                divRoot0.className = "loadModuleSimpleTest";
                 body.appendChild(divRoot0);
-                var divRoot1 = document.createElement("div");
-                divRoot1.className = "addListenersTest";
-                body.appendChild(divRoot1);
             }
 
-            Setup.test1 = test1;
+            Setup.loadModuleSimple = loadModuleSimple;
         }(window.exports.Setup || (window.exports.Setup = {})));
         //noinspection JSUnresolvedVariable
         var Setup = window.exports.Setup;
 
         //Setup excecution
-        Setup.test1();
+        Setup.loadModuleSimple();
     },
     teardown: function() {
         //Definition of Teardown module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
         (function (Teardown) {
-            function test1() {
+            function loadModuleSimple() {
                 var body = document.getElementsByTagName("body")[0];
 
-                var divRoot = document.getElementsByClassName("addListenersTest")[0];
-                body.removeChild(divRoot);
-
-                var divRoot = document.getElementsByClassName("addListenersTest")[0];
+                var divRoot = document.getElementsByClassName("loadModuleSimpleTest")[0];
                 body.removeChild(divRoot);
             }
 
-            Teardown.test1 = test1;
+            Teardown.loadModuleSimple = loadModuleSimple;
 
         }(window.exports.Teardown || (window.exports.Teardown = {})));
         //noinspection JSUnresolvedVariable
         var Teardown = window.exports.Teardown;
 
         //Teardown execution
-        Teardown.test1();
+        Teardown.loadModuleSimple();
     }
 });
 
-//test("load (path, itemName, className, callback, itemType=Modules.MODULE", function(){
-//    expect(1);
-//
-//});
+asyncTest("load (itemType=Modules.MODULE, path, itemName, className, callback)", function(){
+    expect(1);
+    var loader = Modules.Loader;
+    var modulesPath = "modules_forTests";
+    loader.load(Modules.MODULE, modulesPath, "test", "loadModuleSimpleTest", testModuleLoaded);
+    function testModuleLoaded () {
+        ok(true, "Module loaded callback excecuted");
+        start();
+    }
+});
 
-//
-//"use strict";
-////noinspection JSUnresolvedFunction
-//module("Modules", {
-//    setup: function() {
-//        //Definition of Setup module
-//        //noinspection JSUnresolvedVariable
-//        window.exports = window.exports || (window.exports = {});
-//        (function (Setup) {
-//            function isHTMLModule () {
-//                var moduleItemType = "module";
-//                var anotherItemType = "template";
-//                var body = document.getElementsByTagName("body")[0];
-//                var divHTMLModule = document.createElement('div');
-//                divHTMLModule.className = "HTMLModule";
-//                divHTMLModule.setAttribute("data-" + "modulesjs_item_type", moduleItemType);
-//                var testModuleInHTMLModule = document.createElement("div");
-//                testModuleInHTMLModule.className = "testModuleInHTMLModule";
-//                divHTMLModule.appendChild(testModuleInHTMLModule);
-//                body.appendChild(divHTMLModule);
-//
-//                var divNotHTMLModule = document.createElement("div");
-//                divNotHTMLModule.className = "NotHTMLModule";
-//                divNotHTMLModule.setAttribute("data-" + "modulesjs_item_type", anotherItemType);
-//                var testModuleInNotHTMLModule = document.createElement("div");
-//                testModuleInNotHTMLModule.className = "testModuleInNotHTMLModule";
-//                divNotHTMLModule.appendChild(testModuleInNotHTMLModule);
-//                body.appendChild(divNotHTMLModule);
-//            }
-//            Setup.isHTMLModule = isHTMLModule;
-//        }(window.exports.Setup || (window.exports.Setup = {})));
-//        //noinspection JSUnresolvedVariable
-//        var Setup = window.exports.Setup;
-//
-//        //Setup excecution
-//        Setup.isHTMLModule();
-//    },
-//    teardown: function() {
-//        //Definition of Teardown module
-//        //noinspection JSUnresolvedVariable
-//        window.exports = window.exports || (window.exports = {});
-//        (function (Teardown) {
-//            function isHTMLModule () {
-//                var body = document.getElementsByTagName("body")[0];
-//
-//                var divHTMLModule = document.getElementsByClassName("HTMLModule")[0];
-//                body.removeChild(divHTMLModule);
-//
-//                var divNotHTMLModule = document.getElementsByClassName("NotHTMLModule")[0];
-//                body.removeChild(divNotHTMLModule);
-//            }
-//
-//            Teardown.isHTMLModule = isHTMLModule;
-//
-//        }(window.exports.Teardown || (window.exports.Teardown = {})));
-//        //noinspection JSUnresolvedVariable
-//        var Teardown = window.exports.Teardown;
-//
-//        //Teardown execution
-//        Teardown.isHTMLModule();
-//    }
-//});
+
 
 //module("Modules.Loader", {
 //    setup: function() {

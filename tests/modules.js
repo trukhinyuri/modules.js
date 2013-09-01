@@ -1101,12 +1101,12 @@ window.exports = window.exports || (window.exports = {});
          * @param {String} path Location of the items folder
          * @param {String} itemName Name of the item
          * @param {String} className Class on page for loading item
-         * @param {EventListener} callback Callback is called when item loaded
+         * @param {Function} callback Callback is called when item loaded
          */
-        function load (itemType, path, itemName, className, callback, dataSource, container) {
-            var _path = _checkPath(path);
+        function load (itemType, path, itemName, className, callback, container, dataSource) {
+            var _correctPath = _checkPath(path);
             if (itemType === Modules.MODULE) {
-                _loadModule(_path, itemName, className, callback, container);
+                _loadModule(_correctPath, itemName, className, callback, container);
             }
 
 // else if (itemType === this.itemTypes.template) {
