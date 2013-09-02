@@ -1098,7 +1098,7 @@ window.exports = window.exports || (window.exports = {});
          * @method load
          * @memberOf Modules.Loader
          * @param {String} itemType ITEM_TYPE constant for item type. See {@link window.exports.Modules}
-         * @param {String} path Location of the items folder
+         * @param {String | undefined} path Location of the items folder
          * @param {String} itemName Name of the item
          * @param {String} className Class on page for loading item
          * @param {Function} callback Callback is called when item loaded
