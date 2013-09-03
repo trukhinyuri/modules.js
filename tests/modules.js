@@ -194,12 +194,27 @@ window.exports = window.exports || (window.exports = {});
         function getFirstElementByClassName (htmlDocument, className) {
             return htmlDocument.getElementsByClassName(className)[0];
         }
+
+        /**
+         * Get URL of document folder
+         * @method getDocumentRootURL
+         * @memberOf Modules.DOM
+         * @returns {String} URL of document folder
+         */
+        function getDocumentRootURL() {
+            var documentURL = document.URL.split("/");
+            documentURL.pop();
+            var documentRootURL = documentURL.join("/");
+            return documentRootURL;
+        }
+
         DOM.isHTMLModule = isHTMLModule;
         DOM.isHTMLTemplate = isHTMLTemplate;
         DOM.getModules = getModules;
         DOM.getTemplates = getTemplates;
         DOM.getFirstContainerElementByClassName = getFirstContainerElementByClassName;
         DOM.getFirstElementByClassName = getFirstElementByClassName;
+        DOM.getDocumentRootURL = getDocumentRootURL;
     })(Modules.DOM || (Modules.DOM = {}));
     var DOM = Modules.DOM;
 
@@ -917,14 +932,15 @@ window.exports = window.exports || (window.exports = {});
          * @returns {String} Correct path or page directory
          */
         function _checkPath(path) {
+            var documentRootURL = Modules.DOM.getDocumentRootURL;
             if (typeof (path) == "string") {
                 if (path[path.length-1] === "/") {
                     path = path.substring(0, path.length - 1);
                 }
-                return path;
+                return documentRootURL + path;
             }
             else {
-                return "";
+                return documentRootURL();
             }
         }
 

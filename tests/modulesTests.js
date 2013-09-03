@@ -452,6 +452,15 @@ test("getFirstElementByClassName", function(){
     var actualId = actualElement.id;
     equal(actualId, expectedId, "Find first element by className, selected correct element (check by id)");
 });
+test("getDocumentRootURL()", function(){
+    expect(1);
+    var actualDocumentRootURL = Modules.DOM.getDocumentRootURL();
+    var documentURL = document.URL.split("/");
+    documentURL.pop();
+    var documentRootURL = documentURL.join("/");
+    equal(actualDocumentRootURL, documentRootURL, "Document Root URL: " + actualDocumentRootURL);
+
+});
 
 //noinspection JSUnresolvedFunction
 module("Modules.Events", {
