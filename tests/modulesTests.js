@@ -2928,7 +2928,7 @@ asyncTest("load (itemType=Modules.MODULE, path=undefined, itemName, className, c
         equal(event.detail.itemInfo.itemName, moduleName, "module_" + moduleName + "_loadingStarted event:" +
             " itemName: " + moduleName);
         var itemPath = "/" + moduleName + "/";
-        equal(event.detail.itemInfo.itemPath, itemPath, "module_" + moduleName + "_loadingStarted event:" +
+        equal(event.detail.itemInfo.itemPath, Modules.DOM.getDocumentRootURL() + itemPath, "module_" + moduleName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
         equal(event.detail.itemInfo.className, className, "module_" + moduleName + "_loadingStarted event:" +
             " className: " + className);
@@ -2947,9 +2947,8 @@ asyncTest("load (itemType=Modules.MODULE, path=undefined, itemName, className, c
         function cssLoadedCheck() {
             var modulesCSSprefix = "modulesjs_css_";
             var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
-            var loadedCSSHrefWithHost = cssLoaded.href;
-            var actualLoadedCSSHref = loadedCSSHrefWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://", "");
-            var expectedCSSHref = modulePath + ".css";
+            var actualLoadedCSSHref = cssLoaded.href;
+            var expectedCSSHref = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".css";
             equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
             var actualLoadedCSSClassName = cssLoaded.className;
             var expectedCSSClassName = modulesCSSprefix + moduleName;
@@ -2964,9 +2963,8 @@ asyncTest("load (itemType=Modules.MODULE, path=undefined, itemName, className, c
         function jsLoadedCheck() {
             var modulesJsPrefix = "modulesjs_js_";
             var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
-            var loadedJsSrcWithHost = jsLoaded.src;
-            var actualLoadedJsSrc = loadedJsSrcWithHost.replace(window.location.host + "/", "").replace("http://", "").replace("https://", "");
-            var expectedJsSrc = modulePath + ".js";
+            var actualLoadedJsSrc = jsLoaded.src;
+            var expectedJsSrc = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".js";
             equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
             var actualLoadedJsClassName = jsLoaded.className;
             var expectedJsClassName = modulesJsPrefix + moduleName;
