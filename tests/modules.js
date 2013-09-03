@@ -1022,24 +1022,24 @@ window.exports = window.exports || (window.exports = {});
          * @private
          * @method _loadHTML
          * @memberOf Modules.Loader
-         * @param {String} path Location of the HTML file
-         * @param {String} name Name of the HTML file
+         * @param {String} correctPath Location of the HTML file
+         * @param {String} itemName Name of the HTML file
          * @param {String} className Class on page for loading item
          * @param {String} itemType ITEM_TYPE constant for item type. See {@link window.exports.Modules}
          * @param {String} [containerClassName = undefined] Container class of className for adequate definition place for item loading
          * @param {Function} callback Callback is called when the content of the HTML file loaded on the page
          */
-        function _loadHTML(path, name, className, itemType, container, callback) {
+        function _loadHTML(correctPath, itemName, className, itemType, containerClassName, callback) {
             function loadedHandler(responseText, name) {
-                _renderHTML(responseText, className, itemType, container, callback);
+                _renderHTML(responseText, className, itemType, containerClassName, callback);
             }
-            _loadHTMLInMemory(path, name, loadedHandler);
+            _loadHTMLInMemory(correctPath, itemName, loadedHandler);
         }
 
-        function _renderHTML(responseText, className, htmlItemType, container, callback) {
+        function _renderHTML(responseText, className, htmlItemType, containerClassName, callback) {
             var elementClasses = null;
-            if (container != null) {
-                var containerElement = document.getElementsByClassName(container)[0];
+            if (containerClassName != null) {
+                var containerElement = document.getElementsByClassName(containerClassName)[0];
                 elementClasses = containerElement.getElementsByClassName(className);
             } else {
                 elementClasses = document.getElementsByClassName(className);
@@ -1055,14 +1055,14 @@ window.exports = window.exports || (window.exports = {});
             }
         }
 
-        function _loadHTMLInMemory(path, name, callback) {
+        function _loadHTMLInMemory(correctPath, itemName, callback) {
             var xhrHtmlLoader = new XMLHttpRequest();
-            xhrHtmlLoader.open("GET", path  + ".html", true);
+            xhrHtmlLoader.open("GET", correctPath  + ".html", true);
             xhrHtmlLoader.onreadystatechange = function() {
                 if (xhrHtmlLoader.readyState === 4 /* complete */) {
                     if (xhrHtmlLoader.status === 200 || xhrHtmlLoader.status === 304) {
                         if (callback) {
-                            callback(xhrHtmlLoader.responseText, name);
+                            callback(xhrHtmlLoader.responseText, itemName);
                         }
                     }
                 }
@@ -1075,19 +1075,19 @@ window.exports = window.exports || (window.exports = {});
          * @private
          * @method _loadModule
          * @memberOf Modules.Loader
-         * @param {String} path Location of the items folder
+         * @param {String} correctPath Location of the items folder, checked with _checkPath
          * @param {String} moduleName Name of the item
          * @param {String} className Class on page for loading item
          * @param {Function} callback Callback is called when item loaded
          * @param {String} [containerClassName = undefined] Container class of className for adequate definition place for item loading
          */
-        function _loadModule (path, moduleName, className, callback, containerClassName) {
+        function _loadModule (correctPath, moduleName, className, callback, containerClassName) {
             setTimeout(function(){
-                loadSync(path, moduleName, className, callback, containerClassName);
+                loadSync(correctPath, moduleName, className, callback, containerClassName);
             }, 0);
 
-            function loadSync (path, moduleName, className, callback, container) {
-                var modulePath = _buildModulePath(path, moduleName);
+            function loadSync (correctPath, moduleName, className, callback, containerClassName) {
+                var modulePath = _buildModulePath(correctPath, moduleName);
 
                 var itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className,
                     "containerClassName" : containerClassName}};
@@ -1097,7 +1097,7 @@ window.exports = window.exports || (window.exports = {});
                 var pathToModuleFiles = modulePath + moduleName;
 
                 _loadCSS(pathToModuleFiles, moduleName, function() {
-                    _loadHTML(pathToModuleFiles, moduleName, className, Modules.MODULE, container, function() {
+                    _loadHTML(pathToModuleFiles, moduleName, className, Modules.MODULE, containerClassName, function() {
                         _loadJS(pathToModuleFiles, moduleName, function() {
                             Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_loaded", itemData);
                             if (callback) {
@@ -1114,13 +1114,15 @@ window.exports = window.exports || (window.exports = {});
          * @method load
          * @memberOf Modules.Loader
          * @param {String} itemType ITEM_TYPE constant for item type. See {@link window.exports.Modules}
-         * @param {String | undefined} path Location of the items folder
+         * @param {String | undefined} relativePath Relative path to the items folder
          * @param {String} itemName Name of the item
-         * @param {String} className Class on page for loading item
+         * @param {String} className Class on the page for loading item
          * @param {Function} callback Callback is called when item loaded
+         * @param {String} container Class on the page, which parent for class for loading item
+         * @param {Object} dataSource Object with data for Modules.TEMPLATE
          */
-        function load (itemType, path, itemName, className, callback, container, dataSource) {
-            var _correctPath = _checkPath(path);
+        function load (itemType, relativePath, itemName, className, callback, container, dataSource) {
+            var _correctPath = _checkPath(relativePath);
             if (itemType === Modules.MODULE) {
                 _loadModule(_correctPath, itemName, className, callback, container);
             }

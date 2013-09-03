@@ -2981,7 +2981,7 @@ asyncTest("load (itemType=Modules.MODULE, path=undefined, itemName, className, c
             var htmlsLoaded = document.getElementsByClassName(moduleName);
             var htmlsLoadedLength = htmlsLoaded.length;
             var expectedHtmlClassName = moduleName;
-            var expectedHtmlType = "module";
+            var expectedHtmlType = Modules.MODULE;
             var expectedRootClassName = className;
             for (var i = 0; i < htmlsLoadedLength; i++) {
                 var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");

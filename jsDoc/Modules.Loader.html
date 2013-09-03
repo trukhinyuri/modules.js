@@ -210,7 +210,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line946">line 946</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line947">line 947</a>
     </li></ul></dd>
     
     
@@ -534,7 +534,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line961">line 961</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line962">line 962</a>
     </li></ul></dd>
     
     
@@ -562,7 +562,7 @@
         
             
 <dt>
-    <h4 class="name" id="_loadHTML"><span class="type-signature">&lt;private, static> </span>_loadHTML<span class="signature">(path, name, className, itemType, <span class="optional">containerClassName</span>, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_loadHTML"><span class="type-signature">&lt;private, static> </span>_loadHTML<span class="signature">(correctPath, itemName, className, itemType, <span class="optional">containerClassName</span>, callback)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -608,7 +608,7 @@
 	
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>correctPath</code></td>
             
             
             <td class="type">
@@ -643,7 +643,7 @@
 	
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>itemName</code></td>
             
             
             <td class="type">
@@ -846,7 +846,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1019">line 1019</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1020">line 1020</a>
     </li></ul></dd>
     
     
@@ -1009,7 +1009,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line986">line 986</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line987">line 987</a>
     </li></ul></dd>
     
     
@@ -1037,7 +1037,7 @@
         
             
 <dt>
-    <h4 class="name" id="_loadModule"><span class="type-signature">&lt;private, static> </span>_loadModule<span class="signature">(path, moduleName, className, callback, <span class="optional">containerClassName</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_loadModule"><span class="type-signature">&lt;private, static> </span>_loadModule<span class="signature">(correctPath, moduleName, className, callback, <span class="optional">containerClassName</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -1083,7 +1083,7 @@
 	
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>correctPath</code></td>
             
             
             <td class="type">
@@ -1111,7 +1111,7 @@
                 </td>
             
             
-            <td class="description last">Location of the items folder</td>
+            <td class="description last">Location of the items folder, checked with _checkPath</td>
         </tr>
 	
 	
@@ -1286,7 +1286,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1072">line 1072</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1073">line 1073</a>
     </li></ul></dd>
     
     
@@ -1314,7 +1314,7 @@
         
             
 <dt>
-    <h4 class="name" id="load"><span class="type-signature">&lt;static> </span>load<span class="signature">(itemType, path, itemName, className, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="load"><span class="type-signature">&lt;static> </span>load<span class="signature">(itemType, relativePath, itemName, className, callback, container, dataSource)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -1379,7 +1379,7 @@
 	
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>relativePath</code></td>
             
             
             <td class="type">
@@ -1398,7 +1398,7 @@
             
             
             
-            <td class="description last">Location of the items folder</td>
+            <td class="description last">Relative path to the items folder</td>
         </tr>
 	
 	
@@ -1444,7 +1444,7 @@
             
             
             
-            <td class="description last">Class on page for loading item</td>
+            <td class="description last">Class on the page for loading item</td>
         </tr>
 	
 	
@@ -1468,6 +1468,52 @@
             
             
             <td class="description last">Callback is called when item loaded</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>container</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Class on the page, which parent for class for loading item</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dataSource</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Object with data for Modules.TEMPLATE</td>
         </tr>
 	
 	
@@ -1498,7 +1544,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1111">line 1111</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1112">line 1112</a>
     </li></ul></dd>
     
     
@@ -1545,7 +1591,7 @@
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Tue Sep 03 2013 13:08:27 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Tue Sep 03 2013 16:24:15 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>
