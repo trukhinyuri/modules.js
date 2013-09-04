@@ -3029,7 +3029,7 @@ asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", fun
     loader.load(Modules.MODULE, path, moduleName, className, whenModuleLoadedWithCallback);
 
     function whenModuleUnloadedWithCallback() {
-        ok(true, "unloaded simple check")
+        equal(true, true, "unloaded simple check")
         start();
     }
     function checkModuleLoaded(moduleName, modulePath, className, comment) {
