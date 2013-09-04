@@ -399,7 +399,7 @@
         
             
 <dt>
-    <h4 class="name" id="_loadCSS"><span class="type-signature">&lt;private, static> </span>_loadCSS<span class="signature">(path, name, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_loadCSS"><span class="type-signature">&lt;private, static> </span>_loadCSS<span class="signature">(pathToItemFiles, itemName, callback)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -407,7 +407,7 @@
     
     
     <div class="description">
-        Load CSS file to the page (adding correct link to the file)
+        Load CSS file to the document (adding correct link to the file)
     </div>
     
 
@@ -441,7 +441,7 @@
 	
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>pathToItemFiles</code></td>
             
             
             <td class="type">
@@ -464,7 +464,7 @@
 	
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>itemName</code></td>
             
             
             <td class="type">
@@ -562,7 +562,7 @@
         
             
 <dt>
-    <h4 class="name" id="_loadHTML"><span class="type-signature">&lt;private, static> </span>_loadHTML<span class="signature">(correctPath, itemName, className, itemType, <span class="optional">containerClassName</span>, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_loadHTML"><span class="type-signature">&lt;private, static> </span>_loadHTML<span class="signature">(pathToItemFiles, itemName, className, itemType, <span class="optional">containerClassName</span>, callback)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -570,7 +570,7 @@
     
     
     <div class="description">
-        Load content of HTML file to the page
+        Load content of HTML file to the document
     </div>
     
 
@@ -608,7 +608,7 @@
 	
         <tr>
             
-                <td class="name"><code>correctPath</code></td>
+                <td class="name"><code>pathToItemFiles</code></td>
             
             
             <td class="type">
@@ -815,7 +815,7 @@
                 </td>
             
             
-            <td class="description last">Callback is called when the content of the HTML file loaded on the page</td>
+            <td class="description last">Callback is called when the content of the HTML file loaded on the document</td>
         </tr>
 	
 	
@@ -846,7 +846,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1020">line 1020</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1058">line 1058</a>
     </li></ul></dd>
     
     
@@ -874,7 +874,7 @@
         
             
 <dt>
-    <h4 class="name" id="_loadJS"><span class="type-signature">&lt;private, static> </span>_loadJS<span class="signature">(path, name, callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_loadHTMLInMemory"><span class="type-signature">&lt;private, static> </span>_loadHTMLInMemory<span class="signature">(pathToItemFiles, itemName, callback)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -882,7 +882,7 @@
     
     
     <div class="description">
-        Load JavaScript file to the page (adding correct link to the file)
+        Load HTML content from file in memory (passed in callback parameter (HTMLContent, itemName))
     </div>
     
 
@@ -916,7 +916,170 @@
 	
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>pathToItemFiles</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Location of the HTML file</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Name of the HTML file</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback is called when the content of the HTML file loaded in the memory</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1151">line 1151</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_loadJS"><span class="type-signature">&lt;private, static> </span>_loadJS<span class="signature">(pathToItemFiles, itemName, callback)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Load JavaScript file to the document (adding correct link to the file)
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>pathToItemFiles</code></td>
             
             
             <td class="type">
@@ -939,7 +1102,7 @@
 	
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>itemName</code></td>
             
             
             <td class="type">
@@ -1009,7 +1172,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line987">line 987</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1006">line 1006</a>
     </li></ul></dd>
     
     
@@ -1045,7 +1208,7 @@
     
     
     <div class="description">
-        Load itemType in className from path
+        Load module in className from path
     </div>
     
 
@@ -1286,7 +1449,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1073">line 1073</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1175">line 1175</a>
     </li></ul></dd>
     
     
@@ -1314,7 +1477,1118 @@
         
             
 <dt>
-    <h4 class="name" id="load"><span class="type-signature">&lt;static> </span>load<span class="signature">(itemType, relativePath, itemName, className, callback, container, dataSource)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_renderHTML"><span class="type-signature">&lt;private, static> </span>_renderHTML<span class="signature">(HTMLContent, className, itemType, <span class="optional">containerClassName</span>, callback)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Render HTML content on the document
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>HTMLContent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">HTML content for rendering</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>className</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Class on document for loading item</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">ITEM_TYPE constant for item type. See <a href="window.exports.Modules.html">window.exports.Modules</a></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>containerClassName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    undefined
+                
+                </td>
+            
+            
+            <td class="description last">Container class of className for adequate definition place for loading item</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Callback is called when the content of the HTML file rendered on the document</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1113">line 1113</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_unloadCSS"><span class="type-signature">&lt;private, static> </span>_unloadCSS<span class="signature">(itemName, callback)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Unload CSS from the document
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Name of the CSS file</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback is called when the CSS file unloaded on the page</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line987">line 987</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_unloadHTML"><span class="type-signature">&lt;private, static> </span>_unloadHTML<span class="signature">(itemName, className, itemType, <span class="optional">containerClassName</span>, callback)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Unload content of HTML file from the document
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Name of the HTML file</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>className</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Class on page for unloading item</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">ITEM_TYPE constant for item type. See <a href="window.exports.Modules.html">window.exports.Modules</a></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>containerClassName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    undefined
+                
+                </td>
+            
+            
+            <td class="description last">Container class of className for adequate definition place for item unloading</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Callback is called when the content of the HTML file unloaded from the document</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1077">line 1077</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_unloadJS"><span class="type-signature">&lt;private, static> </span>_unloadJS<span class="signature">(itemName, callback)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Unload JavaScript from the document
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Name of the JavaScript file</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback is called when the JavaScript file loaded on the page</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1039">line 1039</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_unloadModule"><span class="type-signature">&lt;private, static> </span>_unloadModule<span class="signature">(correctPath, moduleName, className, callback, <span class="optional">containerClassName</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Unload module from className
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>correctPath</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Location of the items folder, checked with _checkPath</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>moduleName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Name of the item</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>className</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Class on page for loading item</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Callback is called when item loaded</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>containerClassName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    undefined
+                
+                </td>
+            
+            
+            <td class="description last">Container class of className for adequate definition place for item loading</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1214">line 1214</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="load"><span class="type-signature">&lt;static> </span>load<span class="signature">(itemType, relativePath, itemName, className, callback, containerClassName, dataSource)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -1474,7 +2748,7 @@
 	
         <tr>
             
-                <td class="name"><code>container</code></td>
+                <td class="name"><code>containerClassName</code></td>
             
             
             <td class="type">
@@ -1544,7 +2818,216 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1112">line 1112</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1246">line 1246</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="unload"><span class="type-signature">&lt;static> </span>unload<span class="signature">(itemType, itemName, className, callback, container)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Unload itemType in className
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">ITEM_TYPE constant for item type. See <a href="window.exports.Modules.html">window.exports.Modules</a></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>itemName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Name of the item</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>className</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Class on the page for unloading item</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback is called when item unloaded</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>container</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Class on the page, which parent for class for unloading item</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line1275">line 1275</a>
     </li></ul></dd>
     
     
@@ -1591,7 +3074,7 @@
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Tue Sep 03 2013 16:24:15 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Wed Sep 04 2013 23:40:22 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>

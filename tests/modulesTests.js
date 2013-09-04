@@ -2877,13 +2877,22 @@ module("Modules.Loader", {
                 body.appendChild(divRoot0);
             }
 
+            function unloadModuleSimple () {
+                var body = document.getElementsByTagName("body")[0];
+                var divRoot0 = document.createElement('div');
+                divRoot0.className = "unloadModuleSimpleTest";
+                body.appendChild(divRoot0);
+            }
+
             Setup.loadModuleSimple = loadModuleSimple;
+            Setup.unloadModuleSimple = unloadModuleSimple;
         }(window.exports.Setup || (window.exports.Setup = {})));
         //noinspection JSUnresolvedVariable
         var Setup = window.exports.Setup;
 
         //Setup excecution
         Setup.loadModuleSimple();
+        Setup.unloadModuleSimple();
     },
     teardown: function() {
         //Definition of Teardown module
@@ -2896,8 +2905,15 @@ module("Modules.Loader", {
                 var divRoot = document.getElementsByClassName("loadModuleSimpleTest")[0];
                 body.removeChild(divRoot);
             }
+            function unloadModuleSimple() {
+                var body = document.getElementsByTagName("body")[0];
+
+                var divRoot = document.getElementsByClassName("unloadModuleSimpleTest")[0];
+                body.removeChild(divRoot);
+            }
 
             Teardown.loadModuleSimple = loadModuleSimple;
+            Teardown.unloadModuleSimple = unloadModuleSimple;
 
         }(window.exports.Teardown || (window.exports.Teardown = {})));
         //noinspection JSUnresolvedVariable
@@ -2905,6 +2921,7 @@ module("Modules.Loader", {
 
         //Teardown execution
         Teardown.loadModuleSimple();
+        Teardown.unloadModuleSimple();
     }
 });
 
@@ -2942,6 +2959,79 @@ asyncTest("load (itemType=Modules.MODULE, path=undefined, itemName, className, c
     }
     loader.load(Modules.MODULE, path, moduleName, className, whenModuleLoadedWithCallback);
 
+    function checkModuleLoaded(moduleName, modulePath, className, comment) {
+        //CSS loaded check
+        function cssLoadedCheck() {
+            var modulesCSSprefix = "modulesjs_css_";
+            var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
+            var actualLoadedCSSHref = cssLoaded.href;
+            var expectedCSSHref = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".css";
+            equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+            var actualLoadedCSSClassName = cssLoaded.className;
+            var expectedCSSClassName = modulesCSSprefix + moduleName;
+            equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+            var actualLoadedCSSType = cssLoaded.type;
+            var expectedCSSType = "text/css";
+            equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+            var actualLoadedCSSStylesheet = cssLoaded.rel;
+            var expectedCSSStylesheet = "stylesheet";
+            equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+        }
+        function jsLoadedCheck() {
+            var modulesJsPrefix = "modulesjs_js_";
+            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
+            var actualLoadedJsSrc = jsLoaded.src;
+            var expectedJsSrc = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".js";
+            equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+            var actualLoadedJsClassName = jsLoaded.className;
+            var expectedJsClassName = modulesJsPrefix + moduleName;
+            equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+                + comment + "): " + actualLoadedJsClassName);
+            var actualLoadedJsType = jsLoaded.type;
+            var expectedJsType = "text/javascript";
+            equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+            var actualLoadedJsAsync = jsLoaded.async;
+            var expectedJsAsync = true;
+            equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+        }
+        function htmlLoadedCheck() {
+            var htmlsLoaded = document.getElementsByClassName(moduleName);
+            var htmlsLoadedLength = htmlsLoaded.length;
+            var expectedHtmlClassName = moduleName;
+            var expectedHtmlType = Modules.MODULE;
+            var expectedRootClassName = className;
+            for (var i = 0; i < htmlsLoadedLength; i++) {
+                var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
+                var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
+                ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+                ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
+                equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+                    + "; modulesjs_moduleID: " + itemIDAttribute);
+            }
+        }
+        cssLoadedCheck();
+        jsLoadedCheck();
+        htmlLoadedCheck();
+    }
+});
+
+asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", function(){
+    expect(1);
+    var loader = Modules.Loader;
+    var path = undefined;
+    var moduleName = "testModule";
+    var modulePath = moduleName + "/" + moduleName;
+    var className = "unloadModuleSimpleTest";
+
+    function whenModuleLoadedWithCallback() {
+        loader.unload(Modules.MODULE, moduleName, className, whenModuleUnloadedWithCallback);
+    }
+    loader.load(Modules.MODULE, path, moduleName, className, whenModuleLoadedWithCallback);
+
+    function whenModuleUnloadedWithCallback() {
+        ok(true, "unloaded simple check")
+        start();
+    }
     function checkModuleLoaded(moduleName, modulePath, className, comment) {
         //CSS loaded check
         function cssLoadedCheck() {

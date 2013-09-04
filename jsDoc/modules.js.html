@@ -987,21 +987,21 @@ window.exports = window.exports || (window.exports = {});
 
 
         /**
-         * Load CSS file to the page (adding correct link to the file)
+         * Load CSS file to the document (adding correct link to the file)
          * @private
          * @method _loadCSS
          * @memberOf Modules.Loader
-         * @param {String} path Location of the CSS file
-         * @param {String} name Name of the CSS file
+         * @param {String} pathToItemFiles Location of the CSS file
+         * @param {String} itemName Name of the CSS file
          * @param {Function} callback Callback is called when the CSS file loaded on the page
          */
-        function _loadCSS (path, name, callback) {
+        function _loadCSS (pathToItemFiles, itemName, callback) {
             var modulesCSSprefix = "modulesjs_css_";
-            var cssLoaded = document.getElementsByClassName(modulesCSSprefix + name)[0];
+            var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
             if (!cssLoaded) {
                 var css = document.createElement('link');
-                css.href = path + ".css";
-                css.className = modulesCSSprefix + name;
+                css.href = pathToItemFiles + ".css";
+                css.className = modulesCSSprefix + itemName;
                 css.type = "text/css";
                 css.rel = "stylesheet";
                 document.getElementsByTagName("head")[0].appendChild(css);
@@ -1012,23 +1012,42 @@ window.exports = window.exports || (window.exports = {});
         }
 
         /**
-         * Load JavaScript file to the page (adding correct link to the file)
+         * Unload CSS from the document
+         * @private
+         * @method _unloadCSS
+         * @memberOf Modules.Loader
+         * @param {String} itemName Name of the CSS file
+         * @param {Function} callback Callback is called when the CSS file unloaded on the page
+         */
+        function _unloadCSS(itemName, callback) {
+            var modulesCSSprefix = "modulesjs_css_";
+            var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
+            if (cssLoaded) {
+                document.getElementsByTagName("head")[0].removeChild(cssLoaded);
+            }
+            if (callback) {
+                callback();
+            }
+        }
+
+        /**
+         * Load JavaScript file to the document (adding correct link to the file)
          * @private
          * @method _loadJS
          * @memberOf Modules.Loader
-         * @param {String} path Location of the JavaScript file
-         * @param {String} name Name of the JavaScript file
+         * @param {String} pathToItemFiles Location of the JavaScript file
+         * @param {String} itemName Name of the JavaScript file
          * @param {Function} callback Callback is called when the JavaScript file loaded on the page
          */
-        function _loadJS (path, name, callback) {
+        function _loadJS (pathToItemFiles, itemName, callback) {
             var modulesJsPrefix = "modulesjs_js_";
-            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + name)[0];
+            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
             if (jsLoaded) {
                 document.getElementsByTagName("head")[0].removeChild(jsLoaded);
             }
             var script = document.createElement('script');
-            script.src = path + ".js";
-            script.className = modulesJsPrefix + name;
+            script.src = pathToItemFiles + ".js";
+            script.className = modulesJsPrefix + itemName;
             script.type = "text/javascript";
             script.async = true;
             document.getElementsByTagName("head")[0].appendChild(script);
@@ -1038,53 +1057,136 @@ window.exports = window.exports || (window.exports = {});
                 if (!done && (!state || state === "loaded" || state === "complete")) {
                     done = true;
                     if (callback) {
-                        callback(name);
+                        callback(itemName);
                     }
                 }
             };
         }
 
         /**
-         * Load content of HTML file to the page
+         * Unload JavaScript from the document
          * @private
-         * @method _loadHTML
+         * @method _unloadJS
          * @memberOf Modules.Loader
-         * @param {String} correctPath Location of the HTML file
-         * @param {String} itemName Name of the HTML file
-         * @param {String} className Class on page for loading item
-         * @param {String} itemType ITEM_TYPE constant for item type. See {@link window.exports.Modules}
-         * @param {String} [containerClassName = undefined] Container class of className for adequate definition place for item loading
-         * @param {Function} callback Callback is called when the content of the HTML file loaded on the page
+         * @param {String} itemName Name of the JavaScript file
+         * @param {Function} callback Callback is called when the JavaScript file loaded on the page
          */
-        function _loadHTML(correctPath, itemName, className, itemType, containerClassName, callback) {
-            function loadedHandler(responseText, name) {
-                _renderHTML(responseText, className, itemType, containerClassName, callback);
-            }
-            _loadHTMLInMemory(correctPath, itemName, loadedHandler);
-        }
-
-        function _renderHTML(responseText, className, htmlItemType, containerClassName, callback) {
-            var elementClasses = null;
-            if (containerClassName != null) {
-                var containerElement = document.getElementsByClassName(containerClassName)[0];
-                elementClasses = containerElement.getElementsByClassName(className);
-            } else {
-                elementClasses = document.getElementsByClassName(className);
-            }
-            var classesCount = elementClasses.length;
-            for (var htmlID = 0; htmlID &lt; classesCount; htmlID++) {
-                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
-                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", htmlItemType);
-                elementClasses[htmlID].innerHTML = responseText;
+        function _unloadJS(itemName, callback) {
+            var modulesJsPrefix = "modulesjs_js_";
+            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
+            if (jsLoaded) {
+                document.getElementsByTagName("head")[0].removeChild(jsLoaded);
             }
             if (callback) {
                 callback();
             }
         }
 
-        function _loadHTMLInMemory(correctPath, itemName, callback) {
+        /**
+         * Load content of HTML file to the document
+         * @private
+         * @method _loadHTML
+         * @memberOf Modules.Loader
+         * @param {String} pathToItemFiles Location of the HTML file
+         * @param {String} itemName Name of the HTML file
+         * @param {String} className Class on page for loading item
+         * @param {String} itemType ITEM_TYPE constant for item type. See {@link window.exports.Modules}
+         * @param {String} [containerClassName = undefined] Container class of className for adequate definition place for item loading
+         * @param {Function} callback Callback is called when the content of the HTML file loaded on the document
+         */
+        function _loadHTML(pathToItemFiles, itemName, className, itemType, containerClassName, callback) {
+            function loadedHandler(responseText, name) {
+                _renderHTML(responseText, className, itemType, containerClassName, callback);
+            }
+            _loadHTMLInMemory(pathToItemFiles, itemName, loadedHandler);
+        }
+
+        /**
+         * Unload content of HTML file from the document
+         * @private
+         * @method _unloadHTML
+         * @memberOf Modules.Loader
+         * @param {String} itemName Name of the HTML file
+         * @param {String} className Class on page for unloading item
+         * @param {String} itemType ITEM_TYPE constant for item type. See {@link window.exports.Modules}
+         * @param {String} [containerClassName = undefined] Container class of className for adequate definition place for item unloading
+         * @param {Function} callback Callback is called when the content of the HTML file unloaded from the document
+         */
+        function _unloadHTML(itemName, className, itemType, containerClassName, callback) {
+            if (containerClassName != null) {
+                var containerElement = document.getElementsByClassName(containerClassName);
+                var containerElementLength = containerElement.length;
+                for (var currentContainerElement = 0; currentContainerElement &lt; containerElementLength; currentContainerElement ++) {
+                    var elementClasses = containerElement.getElementsByClassName(className);
+                    unloadContentFromElementClasses(elementClasses);
+                }
+            } else {
+                var elementClasses = document.getElementsByClassName(className);
+                unloadContentFromElementClasses(elementClasses);
+            }
+
+            function unloadContentFromElementClasses (elementClasses) {
+                var classesCount = elementClasses.length;
+                for (var htmlID = 0; htmlID &lt; classesCount; htmlID++) {
+                    elementClasses[htmlID].innerHTML = "";
+                }
+            }
+
+            if (callback) {
+                callback();
+            }
+        }
+
+        /**
+         * Render HTML content on the document
+         * @private
+         * @method _renderHTML
+         * @memberOf Modules.Loader
+         * @param {String} HTMLContent HTML content for rendering
+         * @param {String} className Class on document for loading item
+         * @param {String} itemType ITEM_TYPE constant for item type. See {@link window.exports.Modules}
+         * @param {String} [containerClassName = undefined] Container class of className for adequate definition place for loading item
+         * @param {Function} callback Callback is called when the content of the HTML file rendered on the document
+         */
+        function _renderHTML(HTMLContent, className, itemType, containerClassName, callback) {
+            if (containerClassName != null) {
+                var containerElement = document.getElementsByClassName(containerClassName);
+                var containerElementLength = containerElement.length;
+                for (var currentContainerElement = 0; currentContainerElement &lt; containerElementLength; currentContainerElement ++) {
+                    var elementClasses = containerElement.getElementsByClassName(className);
+                    loadContentInElementClasses(elementClasses);
+                }
+            } else {
+                var elementClasses = document.getElementsByClassName(className);
+                loadContentInElementClasses(elementClasses);
+            }
+
+            function loadContentInElementClasses (elementClasses) {
+                var classesCount = elementClasses.length;
+                for (var htmlID = 0; htmlID &lt; classesCount; htmlID++) {
+                    elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
+                    elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", itemType);
+                    elementClasses[htmlID].innerHTML = HTMLContent;
+                }
+            }
+
+            if (callback) {
+                callback();
+            }
+        }
+
+        /**
+         * Load HTML content from file in memory (passed in callback parameter (HTMLContent, itemName))
+         * @private
+         * @method _loadHTMLInMemory
+         * @memberOf Modules.Loader
+         * @param {String} pathToItemFiles Location of the HTML file
+         * @param {String} itemName Name of the HTML file
+         * @param {Function} callback Callback is called when the content of the HTML file loaded in the memory
+         */
+        function _loadHTMLInMemory(pathToItemFiles, itemName, callback) {
             var xhrHtmlLoader = new XMLHttpRequest();
-            xhrHtmlLoader.open("GET", correctPath  + ".html", true);
+            xhrHtmlLoader.open("GET", pathToItemFiles  + ".html", true);
             xhrHtmlLoader.onreadystatechange = function() {
                 if (xhrHtmlLoader.readyState === 4 /* complete */) {
                     if (xhrHtmlLoader.status === 200 || xhrHtmlLoader.status === 304) {
@@ -1098,7 +1200,7 @@ window.exports = window.exports || (window.exports = {});
         }
 
         /**
-         * Load itemType in className from path
+         * Load module in className from path
          * @private
          * @method _loadModule
          * @memberOf Modules.Loader
@@ -1137,6 +1239,38 @@ window.exports = window.exports || (window.exports = {});
         }
 
         /**
+         * Unload module from className
+         * @private
+         * @method _unloadModule
+         * @memberOf Modules.Loader
+         * @param {String} correctPath Location of the items folder, checked with _checkPath
+         * @param {String} moduleName Name of the item
+         * @param {String} className Class on page for loading item
+         * @param {Function} callback Callback is called when item loaded
+         * @param {String} [containerClassName = undefined] Container class of className for adequate definition place for item loading
+         */
+        function _unloadModule(correctPath, moduleName, className, callback, containerClassName) {
+            setTimeout(function(){
+                unloadSync(correctPath, moduleName, className, callback, containerClassName);
+            }, 0);
+            function unloadSync (correctPath, moduleName, className, callback, containerClassName) {
+                var itemData = {"itemInfo": {"itemName" : moduleName, "className": className,
+                    "containerClassName" : containerClassName}};
+                Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_unloadingStarted", itemData);
+                _unloadJS(moduleName, function() {
+                    _unloadHTML(moduleName, className, Modules.MODULE, containerClassName, function() {
+                        _unloadCSS(moduleName, function() {
+                            Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_unloaded", itemData);
+                            if (callback) {
+                                callback();
+                            }
+                        });
+                    });
+                });
+            }
+        }
+
+        /**
          * Load itemType in className from path
          * @method load
          * @memberOf Modules.Loader
@@ -1145,13 +1279,13 @@ window.exports = window.exports || (window.exports = {});
          * @param {String} itemName Name of the item
          * @param {String} className Class on the page for loading item
          * @param {Function} callback Callback is called when item loaded
-         * @param {String} container Class on the page, which parent for class for loading item
+         * @param {String} containerClassName Class on the page, which parent for class for loading item
          * @param {Object} dataSource Object with data for Modules.TEMPLATE
          */
-        function load (itemType, relativePath, itemName, className, callback, container, dataSource) {
+        function load (itemType, relativePath, itemName, className, callback, containerClassName, dataSource) {
             var _correctPath = _checkPath(relativePath);
             if (itemType === Modules.MODULE) {
-                _loadModule(_correctPath, itemName, className, callback, container);
+                _loadModule(_correctPath, itemName, className, callback, containerClassName);
             }
 
 // else if (itemType === this.itemTypes.template) {
@@ -1165,7 +1299,24 @@ window.exports = window.exports || (window.exports = {});
 //            }
         }
 //
+        /**
+         * Unload itemType in className
+         * @method unload
+         * @memberOf Modules.Loader
+         * @param {String} itemType ITEM_TYPE constant for item type. See {@link window.exports.Modules}
+         * @param {String} itemName Name of the item
+         * @param {String} className Class on the page for unloading item
+         * @param {Function} callback Callback is called when item unloaded
+         * @param {String} container Class on the page, which parent for class for unloading item
+         */
+        function unload(itemType, itemName, className, callback, container) {
+            if (itemType === Modules.MODULE) {
+                _unloadModule(itemName, className, callback, container);
+            }
+        }
+
         Loader.load = load;
+        Loader.unload = unload;
     })(Modules.Loader || (Modules.Loader = {}));
     var Loader = Modules.Loader;
 
@@ -1527,7 +1678,7 @@ var Modules = window.exports.Modules;
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Tue Sep 03 2013 16:24:15 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Wed Sep 04 2013 23:40:21 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>
