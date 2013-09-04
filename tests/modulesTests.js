@@ -3091,6 +3091,7 @@ asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", fun
 });
 
 //TODO: check first load test for correctness; implement unload
+//TODO: unload test cant run in phantomjs
 
 //asyncTest("load (itemType=Modules.MODULE, path, itemName, className, callback)", function(){
 //    expect(26);
