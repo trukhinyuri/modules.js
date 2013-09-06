@@ -15,3 +15,5 @@
 [Bugtracker @BitBucket](https://bitbucket.org/trukhinyuri/modules.js/issues?status=new&status=open)
 
 API DOCS path: /jsDoc
+
+[Please, DONATE to the modules.js project!](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CFZMK8KLFSJC4)
