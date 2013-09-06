@@ -34,3 +34,6 @@ limitations under the License.
 See modules.js api documentation and examples in **modules.js/jsDoc** folder.
 
 [Please, DONATE to the modules.js project!](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CFZMK8KLFSJC4)
+
+###Current status
+2013.09.06: preparing to 1.0 beta¸
