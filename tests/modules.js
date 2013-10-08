@@ -951,13 +951,24 @@ window.exports = window.exports || (window.exports = {});
         function _checkPath(path) {
             var documentRootURL = Modules.DOM.getDocumentRootURL;
             if (typeof (path) == "string") {
-                if (path[path.length-1] === "/") {
-                    path = path.substring(0, path.length - 1);
+                if (path[path.length-1] != "/") {
+                    if (path[0] != "/") {
+                        return documentRootURL() + "/" + path + "/";
+                    }
+                    else {
+                        return documentRootURL() + path + "/";
+                    }
                 }
-                return documentRootURL + path;
+                else {
+                    if (path[0] != "/") {
+                        return documentRootURL() + "/" + path;
+                    } else {
+                        return documentRootURL + path;
+                    }
+                }
             }
             else {
-                return documentRootURL();
+                return documentRootURL() + "/";
             }
         }
 
@@ -971,7 +982,7 @@ window.exports = window.exports || (window.exports = {});
          * @returns {String} Path to the current module directory
          */
         function _buildModulePath(path, moduleName) {
-            var result = path + "/" + moduleName + "/";
+            var result = path + moduleName + "/";
             return result;
         }
 
