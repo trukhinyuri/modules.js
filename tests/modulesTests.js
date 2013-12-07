@@ -3159,7 +3159,7 @@ asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", fun
         loader.unload(Modules.MODULE, moduleName, className, whenModuleUnloadedWithCallback);
         stop();
     }
-    loader.load(Modules.MODULE, path, moduleName, className, whenModuleLoadedWithCallback);
+    loader.unload(Modules.MODULE, moduleName, className, whenModuleLoadedWithCallback);
 
     function whenModuleUnloadedWithCallback() {
         ok(true, "unloaded simple check")

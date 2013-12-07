@@ -1244,6 +1244,19 @@ window.exports = window.exports || (window.exports = {});
         }
 
         /**
+         * Get number of modules loaded on the page
+         * @private
+         * @method _getModulesNumberLoaded
+         * @memberOf Modules.Loader
+         * @param {String} moduleName Name of the item
+         * @returns {Number} Number of loaded modules
+         */
+        function _getModulesNumberLoaded(moduleName) {
+            var modules = document.getElementsByClassName(moduleName);
+            return modules.length;
+        }
+
+        /**
          * Unload module from className
          * @private
          * @method _unloadModule
@@ -1260,18 +1273,32 @@ window.exports = window.exports || (window.exports = {});
             }, 0);
             function unloadSync (moduleName, className, callback, containerClassName) {
                 var itemData = {"itemInfo": {"itemName" : moduleName, "className": className,
-                    "containerClassName" : containerClassName}};
+                    "containerClassName" : containerClassName, "isJSCSSUnloaded": false}};
                 Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_unloadingStarted", itemData);
-                _unloadJS(moduleName, function() {
+
+                var loadedModulesNumber = _getModulesNumberLoaded(moduleName);
+                if (loadedModulesNumber > 1) {
                     _unloadHTML(moduleName, className, Modules.MODULE, containerClassName, function() {
-                        _unloadCSS(moduleName, function() {
-                            Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_unloaded", itemData);
-                            if (callback) {
-                                callback();
-                            }
+                        itemData.isJSCSSUnloaded = true;
+                        Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_unloaded", itemData);
+                        if (callback) {
+                            callback();
+                        }
+                    });
+                } else if ((loadedModulesNumber === 1)) {
+                    _unloadJS(moduleName, function() {
+                        _unloadHTML(moduleName, className, Modules.MODULE, containerClassName, function() {
+                            _unloadCSS(moduleName, function() {
+                                itemData.isJSCSSUnloaded = false;
+                                Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_unloaded", itemData);
+                                if (callback) {
+                                    callback();
+                                }
+                            });
                         });
                     });
-                });
+                }
+
             }
         }
 
@@ -1303,6 +1330,7 @@ window.exports = window.exports || (window.exports = {});
 //                loadJS(this.path, itemName, callback);
 //            }
         }
+
 //
         /**
          * Unload itemType in className
