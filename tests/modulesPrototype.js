@@ -12,7 +12,7 @@
 "use strict";
 var ModulesPrototype = null;
 (function (ModulesPrototype) {
-    Modules.DOM = (function(){
+    ModulesPrototype.DOM = (function(){
         function DOM() {
         }
         DOM.prototype = {
@@ -37,7 +37,7 @@ var ModulesPrototype = null;
         }
     return DOM;
     })();
-    Modules.Loader = (function () {
+    ModulesPrototype.Loader = (function () {
         function Loader(path) {
             if (path != undefined) {
                 if (path[path.length-1] === "/") {
@@ -320,7 +320,7 @@ var ModulesPrototype = null;
         };
         return Loader;
     })();
-    Modules.Events = (function(){
+    ModulesPrototype.Events = (function(){
         function Events() {
         }
         Events.prototype = {
@@ -470,7 +470,7 @@ var ModulesPrototype = null;
         }
         return Events;
     }());
-    Modules.Server = (function(){
+    ModulesPrototype.Server = (function(){
         function Server(path) {
 //            loadJSONConfig(this._path, "cloud", function() {
 //                alert(ModulesJsConfigCloud.trackers);
