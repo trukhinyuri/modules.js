@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>JSDoc: Namespace: Messages</title>
-    
+
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
@@ -16,139 +16,152 @@
 <body>
 
 <div id="main">
-    
+
     <h1 class="page-title">Namespace: Messages</h1>
+
     
-    
+
 
 
 
 <section>
-    
+
 <header>
-    <h2>
-        <span class="ancestors"><a href="global.html#Modules">Modules</a><a href="Modules.Events.html">.Events</a>.</span>
     
-    Messages
-    </h2>
+        <h2>
+            <span class="ancestors"><a href="global.html#Modules">Modules</a><a href="Modules.Events.html">.Events</a>.</span>
+        
+        Messages
+        </h2>
+        
     
-</header>  
+</header>
 
 <article>
     <div class="container-overview">
     
-    
-    
         
             <div class="description">Communication between itemTypes within the document</div>
         
+
         
-        
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">/Users/trukhinyuri/Sources/modules.js/tests/modules.js</a>, <a href="modules.js.html#line644">line 644</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line644">line 644</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-        
+
         
     
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        <h3 class="subsection-title">Methods</h3>
-        
-        <dl>
-            
-<dt>
-    <h4 class="name" id="send"><span class="type-signature">&lt;static> </span>send<span class="signature">(theme, <span class="optional">detail</span>, <span class="optional">sourceID</span>, <span class="optional">destinationID</span>)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Send message to subscribed listeners
-    </div>
+
     
 
     
+
     
+
+     
+
     
+
     
+
     
-        <h5>Parameters:</h5>
+        <h3 class="subsection-title">Methods</h3>
+
         
+            
+
+    
+
+    <h4 class="name" id=".send"><span class="type-signature">(static) </span>send<span class="signature">(theme, detail<span class="signature-attributes">opt</span>, sourceID<span class="signature-attributes">opt</span>, destinationID<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Send message to subscribed listeners
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>theme</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -157,33 +170,33 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">Unique theme of message within the page</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>detail</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -192,19 +205,19 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -212,17 +225,17 @@
                 
                 </td>
             
-            
+
             <td class="description last">A user-defined object that can contain detail information in message</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>sourceID</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -231,19 +244,19 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -251,17 +264,17 @@
                 
                 </td>
             
-            
+
             <td class="description last">Unique ID of sender</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>destinationID</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -270,19 +283,19 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -290,115 +303,129 @@
                 
                 </td>
             
-            
+
             <td class="description last">Unique ID of receiver</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">/Users/trukhinyuri/Sources/modules.js/tests/modules.js</a>, <a href="modules.js.html#line687">line 687</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line687">line 687</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
+
+
+
+
+
+
+
+
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="subscribe"><span class="type-signature">&lt;static> </span>subscribe<span class="signature">(theme, listener, <span class="optional">sourceID</span>, <span class="optional">destinationID</span>)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Subscribe listener on messages theme
-    </div>
-    
 
     
+
+    <h4 class="name" id=".subscribe"><span class="type-signature">(static) </span>subscribe<span class="signature">(theme, listener, sourceID<span class="signature-attributes">opt</span>, destinationID<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
     
+
+
+
+<div class="description">
+    Subscribe listener on messages theme
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>theme</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -407,33 +434,33 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">Unique theme of message within the page</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>listener</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -442,33 +469,33 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">Listener for receive messages</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>sourceID</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -477,19 +504,19 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -497,17 +524,17 @@
                 
                 </td>
             
-            
+
             <td class="description last">Unique ID of sender</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>destinationID</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -516,19 +543,19 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -536,115 +563,129 @@
                 
                 </td>
             
-            
+
             <td class="description last">Unique ID of receiver</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">/Users/trukhinyuri/Sources/modules.js/tests/modules.js</a>, <a href="modules.js.html#line651">line 651</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line651">line 651</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
+
+
+
+
+
+
+
+
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="unsubscribe"><span class="type-signature">&lt;static> </span>unsubscribe<span class="signature">(theme, listener, <span class="optional">sourceID</span>, <span class="optional">destinationID</span>)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Subscribe listener on messages theme
-    </div>
-    
 
     
+
+    <h4 class="name" id=".unsubscribe"><span class="type-signature">(static) </span>unsubscribe<span class="signature">(theme, listener, sourceID<span class="signature-attributes">opt</span>, destinationID<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
     
+
+
+
+<div class="description">
+    Subscribe listener on messages theme
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>theme</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -653,33 +694,33 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">Unique theme of message within the page</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>listener</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -688,33 +729,33 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">Listener for unsubscribe, used for receive messages</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>sourceID</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -723,19 +764,19 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -743,17 +784,17 @@
                 
                 </td>
             
-            
+
             <td class="description last">Unique ID of sender</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>destinationID</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -762,19 +803,19 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -782,72 +823,83 @@
                 
                 </td>
             
-            
+
             <td class="description last">Unique ID of receiver</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">/Users/trukhinyuri/Sources/modules.js/tests/modules.js</a>, <a href="modules.js.html#line725">line 725</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line725">line 725</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     
 
     
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        </dl>
-    
-    
-    
-    
     
 </article>
 
-</section>  
+</section>
 
 
 
@@ -855,13 +907,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Namespaces</h3><ul><li><a href="Modules.DOM.html">DOM</a></li><li><a href="Modules.Events.html">Events</a></li><li><a href="Modules.Events.Messages.html">Messages</a></li><li><a href="Modules.Loader.html">Loader</a></li><li><a href="Modules.Server.html">Server</a></li><li><a href="window.exports.html">exports</a></li><li><a href="window.exports.Modules.html">Modules</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Modules">Modules</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="Modules.DOM.html">DOM</a></li><li><a href="Modules.Events.html">Events</a></li><li><a href="Modules.Events.Messages.html">Messages</a></li><li><a href="Modules.Loader.html">Loader</a></li><li><a href="Modules.Server.html">Server</a></li><li><a href="window.exports.html">exports</a></li><li><a href="window.exports.Modules.html">Modules</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Modules">Modules</a></li></ul>
 </nav>
 
-<br clear="both">
+<br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha3</a> on Fri Sep 05 2014 23:54:29 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta3</a> on Tue Apr 14 2015 18:32:34 GMT+0300 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>

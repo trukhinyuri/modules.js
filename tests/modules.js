@@ -949,26 +949,26 @@ window.exports = window.exports || (window.exports = {});
          * @returns {String} Correct path or page directory
          */
         function _checkPath(path) {
-            var documentRootURL = Modules.DOM.getDocumentRootURL;
+            var documentRootURL = Modules.DOM.getDocumentRootURL();
             if (typeof (path) == "string") {
                 if (path[path.length-1] != "/") {
                     if (path[0] != "/") {
-                        return documentRootURL() + "/" + path + "/";
+                        return documentRootURL + "/" + path + "/";
                     }
                     else {
-                        return documentRootURL() + path + "/";
+                        return documentRootURL + path + "/";
                     }
                 }
                 else {
                     if (path[0] != "/") {
-                        return documentRootURL() + "/" + path;
+                        return documentRootURL + "/" + path;
                     } else {
                         return documentRootURL + path;
                     }
                 }
             }
             else {
-                return documentRootURL() + "/";
+                return documentRootURL + "/";
             }
         }
 
@@ -1318,6 +1318,16 @@ window.exports = window.exports || (window.exports = {});
             var _correctPath = _checkPath(relativePath);
             if (itemType === Modules.MODULE) {
                 _loadModule(_correctPath, itemName, className, callback, containerClassName);
+            }
+            if (itemType === Modules.JAVASCRIPT) {
+                var modulePath = _buildModulePath(_correctPath, itemName);
+                var pathToModuleFiles = modulePath + itemName;
+                _loadJS(pathToModuleFiles, itemName, callback);
+            }
+            if (itemType === Modules.CSS) {
+                var modulePath = _buildModulePath(_correctPath, itemName);
+                var pathToModuleFiles = modulePath + itemName;
+                _loadCSS(pathToModuleFiles, itemName, callback);
             }
 
 // else if (itemType === this.itemTypes.template) {
