@@ -1,7 +1,7 @@
 #modules.js framework
 ###The framework for creating modular web clients
 
-Copyright 2012-2014 Yuri Trukhin
+Copyright 2012-2015 Yuri Trukhin
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -36,4 +36,4 @@ See modules.js api documentation and examples in **modules.js/jsDoc** folder.
 [Please, DONATE to the modules.js project!](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CFZMK8KLFSJC4)
 
 ###Current status
-Preparing to 1.0 beta
+Preparing to 1.0 beta (updated)
