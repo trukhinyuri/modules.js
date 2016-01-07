@@ -1323,7 +1323,52 @@ window.exports = window.exports || (window.exports = {});
         }
 
         /**
+         * Load modules.js module in className from path
+         * @method loadModule
+         * @memberOf Modules.Loader
+         * @param {String | undefined} relativePath Relative path to the items folder
+         * @param {String} itemName Name of the item
+         * @param {String} className Class on the page for loading item
+         * @param {Function} callback Callback is called when item loaded
+         * @param {String} containerClassName Class on the page, which parent for class for loading item
+         */
+        function loadModule (relativePath, itemName, className, callback, containerClassName) {
+            var _correctPath = _checkPath(relativePath);
+            _loadModule(_correctPath, itemName, className, callback, containerClassName);
+        }
+
+        /**
+         * Load javascript file in className from path
+         * @method loadJS
+         * @memberOf Modules.Loader
+         * @param {String | undefined} relativePath Relative path to the items folder
+         * @param {String} itemName Name of the item
+         * @param {Function} callback Callback is called when item loaded
+         */
+        function loadJS (relativePath, itemName, callback) {
+            var _correctPath = _checkPath(relativePath);
+            var javaScriptPath = _buildJavaScriptFilePath(_correctPath, itemName);
+            _loadJS(javaScriptPath, itemName, callback);
+        }
+
+        /**
+         * Load css file in className from path
+         * @method loadCSS
+         * @memberOf Modules.Loader
+         * @param {String | undefined} relativePath Relative path to the items folder
+         * @param {String} itemName Name of the item
+         * @param {Function} callback Callback is called when item loaded
+         */
+        function loadCSS (relativePath, itemName, callback) {
+            var _correctPath = _checkPath(relativePath);
+            var modulePath = _buildModulePath(_correctPath, itemName);
+            var pathToModuleFiles = modulePath + itemName;
+            _loadCSS(pathToModuleFiles, itemName, callback);
+        }
+
+        /**
          * Load itemType in className from path
+         * @deprecated Since version 1.0
          * @method load
          * @memberOf Modules.Loader
          * @param {String} itemType ITEM_TYPE constant for item type. See {@link window.exports.Modules}
@@ -1335,19 +1380,14 @@ window.exports = window.exports || (window.exports = {});
          * @param {Object} dataSource Object with data for Modules.TEMPLATE
          */
         function load (itemType, relativePath, itemName, className, callback, containerClassName, dataSource) {
-            var _correctPath = _checkPath(relativePath);
             if (itemType === Modules.MODULE) {
-                _loadModule(_correctPath, itemName, className, callback, containerClassName);
+                loadModule(relativePath, itemName, className, callback, containerClassName);
             }
             if (itemType === Modules.JAVASCRIPT) {
-                var _correctPath = _checkPath(relativePath);
-                var javaScriptPath = _buildJavaScriptFilePath(_correctPath, itemName);
-                _loadJS(javaScriptPath, itemName, callback);
+                loadJS(relativePath, itemName, callback);
             }
             if (itemType === Modules.CSS) {
-                var modulePath = _buildModulePath(_correctPath, itemName);
-                var pathToModuleFiles = modulePath + itemName;
-                _loadCSS(pathToModuleFiles, itemName, callback);
+                loadCSS(relativePath, itemName, callback);
             }
 
 // else if (itemType === this.itemTypes.template) {
