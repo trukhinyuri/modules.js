@@ -973,7 +973,7 @@ window.exports = window.exports || (window.exports = {});
         }
 
         /**
-         * Check name correctness (.js extension)
+         * Check name correctness (remove extension for internal use)
          * @private
          * @method _checkName
          * @memberOf Modules.Loader
@@ -1014,21 +1014,28 @@ window.exports = window.exports || (window.exports = {});
          * @private
          * @method _loadCSS
          * @memberOf Modules.Loader
-         * @param {String} pathToItemFiles Location of the CSS file
+         * @param {String} correctPath Location of the CSS file
          * @param {String} itemName Name of the CSS file
          * @param {Function} callback Callback is called when the CSS file loaded on the page
          */
-        function _loadCSS (pathToItemFiles, itemName, callback) {
+        function _loadCSS (correctPath, itemName, callback) {
             var modulesCSSprefix = "modulesjs_css_";
+
+            var itemData = {"itemInfo": { "itemName" : itemName, "itemPath": correctPath }};
+            Modules.Events.dispatchCustomEvent(document, "css_" + itemName + "_loadingStarted", itemData);
+
             var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
             if (!cssLoaded) {
                 var css = document.createElement('link');
-                css.href = pathToItemFiles + ".css";
+                css.href = correctPath + itemName + ".css";
                 css.className = modulesCSSprefix + itemName;
                 css.type = "text/css";
                 css.rel = "stylesheet";
                 document.getElementsByTagName("head")[0].appendChild(css);
             }
+
+            Modules.Events.dispatchCustomEvent(document, "css_" + itemName + "_loaded", itemData);
+
             if (callback) {
                 callback();
             }
@@ -1258,7 +1265,7 @@ window.exports = window.exports || (window.exports = {});
 
                 var pathToModuleFiles = modulePath + moduleName;
 
-                _loadCSS(pathToModuleFiles, moduleName, function() {
+                _loadCSS(modulePath, moduleName, function() {
                     _loadHTML(pathToModuleFiles, moduleName, className, Modules.MODULE, containerClassName, function() {
                         _loadJS(modulePath, moduleName, function() {
                             Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_loaded", itemData);
@@ -1369,9 +1376,8 @@ window.exports = window.exports || (window.exports = {});
          */
         function loadCSS (relativePath, itemName, callback) {
             var _correctPath = _checkPath(relativePath);
-            var modulePath = _buildModulePath(_correctPath, itemName);
-            var pathToModuleFiles = modulePath + itemName;
-            _loadCSS(pathToModuleFiles, itemName, callback);
+            var _correctName = _checkName(itemName);
+            _loadCSS(_correctPath, _correctName, callback);
         }
 
         /**
@@ -1428,6 +1434,7 @@ window.exports = window.exports || (window.exports = {});
 
         Loader.loadModule = loadModule;
         Loader.loadJS = loadJS;
+        Loader.loadCSS = loadCSS;
         Loader.load = load;
         Loader.unload = unload;
     })(Modules.Loader || (Modules.Loader = {}));
