@@ -1,7 +1,7 @@
 #modules.js framework
 ###The framework for creating modular web clients
 
-Copyright 2012-2015 Yuri Trukhin
+Copyright 2012-2016 Yuri Trukhin
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ limitations under the License.
 
 [Official website (Coming soon http://webstore.pw/modulesjs)](http://webstore.pw/modulesjs)
 
-[Main GIT Repository](http://alm.geo4geo.com/gitblit/summary/modules.js.git) (Login: guest , Password: guest)
+[Main GIT Repository](https://git.alm.plugndo.com/trukhinyuri/modules.js)
 
 [Main Bug Tracker](http://alm.geo4geo.com/youtrack) -> Login as guest -> Issues Page
 
