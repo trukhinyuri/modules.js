@@ -1,0 +1,23 @@
+{
+  "name": "modules.js",
+  "main": "modules.js",
+  "authors": [
+    "trukhinyuri <yuri@trukhin.com>"
+  ],
+  "description": "Modules.JS framework for creating modular web clients",
+  "moduleType": [],
+  "keywords": [
+    "modules.js",
+    "modules",
+    "modular",
+    "javascript",
+    "html",
+    "css",
+    "web"
+  ],
+  "license": "The Apache License, Version 2.0 http://www.apache.org/licenses/LICENSE-2.0",
+  "homepage": "modules.plugndo.com",
+  "dependencies": {
+    "qunit": "~1.20.0"
+  }
+}

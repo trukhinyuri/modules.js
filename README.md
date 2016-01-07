@@ -15,25 +15,25 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-[Official website (Coming soon http://webstore.pw/modulesjs)](http://webstore.pw/modulesjs)
+###Installation
+```bash
+bower install modules.js
+```
 
-[Main GIT Repository](https://git.alm.plugndo.com/trukhinyuri/modules.js)
+###API Documentation
 
-[Main Bug Tracker](http://alm.geo4geo.com/youtrack) -> Login as guest -> Issues Page
+[http://api.modules.plugndo.com](http://api.modules.plugndo.com)
 
-[Main Test Server](http://alm.geo4geo.com/teamcity) -> Login as guest
+###Release
 
-[Repository @GitHub](https://github.com/trukhinyuri/modules.js)
+**2016.01.08**
 
-[Bugtracker @GitHub](https://github.com/trukhinyuri/modules.js/issues?state=open")
+0.9
 
-[Repository @BitBucket](https://bitbucket.org/trukhinyuri/modules.js)
+###Donations
 
-[Bugtracker @BitBucket](https://bitbucket.org/trukhinyuri/modules.js/issues?status=new&status=open)
+[Donate with PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CFZMK8KLFSJC4)
 
-See modules.js api documentation and examples in **modules.js/jsDoc** folder.
+###Cloud Hosting
 
-[Please, DONATE to the modules.js project!](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CFZMK8KLFSJC4)
-
-###Current status
-0.9 stable
+[InfoboxCloud](https://infoboxcloud.ru)
