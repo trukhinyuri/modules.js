@@ -1335,14 +1335,14 @@ window.exports = window.exports || (window.exports = {});
          * @method loadModule
          * @memberOf Modules.Loader
          * @param {String | undefined} relativePath Relative path to the items folder
-         * @param {String} itemName Name of the item
+         * @param {String} moduleName Name of the module
          * @param {String} className Class on the page for loading item
          * @param {Function} callback Callback is called when item loaded
          * @param {String} containerClassName Class on the page, which parent for class for loading item
          */
-        function loadModule (relativePath, itemName, className, callback, containerClassName) {
+        function loadModule (relativePath, moduleName, className, callback, containerClassName) {
             var _correctPath = _checkPath(relativePath);
-            _loadModule(_correctPath, itemName, className, callback, containerClassName);
+            _loadModule(_correctPath, moduleName, className, callback, containerClassName);
         }
 
         /**
@@ -1426,6 +1426,8 @@ window.exports = window.exports || (window.exports = {});
             }
         }
 
+        Loader.loadModule = loadModule;
+        Loader.loadJS = loadJS;
         Loader.load = load;
         Loader.unload = unload;
     })(Modules.Loader || (Modules.Loader = {}));
