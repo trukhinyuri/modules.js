@@ -986,6 +986,20 @@ window.exports = window.exports || (window.exports = {});
             return result;
         }
 
+        /**
+         * Build path to javascript directory
+         * @private
+         * @method _buildJavaScriptPath
+         * @memberOf Modules.Loader
+         * @param {String} path Location of the javascript directory
+         * @param {String} itemName Name of the javascript file
+         * @returns {String} Path to the current javascript directory
+         */
+        function _buildJavaScriptFilePath(path, itemName) {
+            var result = path + itemName;
+            return result;
+        }
+
 
         /**
          * Load CSS file to the document (adding correct link to the file)
@@ -1043,10 +1057,15 @@ window.exports = window.exports || (window.exports = {});
          */
         function _loadJS (pathToItemFiles, itemName, callback) {
             var modulesJsPrefix = "modulesjs_js_";
+
+            var itemData = {"itemInfo": { "itemName" : itemName, "itemPath": pathToItemFiles }};
+            Modules.Events.dispatchCustomEvent(document, "javascript_" + itemName + "_loadingStarted", itemData);
+
             var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
             if (jsLoaded) {
                 document.getElementsByTagName("head")[0].removeChild(jsLoaded);
             }
+
             var script = document.createElement('script');
             script.src = pathToItemFiles + ".js";
             script.className = modulesJsPrefix + itemName;
@@ -1058,6 +1077,7 @@ window.exports = window.exports || (window.exports = {});
                 var state = script.readyState;
                 if (!done && (!state || state === "loaded" || state === "complete")) {
                     done = true;
+                    Modules.Events.dispatchCustomEvent(document, "javascript_" + itemName + "_loaded", itemData);
                     if (callback) {
                         callback(itemName);
                     }
@@ -1320,9 +1340,9 @@ window.exports = window.exports || (window.exports = {});
                 _loadModule(_correctPath, itemName, className, callback, containerClassName);
             }
             if (itemType === Modules.JAVASCRIPT) {
-                var modulePath = _buildModulePath(_correctPath, itemName);
-                var pathToModuleFiles = modulePath + itemName;
-                _loadJS(pathToModuleFiles, itemName, callback);
+                var _correctPath = _checkPath(relativePath);
+                var javaScriptPath = _buildJavaScriptFilePath(_correctPath, itemName);
+                _loadJS(javaScriptPath, itemName, callback);
             }
             if (itemType === Modules.CSS) {
                 var modulePath = _buildModulePath(_correctPath, itemName);

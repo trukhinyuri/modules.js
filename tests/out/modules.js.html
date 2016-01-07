@@ -1,4 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: modules.js</title>
 
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: modules.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
 /*
  * Copyright 2012-2014 Yuri Trukhin
  *
@@ -154,7 +182,7 @@ window.exports = window.exports || (window.exports = {});
         function getModules (className) {
             var elements = document.getElementsByClassName(className);
             var result = new Array();
-            for (var i = 0; i < elements.length; i++) {
+            for (var i = 0; i &lt; elements.length; i++) {
                 if (isHTMLModule(elements[i])) {
                     result.push(elements[i]);
                 }
@@ -172,7 +200,7 @@ window.exports = window.exports || (window.exports = {});
         function getTemplates (className) {
             var elements = document.getElementsByClassName(className);
             var result = new Array();
-            for (var i = 0; i < elements.length; i++) {
+            for (var i = 0; i &lt; elements.length; i++) {
                 if (isHTMLTemplate(elements[i])) {
                     result.push(elements[i]);
                 }
@@ -565,7 +593,7 @@ window.exports = window.exports || (window.exports = {});
         function addListeners(targets, type, listener, useCapture) {
             var _useCapture = useCapture || false;
             var length = targets.length;
-            for (var i = 0; i < length; i++) {
+            for (var i = 0; i &lt; length; i++) {
                 targets[i].addEventListener(type, listener, _useCapture);
             }
             return listener;
@@ -593,7 +621,7 @@ window.exports = window.exports || (window.exports = {});
             //noinspection JSUnresolvedFunction
             var bindedListener = listener.bind(_context);
             var length = targets.length;
-            for (var i = 0; i < targets.length; i++) {
+            for (var i = 0; i &lt; targets.length; i++) {
                 targets[i].addEventListener(type, bindedListener, _useCapture);
             }
             return bindedListener;
@@ -615,7 +643,7 @@ window.exports = window.exports || (window.exports = {});
         function removeListeners (targets, type, listener, useCapture) {
             var _useCapture = useCapture || false;
             var length = targets.length;
-            for (var i = 0; i < length; i++) {
+            for (var i = 0; i &lt; length; i++) {
                 removeListener(targets[i], type, listener, _useCapture);
             }
         }
@@ -822,7 +850,7 @@ window.exports = window.exports || (window.exports = {});
             var keys = Object.keys(simpleDataSource);
             var placeholder, value;
             var result = responseText;
-            for (var i = 0; i < keys.length; i++) {
+            for (var i = 0; i &lt; keys.length; i++) {
                 placeholder = keys[i];
                 value = simpleDataSource[keys[i]];
                 result = result.split('$' + placeholder + ';').join(value);
@@ -859,7 +887,7 @@ window.exports = window.exports || (window.exports = {});
 //                    }
 //                    //list
 //                    else {
-//                        for (var i = 0; i < dataSource.length; i++) {
+//                        for (var i = 0; i &lt; dataSource.length; i++) {
 //                            stepResult = _replace$PlaceholdersInTemplate(responseText, name, dataSource[i]);
 //                            stepResult = _addUUIDAttribute(stepResult, i, templateName);
 //                            result += stepResult;
@@ -1056,7 +1084,7 @@ window.exports = window.exports || (window.exports = {});
             var done = false;
             script.onreadystatechange = script.onload = function () {
                 var state = script.readyState;
-                if (!done && (!state || state === "loaded" || state === "complete")) {
+                if (!done &amp;&amp; (!state || state === "loaded" || state === "complete")) {
                     done = true;
                     if (callback) {
                         callback(itemName);
@@ -1119,7 +1147,7 @@ window.exports = window.exports || (window.exports = {});
             if (containerClassName != null) {
                 var containerElement = document.getElementsByClassName(containerClassName);
                 var containerElementLength = containerElement.length;
-                for (var currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
+                for (var currentContainerElement = 0; currentContainerElement &lt; containerElementLength; currentContainerElement ++) {
                     var elementClasses = containerElement.getElementsByClassName(className);
                     unloadContentFromElementClasses(elementClasses);
                 }
@@ -1130,7 +1158,7 @@ window.exports = window.exports || (window.exports = {});
 
             function unloadContentFromElementClasses (elementClasses) {
                 var classesCount = elementClasses.length;
-                for (var htmlID = 0; htmlID < classesCount; htmlID++) {
+                for (var htmlID = 0; htmlID &lt; classesCount; htmlID++) {
                     elementClasses[htmlID].removeAttribute("data-" + "modulesjs_item_id");
                     elementClasses[htmlID].removeAttribute("data-" + "modulesjs_item_type");
                     elementClasses[htmlID].innerHTML = "";
@@ -1157,7 +1185,7 @@ window.exports = window.exports || (window.exports = {});
             if (containerClassName != null) {
                 var containerElement = document.getElementsByClassName(containerClassName);
                 var containerElementLength = containerElement.length;
-                for (var currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
+                for (var currentContainerElement = 0; currentContainerElement &lt; containerElementLength; currentContainerElement ++) {
                     var elementClasses = containerElement.getElementsByClassName(className);
                     loadContentInElementClasses(elementClasses);
                 }
@@ -1168,7 +1196,7 @@ window.exports = window.exports || (window.exports = {});
 
             function loadContentInElementClasses (elementClasses) {
                 var classesCount = elementClasses.length;
-                for (var htmlID = 0; htmlID < classesCount; htmlID++) {
+                for (var htmlID = 0; htmlID &lt; classesCount; htmlID++) {
                     elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
                     elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", itemType);
                     elementClasses[htmlID].innerHTML = HTMLContent;
@@ -1416,7 +1444,7 @@ window.exports = window.exports || (window.exports = {});
 //            var done = false;
 //            script.onreadystatechange = script.onload = function () {
 //                var state = script.readyState;
-//                if (!done && (!state || state === "loaded" || state === "complete")) {
+//                if (!done &amp;&amp; (!state || state === "loaded" || state === "complete")) {
 //                    done = true;
 //                    if (callback) {
 //                        callback(name);
@@ -1439,7 +1467,7 @@ window.exports = window.exports || (window.exports = {});
 //                elementClasses = document.getElementsByClassName(className);
 //            }
 //            var classesCount = elementClasses.length;
-//            for (var htmlID = 0; htmlID < classesCount; htmlID++) {
+//            for (var htmlID = 0; htmlID &lt; classesCount; htmlID++) {
 //                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
 //                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", htmlItemType);
 //                elementClasses[htmlID].innerHTML = responseText;
@@ -1474,7 +1502,7 @@ window.exports = window.exports || (window.exports = {});
 //            var keys = Object.keys(simpleDataSource);
 //            var placeholder, value;
 //            var result = responseText;
-//            for (var i = 0; i < keys.length; i++) {
+//            for (var i = 0; i &lt; keys.length; i++) {
 //                placeholder = keys[i];
 //                value = simpleDataSource[keys[i]];
 //                result = result.split('$' + placeholder + ';').join(value);
@@ -1535,7 +1563,7 @@ window.exports = window.exports || (window.exports = {});
 //                    }
 //                    //list
 //                    else {
-//                        for (var i = 0; i < dataSource.length; i++) {
+//                        for (var i = 0; i &lt; dataSource.length; i++) {
 //                            stepResult = _replace$PlaceholdersInTemplate(responseText, name, dataSource[i]);
 //                            stepResult = _addUUIDAttribute(stepResult, i, templateName);
 //                            result += stepResult;
@@ -1676,7 +1704,7 @@ window.exports = window.exports || (window.exports = {});
 
             script.onreadystatechange = script.onload = function () {
                 var state = script.readyState;
-                if (!done && (!state || state === "loaded" || state === "complete")) {
+                if (!done &amp;&amp; (!state || state === "loaded" || state === "complete")) {
                     done = true;
                     document.dispatchEvent(new CustomEvent("config_" + name + "_loaded",
                         {"detail": {"configName" : name, "_path": path}}
@@ -1705,3 +1733,26 @@ window.exports = window.exports || (window.exports = {});
  * @name Modules
  */
 var Modules = window.exports.Modules;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="Modules.DOM.html">DOM</a></li><li><a href="Modules.Events.html">Events</a></li><li><a href="Modules.Events.Messages.html">Messages</a></li><li><a href="Modules.Loader.html">Loader</a></li><li><a href="Modules.Server.html">Server</a></li><li><a href="window.exports.html">exports</a></li><li><a href="window.exports.Modules.html">Modules</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Modules">Modules</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Sat Sep 05 2015 10:23:41 GMT+0300 (MSK)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

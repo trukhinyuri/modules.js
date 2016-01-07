@@ -3146,6 +3146,61 @@ asyncTest("load (itemType=Modules.MODULE, path=modules_forTests, itemName, class
     }
 });
 
+asyncTest("load (itemType=Modules.JAVASCRIPT, path=testScripts, itemName=script, className, callback)", function(){
+    expect(1);
+    var loader = Modules.Loader;
+    var itemType = Modules.JAVASCRIPT;
+    var path = "testScripts";
+    var itemName = "script";
+    var className = null;
+
+    document.addEventListener("javascript_" + itemName + "_loaded", whenJavaScriptLoadedWithEvent, false);
+    document.addEventListener("javascript_" + itemName + "_loadingStarted", whenJavaScriptLoadingStartedWithEvent, false);
+
+    loader.load(Modules.JAVASCRIPT, path, itemName, className, whenJavaScriptLoadedWithCallback);
+
+    function whenJavaScriptLoadedWithCallback() {
+        start();
+    }
+
+
+
+    //var itemPath = Modules.DOM.getDocumentRootURL() + "/" + path + "/" + itemName + "/";
+    //
+    //function whenModuleLoadedWithEvent(event) {
+    //    document.removeEventListener("module_" + itemName + "_loaded", whenModuleLoadedWithEvent);
+    //    if (event.detail.itemInfo.className == className) {
+    //        checkModuleLoaded(itemName, itemPath, className, "event assert");
+    //    }
+    //}
+    //function whenModuleLoadingStartedWithEvent(event) {
+    //    document.removeEventListener("module_" + itemName + "_loadingStarted", whenModuleLoadingStartedWithEvent);
+    //    equal(event.detail.itemInfo.itemName, itemName, "module_" + itemName + "_loadingStarted event:" +
+    //        " itemName: " + itemName);
+    //    equal(event.detail.itemInfo.itemPath, itemPath, "module_" + itemName + "_loadingStarted event:" +
+    //        " itemPath: " + itemPath);
+    //    equal(event.detail.itemInfo.className, className, "module_" + itemName + "_loadingStarted event:" +
+    //        " className: " + className);
+    //    var containerClassName = undefined;
+    //    equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + itemName + "_loadingStarted event:" +
+    //        " containerClassName: " + containerClassName);
+    //}
+    //function whenModuleLoadedWithCallback() {
+    //    checkModuleLoaded(itemName, itemPath, className, "callback assert");
+    //    start();
+    //}
+
+    function whenJavaScriptLoadingStartedWithEvent() {
+
+    }
+
+    function whenJavaScriptLoadedWithEvent() {
+
+    }
+
+
+});
+
 asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", function(){
     expect(1);
     var loader = Modules.Loader;
