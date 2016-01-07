@@ -589,7 +589,7 @@ module("Modules.Events", {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addListener (target, type, listener)", function() {
+QUnit.asyncTest("addListener (target, type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(3);
     var target = document;
@@ -617,7 +617,7 @@ asyncTest("addListener (target, type, listener)", function() {
     target.dispatchEvent(event);
 });
 
-asyncTest("addListener (target, type, listener, useCapture)", function() {
+QUnit.asyncTest("addListener (target, type, listener, useCapture)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -647,7 +647,7 @@ asyncTest("addListener (target, type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addContextListener(target, type, listener)", function() {
+QUnit.asyncTest("addContextListener(target, type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -673,7 +673,7 @@ asyncTest("addContextListener(target, type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addContextListener(target, type, listener, context)", function() {
+QUnit.asyncTest("addContextListener(target, type, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -699,7 +699,7 @@ asyncTest("addContextListener(target, type, listener, context)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addContextListener(target, type, listener, context, useCapture)", function() {
+QUnit.asyncTest("addContextListener(target, type, listener, context, useCapture)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -726,7 +726,7 @@ asyncTest("addContextListener(target, type, listener, context, useCapture)", fun
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeListener(target, type, listener)", function() {
+QUnit.asyncTest("removeListener(target, type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -749,7 +749,7 @@ asyncTest("removeListener(target, type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeListener(target, type, listener, useCapture)", function() {
+QUnit.asyncTest("removeListener(target, type, listener, useCapture)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -773,7 +773,7 @@ asyncTest("removeListener(target, type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addStartupListener(listener)", function() {
+QUnit.asyncTest("addStartupListener(listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -796,7 +796,7 @@ asyncTest("addStartupListener(listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addStartupContextListener(listener)", function() {
+QUnit.asyncTest("addStartupContextListener(listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -820,7 +820,7 @@ asyncTest("addStartupContextListener(listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addStartupContextListener(listener, context)", function() {
+QUnit.asyncTest("addStartupContextListener(listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -844,7 +844,7 @@ asyncTest("addStartupContextListener(listener, context)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeStartupListener(listener)", function() {
+QUnit.asyncTest("removeStartupListener(listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -867,7 +867,7 @@ asyncTest("removeStartupListener(listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addDocumentListener(type, listener)", function() {
+QUnit.asyncTest("addDocumentListener(type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -893,7 +893,7 @@ asyncTest("addDocumentListener(type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addDocumentListener(type, listener, useCapture)", function() {
+QUnit.asyncTest("addDocumentListener(type, listener, useCapture)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -919,7 +919,7 @@ asyncTest("addDocumentListener(type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addDocumentContextListener(type, listener)", function() {
+QUnit.asyncTest("addDocumentContextListener(type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -949,7 +949,7 @@ asyncTest("addDocumentContextListener(type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addDocumentContextListener(type, listener, useCapture)", function() {
+QUnit.asyncTest("addDocumentContextListener(type, listener, useCapture)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -979,7 +979,7 @@ asyncTest("addDocumentContextListener(type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeDocumentListener(type, listener)", function() {
+QUnit.asyncTest("removeDocumentListener(type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1002,7 +1002,7 @@ asyncTest("removeDocumentListener(type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeDocumentListener(type, listener, useCapture)", function() {
+QUnit.asyncTest("removeDocumentListener(type, listener, useCapture)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1025,7 +1025,7 @@ asyncTest("removeDocumentListener(type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
+QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1050,7 +1050,7 @@ asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)",
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
+QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1075,7 +1075,7 @@ asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
+QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1100,7 +1100,7 @@ asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", f
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
+QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1125,7 +1125,7 @@ asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", fu
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
+QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1150,7 +1150,7 @@ asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listene
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
+QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1181,7 +1181,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, list
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
+QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1212,7 +1212,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, li
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
+QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1243,7 +1243,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listen
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
+QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1274,7 +1274,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listene
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
+QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1305,7 +1305,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, 
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener, context)", function() {
+QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1336,7 +1336,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, list
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener, context)", function() {
+QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1367,7 +1367,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, li
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener, context)", function() {
+QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1398,7 +1398,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listen
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener, context)", function() {
+QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1429,7 +1429,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listene
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener, context)", function() {
+QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1459,7 +1459,7 @@ asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, 
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listener)", function() {
+QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1483,7 +1483,7 @@ asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listene
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  listener)", function() {
+QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1507,7 +1507,7 @@ asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  liste
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)", function() {
+QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1531,7 +1531,7 @@ asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)", function() {
+QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1555,7 +1555,7 @@ asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)"
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  listener)", function() {
+QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1579,7 +1579,7 @@ asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  lis
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
+QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1604,7 +1604,7 @@ asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, liste
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
+QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1629,7 +1629,7 @@ asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, lis
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
+QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1654,7 +1654,7 @@ asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listene
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
+QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1679,7 +1679,7 @@ asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
+QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -1704,7 +1704,7 @@ asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, l
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
+QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1735,7 +1735,7 @@ asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
+QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1766,7 +1766,7 @@ asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemNa
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
+QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1797,7 +1797,7 @@ asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, 
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
+QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1828,7 +1828,7 @@ asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, l
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
+QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1859,7 +1859,7 @@ asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, item
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener, context)", function() {
+QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1890,7 +1890,7 @@ asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener, context)", function() {
+QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1921,7 +1921,7 @@ asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemNa
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener, context)", function() {
+QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1952,7 +1952,7 @@ asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, 
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener, context)", function() {
+QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -1983,7 +1983,7 @@ asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, l
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener, context)", function() {
+QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(2);
     var target = document;
@@ -2013,7 +2013,7 @@ asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, item
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listener)", function() {
+QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -2037,7 +2037,7 @@ asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  l
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  listener)", function() {
+QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -2061,7 +2061,7 @@ asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, 
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)", function() {
+QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -2085,7 +2085,7 @@ asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  lis
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)", function() {
+QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -2109,7 +2109,7 @@ asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  list
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  listener)", function() {
+QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var target = document;
@@ -2135,7 +2135,7 @@ asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName
 //nexttests
 
 //noinspection JSUnresolvedFunction
-asyncTest("addListeners (targets, type, listener)", function() {
+QUnit.asyncTest("addListeners (targets, type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(3);
     var targets = document.getElementsByClassName("addListenersTest");
@@ -2164,7 +2164,7 @@ asyncTest("addListeners (targets, type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addListeners (targets, type, listener, useCapture)", function() {
+QUnit.asyncTest("addListeners (targets, type, listener, useCapture)", function() {
     //noinspection JSUnresolvedFunction
     expect(3);
     var targets = document.getElementsByClassName("addListenersTest");
@@ -2193,7 +2193,7 @@ asyncTest("addListeners (targets, type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addContextListeners (targets, type, listener)", function() {
+QUnit.asyncTest("addContextListeners (targets, type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(4);
     var targets = document.getElementsByClassName("addListenersTest");
@@ -2222,7 +2222,7 @@ asyncTest("addContextListeners (targets, type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addContextListeners (targets, type, listener, context)", function() {
+QUnit.asyncTest("addContextListeners (targets, type, listener, context)", function() {
     //noinspection JSUnresolvedFunction
     expect(4);
     var targets = document.getElementsByClassName("addContextListenersTest");
@@ -2251,7 +2251,7 @@ asyncTest("addContextListeners (targets, type, listener, context)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("addContextListeners (targets, type, listener, context, useCapture)", function() {
+QUnit.asyncTest("addContextListeners (targets, type, listener, context, useCapture)", function() {
     //noinspection JSUnresolvedFunction
     expect(4);
     var targets = document.getElementsByClassName("addContextListenersTest");
@@ -2279,7 +2279,7 @@ asyncTest("addContextListeners (targets, type, listener, context, useCapture)", 
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeListeners(target, type, listener)", function() {
+QUnit.asyncTest("removeListeners(target, type, listener)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var targets = document.getElementsByClassName("removeListenersTest");
@@ -2308,7 +2308,7 @@ asyncTest("removeListeners(target, type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("removeListeners(target, type, listener, useCapture)", function() {
+QUnit.asyncTest("removeListeners(target, type, listener, useCapture)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var targets = document.getElementsByClassName("removeListenersTest");
@@ -2337,7 +2337,7 @@ asyncTest("removeListeners(target, type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("dispatchCustomEvent (target, type)", function() {
+QUnit.asyncTest("dispatchCustomEvent (target, type)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     document.addEventListener("customEvent", listener);
@@ -2354,7 +2354,7 @@ asyncTest("dispatchCustomEvent (target, type)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("dispatchCustomEvent (target, type, detail)", function() {
+QUnit.asyncTest("dispatchCustomEvent (target, type, detail)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     document.addEventListener("customEvent2", listener);
@@ -2370,7 +2370,7 @@ asyncTest("dispatchCustomEvent (target, type, detail)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("dispatchCustomEvent (target, type, detail, canBubble=false)", function() {
+QUnit.asyncTest("dispatchCustomEvent (target, type, detail, canBubble=false)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var body = document.getElementsByTagName("body")[0];
@@ -2391,7 +2391,7 @@ asyncTest("dispatchCustomEvent (target, type, detail, canBubble=false)", functio
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("dispatchCustomEvent (target, type, detail, canBubble=true)", function() {
+QUnit.asyncTest("dispatchCustomEvent (target, type, detail, canBubble=true)", function() {
     //noinspection JSUnresolvedFunction
     expect(1);
     var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
@@ -2413,7 +2413,7 @@ asyncTest("dispatchCustomEvent (target, type, detail, canBubble=true)", function
 // Thus an event handler must be in the same cell where it occurred or lower.
 
 //noinspection JSUnresolvedFunction
-asyncTest("dispatchCustomEvent (target, type, detail, canBubble, cancellable=false)", function() {
+QUnit.asyncTest("dispatchCustomEvent (target, type, detail, canBubble, cancellable=false)", function() {
     //noinspection JSUnresolvedFunction
     expect(3);
     var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
@@ -2437,7 +2437,7 @@ asyncTest("dispatchCustomEvent (target, type, detail, canBubble, cancellable=fal
 });
 
 //noinspection JSUnresolvedFunction
-asyncTest("dispatchCustomEvent (target, type, detail, canBubble, cancellable=true)", function() {
+QUnit.asyncTest("dispatchCustomEvent (target, type, detail, canBubble, cancellable=true)", function() {
     //noinspection JSUnresolvedFunction
     expect(3);
     var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
@@ -2510,7 +2510,7 @@ module("Modules.Events.Messages", {
     }
 });
 
-asyncTest("subscribe (theme, listener)", function() {
+QUnit.asyncTest("subscribe (theme, listener)", function() {
     expect(1);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2531,7 +2531,7 @@ asyncTest("subscribe (theme, listener)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme, detailObject);
 });
 
-asyncTest("subscribe (theme, listener, sourceID)", function() {
+QUnit.asyncTest("subscribe (theme, listener, sourceID)", function() {
     expect(1);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2552,7 +2552,7 @@ asyncTest("subscribe (theme, listener, sourceID)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID, detailObject);
 });
 
-asyncTest("subscribe (theme, listener, sourceID, destinationID)", function() {
+QUnit.asyncTest("subscribe (theme, listener, sourceID, destinationID)", function() {
     expect(1);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2573,7 +2573,7 @@ asyncTest("subscribe (theme, listener, sourceID, destinationID)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, detailObject);
 });
 
-asyncTest("subscribe (theme, listener, undefined, destinationID)", function() {
+QUnit.asyncTest("subscribe (theme, listener, undefined, destinationID)", function() {
     expect(1);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2594,7 +2594,7 @@ asyncTest("subscribe (theme, listener, undefined, destinationID)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "__" + destinationID, detailObject);
 });
 
-asyncTest("subscribe (theme, listener, null, destinationID)", function() {
+QUnit.asyncTest("subscribe (theme, listener, null, destinationID)", function() {
     expect(1);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2615,7 +2615,7 @@ asyncTest("subscribe (theme, listener, null, destinationID)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "__" + destinationID, detailObject);
 });
 
-asyncTest("send (theme, detail)", function() {
+QUnit.asyncTest("send (theme, detail)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2637,7 +2637,7 @@ asyncTest("send (theme, detail)", function() {
     msg.send(theme, detail);
 });
 
-asyncTest("send (theme, detail, sourceID)", function() {
+QUnit.asyncTest("send (theme, detail, sourceID)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2659,7 +2659,7 @@ asyncTest("send (theme, detail, sourceID)", function() {
     msg.send(theme, detail, sourceID);
 });
 
-asyncTest("send (theme, detail, null, destinationID)", function() {
+QUnit.asyncTest("send (theme, detail, null, destinationID)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2681,7 +2681,7 @@ asyncTest("send (theme, detail, null, destinationID)", function() {
     msg.send(theme, detail, undefined, destinationID);
 });
 
-asyncTest("send (theme, detail, sourceID, destinationID)", function() {
+QUnit.asyncTest("send (theme, detail, sourceID, destinationID)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2703,7 +2703,7 @@ asyncTest("send (theme, detail, sourceID, destinationID)", function() {
     msg.send(theme, detail, sourceID, destinationID);
 });
 
-asyncTest("unsubscribe (theme, listener)", function() {
+QUnit.asyncTest("unsubscribe (theme, listener)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2726,7 +2726,7 @@ asyncTest("unsubscribe (theme, listener)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme, detailObject);
 });
 
-asyncTest("unsubscribe (theme, listener, sourceID)", function() {
+QUnit.asyncTest("unsubscribe (theme, listener, sourceID)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2749,7 +2749,7 @@ asyncTest("unsubscribe (theme, listener, sourceID)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID, detailObject);
 });
 
-asyncTest("unsubscribe (theme, listener, null, destinationID)", function() {
+QUnit.asyncTest("unsubscribe (theme, listener, null, destinationID)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2772,7 +2772,7 @@ asyncTest("unsubscribe (theme, listener, null, destinationID)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "__" + destinationID, detailObject);
 });
 
-asyncTest("unsubscribe (theme, listener, sourceID, destinationID)", function() {
+QUnit.asyncTest("unsubscribe (theme, listener, sourceID, destinationID)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
@@ -2795,7 +2795,7 @@ asyncTest("unsubscribe (theme, listener, sourceID, destinationID)", function() {
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, detailObject);
 });
 
-asyncTest("subscribe, send, unsubscribe (theme, detail)", function() {
+QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var theme = "greetings";
@@ -2816,7 +2816,7 @@ asyncTest("subscribe, send, unsubscribe (theme, detail)", function() {
     msg.send(theme, detail);
 });
 
-asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID)", function() {
+QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var theme = "greetings";
@@ -2837,7 +2837,7 @@ asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID)", function() {
     msg.send(theme, detail, sourceID);
 });
 
-asyncTest("subscribe, send, unsubscribe (theme, detail, null, destinationID)", function() {
+QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail, null, destinationID)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var theme = "greetings";
@@ -2858,7 +2858,7 @@ asyncTest("subscribe, send, unsubscribe (theme, detail, null, destinationID)", f
     msg.send(theme, detail, null, destinationID);
 });
 
-asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID, destinationID)", function() {
+QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID, destinationID)", function() {
     expect(3);
     var msg = Modules.Events.Messages;
     var theme = "greetings";
@@ -2957,7 +2957,7 @@ module("Modules.Loader", {
     }
 });
 
-asyncTest("load (itemType=Modules.MODULE, path=undefined, itemName, className, callback)", function(){
+QUnit.asyncTest("load (itemType=Modules.MODULE, path=undefined, itemName, className, callback)", function(){
     expect(26);
 
     var loader = Modules.Loader;
@@ -3052,8 +3052,8 @@ asyncTest("load (itemType=Modules.MODULE, path=undefined, itemName, className, c
     }
 });
 
-asyncTest("load (itemType=Modules.MODULE, path=modules_forTests, itemName, className, callback)", function(){
-    expect(26);
+QUnit.asyncTest("load (itemType=Modules.MODULE, path=modules_forTests, itemName, className, callback)", function(assert){
+    assert.expect(26);
 
     var loader = Modules.Loader;
     var path = "modules_forTests";
@@ -3146,62 +3146,112 @@ asyncTest("load (itemType=Modules.MODULE, path=modules_forTests, itemName, class
     }
 });
 
-asyncTest("load (itemType=Modules.JAVASCRIPT, path=testScripts, itemName=script, className, callback)", function(){
-    expect(1);
+QUnit.asyncTest("load (itemType=Modules.JAVASCRIPT, path=testScripts, itemName=script, className, callback)", function(assert){
+    assert.expect(10);
     var loader = Modules.Loader;
     var itemType = Modules.JAVASCRIPT;
     var path = "testScripts";
     var itemName = "script";
+    var itemPath = Modules.DOM.getDocumentRootURL() + "/" + path + "/";
     var className = null;
 
     document.addEventListener("javascript_" + itemName + "_loaded", whenJavaScriptLoadedWithEvent, false);
     document.addEventListener("javascript_" + itemName + "_loadingStarted", whenJavaScriptLoadingStartedWithEvent, false);
 
-    loader.load(Modules.JAVASCRIPT, path, itemName, className, whenJavaScriptLoadedWithCallback);
+    loader.load(Modules.JAVASCRIPT, path, itemName, null,whenJavaScriptLoadedWithCallback);
 
     function whenJavaScriptLoadedWithCallback() {
-        start();
+        checkJSLoaded(itemName, itemPath, "callback assert");
+        QUnit.start();
     }
 
-
-
-    //var itemPath = Modules.DOM.getDocumentRootURL() + "/" + path + "/" + itemName + "/";
-    //
-    //function whenModuleLoadedWithEvent(event) {
-    //    document.removeEventListener("module_" + itemName + "_loaded", whenModuleLoadedWithEvent);
-    //    if (event.detail.itemInfo.className == className) {
-    //        checkModuleLoaded(itemName, itemPath, className, "event assert");
-    //    }
-    //}
-    //function whenModuleLoadingStartedWithEvent(event) {
-    //    document.removeEventListener("module_" + itemName + "_loadingStarted", whenModuleLoadingStartedWithEvent);
-    //    equal(event.detail.itemInfo.itemName, itemName, "module_" + itemName + "_loadingStarted event:" +
-    //        " itemName: " + itemName);
-    //    equal(event.detail.itemInfo.itemPath, itemPath, "module_" + itemName + "_loadingStarted event:" +
-    //        " itemPath: " + itemPath);
-    //    equal(event.detail.itemInfo.className, className, "module_" + itemName + "_loadingStarted event:" +
-    //        " className: " + className);
-    //    var containerClassName = undefined;
-    //    equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + itemName + "_loadingStarted event:" +
-    //        " containerClassName: " + containerClassName);
-    //}
-    //function whenModuleLoadedWithCallback() {
-    //    checkModuleLoaded(itemName, itemPath, className, "callback assert");
-    //    start();
-    //}
-
-    function whenJavaScriptLoadingStartedWithEvent() {
-
+    function checkJSLoaded(itemName, itemPath, comment) {
+        var modulesJsPrefix = "modulesjs_js_";
+        var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
+        var actualLoadedJsSrc = jsLoaded.src;
+        var expectedJsSrc = itemPath + itemName + ".js";
+        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+        var actualLoadedJsClassName = jsLoaded.className;
+        var expectedJsClassName = modulesJsPrefix + itemName;
+        equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+            + comment + "): " + actualLoadedJsClassName);
+        var actualLoadedJsType = jsLoaded.type;
+        var expectedJsType = "text/javascript";
+        equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+        var actualLoadedJsAsync = jsLoaded.async;
+        var expectedJsAsync = true;
+        equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
     }
 
-    function whenJavaScriptLoadedWithEvent() {
-
+    function whenJavaScriptLoadedWithEvent(event) {
+        document.removeEventListener("javascript_" + itemName + "_loaded", whenJavaScriptLoadedWithEvent);
+        if (event.detail.itemInfo.itemName == itemName) {
+            checkJSLoaded(itemName, itemPath, "event assert");
+        }
     }
-
-
+    function whenJavaScriptLoadingStartedWithEvent(event) {
+        document.removeEventListener("javascript_" + itemName + "_loadingStarted", whenJavaScriptLoadingStartedWithEvent);
+        equal(event.detail.itemInfo.itemName, itemName, "javascript_" + itemName + "_loadingStarted event:" +
+            " itemName: " + itemName);
+        equal(event.detail.itemInfo.itemPath, itemPath, "javascript_" + itemName + "_loadingStarted event:" +
+            " itemPath: " + itemPath);
+    }
 });
 
-asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", function(){
+QUnit.asyncTest("load (itemType=Modules.JAVASCRIPT, path=testScripts, itemName=script.js, className, callback)", function(assert){
+    assert.expect(10);
+    var loader = Modules.Loader;
+    var itemType = Modules.JAVASCRIPT;
+    var path = "testScripts";
+    var itemName = "script.js";
+    var scriptName = "script";
+    var itemPath = Modules.DOM.getDocumentRootURL() + "/" + path + "/";
+    var className = null;
+
+    document.addEventListener("javascript_" + scriptName + "_loaded", whenJavaScriptLoadedWithEvent, false);
+    document.addEventListener("javascript_" + scriptName + "_loadingStarted", whenJavaScriptLoadingStartedWithEvent, false);
+
+    loader.load(Modules.JAVASCRIPT, path, itemName, null,whenJavaScriptLoadedWithCallback);
+
+    function whenJavaScriptLoadedWithCallback() {
+        checkJSLoaded(scriptName, itemPath, "callback assert");
+        QUnit.start();
+    }
+
+    function checkJSLoaded(scriptName, itemPath, comment) {
+        var modulesJsPrefix = "modulesjs_js_";
+        var jsLoaded = document.getElementsByClassName(modulesJsPrefix + scriptName)[0];
+        var actualLoadedJsSrc = jsLoaded.src;
+        var expectedJsSrc = itemPath + scriptName + ".js";
+        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+        var actualLoadedJsClassName = jsLoaded.className;
+        var expectedJsClassName = modulesJsPrefix + scriptName;
+        equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+            + comment + "): " + actualLoadedJsClassName);
+        var actualLoadedJsType = jsLoaded.type;
+        var expectedJsType = "text/javascript";
+        equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+        var actualLoadedJsAsync = jsLoaded.async;
+        var expectedJsAsync = true;
+        equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+    }
+
+    function whenJavaScriptLoadedWithEvent(event) {
+        document.removeEventListener("javascript_" + scriptName + "_loaded", whenJavaScriptLoadedWithEvent);
+        if (event.detail.itemInfo.itemName == scriptName) {
+            checkJSLoaded(scriptName, itemPath, "event assert");
+        }
+    }
+    function whenJavaScriptLoadingStartedWithEvent(event) {
+        document.removeEventListener("javascript_" + scriptName + "_loadingStarted", whenJavaScriptLoadingStartedWithEvent);
+        equal(event.detail.itemInfo.itemName, scriptName, "javascript_" + scriptName + "_loadingStarted event:" +
+            " itemName: " + scriptName);
+        equal(event.detail.itemInfo.itemPath, itemPath, "javascript_" + scriptName + "_loadingStarted event:" +
+            " itemPath: " + itemPath);
+    }
+});
+
+QUnit.asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", function(){
     expect(1);
     var loader = Modules.Loader;
     var path = undefined;
@@ -3279,7 +3329,7 @@ asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", fun
 //TODO: check first load test for correctness; implement unload
 //TODO: unload test cant run in phantomjs
 
-//asyncTest("load (itemType=Modules.MODULE, path, itemName, className, callback)", function(){
+//QUnit.asyncTest("load (itemType=Modules.MODULE, path, itemName, className, callback)", function(){
 //    expect(26);
 //    var loader = Modules.Loader;
 //    var path = "modules_forTests";
@@ -3418,7 +3468,7 @@ asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", fun
 //    equal(expectedPath, loaderWithSlash.path, "Loader.path with slash in end of path. Slash removed: " + loaderWithSlash.path);
 //});
 
-//asyncTest("load (itemName, className, callback, loader.itemTypes.module)", function() {
+//QUnit.asyncTest("load (itemName, className, callback, loader.itemTypes.module)", function() {
 ////    expect(32);
 //    var path = "modules_forTests";
 //    var loader = new Modules.Loader(path);
@@ -3494,7 +3544,7 @@ asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", fun
 //        //End HTML loaded check
 //    }
 //});
-//asyncTest("load (itemName, className, callback)", function() {
+//QUnit.asyncTest("load (itemName, className, callback)", function() {
 ////    expect(32);
 //    var path = "modules_forTests";
 //    var loader = new Modules.Loader(path);
@@ -3570,7 +3620,7 @@ asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", fun
 //        //End HTML loaded check
 //    }
 //});
-//asyncTest("load (itemType, className, callback, loader.itemTypes.template, dataSource)", function() {
+//QUnit.asyncTest("load (itemType, className, callback, loader.itemTypes.template, dataSource)", function() {
 //    expect(4);
 //    var path = "templates_forTests";
 //    var loader = new Modules.Loader(path);
@@ -3733,7 +3783,7 @@ asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", fun
 //    events.sendMessage(messageID, dataObject, sourceID, destinationID);
 //
 //});
-////asyncTest("loadHTML", function() {
+////QUnit.asyncTest("loadHTML", function() {
 ////    expect(1);
 ////    var path = "files_forTests";
 ////    var loader = new Modules.Loader(path);

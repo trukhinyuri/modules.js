@@ -973,6 +973,29 @@ window.exports = window.exports || (window.exports = {});
         }
 
         /**
+         * Check name correctness (.js extension)
+         * @private
+         * @method _checkName
+         * @memberOf Modules.Loader
+         * @param {String} itemName Location of the items
+         * @returns {String} Correct path or page directory
+         */
+        function _checkName(itemName) {
+            var correctName = itemName;
+            if (typeof (itemName) == "string") {
+                if (itemName.indexOf('.') === -1) {
+                    return correctName;
+                } else {
+                    correctName = itemName.substr(0, itemName.lastIndexOf('.')) || itemName;
+                    return correctName;
+                }
+            }
+            else {
+                console.warn("Error: itemName " + itemName + "is not string!");
+            }
+        }
+
+        /**
          * Build path to module directory
          * @private
          * @method _buildModulePath
@@ -985,21 +1008,6 @@ window.exports = window.exports || (window.exports = {});
             var result = path + moduleName + "/";
             return result;
         }
-
-        /**
-         * Build path to javascript directory
-         * @private
-         * @method _buildJavaScriptPath
-         * @memberOf Modules.Loader
-         * @param {String} path Location of the javascript directory
-         * @param {String} itemName Name of the javascript file
-         * @returns {String} Path to the current javascript directory
-         */
-        function _buildJavaScriptFilePath(path, itemName) {
-            var result = path + itemName;
-            return result;
-        }
-
 
         /**
          * Load CSS file to the document (adding correct link to the file)
@@ -1051,14 +1059,14 @@ window.exports = window.exports || (window.exports = {});
          * @private
          * @method _loadJS
          * @memberOf Modules.Loader
-         * @param {String} pathToItemFiles Location of the JavaScript file
+         * @param {String} correctPath Location of the JavaScript file
          * @param {String} itemName Name of the JavaScript file
          * @param {Function} callback Callback is called when the JavaScript file loaded on the page
          */
-        function _loadJS (pathToItemFiles, itemName, callback) {
+        function _loadJS (correctPath, itemName, callback) {
             var modulesJsPrefix = "modulesjs_js_";
 
-            var itemData = {"itemInfo": { "itemName" : itemName, "itemPath": pathToItemFiles }};
+            var itemData = {"itemInfo": { "itemName" : itemName, "itemPath": correctPath }};
             Modules.Events.dispatchCustomEvent(document, "javascript_" + itemName + "_loadingStarted", itemData);
 
             var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
@@ -1067,7 +1075,7 @@ window.exports = window.exports || (window.exports = {});
             }
 
             var script = document.createElement('script');
-            script.src = pathToItemFiles + ".js";
+            script.src = correctPath + itemName + ".js";
             script.className = modulesJsPrefix + itemName;
             script.type = "text/javascript";
             script.async = true;
@@ -1252,7 +1260,7 @@ window.exports = window.exports || (window.exports = {});
 
                 _loadCSS(pathToModuleFiles, moduleName, function() {
                     _loadHTML(pathToModuleFiles, moduleName, className, Modules.MODULE, containerClassName, function() {
-                        _loadJS(pathToModuleFiles, moduleName, function() {
+                        _loadJS(modulePath, moduleName, function() {
                             Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_loaded", itemData);
                             if (callback) {
                                 callback();
@@ -1347,8 +1355,8 @@ window.exports = window.exports || (window.exports = {});
          */
         function loadJS (relativePath, itemName, callback) {
             var _correctPath = _checkPath(relativePath);
-            var javaScriptPath = _buildJavaScriptFilePath(_correctPath, itemName);
-            _loadJS(javaScriptPath, itemName, callback);
+            var _correctName = _checkName(itemName);
+            _loadJS(_correctPath, _correctName, callback);
         }
 
         /**

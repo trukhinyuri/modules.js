@@ -1,1 +1,1 @@
-alert("Hello World");
+console.log("Script.js loaded message");
