@@ -3374,7 +3374,7 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScrip
 
     function whenJavaScriptLoadedWithEvent(event) {
         document.removeEventListener("javascript_" + itemName + "_loaded", whenJavaScriptLoadedWithEvent);
-        if (event.detail.itemInfo.itemName == itemName) {
+        if ( (event.detail.itemInfo.itemName == itemName) && (event.detail.itemInfo.itemPath == itemPath) ) {
             checkJSLoaded(itemName, itemPath, "event assert");
         }
     }
@@ -3426,7 +3426,7 @@ QUnit.asyncTest("loadJS (path=testScripts, itemName=script, callback)", function
 
     function whenJavaScriptLoadedWithEvent(event) {
         document.removeEventListener("javascript_" + itemName + "_loaded", whenJavaScriptLoadedWithEvent);
-        if (event.detail.itemInfo.itemName == itemName) {
+        if ( (event.detail.itemInfo.itemName == itemName) && (event.detail.itemInfo.itemPath == itemPath) ) {
             checkJSLoaded(itemName, itemPath, "event assert");
         }
     }
@@ -3479,7 +3479,7 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScrip
 
     function whenJavaScriptLoadedWithEvent(event) {
         document.removeEventListener("javascript_" + scriptName + "_loaded", whenJavaScriptLoadedWithEvent);
-        if (event.detail.itemInfo.itemName == scriptName) {
+        if ( (event.detail.itemInfo.itemName == scriptName) && (event.detail.itemInfo.itemPath == itemPath) ) {
             checkJSLoaded(scriptName, itemPath, "event assert");
         }
     }
@@ -3532,7 +3532,7 @@ QUnit.asyncTest("loadJS (path=testScripts, itemName=script.js, callback)", funct
 
     function whenJavaScriptLoadedWithEvent(event) {
         document.removeEventListener("javascript_" + scriptName + "_loaded", whenJavaScriptLoadedWithEvent);
-        if (event.detail.itemInfo.itemName == scriptName) {
+        if ( (event.detail.itemInfo.itemName == scriptName) && (event.detail.itemInfo.itemPath == itemPath) ) {
             checkJSLoaded(scriptName, itemPath, "event assert");
         }
     }
@@ -3545,80 +3545,290 @@ QUnit.asyncTest("loadJS (path=testScripts, itemName=script.js, callback)", funct
     }
 });
 
-QUnit.asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", function(){
-    expect(1);
+QUnit.asyncTest("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemName=style, className, callback)", function(assert){
+    assert.expect(10);
+
     var loader = Modules.Loader;
-    var path = undefined;
-    var moduleName = "testModule";
-    var modulePath = moduleName + "/" + moduleName;
-    var className = "unloadModuleSimpleTest";
+    var path = "testCSS";
+    var itemName = "style";
+    var itemPath = Modules.DOM.getDocumentRootURL() + "/" + path + "/";
 
-    function whenModuleLoadedWithCallback() {
-        start();
-        loader.unload(Modules.MODULE, moduleName, className, whenModuleUnloadedWithCallback);
-        stop();
-    }
-    loader.unload(Modules.MODULE, moduleName, className, whenModuleLoadedWithCallback);
+    document.addEventListener("css_" + itemName + "_loaded", whenCSSLoadedWithEvent, false);
+    document.addEventListener("css_" + itemName + "_loadingStarted", whenCSSLoadingStartedWithEvent, false);
 
-    function whenModuleUnloadedWithCallback() {
-        ok(true, "unloaded simple check")
+    loader.load(Modules.CSS, path, itemName, null, whenCSSLoadedWithCallback);
+
+    function whenCSSLoadedWithCallback() {
+        checkCSSLoaded(itemName, itemPath, "callback assert");
         start();
     }
-    function checkModuleLoaded(moduleName, modulePath, className, comment) {
-        //CSS loaded check
-        function cssLoadedCheck() {
-            var modulesCSSprefix = "modulesjs_css_";
-            var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
-            var actualLoadedCSSHref = cssLoaded.href;
-            var expectedCSSHref = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".css";
-            equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
-            var actualLoadedCSSClassName = cssLoaded.className;
-            var expectedCSSClassName = modulesCSSprefix + moduleName;
-            equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
-            var actualLoadedCSSType = cssLoaded.type;
-            var expectedCSSType = "text/css";
-            equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
-            var actualLoadedCSSStylesheet = cssLoaded.rel;
-            var expectedCSSStylesheet = "stylesheet";
-            equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
-        }
-        function jsLoadedCheck() {
-            var modulesJsPrefix = "modulesjs_js_";
-            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
-            var actualLoadedJsSrc = jsLoaded.src;
-            var expectedJsSrc = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".js";
-            equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
-            var actualLoadedJsClassName = jsLoaded.className;
-            var expectedJsClassName = modulesJsPrefix + moduleName;
-            equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
-                + comment + "): " + actualLoadedJsClassName);
-            var actualLoadedJsType = jsLoaded.type;
-            var expectedJsType = "text/javascript";
-            equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
-            var actualLoadedJsAsync = jsLoaded.async;
-            var expectedJsAsync = true;
-            equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
-        }
-        function htmlLoadedCheck() {
-            var htmlsLoaded = document.getElementsByClassName(moduleName);
-            var htmlsLoadedLength = htmlsLoaded.length;
-            var expectedHtmlClassName = moduleName;
-            var expectedHtmlType = Modules.MODULE;
-            var expectedRootClassName = className;
-            for (var i = 0; i < htmlsLoadedLength; i++) {
-                var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
-                var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
-                ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
-                ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
-                equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
-                    + "; modulesjs_moduleID: " + itemIDAttribute);
-            }
-        }
-        cssLoadedCheck();
-        jsLoadedCheck();
-        htmlLoadedCheck();
+
+    function checkCSSLoaded(itemName, itemPath, comment) {
+        var modulesCSSprefix = "modulesjs_css_";
+        var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
+        var actualLoadedCSSHref = cssLoaded.href;
+        var expectedCSSHref = itemPath + itemName + ".css";
+        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+        var actualLoadedCSSClassName = cssLoaded.className;
+        var expectedCSSClassName = modulesCSSprefix + itemName;
+        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+        var actualLoadedCSSType = cssLoaded.type;
+        var expectedCSSType = "text/css";
+        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+        var actualLoadedCSSStylesheet = cssLoaded.rel;
+        var expectedCSSStylesheet = "stylesheet";
+        equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
     }
+
+    function whenCSSLoadedWithEvent(event) {
+        document.removeEventListener("css_" + itemName + "_loaded", whenCSSLoadedWithEvent);
+        if ( (event.detail.itemInfo.itemName == itemName) && (event.detail.itemInfo.itemPath == itemPath) ) {
+            checkCSSLoaded(itemName, itemPath, "event assert");
+        }
+    }
+
+    function whenCSSLoadingStartedWithEvent (event) {
+        document.removeEventListener("css_" + itemName + "_loadingStarted", whenCSSLoadingStartedWithEvent);
+        equal(event.detail.itemInfo.itemName, itemName, "css_" + itemName + "_loadingStarted event:" +
+            " itemName: " + itemName);
+        equal(event.detail.itemInfo.itemPath, itemPath, "css_" + itemName + "_loadingStarted event:" +
+            " itemPath: " + itemPath);
+    }
+
 });
+
+QUnit.asyncTest("loadCSS (path=testCSS, itemName=style, callback)", function(assert){
+    assert.expect(10);
+
+    var loader = Modules.Loader;
+    var path = "testCSS";
+    var itemName = "style";
+    var itemPath = Modules.DOM.getDocumentRootURL() + "/" + path + "/";
+
+    document.addEventListener("css_" + itemName + "_loaded", whenCSSLoadedWithEvent, false);
+    document.addEventListener("css_" + itemName + "_loadingStarted", whenCSSLoadingStartedWithEvent, false);
+
+    loader.loadCSS(path, itemName, whenCSSLoadedWithCallback);
+
+    function whenCSSLoadedWithCallback() {
+        checkCSSLoaded(itemName, itemPath, "callback assert");
+        start();
+    }
+
+    function checkCSSLoaded(itemName, itemPath, comment) {
+        var modulesCSSprefix = "modulesjs_css_";
+        var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
+        var actualLoadedCSSHref = cssLoaded.href;
+        var expectedCSSHref = itemPath + itemName + ".css";
+        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+        var actualLoadedCSSClassName = cssLoaded.className;
+        var expectedCSSClassName = modulesCSSprefix + itemName;
+        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+        var actualLoadedCSSType = cssLoaded.type;
+        var expectedCSSType = "text/css";
+        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+        var actualLoadedCSSStylesheet = cssLoaded.rel;
+        var expectedCSSStylesheet = "stylesheet";
+        equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+    }
+
+    function whenCSSLoadedWithEvent(event) {
+        document.removeEventListener("css_" + itemName + "_loaded", whenCSSLoadedWithEvent);
+        if ( (event.detail.itemInfo.itemName == itemName) && (event.detail.itemInfo.itemPath == itemPath) ) {
+            checkCSSLoaded(itemName, itemPath, "event assert");
+        }
+    }
+
+    function whenCSSLoadingStartedWithEvent (event) {
+        document.removeEventListener("css_" + itemName + "_loadingStarted", whenCSSLoadingStartedWithEvent);
+        equal(event.detail.itemInfo.itemName, itemName, "css_" + itemName + "_loadingStarted event:" +
+            " itemName: " + itemName);
+        equal(event.detail.itemInfo.itemPath, itemPath, "css_" + itemName + "_loadingStarted event:" +
+            " itemPath: " + itemPath);
+    }
+
+});
+
+QUnit.asyncTest("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemName=style.css, className, callback)", function(assert){
+    assert.expect(10);
+
+    var loader = Modules.Loader;
+    var path = "testCSS";
+    var itemName = "style.css";
+    var styleName = "style";
+    var itemPath = Modules.DOM.getDocumentRootURL() + "/" + path + "/";
+
+    document.addEventListener("css_" + styleName + "_loaded", whenCSSLoadedWithEvent, false);
+    document.addEventListener("css_" + styleName + "_loadingStarted", whenCSSLoadingStartedWithEvent, false);
+
+    loader.load(Modules.CSS, path, itemName, null, whenCSSLoadedWithCallback);
+
+    function whenCSSLoadedWithCallback() {
+        checkCSSLoaded(styleName, itemPath, "callback assert");
+        start();
+    }
+
+    function checkCSSLoaded(itemName, itemPath, comment) {
+        var modulesCSSprefix = "modulesjs_css_";
+        var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
+        var actualLoadedCSSHref = cssLoaded.href;
+        var expectedCSSHref = itemPath + itemName + ".css";
+        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+        var actualLoadedCSSClassName = cssLoaded.className;
+        var expectedCSSClassName = modulesCSSprefix + itemName;
+        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+        var actualLoadedCSSType = cssLoaded.type;
+        var expectedCSSType = "text/css";
+        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+        var actualLoadedCSSStylesheet = cssLoaded.rel;
+        var expectedCSSStylesheet = "stylesheet";
+        equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+    }
+
+    function whenCSSLoadedWithEvent(event) {
+        document.removeEventListener("css_" + styleName + "_loaded", whenCSSLoadedWithEvent);
+        if ( (event.detail.itemInfo.itemName == styleName) && (event.detail.itemInfo.itemPath == itemPath) ) {
+            checkCSSLoaded(styleName, itemPath, "event assert");
+        }
+    }
+
+    function whenCSSLoadingStartedWithEvent (event) {
+        document.removeEventListener("css_" + styleName + "_loadingStarted", whenCSSLoadingStartedWithEvent);
+        equal(event.detail.itemInfo.itemName, styleName, "css_" + styleName + "_loadingStarted event:" +
+            " itemName: " + itemName);
+        equal(event.detail.itemInfo.itemPath, itemPath, "css_" + styleName + "_loadingStarted event:" +
+            " itemPath: " + itemPath);
+    }
+
+});
+
+QUnit.asyncTest("loadCSS (path=testCSS, itemName=style.css, callback)", function(assert){
+    assert.expect(10);
+
+    var loader = Modules.Loader;
+    var path = "testCSS";
+    var itemName = "style.css";
+    var styleName = "style";
+    var itemPath = Modules.DOM.getDocumentRootURL() + "/" + path + "/";
+
+    document.addEventListener("css_" + styleName + "_loaded", whenCSSLoadedWithEvent, false);
+    document.addEventListener("css_" + styleName + "_loadingStarted", whenCSSLoadingStartedWithEvent, false);
+
+    loader.loadCSS(path, itemName, whenCSSLoadedWithCallback);
+
+    function whenCSSLoadedWithCallback() {
+        checkCSSLoaded(styleName, itemPath, "callback assert");
+        start();
+    }
+
+    function checkCSSLoaded(itemName, itemPath, comment) {
+        var modulesCSSprefix = "modulesjs_css_";
+        var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
+        var actualLoadedCSSHref = cssLoaded.href;
+        var expectedCSSHref = itemPath + itemName + ".css";
+        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+        var actualLoadedCSSClassName = cssLoaded.className;
+        var expectedCSSClassName = modulesCSSprefix + itemName;
+        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+        var actualLoadedCSSType = cssLoaded.type;
+        var expectedCSSType = "text/css";
+        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+        var actualLoadedCSSStylesheet = cssLoaded.rel;
+        var expectedCSSStylesheet = "stylesheet";
+        equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+    }
+
+    function whenCSSLoadedWithEvent(event) {
+        document.removeEventListener("css_" + styleName + "_loaded", whenCSSLoadedWithEvent);
+        if ( (event.detail.itemInfo.itemName == styleName) && (event.detail.itemInfo.itemPath == itemPath) ) {
+            checkCSSLoaded(styleName, itemPath, "event assert");
+        }
+    }
+
+    function whenCSSLoadingStartedWithEvent (event) {
+        document.removeEventListener("css_" + styleName + "_loadingStarted", whenCSSLoadingStartedWithEvent);
+        equal(event.detail.itemInfo.itemName, styleName, "css_" + styleName + "_loadingStarted event:" +
+            " itemName: " + itemName);
+        equal(event.detail.itemInfo.itemPath, itemPath, "css_" + styleName + "_loadingStarted event:" +
+            " itemPath: " + itemPath);
+    }
+
+});
+
+//QUnit.asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", function(){
+//    expect(1);
+//    var loader = Modules.Loader;
+//    var path = undefined;
+//    var moduleName = "testModule";
+//    var modulePath = moduleName + "/" + moduleName;
+//    var className = "unloadModuleSimpleTest";
+//
+//    function whenModuleLoadedWithCallback() {
+//        start();
+//        loader.unload(Modules.MODULE, moduleName, className, whenModuleUnloadedWithCallback);
+//        stop();
+//    }
+//    loader.unload(Modules.MODULE, moduleName, className, whenModuleLoadedWithCallback);
+//
+//    function whenModuleUnloadedWithCallback() {
+//        ok(true, "unloaded simple check")
+//        start();
+//    }
+//    function checkModuleLoaded(moduleName, modulePath, className, comment) {
+//        //CSS loaded check
+//        function cssLoadedCheck() {
+//            var modulesCSSprefix = "modulesjs_css_";
+//            var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
+//            var actualLoadedCSSHref = cssLoaded.href;
+//            var expectedCSSHref = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".css";
+//            equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+//            var actualLoadedCSSClassName = cssLoaded.className;
+//            var expectedCSSClassName = modulesCSSprefix + moduleName;
+//            equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+//            var actualLoadedCSSType = cssLoaded.type;
+//            var expectedCSSType = "text/css";
+//            equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+//            var actualLoadedCSSStylesheet = cssLoaded.rel;
+//            var expectedCSSStylesheet = "stylesheet";
+//            equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+//        }
+//        function jsLoadedCheck() {
+//            var modulesJsPrefix = "modulesjs_js_";
+//            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
+//            var actualLoadedJsSrc = jsLoaded.src;
+//            var expectedJsSrc = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".js";
+//            equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+//            var actualLoadedJsClassName = jsLoaded.className;
+//            var expectedJsClassName = modulesJsPrefix + moduleName;
+//            equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+//                + comment + "): " + actualLoadedJsClassName);
+//            var actualLoadedJsType = jsLoaded.type;
+//            var expectedJsType = "text/javascript";
+//            equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+//            var actualLoadedJsAsync = jsLoaded.async;
+//            var expectedJsAsync = true;
+//            equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+//        }
+//        function htmlLoadedCheck() {
+//            var htmlsLoaded = document.getElementsByClassName(moduleName);
+//            var htmlsLoadedLength = htmlsLoaded.length;
+//            var expectedHtmlClassName = moduleName;
+//            var expectedHtmlType = Modules.MODULE;
+//            var expectedRootClassName = className;
+//            for (var i = 0; i < htmlsLoadedLength; i++) {
+//                var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
+//                var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
+//                ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+//                ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
+//                equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+//                    + "; modulesjs_moduleID: " + itemIDAttribute);
+//            }
+//        }
+//        cssLoadedCheck();
+//        jsLoadedCheck();
+//        htmlLoadedCheck();
+//    }
+//});
 
 //TODO: check first load test for correctness; implement unload
 //TODO: unload test cant run in phantomjs
