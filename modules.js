@@ -19,7 +19,7 @@
  * @fileOverview
  * @copyright (C) Yuri V. Trukhin.
  * @author Yuri V.Trukhin
- * @version 1.0-snapshot
+ * @version 0.9
  * @license Apache License, Version 2.0. You may obtain a copy of the License at {@link http://www.apache.org/licenses/LICENSE-2.0}
  */
 

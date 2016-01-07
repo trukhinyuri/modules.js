@@ -36,4 +36,4 @@ See modules.js api documentation and examples in **modules.js/jsDoc** folder.
 [Please, DONATE to the modules.js project!](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CFZMK8KLFSJC4)
 
 ###Current status
-Preparing to 1.0 beta (updated)
+0.9 stable
