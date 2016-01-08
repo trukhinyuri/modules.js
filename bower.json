@@ -16,6 +16,11 @@
     "web"
   ],
   "license": "The Apache License, Version 2.0 http://www.apache.org/licenses/LICENSE-2.0",
+  "ignore": [
+    "/*",
+    "!modules.min.js",
+    "!modules.js"
+  ],
   "homepage": "modules.plugndo.com",
   "dependencies": {
     "qunit": "~1.20.0"
