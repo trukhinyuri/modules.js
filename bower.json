@@ -21,8 +21,5 @@
     "!modules.min.js",
     "!modules.js"
   ],
-  "homepage": "modules.plugndo.com",
-  "dependencies": {
-    "qunit": "~1.20.0"
-  }
+  "homepage": "modules.plugndo.com"
 }
