@@ -28,7 +28,7 @@ bower install modules.js
 
 **2016.01.08**
 
-0.9
+0.9.0
 
 ###Donations
 
