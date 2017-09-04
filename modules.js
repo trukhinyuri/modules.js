@@ -19,7 +19,7 @@
  * @fileOverview
  * @copyright (C) Yuri V. Trukhin.
  * @author trukhinyuri <yuri@trukhin.com>
- * @version 0.9.0
+ * @version 0.9.1
  * @license Apache License, Version 2.0. You may obtain a copy of the License at {@link http://www.apache.org/licenses/LICENSE-2.0}
  */
 
@@ -787,9 +787,11 @@ window.exports = window.exports || (window.exports = {});
     (function (L18N) {
         function localize(langObject) {
             for (var property in langObject) {
-                var elements = document.getElementsByClassName(property);
-                for (var i in elements) {
-                    elements[i].innerHTML = langObject[property];
+                if (langObject.hasOwnProperty(property)) {
+                    var elements = document.getElementsByClassName(property);
+                    for (var i = 0; i < elements.length; i++ ) {
+                        elements[i].innerHTML = langObject[property];
+                    }
                 }
             }
         };
