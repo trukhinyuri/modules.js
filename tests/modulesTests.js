@@ -3755,6 +3755,104 @@ QUnit.asyncTest("loadCSS (path=testCSS, itemName=style.css, callback)", function
 
 });
 
+QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callback, l18n)", function(assert){
+    // expect(26);
+
+    var loader = Modules.Loader;
+    var path = "modules_forTests";
+    var moduleName = "locModule";
+    var className = "loadLocModuleTest";
+
+    var l18n = ["en", "ru"];
+
+    // document.addEventListener("module_" + moduleName + "_loaded", whenModuleLoadedWithEvent, false);
+    // document.addEventListener("module_" + moduleName + "_loadingStarted", whenModuleLoadingStartedWithEvent, false);
+
+    loader.loadModule(path, moduleName, className, whenModuleLoadedWithCallback, l18n, null);
+
+     var modulePath = moduleName + "/" + moduleName;
+    // var itemPath = Modules.DOM.getDocumentRootURL() + "/" + moduleName + "/";
+    //
+    // function whenModuleLoadedWithEvent(event) {
+    //     document.removeEventListener("module_" + moduleName + "_loaded", whenModuleLoadedWithEvent);
+    //     if (event.detail.itemInfo.className == className) {
+    //         checkModuleLoaded(moduleName, modulePath, className, "event assert");
+    //     }
+    // }
+    // function whenModuleLoadingStartedWithEvent(event) {
+    //     document.removeEventListener("module_" + moduleName + "_loadingStarted", whenModuleLoadingStartedWithEvent);
+    //     equal(event.detail.itemInfo.itemName, moduleName, "module_" + moduleName + "_loadingStarted event:" +
+    //         " itemName: " + moduleName);
+    //     equal(event.detail.itemInfo.itemPath, itemPath, "module_" + moduleName + "_loadingStarted event:" +
+    //         " itemPath: " + itemPath);
+    //     equal(event.detail.itemInfo.className, className, "module_" + moduleName + "_loadingStarted event:" +
+    //         " className: " + className);
+    //     var containerClassName = undefined;
+    //     equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + moduleName + "_loadingStarted event:" +
+    //         " containerClassName: " + containerClassName);
+    // }
+    function whenModuleLoadedWithCallback() {
+        checkModuleLoaded(moduleName, modulePath, className, "callback assert");
+        start();
+    }
+    //
+    function checkModuleLoaded(moduleName, modulePath, className, comment) {
+        //CSS loaded check
+        function cssLoadedCheck() {
+            var modulesCSSprefix = "modulesjs_css_";
+            var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
+            var actualLoadedCSSHref = cssLoaded.href;
+            var expectedCSSHref = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".css";
+            equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+            var actualLoadedCSSClassName = cssLoaded.className;
+            var expectedCSSClassName = modulesCSSprefix + moduleName;
+            equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+            var actualLoadedCSSType = cssLoaded.type;
+            var expectedCSSType = "text/css";
+            equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+            var actualLoadedCSSStylesheet = cssLoaded.rel;
+            var expectedCSSStylesheet = "stylesheet";
+            equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+        }
+        function jsLoadedCheck() {
+            var modulesJsPrefix = "modulesjs_js_";
+            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
+            var actualLoadedJsSrc = jsLoaded.src;
+            var expectedJsSrc = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".js";
+            equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+            var actualLoadedJsClassName = jsLoaded.className;
+            var expectedJsClassName = modulesJsPrefix + moduleName;
+            equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+                + comment + "): " + actualLoadedJsClassName);
+            var actualLoadedJsType = jsLoaded.type;
+            var expectedJsType = "text/javascript";
+            equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+            var actualLoadedJsAsync = jsLoaded.async;
+            var expectedJsAsync = true;
+            equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+        }
+        function htmlLoadedCheck() {
+            var htmlsLoaded = document.getElementsByClassName(moduleName);
+            var htmlsLoadedLength = htmlsLoaded.length;
+            var expectedHtmlClassName = moduleName;
+            var expectedHtmlType = Modules.MODULE;
+            var expectedRootClassName = className;
+            for (var i = 0; i < htmlsLoadedLength; i++) {
+                var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
+                var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
+                ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+                ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
+                equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+                    + "; modulesjs_moduleID: " + itemIDAttribute);
+            }
+        }
+        cssLoadedCheck();
+        jsLoadedCheck();
+        htmlLoadedCheck();
+     }
+
+});
+
 //QUnit.asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", function(){
 //    expect(1);
 //    var loader = Modules.Loader;

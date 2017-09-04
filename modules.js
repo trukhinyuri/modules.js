@@ -784,6 +784,48 @@ window.exports = window.exports || (window.exports = {});
     })(Modules.Events || (Modules.Events = {}));
     var Events = Modules.Events;
 
+    (function (L18N) {
+        function localize(langObject) {
+            for (var property in langObject) {
+                var elements = document.getElementsByClassName(property);
+                for (var i in elements) {
+                    elements[i].innerHTML = langObject[property];
+                }
+            }
+        };
+
+        // function switchLocalize (theme, detail, sourceID, destinationID) {
+        //     var messagePrefix = "modulesjs_message_";
+        //     var calculatedTheme = calculateTheme();
+        //
+        //     function calculateTheme() {
+        //         var _calculatedTheme = "";
+        //         if (sourceID == null) {
+        //             if (destinationID == null) {
+        //                 _calculatedTheme = messagePrefix + theme;
+        //             } else {
+        //                 _calculatedTheme = messagePrefix + theme + "__" + destinationID;
+        //             }
+        //         } else {
+        //             if (destinationID == null) {
+        //                 _calculatedTheme = messagePrefix + theme + "_" + sourceID;
+        //             } else {
+        //                 _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
+        //             }
+        //         }
+        //         return _calculatedTheme;
+        //     }
+        //
+        //     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
+        //
+        //     if (calculatedTheme !== "") {
+        //         Modules.Events.dispatchCustomEvent(document, calculatedTheme, detailObject, false, false);
+        //     }
+        // }
+
+        L18N.localize = localize;
+    })(Modules.L18N || (Modules.L18N = {}));
+    var L18N = Modules.L18N;
     /**
      * @namespace Modules.Loader
      * @memberOf Modules
@@ -1061,6 +1103,58 @@ window.exports = window.exports || (window.exports = {});
             }
         }
 
+        function _loadL18NJS (correctPath, itemName, l18n, callback) {
+            if ((l18n != null) && (l18n.length > 0)) {
+                var locN = 0;
+                var _nextL18NJSLoaded = function () {
+                    locN++;
+                    if (locN < l18n.length) {
+                        _loadNextL18NJS(l18n[locN], correctPath, itemName, _nextL18NJSLoaded);
+                    } else {
+                        callback(itemName);
+                    }
+                };
+
+                _loadNextL18NJS(l18n[locN], correctPath, itemName, _nextL18NJSLoaded);
+
+            } else {
+                callback();
+            }
+
+
+        }
+
+        function _loadNextL18NJS(loc, correctPath, itemName, callback) {
+            var modulesJsPrefix = "modulesjs_l18n_js_";
+            var locFolderName = "l18n/";
+
+            var itemData = {"itemInfo": { "itemName" : itemName, "itemPath": correctPath }};
+            Modules.Events.dispatchCustomEvent(document, "javascript_l18n_" + itemName + "_" + loc + "_loadingStarted", itemData);
+
+            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName + "_" + loc)[0];
+            if (jsLoaded) {
+                document.getElementsByTagName("head")[0].removeChild(jsLoaded);
+            }
+
+            var script = document.createElement('script');
+            script.src = correctPath + locFolderName + loc + ".js";
+            script.className = modulesJsPrefix + itemName + "_" + loc;
+            script.type = "text/javascript";
+            script.async = true;
+            document.getElementsByTagName("head")[0].appendChild(script);
+            var done = false;
+            script.onreadystatechange = script.onload = function () {
+                var state = script.readyState;
+                if (!done && (!state || state === "loaded" || state === "complete")) {
+                    done = true;
+                    Modules.Events.dispatchCustomEvent(document, "javascript_l18n_" + itemName + "_" + loc + "_loaded", itemData);
+                    if (callback) {
+                        callback();
+                    }
+                }
+            };
+        }
+
         /**
          * Load JavaScript file to the document (adding correct link to the file)
          * @private
@@ -1137,6 +1231,32 @@ window.exports = window.exports || (window.exports = {});
                 _renderHTML(responseText, className, itemType, containerClassName, callback);
             }
             _loadHTMLInMemory(pathToItemFiles, itemName, loadedHandler);
+        }
+
+        function _loadHTMLTemplate(pathToItemFiles, itemName, className, itemType, containerClassName, dataSource, callback) {
+            function loadedHandler(responseText, name) {
+                var templatedText = insertTemplate(responseText, dataSource);
+                _renderHTML(templatedText, className, itemType, containerClassName, callback);
+            }
+            _loadHTMLInMemory(pathToItemFiles, itemName, loadedHandler);
+        }
+
+        function insertTemplate (responseText, dataSource) {
+            for (var key in dataSource) {
+                if (dataSource.hasOwnProperty(key)) {
+                    responseText = replaceAll(responseText, "$" + key + ";", dataSource[key]);
+                }
+            }
+
+            function replaceAll(str, find, replace) {
+                return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+            }
+            //for secure replace
+            function escapeRegExp(str) {
+                return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+            }
+
+            return responseText;
         }
 
         /**
@@ -1250,10 +1370,10 @@ window.exports = window.exports || (window.exports = {});
          * @param {Function} callback Callback is called when item loaded
          * @param {String} [containerClassName = undefined] Container class of className for adequate definition place for item loading
          */
-        function _loadModule (correctPath, moduleName, className, callback, containerClassName) {
-            setTimeout(function(){
+        function _loadModule (correctPath, moduleName, className, callback, l18n, containerClassName) {
+            requestAnimationFrame(function(){
                 loadSync(correctPath, moduleName, className, callback, containerClassName);
-            }, 0);
+            });
 
             function loadSync (correctPath, moduleName, className, callback, containerClassName) {
                 var modulePath = _buildModulePath(correctPath, moduleName);
@@ -1267,8 +1387,38 @@ window.exports = window.exports || (window.exports = {});
 
                 _loadCSS(modulePath, moduleName, function() {
                     _loadHTML(pathToModuleFiles, moduleName, className, Modules.MODULE, containerClassName, function() {
+                         _loadL18NJS(modulePath, moduleName, l18n, function () {
+                            _loadJS(modulePath, moduleName, function() {
+                                Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_loaded", itemData);
+                                if (callback) {
+                                    callback();
+                                }
+                            });
+                         });
+                    });
+                });
+            }
+        }
+
+        function _loadTemplate(correctPath, moduleName, className, callback, containerClassName, dataSource) {
+            requestAnimationFrame(function(){
+                loadSync(correctPath, moduleName, className, callback, containerClassName);
+            });
+
+            function loadSync (correctPath, moduleName, className, callback, containerClassName) {
+                var modulePath = _buildModulePath(correctPath, moduleName);
+
+                var itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className,
+                    "containerClassName" : containerClassName}};
+
+                Modules.Events.dispatchCustomEvent(document, "template_" + moduleName + "_loadingStarted", itemData);
+
+                var pathToModuleFiles = modulePath + moduleName;
+
+                _loadCSS(modulePath, moduleName, function() {
+                    _loadHTMLTemplate(pathToModuleFiles, moduleName, className, Modules.MODULE, containerClassName, dataSource, function() {
                         _loadJS(modulePath, moduleName, function() {
-                            Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_loaded", itemData);
+                            Modules.Events.dispatchCustomEvent(document, "template_" + moduleName + "_loaded", itemData);
                             if (callback) {
                                 callback();
                             }
@@ -1303,9 +1453,10 @@ window.exports = window.exports || (window.exports = {});
          * @param {String} [containerClassName = undefined] Container class of className for adequate definition place for item loading
          */
         function _unloadModule(moduleName, className, callback, containerClassName) {
-            setTimeout(function(){
+            requestAnimationFrame(function(){
                 unloadSync(moduleName, className, callback, containerClassName);
-            }, 0);
+            });
+
             function unloadSync (moduleName, className, callback, containerClassName) {
                 var itemData = {"itemInfo": {"itemName" : moduleName, "className": className,
                     "containerClassName" : containerClassName, "isJSCSSUnloaded": false}};
@@ -1347,9 +1498,24 @@ window.exports = window.exports || (window.exports = {});
          * @param {Function} callback Callback is called when item loaded
          * @param {String} containerClassName Class on the page, which parent for class for loading item
          */
-        function loadModule (relativePath, moduleName, className, callback, containerClassName) {
+        function loadModule (relativePath, moduleName, className, callback, l18n, containerClassName) {
             var _correctPath = _checkPath(relativePath);
-            _loadModule(_correctPath, moduleName, className, callback, containerClassName);
+            _loadModule(_correctPath, moduleName, className, callback, l18n, containerClassName);
+        }
+
+        function loadTemplate (relativePath, moduleName, className, dataSource, callback, containerClassName) {
+            var _correctPath = _checkPath(relativePath);
+            _loadTemplate(_correctPath, moduleName, className, callback, containerClassName, dataSource);
+        }
+
+        function onTemplateLoaded (templateName, handle) {
+            var templateElements = document.getElementsByClassName(templateName);
+            for (var currentId = 0; currentId < templateElements.length; currentId++) {
+                if (templateElements[currentId].getAttribute("data-" + "templateLoaded") == null) {
+                    handle(templateElements[currentId], currentId);
+                    templateElements[currentId].setAttribute("data-" + "templateLoaded", true);
+                }
+            }
         }
 
         /**
@@ -1433,6 +1599,8 @@ window.exports = window.exports || (window.exports = {});
         }
 
         Loader.loadModule = loadModule;
+        Loader.loadTemplate = loadTemplate;
+        Loader.onTemplateLoaded = onTemplateLoaded;
         Loader.loadJS = loadJS;
         Loader.loadCSS = loadCSS;
         Loader.load = load;
