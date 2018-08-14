@@ -3770,7 +3770,7 @@ QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callb
 
     loader.loadModule(path, moduleName, className, whenModuleLoadedWithCallback, l18n, null);
 
-     var modulePath = moduleName + "/" + moduleName;
+     var modulePath = path + "/" + moduleName + "/" + moduleName;
     // var itemPath = Modules.DOM.getDocumentRootURL() + "/" + moduleName + "/";
     //
     // function whenModuleLoadedWithEvent(event) {
