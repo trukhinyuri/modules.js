@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="shortcut icon" href="/img/logo-black.ico" type="image/x-icon" />
-    <link rel="icon" href="/img/logo-black.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
     <title>Modules.js demo page</title>
-    <link rel="stylesheet" href="/index.css" type="text/css"/>
-    <script src="/tests/modulesOld.js" type="text/javascript"></script>
-    <script src="/index.js" type="text/javascript"></script>
+    <!--<script src="lib/demo.js"></script>-->
+    <script src="modules.js" type="text/javascript"></script>
+    <script src="lib/demo.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="container">
@@ -18,11 +16,27 @@
     <div class="body">
     </div>
 </div>
+<div class="dom"></div>
 <div class="footer"></div>
-<script>
-    (function(){
-        alert("Hello, JetBrains");
-    }());
-</script>
+
 </body>
+<script>
+    import {one, two} from "./lib/demo.js";
+    alert(one);
+    alert(two);
+
+    let el = document.querySelector('.dom');
+    el.attachShadow({ mode: 'open' });
+    // Just like prototype & constructor bi-directional references, we have...
+    el.shadowRoot; // the shadow root.
+    el.shadowRoot.host; // the element itself.
+
+    // put something in shadow DOM
+    el.shadowRoot.innerHTML = 'Hi I am shadowed!';
+
+    // Like any other normal DOM operation.
+    let hello = document.createElement('span');
+    hello.textContent = 'Hi I am shadowed but wrapped in span';
+    el.shadowRoot.appendChild(hello);
+</script>
 </html>

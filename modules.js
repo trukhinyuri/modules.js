@@ -152,9 +152,9 @@ window.exports = window.exports || (window.exports = {});
          * @returns {Array}
          */
         function getModules (className) {
-            var elements = document.getElementsByClassName(className);
-            var result = new Array();
-            for (var i = 0; i < elements.length; i++) {
+            let elements = document.getElementsByClassName(className);
+            let result = new Array();
+            for (let i = 0; i < elements.length; i++) {
                 if (isHTMLModule(elements[i])) {
                     result.push(elements[i]);
                 }
@@ -170,9 +170,9 @@ window.exports = window.exports || (window.exports = {});
          * @returns {Array}
          */
         function getTemplates (className) {
-            var elements = document.getElementsByClassName(className);
-            var result = new Array();
-            for (var i = 0; i < elements.length; i++) {
+            let elements = document.getElementsByClassName(className);
+            let result = new Array();
+            for (let i = 0; i < elements.length; i++) {
                 if (isHTMLTemplate(elements[i])) {
                     result.push(elements[i]);
                 }
@@ -219,9 +219,9 @@ window.exports = window.exports || (window.exports = {});
          * @returns {String} URL of document folder
          */
         function getDocumentRootURL() {
-            var documentURL = document.URL.split("/");
+            let documentURL = document.URL.split("/");
             documentURL.pop();
-            var documentRootURL = documentURL.join("/");
+            let documentRootURL = documentURL.join("/");
             return documentRootURL;
         }
 
@@ -233,7 +233,7 @@ window.exports = window.exports || (window.exports = {});
         DOM.getFirstElementByClassName = getFirstElementByClassName;
         DOM.getDocumentRootURL = getDocumentRootURL;
     })(Modules.DOM || (Modules.DOM = {}));
-    var DOM = Modules.DOM;
+    let DOM = Modules.DOM;
 
     /**
      * @namespace Modules.Events
@@ -255,7 +255,7 @@ window.exports = window.exports || (window.exports = {});
           * @returns {EventListener} Passed listener.
           */
         function addListener (target, type, listener, useCapture) {
-             var _useCapture = useCapture || false;
+             let _useCapture = useCapture || false;
              target.addEventListener(type, listener, _useCapture);
              return listener;
         };
@@ -276,9 +276,9 @@ window.exports = window.exports || (window.exports = {});
          * @returns {EventListener} Listener in context. Need for remove listener
          */
         function addContextListener(target, type, listener, context, useCapture) {
-            var _context = context || this;
-            var _useCapture = useCapture || false;
-            var bindedListener = listener.bind(_context);
+            let _context = context || this;
+            let _useCapture = useCapture || false;
+            let bindedListener = listener.bind(_context);
             //noinspection JSUnresolvedFunction,JSUnresolvedVariable
             target.addEventListener(type, bindedListener, _useCapture);
             return bindedListener;
@@ -299,7 +299,7 @@ window.exports = window.exports || (window.exports = {});
          * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa
          */
         function removeListener (target, type, listener, useCapture) {
-            var _useCapture = useCapture || false;
+            let _useCapture = useCapture || false;
             target.removeEventListener(type, listener, _useCapture);
         };
 
@@ -326,7 +326,7 @@ window.exports = window.exports || (window.exports = {});
          * @returns {EventListener} Listener in context. Need for remove listener
          */
         function addStartupContextListener (listener, context) {
-            var _context = context || this;
+            let _context = context || this;
             return addContextListener(document, "DOMContentLoaded", listener, _context, false);
         };
 
@@ -377,7 +377,7 @@ window.exports = window.exports || (window.exports = {});
          * @returns {EventListener} Listener in context. Need for remove listener
          */
         function addDocumentContextListener(type, listener, context, useCapture) {
-            var _context = context || this;
+            let _context = context || this;
             //noinspection JSUnresolvedFunction
             return addContextListener(document, type, listener, _context, useCapture)
         }
@@ -396,7 +396,7 @@ window.exports = window.exports || (window.exports = {});
          * Removal of a capturing listener does not affect a non-capturing version of the same listener, and vice versa
          */
         function removeDocumentListener (type, listener, useCapture) {
-            var _useCapture = useCapture || false;
+            let _useCapture = useCapture || false;
             removeListener(document, type, listener, _useCapture);
         };
 
@@ -437,7 +437,7 @@ window.exports = window.exports || (window.exports = {});
          * @returns {EventListener} Listener in context. Need for remove listener
          */
         function addItemLoadedContextListener (ITEM_TYPE, itemName, listener, context) {
-            var _context = context || this;
+            let _context = context || this;
             if (ITEM_TYPE === Modules.MODULE) {
                 return addContextListener(document, "module_" + itemName + "_loaded", listener, _context, false);
             } else if (ITEM_TYPE === Modules.TEMPLATE) {
@@ -511,7 +511,7 @@ window.exports = window.exports || (window.exports = {});
          * @returns {EventListener} Listener in context. Need for remove listener
          */
         function addBeforeItemLoadedContextListener (ITEM_TYPE, itemName, listener, context) {
-            var _context = context || this;
+            let _context = context || this;
             if (ITEM_TYPE === Modules.MODULE) {
                 return addContextListener(document, "module_" + itemName + "_loadingStarted", listener, _context, false);
             } else if (ITEM_TYPE === Modules.TEMPLATE) {
@@ -563,9 +563,9 @@ window.exports = window.exports || (window.exports = {});
          * @returns {EventListener} Passed listener
          */
         function addListeners(targets, type, listener, useCapture) {
-            var _useCapture = useCapture || false;
-            var length = targets.length;
-            for (var i = 0; i < length; i++) {
+            let _useCapture = useCapture || false;
+            let length = targets.length;
+            for (let i = 0; i < length; i++) {
                 targets[i].addEventListener(type, listener, _useCapture);
             }
             return listener;
@@ -588,12 +588,12 @@ window.exports = window.exports || (window.exports = {});
          * @returns {EventListener} Listener in context. Need for remove listener
          */
         function addContextListeners(targets, type, listener, context, useCapture) {
-            var _useCapture = useCapture || false;
-            var _context = context || this;
+            let _useCapture = useCapture || false;
+            let _context = context || this;
             //noinspection JSUnresolvedFunction
-            var bindedListener = listener.bind(_context);
-            var length = targets.length;
-            for (var i = 0; i < targets.length; i++) {
+            let bindedListener = listener.bind(_context);
+            let length = targets.length;
+            for (let i = 0; i < targets.length; i++) {
                 targets[i].addEventListener(type, bindedListener, _useCapture);
             }
             return bindedListener;
@@ -613,9 +613,9 @@ window.exports = window.exports || (window.exports = {});
          * the tree will not trigger an EventListener designated to use capture. Event phases: capture -> target -> bubble
          */
         function removeListeners (targets, type, listener, useCapture) {
-            var _useCapture = useCapture || false;
-            var length = targets.length;
-            for (var i = 0; i < length; i++) {
+            let _useCapture = useCapture || false;
+            let length = targets.length;
+            for (let i = 0; i < length; i++) {
                 removeListener(targets[i], type, listener, _useCapture);
             }
         }
@@ -633,10 +633,10 @@ window.exports = window.exports || (window.exports = {});
          * called Event.preventDefault(). Otherwise it returns true
          */
         function dispatchCustomEvent (target, type, detail, canBubble, cancelable) {
-            var _canBubble = canBubble || false;
-            var _cancelable = cancelable || false;
-            var _detail = detail || undefined;
-            var event = document.createEvent("CustomEvent");
+            let _canBubble = canBubble || false;
+            let _cancelable = cancelable || false;
+            let _detail = detail || undefined;
+            let event = document.createEvent("CustomEvent");
             event.initCustomEvent(type, _canBubble, _cancelable, _detail);
             return target.dispatchEvent(event);
         }
@@ -658,11 +658,11 @@ window.exports = window.exports || (window.exports = {});
              * @param {String} [destinationID = null] Unique ID of receiver
              */
             function subscribe (theme, listener, sourceID, destinationID) {
-                var messagePrefix = "modulesjs_message_";
-                var calculatedTheme = calculateTheme();
+                let messagePrefix = "modulesjs_message_";
+                let calculatedTheme = calculateTheme();
 
                 function calculateTheme() {
-                    var _calculatedTheme = "";
+                    let _calculatedTheme = "";
                     if (sourceID == null) {
                         if (destinationID == null) {
                             _calculatedTheme = messagePrefix + theme;
@@ -694,11 +694,11 @@ window.exports = window.exports || (window.exports = {});
              * @param {String} [destinationID = null] Unique ID of receiver
              */
             function send (theme, detail, sourceID, destinationID) {
-                var messagePrefix = "modulesjs_message_";
-                var calculatedTheme = calculateTheme();
+                let messagePrefix = "modulesjs_message_";
+                let calculatedTheme = calculateTheme();
 
                 function calculateTheme() {
-                    var _calculatedTheme = "";
+                    let _calculatedTheme = "";
                     if (sourceID == null) {
                         if (destinationID == null) {
                             _calculatedTheme = messagePrefix + theme;
@@ -715,7 +715,7 @@ window.exports = window.exports || (window.exports = {});
                     return _calculatedTheme;
                 }
 
-                var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
+                let detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
 
                 if (calculatedTheme !== "") {
                     Modules.Events.dispatchCustomEvent(document, calculatedTheme, detailObject, false, false);
@@ -732,10 +732,10 @@ window.exports = window.exports || (window.exports = {});
              * @param {String} [destinationID = null] Unique ID of receiver
              */
             function unsubscribe (theme, listener, sourceID, destinationID) {
-                var messagePrefix = "modulesjs_message_";
-                var calculatedTheme = calculateTheme();
+                let messagePrefix = "modulesjs_message_";
+                let calculatedTheme = calculateTheme();
                 function calculateTheme() {
-                    var _calculatedTheme = "";
+                    let _calculatedTheme = "";
                     if (sourceID == null) {
                         if (destinationID == null) {
                             _calculatedTheme = messagePrefix + theme;
@@ -760,7 +760,7 @@ window.exports = window.exports || (window.exports = {});
             Messages.subscribe = subscribe;
             Messages.unsubscribe = unsubscribe;
         })(Modules.Events.Messages || (Modules.Events.Messages = {}));
-        var Messages = Modules.Events.Messages;
+        let Messages = Modules.Events.Messages;
 
         Events.addListener = addListener;
         Events.addContextListener = addContextListener;
@@ -782,14 +782,14 @@ window.exports = window.exports || (window.exports = {});
         Events.removeListeners = removeListeners;
         Events.dispatchCustomEvent = dispatchCustomEvent;
     })(Modules.Events || (Modules.Events = {}));
-    var Events = Modules.Events;
+    let Events = Modules.Events;
 
     (function (L18N) {
         function localize(langObject) {
-            for (var property in langObject) {
+            for (let property in langObject) {
                 if (langObject.hasOwnProperty(property)) {
-                    var elements = document.getElementsByClassName(property);
-                    for (var i = 0; i < elements.length; i++ ) {
+                    let elements = document.getElementsByClassName(property);
+                    for (let i = 0; i < elements.length; i++ ) {
                         elements[i].innerHTML = langObject[property];
                     }
                 }
@@ -797,11 +797,11 @@ window.exports = window.exports || (window.exports = {});
         };
 
         // function switchLocalize (theme, detail, sourceID, destinationID) {
-        //     var messagePrefix = "modulesjs_message_";
-        //     var calculatedTheme = calculateTheme();
+        //     let messagePrefix = "modulesjs_message_";
+        //     let calculatedTheme = calculateTheme();
         //
         //     function calculateTheme() {
-        //         var _calculatedTheme = "";
+        //         let _calculatedTheme = "";
         //         if (sourceID == null) {
         //             if (destinationID == null) {
         //                 _calculatedTheme = messagePrefix + theme;
@@ -818,7 +818,7 @@ window.exports = window.exports || (window.exports = {});
         //         return _calculatedTheme;
         //     }
         //
-        //     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
+        //     let detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
         //
         //     if (calculatedTheme !== "") {
         //         Modules.Events.dispatchCustomEvent(document, calculatedTheme, detailObject, false, false);
@@ -827,7 +827,7 @@ window.exports = window.exports || (window.exports = {});
 
         L18N.localize = localize;
     })(Modules.L18N || (Modules.L18N = {}));
-    var L18N = Modules.L18N;
+    let L18N = Modules.L18N;
     /**
      * @namespace Modules.Loader
      * @memberOf Modules
@@ -853,20 +853,20 @@ window.exports = window.exports || (window.exports = {});
 
 
         function _buildFilePath(path, name) {
-            var result = path + "/" + name;
+            let result = path + "/" + name;
             return result;
         }
 
         function _buildTemplatePath(path, name) {
-            var result = path + "/" + name + "/" + name;
+            let result = path + "/" + name + "/" + name;
             return result;
         }
 
         function _replace$PlaceholdersInTemplate(responseText, name, simpleDataSource) {
-            var keys = Object.keys(simpleDataSource);
-            var placeholder, value;
-            var result = responseText;
-            for (var i = 0; i < keys.length; i++) {
+            let keys = Object.keys(simpleDataSource);
+            let placeholder, value;
+            let result = responseText;
+            for (let i = 0; i < keys.length; i++) {
                 placeholder = keys[i];
                 value = simpleDataSource[keys[i]];
                 result = result.split('$' + placeholder + ';').join(value);
@@ -875,9 +875,9 @@ window.exports = window.exports || (window.exports = {});
         }
 
         function _addUUIDAttribute(responseText, itemNumber, name) {
-            var dom = document.createElement('div');
+            let dom = document.createElement('div');
             dom.innerHTML = responseText;
-            var element = dom.getElementsByClassName('fileInfo')[0];
+            let element = dom.getElementsByClassName('fileInfo')[0];
             element.setAttribute('uuid', itemNumber);
             return element.outerHTML;
         }
@@ -885,17 +885,17 @@ window.exports = window.exports || (window.exports = {});
 
 //        function loadTemplate (path, templateName, className, dataSource, callback, container) {
 //            document.getElementsByClassName(className).innerHTML = "";
-//            var htmlItemType = "template";
+//            let htmlItemType = "template";
 //            setTimeout(function(){
 //                loadSync(path, templateName, className, dataSource, htmlItemType, callback, container);
 //            }, 0);
 //            function loadSync(path, templateName, className, dataSource, htmlItemType, callback, container) {
-//                var templatePath = _buildTemplatePath(path, templateName);
+//                let templatePath = _buildTemplatePath(path, templateName);
 //                dispatchCustomEvent(document, "template_" + templateName + "_loadingStarted",
 //                    {"itemInfo": {"itemName" : templateName, "path": templatePath, "className": className}});
 //                function htmlLoadedHandler(responseText, name) {
-//                    var result = '';
-//                    var stepResult = '';
+//                    let result = '';
+//                    let stepResult = '';
 //                    //plain object
 //                    if (dataSource.length === undefined) {
 //                        result = _replace$PlaceholdersInTemplate(responseText, name, dataSource);
@@ -903,7 +903,7 @@ window.exports = window.exports || (window.exports = {});
 //                    }
 //                    //list
 //                    else {
-//                        for (var i = 0; i < dataSource.length; i++) {
+//                        for (let i = 0; i < dataSource.length; i++) {
 //                            stepResult = _replace$PlaceholdersInTemplate(responseText, name, dataSource[i]);
 //                            stepResult = _addUUIDAttribute(stepResult, i, templateName);
 //                            result += stepResult;
@@ -926,13 +926,13 @@ window.exports = window.exports || (window.exports = {});
 //            }
 //        };
 //        function loadHTML (path, fileName, className, callback, container) {
-//            var htmlItemType = "file";
+//            let htmlItemType = "file";
 //            setTimeout(function(){
 //                loadSync(path, fileName, className, htmlItemType, callback, container);
 //            }, 0);
 //            function loadSync(path, fileName, className, htmlItemType, callback, container) {
 ////                if ( fileName.length )
-//                var htmlPath = _buildFilePath(path, fileName);
+//                let htmlPath = _buildFilePath(path, fileName);
 //                dispatchCustomEvent(document, "html_" + fileName + "_loadingStarted",
 //                    {"detail": {"itemName" : fileName, "htmlPath": htmlPath, "path" : path, "className": className}});
 //                _loadHTML(htmlPath, fileName, className, htmlItemType, container, function() {
@@ -952,7 +952,7 @@ window.exports = window.exports || (window.exports = {});
 //                }, 0);
 //            }
 //            function loadSync(path, fileName,  callback) {
-//                var jsPath = _buildFilePath(path, fileName);
+//                let jsPath = _buildFilePath(path, fileName);
 //                this.dispatchCustomEvent(document, "js_" + fileName + "_loadingStarted",
 //                    {"detail": {"itemName" : fileName, "jsPath": jsPath, "path" : path}});
 //                _loadJS(jsPath, fileName, function() {
@@ -972,7 +972,7 @@ window.exports = window.exports || (window.exports = {});
 //                }, 0);
 //            }
 //            function loadSync(path, fileName, callback) {
-//                var cssPath = _buildFilePath(path, fileName);
+//                let cssPath = _buildFilePath(path, fileName);
 //                this.dispatchCustomEvent(document, "css_" + fileName + "_loadingStarted",
 //                    {"detail": {"itemName" : fileName, "cssPath": cssPath, "path" : path}});
 //                _loadCSS(cssPath, fileName, function() {
@@ -993,7 +993,7 @@ window.exports = window.exports || (window.exports = {});
          * @returns {String} Correct path or page directory
          */
         function _checkPath(path) {
-            var documentRootURL = Modules.DOM.getDocumentRootURL();
+            let documentRootURL = Modules.DOM.getDocumentRootURL();
             if (typeof (path) == "string") {
                 if (path[path.length-1] != "/") {
                     if (path[0] != "/") {
@@ -1025,7 +1025,7 @@ window.exports = window.exports || (window.exports = {});
          * @returns {String} Correct path or page directory
          */
         function _checkName(itemName) {
-            var correctName = itemName;
+            let correctName = itemName;
             if (typeof (itemName) == "string") {
                 if (itemName.indexOf('.') === -1) {
                     return correctName;
@@ -1049,7 +1049,7 @@ window.exports = window.exports || (window.exports = {});
          * @returns {String} Path to the current module directory
          */
         function _buildModulePath(path, moduleName) {
-            var result = path + moduleName + "/";
+            let result = path + moduleName + "/";
             return result;
         }
 
@@ -1063,14 +1063,14 @@ window.exports = window.exports || (window.exports = {});
          * @param {Function} callback Callback is called when the CSS file loaded on the page
          */
         function _loadCSS (correctPath, itemName, callback) {
-            var modulesCSSprefix = "modulesjs_css_";
+            let modulesCSSprefix = "modulesjs_css_";
 
-            var itemData = {"itemInfo": { "itemName" : itemName, "itemPath": correctPath }};
+            let itemData = {"itemInfo": { "itemName" : itemName, "itemPath": correctPath }};
             Modules.Events.dispatchCustomEvent(document, "css_" + itemName + "_loadingStarted", itemData);
 
-            var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
+            let cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
             if (!cssLoaded) {
-                var css = document.createElement('link');
+                let css = document.createElement('link');
                 css.href = correctPath + itemName + ".css";
                 css.className = modulesCSSprefix + itemName;
                 css.type = "text/css";
@@ -1095,8 +1095,8 @@ window.exports = window.exports || (window.exports = {});
          */
         function _unloadCSS(itemName, callback) {
             //TODO: check, that not one module is not used this CSS, which unloading. Need to store loaded modules info?
-            var modulesCSSprefix = "modulesjs_css_";
-            var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
+            let modulesCSSprefix = "modulesjs_css_";
+            let cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
             if (cssLoaded) {
                 document.getElementsByTagName("head")[0].removeChild(cssLoaded);
             }
@@ -1107,8 +1107,8 @@ window.exports = window.exports || (window.exports = {});
 
         function _loadL18NJS (correctPath, itemName, l18n, callback) {
             if ((l18n != null) && (l18n.length > 0)) {
-                var locN = 0;
-                var _nextL18NJSLoaded = function () {
+                let locN = 0;
+                let _nextL18NJSLoaded = function () {
                     locN++;
                     if (locN < l18n.length) {
                         _loadNextL18NJS(l18n[locN], correctPath, itemName, _nextL18NJSLoaded);
@@ -1127,26 +1127,26 @@ window.exports = window.exports || (window.exports = {});
         }
 
         function _loadNextL18NJS(loc, correctPath, itemName, callback) {
-            var modulesJsPrefix = "modulesjs_l18n_js_";
-            var locFolderName = "l18n/";
+            let modulesJsPrefix = "modulesjs_l18n_js_";
+            let locFolderName = "l18n/";
 
-            var itemData = {"itemInfo": { "itemName" : itemName, "itemPath": correctPath }};
+            let itemData = {"itemInfo": { "itemName" : itemName, "itemPath": correctPath }};
             Modules.Events.dispatchCustomEvent(document, "javascript_l18n_" + itemName + "_" + loc + "_loadingStarted", itemData);
 
-            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName + "_" + loc)[0];
+            let jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName + "_" + loc)[0];
             if (jsLoaded) {
                 document.getElementsByTagName("head")[0].removeChild(jsLoaded);
             }
 
-            var script = document.createElement('script');
+            let script = document.createElement('script');
             script.src = correctPath + locFolderName + loc + ".js";
             script.className = modulesJsPrefix + itemName + "_" + loc;
             script.type = "text/javascript";
             script.async = true;
             document.getElementsByTagName("head")[0].appendChild(script);
-            var done = false;
+            let done = false;
             script.onreadystatechange = script.onload = function () {
-                var state = script.readyState;
+                let state = script.readyState;
                 if (!done && (!state || state === "loaded" || state === "complete")) {
                     done = true;
                     Modules.Events.dispatchCustomEvent(document, "javascript_l18n_" + itemName + "_" + loc + "_loaded", itemData);
@@ -1167,25 +1167,25 @@ window.exports = window.exports || (window.exports = {});
          * @param {Function} callback Callback is called when the JavaScript file loaded on the page
          */
         function _loadJS (correctPath, itemName, callback) {
-            var modulesJsPrefix = "modulesjs_js_";
+            let modulesJsPrefix = "modulesjs_js_";
 
-            var itemData = {"itemInfo": { "itemName" : itemName, "itemPath": correctPath }};
+            let itemData = {"itemInfo": { "itemName" : itemName, "itemPath": correctPath }};
             Modules.Events.dispatchCustomEvent(document, "javascript_" + itemName + "_loadingStarted", itemData);
 
-            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
+            let jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
             if (jsLoaded) {
                 document.getElementsByTagName("head")[0].removeChild(jsLoaded);
             }
 
-            var script = document.createElement('script');
+            let script = document.createElement('script');
             script.src = correctPath + itemName + ".js";
             script.className = modulesJsPrefix + itemName;
             script.type = "text/javascript";
             script.async = true;
             document.getElementsByTagName("head")[0].appendChild(script);
-            var done = false;
+            let done = false;
             script.onreadystatechange = script.onload = function () {
-                var state = script.readyState;
+                let state = script.readyState;
                 if (!done && (!state || state === "loaded" || state === "complete")) {
                     done = true;
                     Modules.Events.dispatchCustomEvent(document, "javascript_" + itemName + "_loaded", itemData);
@@ -1206,8 +1206,8 @@ window.exports = window.exports || (window.exports = {});
          */
         function _unloadJS(itemName, callback) {
             //TODO: check, that not one module is not used this js, which unloading
-            var modulesJsPrefix = "modulesjs_js_";
-            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
+            let modulesJsPrefix = "modulesjs_js_";
+            let jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
             if (jsLoaded) {
                 document.getElementsByTagName("head")[0].removeChild(jsLoaded);
             }
@@ -1237,14 +1237,14 @@ window.exports = window.exports || (window.exports = {});
 
         function _loadHTMLTemplate(pathToItemFiles, itemName, className, itemType, containerClassName, dataSource, callback) {
             function loadedHandler(responseText, name) {
-                var templatedText = insertTemplate(responseText, dataSource);
+                let templatedText = insertTemplate(responseText, dataSource);
                 _renderHTML(templatedText, className, itemType, containerClassName, callback);
             }
             _loadHTMLInMemory(pathToItemFiles, itemName, loadedHandler);
         }
 
         function insertTemplate (responseText, dataSource) {
-            for (var key in dataSource) {
+            for (let key in dataSource) {
                 if (dataSource.hasOwnProperty(key)) {
                     responseText = replaceAll(responseText, "$" + key + ";", dataSource[key]);
                 }
@@ -1274,20 +1274,20 @@ window.exports = window.exports || (window.exports = {});
          */
         function _unloadHTML(itemName, className, itemType, containerClassName, callback) {
             if (containerClassName != null) {
-                var containerElement = document.getElementsByClassName(containerClassName);
-                var containerElementLength = containerElement.length;
-                for (var currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
-                    var elementClasses = containerElement.getElementsByClassName(className);
+                let containerElement = document.getElementsByClassName(containerClassName);
+                let containerElementLength = containerElement.length;
+                for (let currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
+                    let elementClasses = containerElement.getElementsByClassName(className);
                     unloadContentFromElementClasses(elementClasses);
                 }
             } else {
-                var elementClasses = document.getElementsByClassName(className);
+                let elementClasses = document.getElementsByClassName(className);
                 unloadContentFromElementClasses(elementClasses);
             }
 
             function unloadContentFromElementClasses (elementClasses) {
-                var classesCount = elementClasses.length;
-                for (var htmlID = 0; htmlID < classesCount; htmlID++) {
+                let classesCount = elementClasses.length;
+                for (let htmlID = 0; htmlID < classesCount; htmlID++) {
                     elementClasses[htmlID].removeAttribute("data-" + "modulesjs_item_id");
                     elementClasses[htmlID].removeAttribute("data-" + "modulesjs_item_type");
                     elementClasses[htmlID].innerHTML = "";
@@ -1312,20 +1312,20 @@ window.exports = window.exports || (window.exports = {});
          */
         function _renderHTML(HTMLContent, className, itemType, containerClassName, callback) {
             if (containerClassName != null) {
-                var containerElement = document.getElementsByClassName(containerClassName);
-                var containerElementLength = containerElement.length;
-                for (var currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
-                    var elementClasses = containerElement.getElementsByClassName(className);
+                let containerElement = document.getElementsByClassName(containerClassName);
+                let containerElementLength = containerElement.length;
+                for (let currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
+                    let elementClasses = containerElement.getElementsByClassName(className);
                     loadContentInElementClasses(elementClasses);
                 }
             } else {
-                var elementClasses = document.getElementsByClassName(className);
+                let elementClasses = document.getElementsByClassName(className);
                 loadContentInElementClasses(elementClasses);
             }
 
             function loadContentInElementClasses (elementClasses) {
-                var classesCount = elementClasses.length;
-                for (var htmlID = 0; htmlID < classesCount; htmlID++) {
+                let classesCount = elementClasses.length;
+                for (let htmlID = 0; htmlID < classesCount; htmlID++) {
                     elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
                     elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", itemType);
                     elementClasses[htmlID].innerHTML = HTMLContent;
@@ -1347,7 +1347,7 @@ window.exports = window.exports || (window.exports = {});
          * @param {Function} callback Callback is called when the content of the HTML file loaded in the memory
          */
         function _loadHTMLInMemory(pathToItemFiles, itemName, callback) {
-            var xhrHtmlLoader = new XMLHttpRequest();
+            let xhrHtmlLoader = new XMLHttpRequest();
             xhrHtmlLoader.open("GET", pathToItemFiles  + ".html", true);
             xhrHtmlLoader.onreadystatechange = function() {
                 if (xhrHtmlLoader.readyState === 4 /* complete */) {
@@ -1378,14 +1378,14 @@ window.exports = window.exports || (window.exports = {});
             });
 
             function loadSync (correctPath, moduleName, className, callback, containerClassName) {
-                var modulePath = _buildModulePath(correctPath, moduleName);
+                let modulePath = _buildModulePath(correctPath, moduleName);
 
-                var itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className,
+                let itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className,
                     "containerClassName" : containerClassName}};
 
                 Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_loadingStarted", itemData);
 
-                var pathToModuleFiles = modulePath + moduleName;
+                let pathToModuleFiles = modulePath + moduleName;
 
                 _loadCSS(modulePath, moduleName, function() {
                     _loadHTML(pathToModuleFiles, moduleName, className, Modules.MODULE, containerClassName, function() {
@@ -1408,14 +1408,14 @@ window.exports = window.exports || (window.exports = {});
             });
 
             function loadSync (correctPath, moduleName, className, callback, containerClassName) {
-                var modulePath = _buildModulePath(correctPath, moduleName);
+                let modulePath = _buildModulePath(correctPath, moduleName);
 
-                var itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className,
+                let itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className,
                     "containerClassName" : containerClassName}};
 
                 Modules.Events.dispatchCustomEvent(document, "template_" + moduleName + "_loadingStarted", itemData);
 
-                var pathToModuleFiles = modulePath + moduleName;
+                let pathToModuleFiles = modulePath + moduleName;
 
                 _loadCSS(modulePath, moduleName, function() {
                     _loadHTMLTemplate(pathToModuleFiles, moduleName, className, Modules.MODULE, containerClassName, dataSource, function() {
@@ -1439,7 +1439,7 @@ window.exports = window.exports || (window.exports = {});
          * @returns {Number} Number of loaded modules
          */
         function _getModulesNumberLoaded(moduleName) {
-            var modules = document.getElementsByClassName(moduleName);
+            let modules = document.getElementsByClassName(moduleName);
             return modules.length;
         }
 
@@ -1460,11 +1460,11 @@ window.exports = window.exports || (window.exports = {});
             });
 
             function unloadSync (moduleName, className, callback, containerClassName) {
-                var itemData = {"itemInfo": {"itemName" : moduleName, "className": className,
+                let itemData = {"itemInfo": {"itemName" : moduleName, "className": className,
                     "containerClassName" : containerClassName, "isJSCSSUnloaded": false}};
                 Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_unloadingStarted", itemData);
 
-                var loadedModulesNumber = _getModulesNumberLoaded(moduleName);
+                let loadedModulesNumber = _getModulesNumberLoaded(moduleName);
                 if (loadedModulesNumber > 1) {
                     _unloadHTML(moduleName, className, Modules.MODULE, containerClassName, function() {
                         itemData.isJSCSSUnloaded = true;
@@ -1501,18 +1501,18 @@ window.exports = window.exports || (window.exports = {});
          * @param {String} containerClassName Class on the page, which parent for class for loading item
          */
         function loadModule (relativePath, moduleName, className, callback, l18n, containerClassName) {
-            var _correctPath = _checkPath(relativePath);
+            let _correctPath = _checkPath(relativePath);
             _loadModule(_correctPath, moduleName, className, callback, l18n, containerClassName);
         }
 
         function loadTemplate (relativePath, moduleName, className, dataSource, callback, containerClassName) {
-            var _correctPath = _checkPath(relativePath);
+            let _correctPath = _checkPath(relativePath);
             _loadTemplate(_correctPath, moduleName, className, callback, containerClassName, dataSource);
         }
 
         function onTemplateLoaded (templateName, handle) {
-            var templateElements = document.getElementsByClassName(templateName);
-            for (var currentId = 0; currentId < templateElements.length; currentId++) {
+            let templateElements = document.getElementsByClassName(templateName);
+            for (let currentId = 0; currentId < templateElements.length; currentId++) {
                 if (templateElements[currentId].getAttribute("data-" + "templateLoaded") == null) {
                     handle(templateElements[currentId], currentId);
                     templateElements[currentId].setAttribute("data-" + "templateLoaded", true);
@@ -1529,8 +1529,8 @@ window.exports = window.exports || (window.exports = {});
          * @param {Function} callback Callback is called when item loaded
          */
         function loadJS (relativePath, itemName, callback) {
-            var _correctPath = _checkPath(relativePath);
-            var _correctName = _checkName(itemName);
+            let _correctPath = _checkPath(relativePath);
+            let _correctName = _checkName(itemName);
             _loadJS(_correctPath, _correctName, callback);
         }
 
@@ -1543,8 +1543,8 @@ window.exports = window.exports || (window.exports = {});
          * @param {Function} callback Callback is called when item loaded
          */
         function loadCSS (relativePath, itemName, callback) {
-            var _correctPath = _checkPath(relativePath);
-            var _correctName = _checkName(itemName);
+            let _correctPath = _checkPath(relativePath);
+            let _correctName = _checkName(itemName);
             _loadCSS(_correctPath, _correctName, callback);
         }
 
@@ -1608,7 +1608,7 @@ window.exports = window.exports || (window.exports = {});
         Loader.load = load;
         Loader.unload = unload;
     })(Modules.Loader || (Modules.Loader = {}));
-    var Loader = Modules.Loader;
+    let Loader = Modules.Loader;
 
 //    Modules.Loader = (function () {
 //        function Loader(path) {
@@ -1634,10 +1634,10 @@ window.exports = window.exports || (window.exports = {});
 //        }
 
 //        function _loadCSS(path, name, callback) {
-//            var modulesCSSprefix = "modulesjs_css_";
-//            var cssLoaded = document.getElementsByClassName(modulesCSSprefix + name)[0];
+//            let modulesCSSprefix = "modulesjs_css_";
+//            let cssLoaded = document.getElementsByClassName(modulesCSSprefix + name)[0];
 //            if (!cssLoaded) {
-//                var css = document.createElement('link');
+//                let css = document.createElement('link');
 //                css.href = path + ".css";
 //                css.className = modulesCSSprefix + name;
 //                css.type = "text/css";
@@ -1649,20 +1649,20 @@ window.exports = window.exports || (window.exports = {});
 //            }
 //        }
 //        function _loadJS (path, name, callback) {
-//            var modulesJsPrefix = "modulesjs_js_";
-//            var jsLoaded = document.getElementsByClassName(modulesJsPrefix + name)[0];
+//            let modulesJsPrefix = "modulesjs_js_";
+//            let jsLoaded = document.getElementsByClassName(modulesJsPrefix + name)[0];
 //            if (jsLoaded) {
 //                document.getElementsByTagName("head")[0].removeChild(jsLoaded);
 //            }
-//            var script = document.createElement('script');
+//            let script = document.createElement('script');
 //            script.src = path + ".js";
 //            script.className = modulesJsPrefix + name;
 //            script.type = "text/javascript";
 //            script.async = true;
 //            document.getElementsByTagName("head")[0].appendChild(script);
-//            var done = false;
+//            let done = false;
 //            script.onreadystatechange = script.onload = function () {
-//                var state = script.readyState;
+//                let state = script.readyState;
 //                if (!done && (!state || state === "loaded" || state === "complete")) {
 //                    done = true;
 //                    if (callback) {
@@ -1678,15 +1678,15 @@ window.exports = window.exports || (window.exports = {});
 //            _loadHTMLInMemory(path, name, loadedHandler);
 //        }
 //        function _renderHTML(responseText, className, htmlItemType, container, callback) {
-//            var elementClasses = null;
+//            let elementClasses = null;
 //            if (container != null) {
-//                var containerElement = document.getElementsByClassName(container)[0];
+//                let containerElement = document.getElementsByClassName(container)[0];
 //                elementClasses = containerElement.getElementsByClassName(className);
 //            } else {
 //                elementClasses = document.getElementsByClassName(className);
 //            }
-//            var classesCount = elementClasses.length;
-//            for (var htmlID = 0; htmlID < classesCount; htmlID++) {
+//            let classesCount = elementClasses.length;
+//            for (let htmlID = 0; htmlID < classesCount; htmlID++) {
 //                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
 //                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", htmlItemType);
 //                elementClasses[htmlID].innerHTML = responseText;
@@ -1696,7 +1696,7 @@ window.exports = window.exports || (window.exports = {});
 //            }
 //        }
 //        function _loadHTMLInMemory(path, name, callback) {
-//            var xhrHtmlLoader = new XMLHttpRequest();
+//            let xhrHtmlLoader = new XMLHttpRequest();
 //            xhrHtmlLoader.open("GET", path  + ".html", true);
 //            xhrHtmlLoader.onreadystatechange = function() {
 //                if (xhrHtmlLoader.readyState === 4 /* complete */) {
@@ -1710,18 +1710,18 @@ window.exports = window.exports || (window.exports = {});
 //            xhrHtmlLoader.send(null);
 //        }
 //        function _buildFilePath(path, name) {
-//            var result = path + "/" + name;
+//            let result = path + "/" + name;
 //            return result;
 //        }
 //        function _buildTemplatePath(path, name) {
-//            var result = path + "/" + name + "/" + name;
+//            let result = path + "/" + name + "/" + name;
 //            return result;
 //        }
 //        function _replace$PlaceholdersInTemplate(responseText, name, simpleDataSource) {
-//            var keys = Object.keys(simpleDataSource);
-//            var placeholder, value;
-//            var result = responseText;
-//            for (var i = 0; i < keys.length; i++) {
+//            let keys = Object.keys(simpleDataSource);
+//            let placeholder, value;
+//            let result = responseText;
+//            for (let i = 0; i < keys.length; i++) {
 //                placeholder = keys[i];
 //                value = simpleDataSource[keys[i]];
 //                result = result.split('$' + placeholder + ';').join(value);
@@ -1729,26 +1729,26 @@ window.exports = window.exports || (window.exports = {});
 //            return result;
 //        }
 //        function _addUUIDAttribute(responseText, itemNumber, name) {
-//            var dom = document.createElement('div');
+//            let dom = document.createElement('div');
 //            dom.innerHTML = responseText;
-//            var element = dom.getElementsByClassName('fileInfo')[0];
+//            let element = dom.getElementsByClassName('fileInfo')[0];
 //            element.setAttribute('uuid', itemNumber);
 //            return element.outerHTML;
 //        }
 //        function _buildModulePath(path, name) {
-//            var result = path + "/" + name + "/";
+//            let result = path + "/" + name + "/";
 //            return result;
 //        }
 //        function loadModule (path, moduleName, className, callback, container) {
-//            var htmlItemType = "module";
+//            let htmlItemType = "module";
 //            setTimeout(function(){
 //                loadSync(path, moduleName, className, htmlItemType, callback, container);
 //            }, 0);
 //            function loadSync (path, moduleName, className, htmlItemType, callback, container) {
-//                var modulePath = _buildModulePath(path, moduleName);
+//                let modulePath = _buildModulePath(path, moduleName);
 //                dispatchDocumentCustomEvent("module_" + moduleName + "_loadingStarted",
 //                    {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className}});
-//                var pathToModuleFiles = modulePath + moduleName;
+//                let pathToModuleFiles = modulePath + moduleName;
 //                _loadCSS(pathToModuleFiles, moduleName, function() {
 //                    _loadHTML(pathToModuleFiles, moduleName, className, htmlItemType, container, function() {
 //                        _loadJS(pathToModuleFiles, moduleName, function() {
@@ -1764,17 +1764,17 @@ window.exports = window.exports || (window.exports = {});
 //        }
 //        function loadTemplate (path, templateName, className, dataSource, callback, container) {
 //            document.getElementsByClassName(className).innerHTML = "";
-//            var htmlItemType = "template";
+//            let htmlItemType = "template";
 //            setTimeout(function(){
 //                loadSync(path, templateName, className, dataSource, htmlItemType, callback, container);
 //            }, 0);
 //            function loadSync(path, templateName, className, dataSource, htmlItemType, callback, container) {
-//                var templatePath = _buildTemplatePath(path, templateName);
+//                let templatePath = _buildTemplatePath(path, templateName);
 //                dispatchCustomEvent(document, "template_" + templateName + "_loadingStarted",
 //                    {"itemInfo": {"itemName" : templateName, "path": templatePath, "className": className}});
 //                function htmlLoadedHandler(responseText, name) {
-//                    var result = '';
-//                    var stepResult = '';
+//                    let result = '';
+//                    let stepResult = '';
 //                    //plain object
 //                    if (dataSource.length === undefined) {
 //                        result = _replace$PlaceholdersInTemplate(responseText, name, dataSource);
@@ -1782,7 +1782,7 @@ window.exports = window.exports || (window.exports = {});
 //                    }
 //                    //list
 //                    else {
-//                        for (var i = 0; i < dataSource.length; i++) {
+//                        for (let i = 0; i < dataSource.length; i++) {
 //                            stepResult = _replace$PlaceholdersInTemplate(responseText, name, dataSource[i]);
 //                            stepResult = _addUUIDAttribute(stepResult, i, templateName);
 //                            result += stepResult;
@@ -1805,13 +1805,13 @@ window.exports = window.exports || (window.exports = {});
 //            }
 //        };
 //        function loadHTML (path, fileName, className, callback, container) {
-//            var htmlItemType = "file";
+//            let htmlItemType = "file";
 //            setTimeout(function(){
 //                loadSync(path, fileName, className, htmlItemType, callback, container);
 //            }, 0);
 //            function loadSync(path, fileName, className, htmlItemType, callback, container) {
 ////                if ( fileName.length )
-//                var htmlPath = _buildFilePath(path, fileName);
+//                let htmlPath = _buildFilePath(path, fileName);
 //                dispatchCustomEvent(document, "html_" + fileName + "_loadingStarted",
 //                    {"detail": {"itemName" : fileName, "htmlPath": htmlPath, "path" : path, "className": className}});
 //                _loadHTML(htmlPath, fileName, className, htmlItemType, container, function() {
@@ -1831,7 +1831,7 @@ window.exports = window.exports || (window.exports = {});
 //                }, 0);
 //            }
 //            function loadSync(path, fileName,  callback) {
-//                var jsPath = _buildFilePath(path, fileName);
+//                let jsPath = _buildFilePath(path, fileName);
 //                this.dispatchCustomEvent(document, "js_" + fileName + "_loadingStarted",
 //                    {"detail": {"itemName" : fileName, "jsPath": jsPath, "path" : path}});
 //                _loadJS(jsPath, fileName, function() {
@@ -1851,7 +1851,7 @@ window.exports = window.exports || (window.exports = {});
 //                }, 0);
 //            }
 //            function loadSync(path, fileName, callback) {
-//                var cssPath = _buildFilePath(path, fileName);
+//                let cssPath = _buildFilePath(path, fileName);
 //                this.dispatchCustomEvent(document, "css_" + fileName + "_loadingStarted",
 //                    {"detail": {"itemName" : fileName, "cssPath": cssPath, "path" : path}});
 //                _loadCSS(cssPath, fileName, function() {
@@ -1892,13 +1892,13 @@ window.exports = window.exports || (window.exports = {});
          * @returns {string}
          */
         function getString (url) {
-            var xhr = new XMLHttpRequest();
+            let xhr = new XMLHttpRequest();
             xhr.open('GET', url, false);
             xhr.send(null);
             return xhr.responseText;
         }
         function getStringAsync(url, handler) {
-            var xhr = new XMLHttpRequest();
+            let xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 /* complete */) {
@@ -1910,19 +1910,19 @@ window.exports = window.exports || (window.exports = {});
             xhr.send();
         }
         function loadJSONConfig(path, name, callback) {
-            var jsLoaded = document.getElementsByClassName("modulesjs-config-" + name)[0];
+            let jsLoaded = document.getElementsByClassName("modulesjs-config-" + name)[0];
             if (jsLoaded) {
                 document.getElementsByTagName("head")[0].removeChild(jsLoaded);
             }
-            var script = document.createElement('script');
+            let script = document.createElement('script');
             script.src = path + "/" + name + ".js";
             script.className = "modulesjs-config-" + name;
             script.type = "text/javascript";
             document.getElementsByTagName("head")[0].appendChild(script);
-            var done = false;
+            let done = false;
 
             script.onreadystatechange = script.onload = function () {
-                var state = script.readyState;
+                let state = script.readyState;
                 if (!done && (!state || state === "loaded" || state === "complete")) {
                     done = true;
                     document.dispatchEvent(new CustomEvent("config_" + name + "_loaded",
@@ -1951,4 +1951,4 @@ window.exports = window.exports || (window.exports = {});
  * @global
  * @name Modules
  */
-var Modules = window.exports.Modules;
+let Modules = window.exports.Modules;
