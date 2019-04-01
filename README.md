@@ -1,7 +1,7 @@
 #modules.js framework
 ###The framework for creating modular web clients
 
-Copyright 2012-2016 Yuri Trukhin
+Copyright 2012-2019 Yuri Trukhin
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -24,11 +24,6 @@ bower install modules.js
 
 [http://api.modules.plugndo.com](http://api.modules.plugndo.com)
 
-###Release
-
-**2016.01.08**
-
-0.9.0
 
 ###Donations
 
@@ -36,4 +31,4 @@ bower install modules.js
 
 ###Cloud Hosting
 
-[InfoboxCloud](https://infoboxcloud.ru)
+[#CloudMTS](https://cloud.mts.ru)
