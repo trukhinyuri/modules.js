@@ -1328,7 +1328,8 @@ window.exports = window.exports || (window.exports = {});
                 for (var htmlID = 0; htmlID < classesCount; htmlID++) {
                     elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
                     elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", itemType);
-                    elementClasses[htmlID].innerHTML = HTMLContent;
+                    let shadow = elementClasses[htmlID].attachShadow({mode: 'open'});
+                    shadow.innerHTML = HTMLContent;
                 }
             }
 

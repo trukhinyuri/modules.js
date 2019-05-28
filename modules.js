@@ -19,7 +19,7 @@
  * @fileOverview
  * @copyright (C) Yuri V. Trukhin.
  * @author trukhinyuri <yuri@trukhin.com>
- * @version 0.9.1
+ * @version 0.9.2
  * @license Apache License, Version 2.0. You may obtain a copy of the License at {@link http://www.apache.org/licenses/LICENSE-2.0}
  */
 
@@ -673,7 +673,8 @@ Modules.Loader = class {
             for (let htmlID = 0; htmlID < classesCount; htmlID++) {
                 elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
                 elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", itemType);
-                elementClasses[htmlID].innerHTML = HTMLContent;
+                elementClasses[htmlID].attachShadow({mode: 'open'});
+                elementClasses[htmlID].shadowRoot.innerHTML = HTMLContent;
             }
         }
 
@@ -904,7 +905,7 @@ window.exports.Modules.L18N = new Modules.L18N();
 window.exports.Modules.Loader = new Modules.Loader();
 window.exports.Modules.Server = new Modules.Server();
 
-let Modules2 = window.exports.Modules2;
+let Modules2 = window.exports.Modules;
 
 
 

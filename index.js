@@ -17,7 +17,7 @@
 "use strict";
 (function () {
     function run() {
-
+        Modules.Loader.loadModule("modules", "globalNavigationMenu", "menu");
     }
     Modules.Events.addStartupListener(run);
 }());

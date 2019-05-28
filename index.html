@@ -3,40 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Modules.js demo page</title>
-    <!--<script src="lib/demo.js"></script>-->
-    <script src="modules.js" type="text/javascript"></script>
-    <script src="lib/demo.js" type="text/javascript"></script>
+    <script src="modules.js"></script>
+    <script src="index.js"></script>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <div class="header_navigation"></div>
-        <div class="header_loginState"></div>
-    </div>
-    <div class="body">
-    </div>
-</div>
-<div class="dom"></div>
+<div class="menu"></div>
 <div class="footer"></div>
-
+Hello
 </body>
-<script>
-    import {one, two} from "./lib/demo.js";
-    alert(one);
-    alert(two);
-
-    let el = document.querySelector('.dom');
-    el.attachShadow({ mode: 'open' });
-    // Just like prototype & constructor bi-directional references, we have...
-    el.shadowRoot; // the shadow root.
-    el.shadowRoot.host; // the element itself.
-
-    // put something in shadow DOM
-    el.shadowRoot.innerHTML = 'Hi I am shadowed!';
-
-    // Like any other normal DOM operation.
-    let hello = document.createElement('span');
-    hello.textContent = 'Hi I am shadowed but wrapped in span';
-    el.shadowRoot.appendChild(hello);
-</script>
 </html>
