@@ -3853,6 +3853,11 @@ QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callb
 
 });
 
+QUnit.test("new Modules.Loader(modulesRelativePath)", function (assert) {
+   let loader = new Modules.Loader("modules");
+   equal(loader.modulesRelativePath, "modules");
+});
+
 //QUnit.asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", function(){
 //    expect(1);
 //    var loader = Modules.Loader;

@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2012-2019 Yuri Trukhin
  *
@@ -53,348 +52,37 @@ class Modules {
     }
     constructor() {}
 }
-Modules.DOM = class {
 
-    static isHTMLModule (htmlElement) {
-        if (htmlElement.parentNode != null) {
-            return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === Modules.MODULE;
-        } else {
-            return false;
-        }
-    }
-
-    static isHTMLTemplate (htmlElement) {
-        if (htmlElement.parentNode != null) {
-            return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === Modules.TEMPLATE;
-        } else {
-            return false;
-        }
-    }
-
-    static getModules (className) {
-        let elements = document.getElementsByClassName(className);
-        let result = new Array();
-        for (let i = 0; i < elements.length; i++) {
-            if (this.isHTMLModule(elements[i])) {
-                result.push(elements[i]);
-            }
-        }
-        return result;
-    }
-
-    static getTemplates (className) {
-        let elements = document.getElementsByClassName(className);
-        let result = new Array();
-        for (let i = 0; i < elements.length; i++) {
-            if (this.isHTMLTemplate(elements[i])) {
-                result.push(elements[i]);
-            }
-        }
-        return result;
-    }
-
-    static getFirstContainerElementByClassName (htmlElement, className) {
-        if (htmlElement.className === className) {
-            return htmlElement;
-        } else {
-            if (htmlElement.parentNode != null) {
-                return this.getFirstContainerElementByClassName(htmlElement.parentNode, className);
-            }
-            else {
-                return null;
-            }
-        }
-    }
-
-    static getFirstElementByClassName (htmlDocument, className) {
-        return htmlDocument.getElementsByClassName(className)[0];
-    }
-
-    static getDocumentRootURL() {
-        let documentURL = document.URL.split("/");
-        documentURL.pop();
-        let documentRootURL = documentURL.join("/");
-        return documentRootURL;
-    }
-};
-
-Modules.Events = class {
-
-    static addListener (target, type, listener, useCapture) {
-        let _useCapture = useCapture || false;
-        target.addEventListener(type, listener, _useCapture);
-        return listener;
-    };
-
-    static addContextListener(target, type, listener, context, useCapture) {
-        let _context = context || this;
-        let _useCapture = useCapture || false;
-        let bindedListener = listener.bind(_context);
-        //noinspection JSUnresolvedFunction,JSUnresolvedVariable
-        target.addEventListener(type, bindedListener, _useCapture);
-        return bindedListener;
-    }
-
-
-    static removeListener (target, type, listener, useCapture) {
-        let _useCapture = useCapture || false;
-        target.removeEventListener(type, listener, _useCapture);
-    };
-
-
-    static addStartupListener (listener) {
-        this.addListener(document, "DOMContentLoaded", listener, false);
-        return listener;
-    };
-
-    static addStartupContextListener (listener, context) {
-        let _context = context || this;
-        return this.addContextListener(document, "DOMContentLoaded", listener, _context, false);
-    };
-
-    static removeStartupListener (listener) {
-        this.removeListener(document, "DOMContentLoaded", listener, false);
-    };
-
-    static addDocumentListener (type, listener, useCapture) {
-        this.addListener(document, type, listener, useCapture);
-        return listener;
-    };
-
-    static addDocumentContextListener(type, listener, context, useCapture) {
-        let _context = context || this;
-        //noinspection JSUnresolvedFunction
-        return this.addContextListener(document, type, listener, _context, useCapture)
-    }
-
-    static removeDocumentListener (type, listener, useCapture) {
-        let _useCapture = useCapture || false;
-        this.removeListener(document, type, listener, _useCapture);
-    };
-
-    static addItemLoadedListener(ITEM_TYPE, itemName, listener) {
-        if (ITEM_TYPE === Modules.MODULE) {
-            return this.addListener(document, "module_" + itemName + "_loaded", listener, false);
-        } else if (ITEM_TYPE === Modules.TEMPLATE) {
-            return this.addListener(document, "template_" + itemName + "_loaded", listener, false);
-        } else if (ITEM_TYPE === Modules.HTML) {
-            return this.addListener(document, "html_" + itemName + "_loaded", listener, false);
-        } else if (ITEM_TYPE === Modules.CSS) {
-            return this.addListener(document, "css_" + itemName + "_loaded", listener, false);
-        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
-            return this.addListener(document, "js_" + itemName + "_loaded", listener, false);
-        }
-    }
-
-    static addItemLoadedContextListener (ITEM_TYPE, itemName, listener, context) {
-        let _context = context || this;
-        if (ITEM_TYPE === Modules.MODULE) {
-            return this.addContextListener(document, "module_" + itemName + "_loaded", listener, _context, false);
-        } else if (ITEM_TYPE === Modules.TEMPLATE) {
-            return this.addContextListener(document, "template_" + itemName + "_loaded", listener, _context, false);
-        } else if (ITEM_TYPE === Modules.HTML) {
-            return this.addContextListener(document, "html_" + itemName + "_loaded", listener, _context, false);
-        } else if (ITEM_TYPE === Modules.CSS) {
-            return this.addContextListener(document, "css_" + itemName + "_loaded", listener, _context, false);
-        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
-            return this.addContextListener(document, "js_" + itemName + "_loaded", listener, _context, false);
-        }
-    }
-
-    static removeItemLoadedListener(ITEM_TYPE, itemName, listener) {
-        if (ITEM_TYPE === Modules.MODULE) {
-            this.removeListener(document, "module_" + itemName + "_loaded", listener, false);
-        } else if (ITEM_TYPE === Modules.TEMPLATE) {
-            this.removeListener(document, "template_" + itemName + "_loaded", listener, false);
-        } else if (ITEM_TYPE === Modules.HTML) {
-            this.removeListener(document, "html_" + itemName + "_loaded", listener, false);
-        } else if (ITEM_TYPE === Modules.CSS) {
-            this.removeListener(document, "css_" + itemName + "_loaded", listener, false);
-        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
-            this.removeListener(document, "js_" + itemName + "_loaded", listener, false);
-        }
-    }
-
-    static addBeforeItemLoadedListener(ITEM_TYPE, itemName, listener) {
-        if (ITEM_TYPE === Modules.MODULE) {
-            return this.addListener(document, "module_" + itemName + "_loadingStarted", listener, false);
-        } else if (ITEM_TYPE === Modules.TEMPLATE) {
-            return this.addListener(document, "template_" + itemName + "_loadingStarted", listener, false);
-        } else if (ITEM_TYPE === Modules.HTML) {
-            return this.addListener(document, "html_" + itemName + "_loadingStarted", listener, false);
-        } else if (ITEM_TYPE === Modules.CSS) {
-            return this.addListener(document, "css_" + itemName + "_loadingStarted", listener, false);
-        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
-            return this.addListener(document, "js_" + itemName + "_loadingStarted", listener, false);
-        }
-    }
-
-    static addBeforeItemLoadedContextListener (ITEM_TYPE, itemName, listener, context) {
-        let _context = context || this;
-        if (ITEM_TYPE === Modules.MODULE) {
-            return this.addContextListener(document, "module_" + itemName + "_loadingStarted", listener, _context, false);
-        } else if (ITEM_TYPE === Modules.TEMPLATE) {
-            return this.addContextListener(document, "template_" + itemName + "_loadingStarted", listener, _context, false);
-        } else if (ITEM_TYPE === Modules.HTML) {
-            return this.addContextListener(document, "html_" + itemName + "_loadingStarted", listener, _context, false);
-        } else if (ITEM_TYPE === Modules.CSS) {
-            return this.addContextListener(document, "css_" + itemName + "_loadingStarted", listener, _context, false);
-        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
-            return this.addContextListener(document, "js_" + itemName + "_loadingStarted", listener, _context, false);
-        }
-    }
-
-    static removeBeforeItemLoadedListener(ITEM_TYPE, itemName, listener) {
-        if (ITEM_TYPE === Modules.MODULE) {
-            this.removeListener(document, "module_" + itemName + "_loadingStarted", listener, false);
-        } else if (ITEM_TYPE === Modules.TEMPLATE) {
-            this.removeListener(document, "template_" + itemName + "_loadingStarted", listener, false);
-        } else if (ITEM_TYPE === Modules.HTML) {
-            this.removeListener(document, "html_" + itemName + "_loadingStarted", listener, false);
-        } else if (ITEM_TYPE === Modules.CSS) {
-            this.removeListener(document, "css_" + itemName + "_loadingStarted", listener, false);
-        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
-            this.removeListener(document, "js_" + itemName + "_loadingStarted", listener, false);
-        }
-    }
-
-    static addListeners(targets, type, listener, useCapture) {
-        let _useCapture = useCapture || false;
-        let length = targets.length;
-        for (let i = 0; i < length; i++) {
-            targets[i].addEventListener(type, listener, _useCapture);
-        }
-        return listener;
-    }
-
-    static addContextListeners(targets, type, listener, context, useCapture) {
-        let _useCapture = useCapture || false;
-        let _context = context || this;
-        //noinspection JSUnresolvedFunction
-        let bindedListener = listener.bind(_context);
-        let length = targets.length;
-        for (let i = 0; i < targets.length; i++) {
-            targets[i].addEventListener(type, bindedListener, _useCapture);
-        }
-        return bindedListener;
-    }
-
-    static removeListeners (targets, type, listener, useCapture) {
-        let _useCapture = useCapture || false;
-        let length = targets.length;
-        for (let i = 0; i < length; i++) {
-            this.removeListener(targets[i], type, listener, _useCapture);
-        }
-    }
-
-    static dispatchCustomEvent (target, type, detail, canBubble, cancelable) {
-        let _canBubble = canBubble || false;
-        let _cancelable = cancelable || false;
-        let _detail = detail || undefined;
-        let event = document.createEvent("CustomEvent");
-        event.initCustomEvent(type, _canBubble, _cancelable, _detail);
-        return target.dispatchEvent(event);
-    }
-
-};
-Modules.Events.Messages = class {
-    static subscribe (theme, listener, sourceID, destinationID) {
-        let messagePrefix = "modulesjs_message_";
-        let calculatedTheme = calculateTheme();
-
-        function calculateTheme() {
-            let _calculatedTheme = "";
-            if (sourceID == null) {
-                if (destinationID == null) {
-                    _calculatedTheme = messagePrefix + theme;
-                } else {
-                    _calculatedTheme = messagePrefix + theme + "__" + destinationID;
-                }
-            } else {
-                if (destinationID == null) {
-                    _calculatedTheme = messagePrefix + theme + "_" + sourceID;
-                } else {
-                    _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
-                }
-            }
-            return _calculatedTheme;
-        }
-
-        if (calculatedTheme != "") {
-            Modules.Events.addDocumentListener(calculatedTheme, listener, false);
-        }
-    }
-
-    static send (theme, detail, sourceID, destinationID) {
-        let messagePrefix = "modulesjs_message_";
-        let calculatedTheme = calculateTheme();
-
-        function calculateTheme() {
-            let _calculatedTheme = "";
-            if (sourceID == null) {
-                if (destinationID == null) {
-                    _calculatedTheme = messagePrefix + theme;
-                } else {
-                    _calculatedTheme = messagePrefix + theme + "__" + destinationID;
-                }
-            } else {
-                if (destinationID == null) {
-                    _calculatedTheme = messagePrefix + theme + "_" + sourceID;
-                } else {
-                    _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
-                }
-            }
-            return _calculatedTheme;
-        }
-
-        let detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
-
-        if (calculatedTheme !== "") {
-            Modules.Events.dispatchCustomEvent(document, calculatedTheme, detailObject, false, false);
-        }
-    }
-
-    static unsubscribe (theme, listener, sourceID, destinationID) {
-        let messagePrefix = "modulesjs_message_";
-        let calculatedTheme = calculateTheme();
-        function calculateTheme() {
-            let _calculatedTheme = "";
-            if (sourceID == null) {
-                if (destinationID == null) {
-                    _calculatedTheme = messagePrefix + theme;
-                } else {
-                    _calculatedTheme = messagePrefix + theme + "__" + destinationID;
-                }
-            } else {
-                if (destinationID == null) {
-                    _calculatedTheme = messagePrefix + theme + "_" + sourceID;
-                } else {
-                    _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
-                }
-            }
-            return _calculatedTheme;
-        }
-
-        if (calculatedTheme !== "") {
-            Modules.Events.removeDocumentListener(calculatedTheme, listener);
-        }
-    }
-};
-
-Modules.L18N = class {
-    static localize(langObject) {
-        for (let property in langObject) {
-            if (langObject.hasOwnProperty(property)) {
-                let elements = document.getElementsByClassName(property);
-                for (let i = 0; i < elements.length; i++ ) {
-                    elements[i].innerHTML = langObject[property];
-                }
-            }
-        }
-    }
-};
-
+/**
+ * Load modules to page
+ * @type {Modules.Loader}
+ */
 Modules.Loader = class {
+    constructor(modulesRelativePath) {
+        this.modulesRelativePath = modulesRelativePath;
+    }
+    static loadNew() {
+
+    }
+    static load (itemType, relativePath, itemName, className, callback, containerClassName, dataSource) {
+        if (itemType === Modules.MODULE) {
+            this.loadModule(relativePath, itemName, className, callback, containerClassName);
+        }
+        if (itemType === Modules.JAVASCRIPT) {
+            this.loadJS(relativePath, itemName, callback);
+        }
+        if (itemType === Modules.CSS) {
+            this.loadCSS(relativePath, itemName, callback);
+        }
+    }
+
+    static loadCSS (relativePath, itemName, callback) {
+        let _correctPath = this._checkPath(relativePath);
+        let _correctName = this._checkName(itemName);
+        this._loadCSS(_correctPath, _correctName, callback);
+    }
+
+
     static _buildFilePath(path, name) {
         let result = path + "/" + name;
         return result;
@@ -823,29 +511,356 @@ Modules.Loader = class {
         this._loadJS(_correctPath, _correctName, callback);
     }
 
-    static loadCSS (relativePath, itemName, callback) {
-        let _correctPath = this._checkPath(relativePath);
-        let _correctName = this._checkName(itemName);
-        this._loadCSS(_correctPath, _correctName, callback);
-    }
 
-    static load (itemType, relativePath, itemName, className, callback, containerClassName, dataSource) {
-        if (itemType === Modules.MODULE) {
-            this.loadModule(relativePath, itemName, className, callback, containerClassName);
-        }
-        if (itemType === Modules.JAVASCRIPT) {
-            this.loadJS(relativePath, itemName, callback);
-        }
-        if (itemType === Modules.CSS) {
-            this.loadCSS(relativePath, itemName, callback);
-        }
-    }
+
+
 
     static unload(itemType, itemName, className, callback, container) {
         if (itemType === Modules.MODULE) {
             this._unloadModule(itemName, className, callback, container);
         }
-      }
+    }
+};
+
+Modules.DOM = class {
+
+    static isHTMLModule (htmlElement) {
+        if (htmlElement.parentNode != null) {
+            return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === Modules.MODULE;
+        } else {
+            return false;
+        }
+    }
+
+    static isHTMLTemplate (htmlElement) {
+        if (htmlElement.parentNode != null) {
+            return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === Modules.TEMPLATE;
+        } else {
+            return false;
+        }
+    }
+
+    static getModules (className) {
+        let elements = document.getElementsByClassName(className);
+        let result = new Array();
+        for (let i = 0; i < elements.length; i++) {
+            if (this.isHTMLModule(elements[i])) {
+                result.push(elements[i]);
+            }
+        }
+        return result;
+    }
+
+    static getTemplates (className) {
+        let elements = document.getElementsByClassName(className);
+        let result = new Array();
+        for (let i = 0; i < elements.length; i++) {
+            if (this.isHTMLTemplate(elements[i])) {
+                result.push(elements[i]);
+            }
+        }
+        return result;
+    }
+
+    static getFirstContainerElementByClassName (htmlElement, className) {
+        if (htmlElement.className === className) {
+            return htmlElement;
+        } else {
+            if (htmlElement.parentNode != null) {
+                return this.getFirstContainerElementByClassName(htmlElement.parentNode, className);
+            }
+            else {
+                return null;
+            }
+        }
+    }
+
+    static getFirstElementByClassName (htmlDocument, className) {
+        return htmlDocument.getElementsByClassName(className)[0];
+    }
+
+    static getDocumentRootURL() {
+        let documentURL = document.URL.split("/");
+        documentURL.pop();
+        let documentRootURL = documentURL.join("/");
+        return documentRootURL;
+    }
+};
+
+Modules.Events = class {
+
+    static addListener (target, type, listener, useCapture) {
+        let _useCapture = useCapture || false;
+        target.addEventListener(type, listener, _useCapture);
+        return listener;
+    };
+
+    static addContextListener(target, type, listener, context, useCapture) {
+        let _context = context || this;
+        let _useCapture = useCapture || false;
+        let bindedListener = listener.bind(_context);
+        //noinspection JSUnresolvedFunction,JSUnresolvedVariable
+        target.addEventListener(type, bindedListener, _useCapture);
+        return bindedListener;
+    }
+
+
+    static removeListener (target, type, listener, useCapture) {
+        let _useCapture = useCapture || false;
+        target.removeEventListener(type, listener, _useCapture);
+    };
+
+
+    static addStartupListener (listener) {
+        this.addListener(document, "DOMContentLoaded", listener, false);
+        return listener;
+    };
+
+    static addStartupContextListener (listener, context) {
+        let _context = context || this;
+        return this.addContextListener(document, "DOMContentLoaded", listener, _context, false);
+    };
+
+    static removeStartupListener (listener) {
+        this.removeListener(document, "DOMContentLoaded", listener, false);
+    };
+
+    static addDocumentListener (type, listener, useCapture) {
+        this.addListener(document, type, listener, useCapture);
+        return listener;
+    };
+
+    static addDocumentContextListener(type, listener, context, useCapture) {
+        let _context = context || this;
+        //noinspection JSUnresolvedFunction
+        return this.addContextListener(document, type, listener, _context, useCapture)
+    }
+
+    static removeDocumentListener (type, listener, useCapture) {
+        let _useCapture = useCapture || false;
+        this.removeListener(document, type, listener, _useCapture);
+    };
+
+    static addItemLoadedListener(ITEM_TYPE, itemName, listener) {
+        if (ITEM_TYPE === Modules.MODULE) {
+            return this.addListener(document, "module_" + itemName + "_loaded", listener, false);
+        } else if (ITEM_TYPE === Modules.TEMPLATE) {
+            return this.addListener(document, "template_" + itemName + "_loaded", listener, false);
+        } else if (ITEM_TYPE === Modules.HTML) {
+            return this.addListener(document, "html_" + itemName + "_loaded", listener, false);
+        } else if (ITEM_TYPE === Modules.CSS) {
+            return this.addListener(document, "css_" + itemName + "_loaded", listener, false);
+        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+            return this.addListener(document, "js_" + itemName + "_loaded", listener, false);
+        }
+    }
+
+    static addItemLoadedContextListener (ITEM_TYPE, itemName, listener, context) {
+        let _context = context || this;
+        if (ITEM_TYPE === Modules.MODULE) {
+            return this.addContextListener(document, "module_" + itemName + "_loaded", listener, _context, false);
+        } else if (ITEM_TYPE === Modules.TEMPLATE) {
+            return this.addContextListener(document, "template_" + itemName + "_loaded", listener, _context, false);
+        } else if (ITEM_TYPE === Modules.HTML) {
+            return this.addContextListener(document, "html_" + itemName + "_loaded", listener, _context, false);
+        } else if (ITEM_TYPE === Modules.CSS) {
+            return this.addContextListener(document, "css_" + itemName + "_loaded", listener, _context, false);
+        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+            return this.addContextListener(document, "js_" + itemName + "_loaded", listener, _context, false);
+        }
+    }
+
+    static removeItemLoadedListener(ITEM_TYPE, itemName, listener) {
+        if (ITEM_TYPE === Modules.MODULE) {
+            this.removeListener(document, "module_" + itemName + "_loaded", listener, false);
+        } else if (ITEM_TYPE === Modules.TEMPLATE) {
+            this.removeListener(document, "template_" + itemName + "_loaded", listener, false);
+        } else if (ITEM_TYPE === Modules.HTML) {
+            this.removeListener(document, "html_" + itemName + "_loaded", listener, false);
+        } else if (ITEM_TYPE === Modules.CSS) {
+            this.removeListener(document, "css_" + itemName + "_loaded", listener, false);
+        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+            this.removeListener(document, "js_" + itemName + "_loaded", listener, false);
+        }
+    }
+
+    static addBeforeItemLoadedListener(ITEM_TYPE, itemName, listener) {
+        if (ITEM_TYPE === Modules.MODULE) {
+            return this.addListener(document, "module_" + itemName + "_loadingStarted", listener, false);
+        } else if (ITEM_TYPE === Modules.TEMPLATE) {
+            return this.addListener(document, "template_" + itemName + "_loadingStarted", listener, false);
+        } else if (ITEM_TYPE === Modules.HTML) {
+            return this.addListener(document, "html_" + itemName + "_loadingStarted", listener, false);
+        } else if (ITEM_TYPE === Modules.CSS) {
+            return this.addListener(document, "css_" + itemName + "_loadingStarted", listener, false);
+        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+            return this.addListener(document, "js_" + itemName + "_loadingStarted", listener, false);
+        }
+    }
+
+    static addBeforeItemLoadedContextListener (ITEM_TYPE, itemName, listener, context) {
+        let _context = context || this;
+        if (ITEM_TYPE === Modules.MODULE) {
+            return this.addContextListener(document, "module_" + itemName + "_loadingStarted", listener, _context, false);
+        } else if (ITEM_TYPE === Modules.TEMPLATE) {
+            return this.addContextListener(document, "template_" + itemName + "_loadingStarted", listener, _context, false);
+        } else if (ITEM_TYPE === Modules.HTML) {
+            return this.addContextListener(document, "html_" + itemName + "_loadingStarted", listener, _context, false);
+        } else if (ITEM_TYPE === Modules.CSS) {
+            return this.addContextListener(document, "css_" + itemName + "_loadingStarted", listener, _context, false);
+        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+            return this.addContextListener(document, "js_" + itemName + "_loadingStarted", listener, _context, false);
+        }
+    }
+
+    static removeBeforeItemLoadedListener(ITEM_TYPE, itemName, listener) {
+        if (ITEM_TYPE === Modules.MODULE) {
+            this.removeListener(document, "module_" + itemName + "_loadingStarted", listener, false);
+        } else if (ITEM_TYPE === Modules.TEMPLATE) {
+            this.removeListener(document, "template_" + itemName + "_loadingStarted", listener, false);
+        } else if (ITEM_TYPE === Modules.HTML) {
+            this.removeListener(document, "html_" + itemName + "_loadingStarted", listener, false);
+        } else if (ITEM_TYPE === Modules.CSS) {
+            this.removeListener(document, "css_" + itemName + "_loadingStarted", listener, false);
+        } else if (ITEM_TYPE === Modules.JAVASCRIPT) {
+            this.removeListener(document, "js_" + itemName + "_loadingStarted", listener, false);
+        }
+    }
+
+    static addListeners(targets, type, listener, useCapture) {
+        let _useCapture = useCapture || false;
+        let length = targets.length;
+        for (let i = 0; i < length; i++) {
+            targets[i].addEventListener(type, listener, _useCapture);
+        }
+        return listener;
+    }
+
+    static addContextListeners(targets, type, listener, context, useCapture) {
+        let _useCapture = useCapture || false;
+        let _context = context || this;
+        //noinspection JSUnresolvedFunction
+        let bindedListener = listener.bind(_context);
+        let length = targets.length;
+        for (let i = 0; i < targets.length; i++) {
+            targets[i].addEventListener(type, bindedListener, _useCapture);
+        }
+        return bindedListener;
+    }
+
+    static removeListeners (targets, type, listener, useCapture) {
+        let _useCapture = useCapture || false;
+        let length = targets.length;
+        for (let i = 0; i < length; i++) {
+            this.removeListener(targets[i], type, listener, _useCapture);
+        }
+    }
+
+    static dispatchCustomEvent (target, type, detail, canBubble, cancelable) {
+        let _canBubble = canBubble || false;
+        let _cancelable = cancelable || false;
+        let _detail = detail || undefined;
+        let event = document.createEvent("CustomEvent");
+        event.initCustomEvent(type, _canBubble, _cancelable, _detail);
+        return target.dispatchEvent(event);
+    }
+
+};
+Modules.Events.Messages = class {
+    static subscribe (theme, listener, sourceID, destinationID) {
+        let messagePrefix = "modulesjs_message_";
+        let calculatedTheme = calculateTheme();
+
+        function calculateTheme() {
+            let _calculatedTheme = "";
+            if (sourceID == null) {
+                if (destinationID == null) {
+                    _calculatedTheme = messagePrefix + theme;
+                } else {
+                    _calculatedTheme = messagePrefix + theme + "__" + destinationID;
+                }
+            } else {
+                if (destinationID == null) {
+                    _calculatedTheme = messagePrefix + theme + "_" + sourceID;
+                } else {
+                    _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
+                }
+            }
+            return _calculatedTheme;
+        }
+
+        if (calculatedTheme != "") {
+            Modules.Events.addDocumentListener(calculatedTheme, listener, false);
+        }
+    }
+
+    static send (theme, detail, sourceID, destinationID) {
+        let messagePrefix = "modulesjs_message_";
+        let calculatedTheme = calculateTheme();
+
+        function calculateTheme() {
+            let _calculatedTheme = "";
+            if (sourceID == null) {
+                if (destinationID == null) {
+                    _calculatedTheme = messagePrefix + theme;
+                } else {
+                    _calculatedTheme = messagePrefix + theme + "__" + destinationID;
+                }
+            } else {
+                if (destinationID == null) {
+                    _calculatedTheme = messagePrefix + theme + "_" + sourceID;
+                } else {
+                    _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
+                }
+            }
+            return _calculatedTheme;
+        }
+
+        let detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
+
+        if (calculatedTheme !== "") {
+            Modules.Events.dispatchCustomEvent(document, calculatedTheme, detailObject, false, false);
+        }
+    }
+
+    static unsubscribe (theme, listener, sourceID, destinationID) {
+        let messagePrefix = "modulesjs_message_";
+        let calculatedTheme = calculateTheme();
+        function calculateTheme() {
+            let _calculatedTheme = "";
+            if (sourceID == null) {
+                if (destinationID == null) {
+                    _calculatedTheme = messagePrefix + theme;
+                } else {
+                    _calculatedTheme = messagePrefix + theme + "__" + destinationID;
+                }
+            } else {
+                if (destinationID == null) {
+                    _calculatedTheme = messagePrefix + theme + "_" + sourceID;
+                } else {
+                    _calculatedTheme = messagePrefix + theme + "_" + sourceID + "_" + destinationID;
+                }
+            }
+            return _calculatedTheme;
+        }
+
+        if (calculatedTheme !== "") {
+            Modules.Events.removeDocumentListener(calculatedTheme, listener);
+        }
+    }
+};
+
+Modules.L18N = class {
+    static localize(langObject) {
+        for (let property in langObject) {
+            if (langObject.hasOwnProperty(property)) {
+                let elements = document.getElementsByClassName(property);
+                for (let i = 0; i < elements.length; i++ ) {
+                    elements[i].innerHTML = langObject[property];
+                }
+            }
+        }
+    }
 };
 
 Modules.Server = class {
