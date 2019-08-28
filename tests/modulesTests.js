@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2013 Yuri Trukhin
+ * Copyright 2012-2019 Yuri Trukhin
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -18,42 +18,43 @@
  * @fileOverview
  * @copyright (C) Yuri V. Trukhin.
  * @author Yuri V.Trukhin
- * @version 0.9
+ * @version 0.11
  * @license Apache License, Version 2.0. You may obtain a copy of the License at {@link http://www.apache.org/licenses/LICENSE-2.0}
  */
 
 //Teamcity reporter
-"use strict";
-//QUnit.moduleStart({ name })
-QUnit.moduleStart = function(settings){
-    console.log("##teamcity[testSuiteStarted name='" + settings.name + "']");
-};
 
-//QUnit.moduleDone({ name, failed, passed, total })
-QUnit.moduleDone = function(settings){
-    console.log("##teamcity[testSuiteFinished name='" + settings.name + "']");
-};
+import { Modules } from '../modules.js';
 
-//QUnit.testStart({ name })
-QUnit.testStart = function (settings){
-    console.log("##teamcity[testStarted name='" + settings.name + "']");
-};
-
-//QUnit.testDone({ name, failed, passed, total })
-QUnit.testDone = function(settings){
-    if(settings.failed > 0){
-        console.log("##teamcity[testFailed name='" + settings.name + "'"
-            + " message='Assertions failed: " + settings.failed + "'"
-            + " details='Assertions failed: " + settings.failed + "']");
-    }
-    console.log("##teamcity[testFinished name='" + settings.name + "']");
-};
+// QUnit.moduleStart({ name })
+// QUnit.moduleStart = function(settings){
+//     console.log("##teamcity[testSuiteStarted name='" + settings.name + "']");
+// };
+//
+// //QUnit.moduleDone({ name, failed, passed, total })
+// QUnit.moduleDone = function(settings){
+//     console.log("##teamcity[testSuiteFinished name='" + settings.name + "']");
+// };
+//
+// //QUnit.testStart({ name })
+// QUnit.testStart = function (settings){
+//     console.log("##teamcity[testStarted name='" + settings.name + "']");
+// };
+//
+// //QUnit.testDone({ name, failed, passed, total })
+// QUnit.testDone = function(settings){
+//     if(settings.failed > 0){
+//         console.log("##teamcity[testFailed name='" + settings.name + "'"
+//             + " message='Assertions failed: " + settings.failed + "'"
+//             + " details='Assertions failed: " + settings.failed + "']");
+//     }
+//     console.log("##teamcity[testFinished name='" + settings.name + "']");
+// };
 // end Teamcity reporter
-
-"use strict";
+//
 //noinspection JSUnresolvedFunction
-module("Modules", {
-    setup: function() {
+QUnit.module("Modules", {
+    beforeEach: function() {
         //Definition of Setup module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
@@ -86,7 +87,7 @@ module("Modules", {
         //Setup excecution
         Setup.ITEM_TYPE_CONSTANTS();
     },
-    teardown: function() {
+    afterEach: function() {
         //Definition of Teardown module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
@@ -112,26 +113,25 @@ module("Modules", {
     }
 });
 
-test("ITEM_TYPE_CONSTANTS", function() {
-    //noinspection JSUnresolvedFunction
-    expect(5);
+QUnit.test( "ITEM_TYPE_CONSTANTS", function( assert ) {
+    assert.expect( 5 );
 
     var expectedModuleItemType = "module";
-    equal(Modules.MODULE, expectedModuleItemType, "Modules.MODULE is set correctly: " + Modules.MODULE);
+    assert.equal(Modules.MODULE, expectedModuleItemType, "Modules.MODULE is set correctly: " + Modules.MODULE);
     var expectedTemplateItemType = "template";
-    equal(Modules.TEMPLATE, expectedTemplateItemType, "Modules.TEMPLATE is set correctly: " + Modules.TEMPLATE);
+    assert.equal(Modules.TEMPLATE, expectedTemplateItemType, "Modules.TEMPLATE is set correctly: " + Modules.TEMPLATE);
     var expectedHTMLItemType = "html";
-    equal(Modules.HTML, expectedHTMLItemType, "Modules.HTML is set correctly: " + Modules.HTML);
+    assert.equal(Modules.HTML, expectedHTMLItemType, "Modules.HTML is set correctly: " + Modules.HTML);
     var expectedCSSItemType = "css";
-    equal(Modules.CSS, expectedCSSItemType, "Modules.CSS is set correctly: " + Modules.CSS);
+    assert.equal(Modules.CSS, expectedCSSItemType, "Modules.CSS is set correctly: " + Modules.CSS);
     var expectedJSItemType = "javascript";
-    equal(Modules.JAVASCRIPT, expectedJSItemType, "Modules.JAVASCRIPT is set correctly: " + Modules.JAVASCRIPT);
+    assert.equal(Modules.JAVASCRIPT, expectedJSItemType, "Modules.JAVASCRIPT is set correctly: " + Modules.JAVASCRIPT);
 });
 
 
 //noinspection JSUnresolvedFunction
-module("Modules.DOM", {
-    setup: function() {
+QUnit.module("Modules.DOM", {
+    beforeEach: function() {
         //Definition of Setup module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
@@ -293,7 +293,7 @@ module("Modules.DOM", {
         Setup.getFirstElementByClassName();
 
     },
-    teardown: function() {
+    afterEach: function() {
         //Definition of Teardown module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
@@ -378,72 +378,73 @@ module("Modules.DOM", {
         Teardown.getFirstElementByClassName();
     }
 });
-test("isHTMLModule(htmlElement)", function() {
+
+QUnit.test( "isHTMLModule(htmlElement)" , function( assert ) {
     //noinspection JSUnresolvedFunction
-    expect(3);
+     assert.expect(3);
     var testModuleInHTMLModule = document.getElementsByClassName("testModuleItemTypeInHTMLItemType")[0];
     var expected = true;
     var actual = Modules.DOM.isHTMLModule(testModuleInHTMLModule);
-    equal(actual, expected, "testModule is a html module");
+    assert.equal(actual, expected, "testModule is a html module");
 
     var testModuleInNotHTMLModule = document.getElementsByClassName("testModuleItemTypeInNotHTMLItemType")[0];
     var expected = false;
     var actual = Modules.DOM.isHTMLModule(testModuleInNotHTMLModule);
-    equal(actual, expected, "testModule is not a html module (another type)");
+    assert.equal(actual, expected, "testModule is not a html module (another type)");
 
     var expected = false;
     var actual = Modules.DOM.isHTMLModule(window);
-    equal(actual, expected, "window is not a html module");
+    assert.equal(actual, expected, "window is not a html module");
 });
-test("isHTMLTemplate(htmlElement)", function() {
+QUnit.test("isHTMLTemplate(htmlElement)", function(assert) {
     //noinspection JSUnresolvedFunction
-    expect(3);
+    assert.expect(3);
     var testTemplateInHTMLModule = document.getElementsByClassName("testTemplateItemTypeInHTMLItemType")[0];
     var expected = true;
     var actual = Modules.DOM.isHTMLTemplate(testTemplateInHTMLModule);
-    equal(actual, expected, "testModule is a html template");
+    assert.equal(actual, expected, "testModule is a html template");
 
     var testTemplateInNotHTMLModule = document.getElementsByClassName("testTemplateItemTypeInNotHTMLItemType")[0];
     var expected = false;
     var actual = Modules.DOM.isHTMLTemplate(testTemplateInNotHTMLModule);
-    equal(actual, expected, "testModule is not a html template (another type)");
+    assert.equal(actual, expected, "testModule is not a html template (another type)");
 
     var expected = false;
     var actual = Modules.DOM.isHTMLTemplate(window);
-    equal(actual, expected, "window is not a html template");
+    assert.equal(actual, expected, "window is not a html template");
 });
-test("getModules(className)", function() {
+QUnit.test("getModules(className)", function(assert) {
    //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var className = "MayBeHTMLModule";
     var itemTypesArray = Modules.DOM.getModules(className);
     var expectedAttribute = Modules.MODULE;
     for (var i = 0; i < itemTypesArray.length; i++) {
-        equal(expectedAttribute, itemTypesArray[i].parentNode.getAttribute("data-" + "modulesjs_item_type"), "item is "
+        assert.equal(expectedAttribute, itemTypesArray[i].parentNode.getAttribute("data-" + "modulesjs_item_type"), "item is "
             + expectedAttribute);
     }
 });
-test("getTemplates(className(htmlElement, className))", function() {
+QUnit.test("getTemplates(className(htmlElement, className))", function(assert) {
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var className = "MayBeHTMLTemplate";
     var itemTypesArray = Modules.DOM.getTemplates(className);
     var expectedAttribute = Modules.TEMPLATE;
     for (var i = 0; i < itemTypesArray.length; i++) {
-        equal(expectedAttribute, itemTypesArray[i].parentNode.getAttribute("data-" + "modulesjs_item_type"), "item is "
+        assert.equal(expectedAttribute, itemTypesArray[i].parentNode.getAttribute("data-" + "modulesjs_item_type"), "item is "
             + expectedAttribute);
     }
 });
-test("getFirstContainerElementByClassName", function() {
+QUnit.test("getFirstContainerElementByClassName", function(assert) {
     //noinspection JSUnresolvedFunction
-    expect(3);
+    assert.expect(3);
     var className = "Container";
     var elementClassName = "Element";
     var element = document.getElementsByClassName(elementClassName)[0];
     var result = Modules.DOM.getFirstContainerElementByClassName(element, className);
     var actual = result.className;
     var expected = className;
-    equal(actual, expected, "Find first container element by className");
+    assert.equal(actual, expected, "Find first container element by className");
 
     var className = "Container";
     var containerID = "ContainerTwo";
@@ -452,35 +453,34 @@ test("getFirstContainerElementByClassName", function() {
     var result = Modules.DOM.getFirstContainerElementByClassName(element, className);
     var actual = result.id;
     var expected = containerID;
-    equal(actual, expected, "Find first container element by className. First container element selected correctly.");
+    assert.equal(actual, expected, "Find first container element by className. First container element selected correctly.");
     var elementWithoutContainer = document.getElementsByClassName("ElementWithoutContainer")[0];
     var expected = Modules.DOM.getFirstContainerElementByClassName(elementWithoutContainer, "Container");
     var actual = null;
-    equal(actual, expected, "Not desired container for element without container");
+    assert.equal(actual, expected, "Not desired container for element without container");
 });
-test("getFirstElementByClassName", function(){
-    expect(2);
+QUnit.test("getFirstElementByClassName", function(assert){
+    assert.expect(2);
     var className = "DesiredElement";
     var expectedElement = document.getElementsByClassName(className)[0];
     var actualElement = Modules.DOM.getFirstElementByClassName(document, className);
-    equal(actualElement, expectedElement, "Find first element by className");
+    assert.equal(actualElement, expectedElement, "Find first element by className");
     var expectedId = "first";
     var actualId = actualElement.id;
-    equal(actualId, expectedId, "Find first element by className, selected correct element (check by id)");
+    assert.equal(actualId, expectedId, "Find first element by className, selected correct element (check by id)");
 });
-test("getDocumentRootURL()", function(){
-    expect(1);
+QUnit.test("getDocumentRootURL()", function(assert){
+    assert.expect(1);
     var actualDocumentRootURL = Modules.DOM.getDocumentRootURL();
     var documentURL = document.URL.split("/");
     documentURL.pop();
     var documentRootURL = documentURL.join("/");
-    equal(actualDocumentRootURL, documentRootURL, "Document Root URL: " + actualDocumentRootURL);
-
+    assert.equal(actualDocumentRootURL, documentRootURL, "Document Root URL: " + actualDocumentRootURL);
 });
 
-//noinspection JSUnresolvedFunction
-module("Modules.Events", {
-    setup: function() {
+// //noinspection JSUnresolvedFunction
+QUnit.module("Modules.Events", {
+    beforeEach: function() {
         //Definition of Setup module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
@@ -532,7 +532,7 @@ module("Modules.Events", {
         Setup.removeListeners();
         Setup.dispatchCustomEvent();
     },
-    teardown: function() {
+    afterEach: function() {
         //Definition of Teardown module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
@@ -588,27 +588,27 @@ module("Modules.Events", {
     }
 });
 
-//noinspection JSUnresolvedFunction
-QUnit.asyncTest("addListener (target, type, listener)", function() {
+QUnit.test("addListener (target, type, listener)", function(assert) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(3);
+    assert.expect(3);
     var target = document;
     var expected = 1;
     //noinspection JSCheckFunctionSignatures
 
     //Event must be handled one time only
     var returnedListener = Modules.Events.addListener(target, "testEvent", listener);
-    equal(returnedListener, listener, "Event return listener correctly");
+    assert.equal(returnedListener, listener, "Event return listener correctly");
     Modules.Events.addListener(target, "testEvent", listener);
 
     function listener(e) {
         target.removeEventListener("testEvent", listener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        notEqual(expected, actual, "Can`t use context this, where listener was registered");
+        assert.notEqual(expected, actual, "Can`t use context this, where listener was registered");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -617,9 +617,9 @@ QUnit.asyncTest("addListener (target, type, listener)", function() {
     target.dispatchEvent(event);
 });
 
-QUnit.asyncTest("addListener (target, type, listener, useCapture)", function() {
-    //noinspection JSUnresolvedFunction
-    expect(2);
+QUnit.test("addListener (target, type, listener, useCapture)", function(assert) {
+    var done = assert.async();
+    assert.expect(2);
     var target = document;
     var i = 1;
     var expected = i;
@@ -632,11 +632,11 @@ QUnit.asyncTest("addListener (target, type, listener, useCapture)", function() {
     function listener(e) {
         target.removeEventListener("testEventWithUseCapture", listener, true);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        notEqual(expected, actual, "Can`t use context this, where listener was registered");
+        assert.notEqual(expected, actual, "Can`t use context this, where listener was registered");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -647,9 +647,9 @@ QUnit.asyncTest("addListener (target, type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addContextListener(target, type, listener)", function() {
-    //noinspection JSUnresolvedFunction
-    expect(2);
+QUnit.test("addContextListener(target, type, listener)", function(assert) {
+    var done = assert.async();
+    assert.expect(2);
     var target = document;
     //noinspection JSCheckFunctionSignatures
     var i = 1;
@@ -661,10 +661,10 @@ QUnit.asyncTest("addContextListener(target, type, listener)", function() {
     function listener(e) {
         target.removeEventListener("testContextEvent", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
-        start();
+        assert.equal(actual, expected, "Context this was binded correctly");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -673,9 +673,10 @@ QUnit.asyncTest("addContextListener(target, type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addContextListener(target, type, listener, context)", function() {
+QUnit.test("addContextListener(target, type, listener, context)", function(assert) {
     //noinspection JSUnresolvedFunction
-    expect(2);
+    var done = assert.async();
+    assert.expect(2);
     var target = document;
     //noinspection JSCheckFunctionSignatures
     var obj = {i:1}
@@ -686,11 +687,11 @@ QUnit.asyncTest("addContextListener(target, type, listener, context)", function(
     function listener(e) {
         target.removeEventListener("testContext2Event", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
-        start();
+        assert.equal(actual, expected, "Context this was binded correctly");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -699,9 +700,10 @@ QUnit.asyncTest("addContextListener(target, type, listener, context)", function(
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addContextListener(target, type, listener, context, useCapture)", function() {
+QUnit.test("addContextListener(target, type, listener, context, useCapture)", function(assert) {
     //noinspection JSUnresolvedFunction
-    expect(2);
+    var done = assert.async();
+    assert.expect(2);
     var target = document;
     //noinspection JSCheckFunctionSignatures
     var i = 1;
@@ -713,10 +715,10 @@ QUnit.asyncTest("addContextListener(target, type, listener, context, useCapture)
     function listener(e) {
         target.removeEventListener("testContext3Event", bindedListener, true);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
-        start();
+        assert.equal(actual, expected, "Context this was binded correctly");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -726,9 +728,10 @@ QUnit.asyncTest("addContextListener(target, type, listener, context, useCapture)
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeListener(target, type, listener)", function() {
+QUnit.test("removeListener(target, type, listener)", function(assert) {
     //noinspection JSUnresolvedFunction
-    expect(1);
+    var done = assert.async();
+    assert.expect(1);
     var target = document;
 
     //Event must be handled one time only
@@ -738,8 +741,8 @@ QUnit.asyncTest("removeListener(target, type, listener)", function() {
     function listener(e) {
         //noinspection JSCheckFunctionSignatures
         Modules.Events.removeListener(target, "testRemoveEvent", listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -749,9 +752,10 @@ QUnit.asyncTest("removeListener(target, type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeListener(target, type, listener, useCapture)", function() {
+QUnit.test("removeListener(target, type, listener, useCapture)", function(assert) {
     //noinspection JSUnresolvedFunction
-    expect(1);
+    var done = assert.async();
+    assert.expect(1);
     var target = document;
 
     //Event must be handled one time only
@@ -761,33 +765,33 @@ QUnit.asyncTest("removeListener(target, type, listener, useCapture)", function()
     function listenerWithUseCapture(e) {
         //noinspection JSCheckFunctionSignatures
         Modules.Events.removeListener(target, "testRemoveEventWC", listenerWithUseCapture, true);
-        ok(true, "Test listener launched once, not launched after removing listener with useCapture = true");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener with useCapture = true");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
     event.initCustomEvent("testRemoveEventWC", true, true, {});
     target.dispatchEvent(event);
     target.dispatchEvent(event);
-
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addStartupListener(listener)", function() {
+QUnit.test("addStartupListener(listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
 
     //Event must be handled one time only
     //noinspection JSCheckFunctionSignatures
     var returnedListener = Modules.Events.addStartupListener(listener);
-    equal(returnedListener, listener, "Event return listener correctly");
+    assert.equal(returnedListener, listener, "Event return listener correctly");
 //
     function listener(e) {
         //noinspection JSCheckFunctionSignatures
         Modules.Events.removeListener(target, "DOMContentLoaded", listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -796,9 +800,10 @@ QUnit.asyncTest("addStartupListener(listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addStartupContextListener(listener)", function() {
+QUnit.test("addStartupContextListener(listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var i = 1;
     var expected = this.i;
@@ -809,10 +814,10 @@ QUnit.asyncTest("addStartupContextListener(listener)", function() {
     function listener(e) {
         //noinspection JSCheckFunctionSignatures
         target.removeEventListener("DOMContentLoaded", bindedListener);
-        ok(true, "Test listener launched once, not launched after removing listener");
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
-        start();
+        assert.equal(actual, expected, "Context this was binded correctly");
+        done();
     }
     var event = target.createEvent("CustomEvent");
     event.initCustomEvent("DOMContentLoaded", true, true, {});
@@ -820,9 +825,10 @@ QUnit.asyncTest("addStartupContextListener(listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addStartupContextListener(listener, context)", function() {
+QUnit.test("addStartupContextListener(listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var obj = { i : 1};
     //Event must be handled one time only
@@ -832,11 +838,11 @@ QUnit.asyncTest("addStartupContextListener(listener, context)", function() {
     function listener(e) {
         //noinspection JSCheckFunctionSignatures
         target.removeEventListener("DOMContentLoaded", bindedListener);
-        ok(true, "Test listener launched once, not launched after removing listener");
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
-        start();
+        assert.equal(actual, expected, "Context this was binded correctly");
+        done();
     }
     var event = target.createEvent("CustomEvent");
     event.initCustomEvent("DOMContentLoaded", true, true, {});
@@ -844,9 +850,10 @@ QUnit.asyncTest("addStartupContextListener(listener, context)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeStartupListener(listener)", function() {
+QUnit.test("removeStartupListener(listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
 
     //Event must be handled one time only
@@ -856,8 +863,8 @@ QUnit.asyncTest("removeStartupListener(listener)", function() {
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeStartupListener(listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -867,9 +874,10 @@ QUnit.asyncTest("removeStartupListener(listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addDocumentListener(type, listener)", function() {
+QUnit.test("addDocumentListener(type, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     //noinspection JSCheckFunctionSignatures
 
@@ -880,9 +888,9 @@ QUnit.asyncTest("addDocumentListener(type, listener)", function() {
     function listener(e) {
         target.removeEventListener("testDocumentEvent", listener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -893,9 +901,10 @@ QUnit.asyncTest("addDocumentListener(type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addDocumentListener(type, listener, useCapture)", function() {
+QUnit.test("addDocumentListener(type, listener, useCapture)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     //noinspection JSCheckFunctionSignatures
 
@@ -906,9 +915,9 @@ QUnit.asyncTest("addDocumentListener(type, listener, useCapture)", function() {
     function listener(e) {
         target.removeEventListener("testDocument2Event", listener, true);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -919,9 +928,10 @@ QUnit.asyncTest("addDocumentListener(type, listener, useCapture)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addDocumentContextListener(type, listener)", function() {
+QUnit.test("addDocumentContextListener(type, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var i = 1;
     var expected = this.i;
@@ -934,11 +944,11 @@ QUnit.asyncTest("addDocumentContextListener(type, listener)", function() {
     function listener(e) {
         target.removeEventListener("testDocumentContextEvent", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -949,9 +959,10 @@ QUnit.asyncTest("addDocumentContextListener(type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addDocumentContextListener(type, listener, useCapture)", function() {
+QUnit.test("addDocumentContextListener(type, listener, useCapture)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var i = 1;
     var expected = this.i;
@@ -964,11 +975,11 @@ QUnit.asyncTest("addDocumentContextListener(type, listener, useCapture)", functi
     function listener(e) {
         target.removeEventListener("testDocumentContext2Event", bindedListener, true);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -979,9 +990,10 @@ QUnit.asyncTest("addDocumentContextListener(type, listener, useCapture)", functi
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeDocumentListener(type, listener)", function() {
+QUnit.test("removeDocumentListener(type, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
 
     //Event must be handled one time only
@@ -991,8 +1003,8 @@ QUnit.asyncTest("removeDocumentListener(type, listener)", function() {
     function listener(e) {
         //noinspection JSCheckFunctionSignatures
         Modules.Events.removeDocumentListener("testRemoveDocumentEvent", listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1002,9 +1014,10 @@ QUnit.asyncTest("removeDocumentListener(type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeDocumentListener(type, listener, useCapture)", function() {
+QUnit.test("removeDocumentListener(type, listener, useCapture)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
 
     //Event must be handled one time only
@@ -1014,8 +1027,8 @@ QUnit.asyncTest("removeDocumentListener(type, listener, useCapture)", function()
     function listener(e) {
         //noinspection JSCheckFunctionSignatures
         Modules.Events.removeDocumentListener("testRemoveDocumentEvent2", listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1025,9 +1038,10 @@ QUnit.asyncTest("removeDocumentListener(type, listener, useCapture)", function()
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
+QUnit.test("addItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item1";
     //Event must be handled one time only
@@ -1037,9 +1051,9 @@ QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, liste
     function listener(e) {
         target.removeEventListener("module_" + itemName + "_loaded", returnedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1050,9 +1064,10 @@ QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, liste
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
+QUnit.test("addItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item1";
     //Event must be handled one time only
@@ -1062,9 +1077,9 @@ QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, lis
     function listener(e) {
         target.removeEventListener("template_" + itemName + "_loaded", returnedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1075,9 +1090,10 @@ QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, lis
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
+QUnit.test("addItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item1";
     //Event must be handled one time only
@@ -1087,9 +1103,9 @@ QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listene
     function listener(e) {
         target.removeEventListener("html_" + itemName + "_loaded", returnedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1100,9 +1116,10 @@ QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listene
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
+QUnit.test("addItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item1";
     //Event must be handled one time only
@@ -1112,9 +1129,9 @@ QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener
     function listener(e) {
         target.removeEventListener("css_" + itemName + "_loaded", returnedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1125,9 +1142,10 @@ QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
+QUnit.test("addItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item1";
     //Event must be handled one time only
@@ -1137,9 +1155,9 @@ QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, l
     function listener(e) {
         target.removeEventListener("js_" + itemName + "_loaded", returnedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1150,9 +1168,10 @@ QUnit.asyncTest("addItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, l
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
+QUnit.test("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var i = 1;
@@ -1166,11 +1185,11 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName
     function listener(e) {
         target.removeEventListener("module_" + itemName + "_loaded", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1181,9 +1200,10 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
+QUnit.test("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var i = 1;
@@ -1197,11 +1217,11 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemNa
     function listener(e) {
         target.removeEventListener("template_" + itemName + "_loaded", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1212,9 +1232,10 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemNa
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
+QUnit.test("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var i = 1;
@@ -1228,11 +1249,11 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, 
     function listener(e) {
         target.removeEventListener("html_" + itemName + "_loaded", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1243,9 +1264,10 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, 
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
+QUnit.test("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var i = 1;
@@ -1259,11 +1281,11 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, l
     function listener(e) {
         target.removeEventListener("css_" + itemName + "_loaded", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1274,9 +1296,10 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, l
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
+QUnit.test("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var i = 1;
@@ -1290,11 +1313,11 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, item
     function listener(e) {
         target.removeEventListener("js_" + itemName + "_loaded", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1305,9 +1328,10 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, item
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener, context)", function() {
+QUnit.test("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
@@ -1320,12 +1344,12 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName
     function listener(e) {
         target.removeEventListener("module_" + itemName + "_loaded", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1336,9 +1360,10 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener, context)", function() {
+QUnit.test("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
@@ -1351,12 +1376,12 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemNa
     function listener(e) {
         target.removeEventListener("template_" + itemName + "_loaded", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1367,9 +1392,10 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemNa
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener, context)", function() {
+QUnit.test("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
@@ -1382,12 +1408,12 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, 
     function listener(e) {
         target.removeEventListener("html_" + itemName + "_loaded", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1398,9 +1424,10 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, 
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener, context)", function() {
+QUnit.test("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
@@ -1413,12 +1440,12 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, l
     function listener(e) {
         target.removeEventListener("css_" + itemName + "_loaded", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1429,9 +1456,10 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, l
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener, context)", function() {
+QUnit.test("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
@@ -1443,12 +1471,12 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, item
     function listener(e) {
         target.removeEventListener("js_" + itemName + "_loaded", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1459,9 +1487,10 @@ QUnit.asyncTest("addItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, item
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listener)", function() {
+QUnit.test("removeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item2";
 
@@ -1472,8 +1501,8 @@ QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  l
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeItemLoadedListener(Modules.MODULE, itemName, listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1483,9 +1512,10 @@ QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  l
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  listener)", function() {
+QUnit.test("removeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item2";
 
@@ -1496,8 +1526,8 @@ QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, 
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeItemLoadedListener(Modules.TEMPLATE, itemName, listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1507,9 +1537,10 @@ QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, 
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)", function() {
+QUnit.test("removeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item2";
 
@@ -1520,8 +1551,8 @@ QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  lis
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeItemLoadedListener(Modules.HTML, itemName, listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1531,9 +1562,10 @@ QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  lis
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)", function() {
+QUnit.test("removeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item2";
 
@@ -1544,8 +1576,8 @@ QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  list
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeItemLoadedListener(Modules.CSS, itemName, listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1555,9 +1587,10 @@ QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  list
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  listener)", function() {
+QUnit.test("removeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item2";
 
@@ -1568,8 +1601,8 @@ QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeItemLoadedListener(Modules.JAVASCRIPT, itemName, listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1579,9 +1612,10 @@ QUnit.asyncTest("removeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
+QUnit.test("addBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item1";
     //Event must be handled one time only
@@ -1591,9 +1625,9 @@ QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,
     function listener(e) {
         target.removeEventListener("module_" + itemName + "_loadingStarted", returnedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1604,9 +1638,10 @@ QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
+QUnit.test("addBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item1";
     //Event must be handled one time only
@@ -1616,9 +1651,9 @@ QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemNam
     function listener(e) {
         target.removeEventListener("template_" + itemName + "_loadingStarted", returnedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1629,9 +1664,10 @@ QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemNam
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
+QUnit.test("addBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item1";
     //Event must be handled one time only
@@ -1641,9 +1677,9 @@ QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, l
     function listener(e) {
         target.removeEventListener("html_" + itemName + "_loadingStarted", returnedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1654,9 +1690,10 @@ QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName, l
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
+QUnit.test("addBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item1";
     //Event must be handled one time only
@@ -1666,9 +1703,9 @@ QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, li
     function listener(e) {
         target.removeEventListener("css_" + itemName + "_loadingStarted", returnedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1679,9 +1716,10 @@ QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName, li
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
+QUnit.test("addBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item1";
     //Event must be handled one time only
@@ -1691,9 +1729,9 @@ QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemN
     function listener(e) {
         target.removeEventListener("js_" + itemName + "_loadingStarted", returnedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1704,9 +1742,10 @@ QUnit.asyncTest("addBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemN
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function() {
+QUnit.test("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var i = 1;
@@ -1720,11 +1759,11 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, it
     function listener(e) {
         target.removeEventListener("module_" + itemName + "_loadingStarted", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1735,9 +1774,10 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, it
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function() {
+QUnit.test("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var i = 1;
@@ -1751,11 +1791,11 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, 
     function listener(e) {
         target.removeEventListener("template_" + itemName + "_loadingStarted", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1766,9 +1806,10 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, 
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function() {
+QUnit.test("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var i = 1;
@@ -1782,11 +1823,11 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, item
     function listener(e) {
         target.removeEventListener("html_" + itemName + "_loadingStarted", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1797,9 +1838,10 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, item
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function() {
+QUnit.test("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var i = 1;
@@ -1813,11 +1855,11 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemN
     function listener(e) {
         target.removeEventListener("css_" + itemName + "_loadingStarted", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1828,9 +1870,10 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemN
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function() {
+QUnit.test("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var i = 1;
@@ -1844,11 +1887,11 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT
     function listener(e) {
         target.removeEventListener("js_" + itemName + "_loadingStarted", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1859,9 +1902,10 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener, context)", function() {
+QUnit.test("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, itemName, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
@@ -1874,12 +1918,12 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, it
     function listener(e) {
         target.removeEventListener("module_" + itemName + "_loadingStarted", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1890,9 +1934,10 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.MODULE, it
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener, context)", function() {
+QUnit.test("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, itemName, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
@@ -1905,12 +1950,12 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, 
     function listener(e) {
         target.removeEventListener("template_" + itemName + "_loadingStarted", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1921,9 +1966,10 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.TEMPLATE, 
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener, context)", function() {
+QUnit.test("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, itemName, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
@@ -1936,12 +1982,12 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, item
     function listener(e) {
         target.removeEventListener("html_" + itemName + "_loadingStarted", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1952,9 +1998,10 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.HTML, item
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener, context)", function() {
+QUnit.test("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemName, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
@@ -1967,12 +2014,12 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemN
     function listener(e) {
         target.removeEventListener("css_" + itemName + "_loadingStarted", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -1983,9 +2030,10 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.CSS, itemN
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener, context)", function() {
+QUnit.test("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(2);
+    assert.expect(2);
     var target = document;
     var itemName = "item1";
     var obj = {i : 1};
@@ -1997,12 +2045,12 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT
     function listener(e) {
         target.removeEventListener("js_" + itemName + "_loadingStarted", bindedListener);
         e.stopPropagation();
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         //noinspection JSUnresolvedFunction
-        start();
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -2013,9 +2061,10 @@ QUnit.asyncTest("addBeforeItemLoadedContextListener(ITEM_TYPE=Modules.JAVASCRIPT
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listener)", function() {
+QUnit.test("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemName,  listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item2";
 
@@ -2026,8 +2075,8 @@ QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemNa
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeBeforeItemLoadedListener(Modules.MODULE, itemName, listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -2037,9 +2086,10 @@ QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.MODULE, itemNa
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  listener)", function() {
+QUnit.test("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, itemName,  listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item2";
 
@@ -2050,8 +2100,8 @@ QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, item
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeBeforeItemLoadedListener(Modules.TEMPLATE, itemName, listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -2061,9 +2111,10 @@ QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.TEMPLATE, item
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)", function() {
+QUnit.test("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName,  listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item2";
 
@@ -2074,8 +2125,8 @@ QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeBeforeItemLoadedListener(Modules.HTML, itemName, listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -2085,9 +2136,10 @@ QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.HTML, itemName
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)", function() {
+QUnit.test("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,  listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item2";
 
@@ -2098,8 +2150,8 @@ QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeBeforeItemLoadedListener(Modules.CSS, itemName, listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -2109,9 +2161,10 @@ QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.CSS, itemName,
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  listener)", function() {
+QUnit.test("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, itemName,  listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var target = document;
     var itemName = "item2";
 
@@ -2122,8 +2175,8 @@ QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, it
     function listener(e) {
         //noinspection JSCheckFunctionSignatures,JSValidateTypes
         Modules.Events.removeBeforeItemLoadedListener(Modules.JAVASCRIPT, itemName, listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
-        start();
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
+        done();
     }
 
     var event = target.createEvent("CustomEvent");
@@ -2132,29 +2185,27 @@ QUnit.asyncTest("removeBeforeItemLoadedListener(ITEM_TYPE=Modules.JAVASCRIPT, it
     target.dispatchEvent(event);
 });
 
-//nexttests
-
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addListeners (targets, type, listener)", function() {
+QUnit.test("addListeners (targets, type, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(3);
+    assert.expect(3);
     var targets = document.getElementsByClassName("addListenersTest");
     //noinspection JSCheckFunctionSignatures
 
     //noinspection JSCheckFunctionSignatures
     var returnedListener = Modules.Events.addListeners(targets, "testAddListeners", listener);
-    equal(returnedListener, listener, "Event return listener correctly");
+    assert.equal(returnedListener, listener, "Event return listener correctly");
     var listen = 0;
     function listener(e) {
-        start();
         e.target.removeEventListener("testAddListeners", returnedListener);
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         listen++;
         if (listen < 2) {
             stop();
         }
     }
-
+    done();
     var event = document.createEvent("CustomEvent");
     //noinspection JSUnresolvedFunction
     event.initCustomEvent("testAddListeners", true, true, {});
@@ -2164,26 +2215,26 @@ QUnit.asyncTest("addListeners (targets, type, listener)", function() {
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addListeners (targets, type, listener, useCapture)", function() {
+QUnit.test("addListeners (targets, type, listener, useCapture)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(3);
+    assert.expect(3);
     var targets = document.getElementsByClassName("addListenersTest");
     //noinspection JSCheckFunctionSignatures
 
     //noinspection JSCheckFunctionSignatures
     var returnedListener = Modules.Events.addListeners(targets, "testAddListeners2", listener, true);
-    equal(returnedListener, listener, "Event return listener correctly");
+    assert.equal(returnedListener, listener, "Event return listener correctly");
     var listen = 0;
     function listener(e) {
-        start();
         e.target.removeEventListener("testAddListeners2", returnedListener, true);
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         listen++;
         if (listen < 2) {
             stop();
         }
     }
-
+    done();
     var event = document.createEvent("CustomEvent");
     //noinspection JSUnresolvedFunction
     event.initCustomEvent("testAddListeners2", true, true, {});
@@ -2193,9 +2244,10 @@ QUnit.asyncTest("addListeners (targets, type, listener, useCapture)", function()
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addContextListeners (targets, type, listener)", function() {
+QUnit.test("addContextListeners (targets, type, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(4);
+    assert.expect(4);
     var targets = document.getElementsByClassName("addListenersTest");
     var i = 1;
     var expected = this.i;
@@ -2204,11 +2256,10 @@ QUnit.asyncTest("addContextListeners (targets, type, listener)", function() {
     //noinspection JSCheckFunctionSignatures
     var bindedListener = Modules.Events.addContextListeners(targets, "testAddListeners3", listener);
     function listener(e) {
-        start();
         e.target.removeEventListener("testAddListeners3", bindedListener);
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         stop();
     }
 
@@ -2218,13 +2269,14 @@ QUnit.asyncTest("addContextListeners (targets, type, listener)", function() {
     for (var i = 0; i < targets.length; i++) {
         targets[i].dispatchEvent(event);
     }
-    start();
+    done();
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addContextListeners (targets, type, listener, context)", function() {
+QUnit.test("addContextListeners (targets, type, listener, context)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(4);
+    assert.expect(4);
     var targets = document.getElementsByClassName("addContextListenersTest");
     var obj = {i:1};
     //noinspection JSCheckFunctionSignatures
@@ -2232,12 +2284,12 @@ QUnit.asyncTest("addContextListeners (targets, type, listener, context)", functi
     //noinspection JSCheckFunctionSignatures
     var bindedListener = Modules.Events.addContextListeners(targets, "testAddListeners4", listener, obj);
     function listener(e) {
-        start();
+
         e.target.removeEventListener("testAddListeners4", bindedListener);
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         stop();
     }
 
@@ -2247,25 +2299,26 @@ QUnit.asyncTest("addContextListeners (targets, type, listener, context)", functi
     for (var i = 0; i < targets.length; i++) {
         targets[i].dispatchEvent(event);
     }
-    start();
+    done();
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("addContextListeners (targets, type, listener, context, useCapture)", function() {
+QUnit.test("addContextListeners (targets, type, listener, context, useCapture)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(4);
+    assert.expect(4);
     var targets = document.getElementsByClassName("addContextListenersTest");
     //noinspection JSCheckFunctionSignatures
     var obj = {i:1, listen:0, scope: this}
     //noinspection JSCheckFunctionSignatures
     var bindedListener = Modules.Events.addContextListeners(targets, "testAddListeners3", listener, obj, true);
     function listener(e) {
-        start();
+
         e.target.removeEventListener("testAddListeners3", bindedListener, true);
-        ok(true, "Test listener launched");
+        assert.ok(true, "Test listener launched");
         var expected = 1;
         var actual = this.i;
-        equal(actual, expected, "Context this was binded correctly");
+        assert.equal(actual, expected, "Context this was binded correctly");
         stop();
     }
 
@@ -2275,13 +2328,14 @@ QUnit.asyncTest("addContextListeners (targets, type, listener, context, useCaptu
     for (var i = 0; i < targets.length; i++) {
         targets[i].dispatchEvent(event);
     }
-    start();
+    done();
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeListeners(target, type, listener)", function() {
+QUnit.test("removeListeners(target, type, listener)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var targets = document.getElementsByClassName("removeListenersTest");
 
     //Event must be handled one time only
@@ -2291,11 +2345,11 @@ QUnit.asyncTest("removeListeners(target, type, listener)", function() {
     }
 
     function listener(e) {
-        start();
+
         //noinspection JSCheckFunctionSignatures
         //Remove all listeners
         Modules.Events.removeListeners(targets, "testRemoveListeners", listener);
-        ok(true, "Test listener launched once, not launched after removing listener");
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
         stop();
     }
 
@@ -2304,13 +2358,14 @@ QUnit.asyncTest("removeListeners(target, type, listener)", function() {
     for (var i = 0; i < targets.length; i++) {
         targets[i].dispatchEvent(event);
     }
-    start();
+    done();
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("removeListeners(target, type, listener, useCapture)", function() {
+QUnit.test("removeListeners(target, type, listener, useCapture)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var targets = document.getElementsByClassName("removeListenersTest");
 
     //Event must be handled one time only
@@ -2320,11 +2375,11 @@ QUnit.asyncTest("removeListeners(target, type, listener, useCapture)", function(
     }
 
     function listener(e) {
-        start();
+
         //noinspection JSCheckFunctionSignatures
         //Remove all listeners
         Modules.Events.removeListeners(targets, "testRemoveListenersWC", listener, true);
-        ok(true, "Test listener launched once, not launched after removing listener");
+        assert.ok(true, "Test listener launched once, not launched after removing listener");
         stop();
     }
 
@@ -2333,78 +2388,80 @@ QUnit.asyncTest("removeListeners(target, type, listener, useCapture)", function(
     for (var i = 0; i < targets.length; i++) {
         targets[i].dispatchEvent(event);
     }
-    start();
+    done();
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("dispatchCustomEvent (target, type)", function() {
+QUnit.test("dispatchCustomEvent (target, type)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     document.addEventListener("customEvent", listener);
     //noinspection JSCheckFunctionSignatures
     Modules.Events.dispatchCustomEvent(document, "customEvent");
 
     function listener(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         //Remove all listeners
         document.removeEventListener("customEvent", listener);
-        ok(true, "Custom event dispatched");
+        assert.ok(true, "Custom event dispatched");
     }
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("dispatchCustomEvent (target, type, detail)", function() {
+QUnit.test("dispatchCustomEvent (target, type, detail)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     document.addEventListener("customEvent2", listener);
     //noinspection JSCheckFunctionSignatures
     Modules.Events.dispatchCustomEvent(document, "customEvent2", {parameter: true});
 
     function listener(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         document.removeEventListener("customEvent2", listener);
-        ok(e.detail.parameter, "Custom event dispatched, parameter is set correctly");
+        assert.ok(e.detail.parameter, "Custom event dispatched, parameter is set correctly");
     }
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("dispatchCustomEvent (target, type, detail, canBubble=false)", function() {
+QUnit.test("dispatchCustomEvent (target, type, detail, canBubble=false)", function( assert ) {
+    var done = assert.async();
+
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var body = document.getElementsByTagName("body")[0];
     var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
     document.addEventListener("customEvent3", listener);
     //noinspection JSCheckFunctionSignatures
     function listener(e) {
-
         //noinspection JSCheckFunctionSignatures
         document.removeEventListener("customEvent3", listener);
-        ok(false, "Error, event listen second time");
+        assert.ok(false, "Error, event listen second time");
     }
-
+    done();
     Modules.Events.dispatchCustomEvent(divRoot, "customEvent3", {parameter: true}, false);
-    start();
-    ok(true, "Custom event is not dispatched in top element, bubbling disabled");
+    assert.ok(true, "Custom event is not dispatched in top element, bubbling disabled");
 
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("dispatchCustomEvent (target, type, detail, canBubble=true)", function() {
+QUnit.test("dispatchCustomEvent (target, type, detail, canBubble=true)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(1);
+    assert.expect(1);
     var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
     document.addEventListener("customEvent5", listener);
     //noinspection JSCheckFunctionSignatures
 
     function listener(e) {
-        start();
         //noinspection JSCheckFunctionSignatures
         document.removeEventListener("customEvent5", listener);
-        ok(e.detail.parameter, "Custom event dispatched in top element, bubbling enabled");
+        assert.ok(e.detail.parameter, "Custom event dispatched in top element, bubbling enabled");
     }
-
+    done();
     Modules.Events.dispatchCustomEvent(divRoot, "customEvent5", {parameter: true}, true);
 });
 
@@ -2413,56 +2470,54 @@ QUnit.asyncTest("dispatchCustomEvent (target, type, detail, canBubble=true)", fu
 // Thus an event handler must be in the same cell where it occurred or lower.
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("dispatchCustomEvent (target, type, detail, canBubble, cancellable=false)", function() {
+QUnit.test("dispatchCustomEvent (target, type, detail, canBubble, cancellable=false)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(3);
+    assert.expect(3);
     var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
     document.addEventListener("customEvent7", listener);
     //noinspection JSCheckFunctionSignatures
 
     function listener(e) {
-        start();
         //noinspection JSCheckFunctionSignatures
         e.preventDefault();
         document.removeEventListener("customEvent7", listener);
-        ok(e.detail.parameter, "Custom event dispatched in top element, bubbling enabled");
-        stop();
+        assert.ok(e.detail.parameter, "Custom event dispatched in top element, bubbling enabled");
     }
 
     var cancellableStatus = Modules.Events.dispatchCustomEvent(divRoot, "customEvent7", {parameter: true}, true, false);
-    equal(cancellableStatus, true, "Default not prevented");
+    assert.equal(cancellableStatus, true, "Default not prevented");
     var cancellableStatus = Modules.Events.dispatchCustomEvent(divRoot, "customEvent7", {parameter: true}, true, false);
-    equal(cancellableStatus, true, "Default is not prevented in previous listener call, cancellable == false, return == true");
-    start();
+    assert.equal(cancellableStatus, true, "Default is not prevented in previous listener call, cancellable == false, return == true");
+    done();
 });
 
 //noinspection JSUnresolvedFunction
-QUnit.asyncTest("dispatchCustomEvent (target, type, detail, canBubble, cancellable=true)", function() {
+QUnit.test("dispatchCustomEvent (target, type, detail, canBubble, cancellable=true)", function( assert ) {
+    var done = assert.async();
     //noinspection JSUnresolvedFunction
-    expect(3);
+    assert.expect(3);
     var divRoot = document.getElementsByClassName("dispatchCustomEventTest")[0];
     document.addEventListener("customEvent6", listener);
     //noinspection JSCheckFunctionSignatures
 
     function listener(e) {
-        start();
         //noinspection JSCheckFunctionSignatures
         e.preventDefault();
         document.removeEventListener("customEvent6", listener);
-        ok(e.detail.parameter, "Custom event dispatched in top element, bubbling enabled");
-        stop();
+        assert.ok(e.detail.parameter, "Custom event dispatched in top element, bubbling enabled");
     }
 
     var cancellableStatus = Modules.Events.dispatchCustomEvent(divRoot, "customEvent6", {parameter: true}, true, true);
-    equal(cancellableStatus, false, "Default is prevented");
+    assert.equal(cancellableStatus, false, "Default is prevented");
     var cancellableStatus = Modules.Events.dispatchCustomEvent(divRoot, "customEvent6", {parameter: true}, true, true);
-    equal(cancellableStatus, true, "Default is not prevented");
-    start();
+    assert.equal(cancellableStatus, true, "Default is not prevented");
+    done();
 });
 
 //noinspection JSUnresolvedFunction
-module("Modules.Events.Messages", {
-    setup: function() {
+QUnit.module("Modules.Events.Messages", {
+    beforeEach: function() {
         //Definition of Setup module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
@@ -2486,7 +2541,7 @@ module("Modules.Events.Messages", {
         //Setup excecution
         Setup.subscribe();
     },
-    teardown: function() {
+    afterEach: function() {
         //Definition of Teardown module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
@@ -2510,8 +2565,9 @@ module("Modules.Events.Messages", {
     }
 });
 
-QUnit.asyncTest("subscribe (theme, listener)", function() {
-    expect(1);
+QUnit.test("subscribe (theme, listener)", function( assert ) {
+    var done = assert.async();
+    assert.expect(1);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2523,16 +2579,17 @@ QUnit.asyncTest("subscribe (theme, listener)", function() {
     function receiver(e) {
         //noinspection JSCheckFunctionSignatures
         evt.removeDocumentListener("modulesjs_message_" + theme, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        start();
+        assert.equal(e.detail.message.item, "true", "Message received");
+        done();
     }
     //noinspection JSCheckFunctionSignatures
     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme, detailObject);
 });
 
-QUnit.asyncTest("subscribe (theme, listener, sourceID)", function() {
-    expect(1);
+QUnit.test("subscribe (theme, listener, sourceID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(1);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2544,16 +2601,17 @@ QUnit.asyncTest("subscribe (theme, listener, sourceID)", function() {
     function receiver(e) {
         //noinspection JSCheckFunctionSignatures
         evt.removeDocumentListener("modulesjs_message_" + theme + "_" + sourceID, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        start();
+        assert.equal(e.detail.message.item, "true", "Message received");
+        done();
     }
     //noinspection JSCheckFunctionSignatures
     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID, detailObject);
 });
 
-QUnit.asyncTest("subscribe (theme, listener, sourceID, destinationID)", function() {
-    expect(1);
+QUnit.test("subscribe (theme, listener, sourceID, destinationID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(1);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2565,16 +2623,17 @@ QUnit.asyncTest("subscribe (theme, listener, sourceID, destinationID)", function
     function receiver(e) {
         //noinspection JSCheckFunctionSignatures
         evt.removeDocumentListener("modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        start();
+        assert.equal(e.detail.message.item, "true", "Message received");
+        done();
     }
     //noinspection JSCheckFunctionSignatures
     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, detailObject);
 });
 
-QUnit.asyncTest("subscribe (theme, listener, undefined, destinationID)", function() {
-    expect(1);
+QUnit.test("subscribe (theme, listener, undefined, destinationID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(1);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2586,16 +2645,17 @@ QUnit.asyncTest("subscribe (theme, listener, undefined, destinationID)", functio
     function receiver(e) {
         //noinspection JSCheckFunctionSignatures
         evt.removeDocumentListener("modulesjs_message_" + theme + "__" + destinationID, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        start();
+        assert.equal(e.detail.message.item, "true", "Message received");
+        done();
     }
     //noinspection JSCheckFunctionSignatures
     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "__" + destinationID, detailObject);
 });
 
-QUnit.asyncTest("subscribe (theme, listener, null, destinationID)", function() {
-    expect(1);
+QUnit.test("subscribe (theme, listener, null, destinationID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(1);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2607,16 +2667,17 @@ QUnit.asyncTest("subscribe (theme, listener, null, destinationID)", function() {
     function receiver(e) {
         //noinspection JSCheckFunctionSignatures
         evt.removeDocumentListener("modulesjs_message_" + theme + "__" + destinationID, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        start();
+        assert.equal(e.detail.message.item, "true", "Message received");
+        done();
     }
     //noinspection JSCheckFunctionSignatures
     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "__" + destinationID, detailObject);
 });
 
-QUnit.asyncTest("send (theme, detail)", function() {
-    expect(3);
+QUnit.test("send (theme, detail)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2627,18 +2688,19 @@ QUnit.asyncTest("send (theme, detail)", function() {
     evt.addDocumentListener("modulesjs_message_" + theme, receiver);
     function receiver(e) {
         //noinspection JSCheckFunctionSignatures
-        start();
+        done();
         evt.removeDocumentListener("modulesjs_message_" + theme, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, null, "Source undefined");
-        equal(e.detail.postAdress.destinationID, null, "Destination undefined");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, null, "Source undefined");
+        assert.equal(e.detail.postAdress.destinationID, null, "Destination undefined");
     }
     //noinspection JSCheckFunctionSignatures
     msg.send(theme, detail);
 });
 
-QUnit.asyncTest("send (theme, detail, sourceID)", function() {
-    expect(3);
+QUnit.test("send (theme, detail, sourceID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2648,19 +2710,20 @@ QUnit.asyncTest("send (theme, detail, sourceID)", function() {
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     evt.addDocumentListener("modulesjs_message_" + theme + "_" + sourceID, receiver);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         evt.removeDocumentListener("modulesjs_message_" + theme + "_" + sourceID, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
-        equal(e.detail.postAdress.destinationID, null, "Destination undefined");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
+        assert.equal(e.detail.postAdress.destinationID, null, "Destination undefined");
     }
     //noinspection JSCheckFunctionSignatures
     msg.send(theme, detail, sourceID);
 });
 
-QUnit.asyncTest("send (theme, detail, null, destinationID)", function() {
-    expect(3);
+QUnit.test("send (theme, detail, null, destinationID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2670,19 +2733,20 @@ QUnit.asyncTest("send (theme, detail, null, destinationID)", function() {
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     evt.addDocumentListener("modulesjs_message_" + theme + "__" + destinationID, receiver);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         evt.removeDocumentListener("modulesjs_message_" + theme + "__" + destinationID, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, null, "Source undefined");
-        equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, null, "Source undefined");
+        assert.equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
     }
     //noinspection JSCheckFunctionSignatures
     msg.send(theme, detail, undefined, destinationID);
 });
 
-QUnit.asyncTest("send (theme, detail, sourceID, destinationID)", function() {
-    expect(3);
+QUnit.test("send (theme, detail, sourceID, destinationID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2692,19 +2756,20 @@ QUnit.asyncTest("send (theme, detail, sourceID, destinationID)", function() {
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     evt.addDocumentListener("modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, receiver);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         evt.removeDocumentListener("modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
-        equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
+        assert.equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
     }
     //noinspection JSCheckFunctionSignatures
     msg.send(theme, detail, sourceID, destinationID);
 });
 
-QUnit.asyncTest("unsubscribe (theme, listener)", function() {
-    expect(3);
+QUnit.test("unsubscribe (theme, listener)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2714,20 +2779,21 @@ QUnit.asyncTest("unsubscribe (theme, listener)", function() {
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     evt.addDocumentListener("modulesjs_message_" + theme, receiver);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         msg.unsubscribe(theme, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, null, "Source undefined");
-        equal(e.detail.postAdress.destinationID, null, "Destination undefined");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, null, "Source undefined");
+        assert.equal(e.detail.postAdress.destinationID, null, "Destination undefined");
     }
     //noinspection JSCheckFunctionSignatures
     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme, detailObject);
 });
 
-QUnit.asyncTest("unsubscribe (theme, listener, sourceID)", function() {
-    expect(3);
+QUnit.test("unsubscribe (theme, listener, sourceID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2737,20 +2803,21 @@ QUnit.asyncTest("unsubscribe (theme, listener, sourceID)", function() {
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     evt.addDocumentListener("modulesjs_message_" + theme + "_" + sourceID, receiver);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         msg.unsubscribe(theme, receiver, sourceID);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
-        equal(e.detail.postAdress.destinationID, null, "Destination undefined");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
+        assert.equal(e.detail.postAdress.destinationID, null, "Destination undefined");
     }
     //noinspection JSCheckFunctionSignatures
     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID, detailObject);
 });
 
-QUnit.asyncTest("unsubscribe (theme, listener, null, destinationID)", function() {
-    expect(3);
+QUnit.test("unsubscribe (theme, listener, null, destinationID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2760,20 +2827,21 @@ QUnit.asyncTest("unsubscribe (theme, listener, null, destinationID)", function()
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     evt.addDocumentListener("modulesjs_message_" + theme + "__" + destinationID, receiver);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         msg.unsubscribe(theme, receiver, undefined, destinationID);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, null, "Source undefined");
-        equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, null, "Source undefined");
+        assert.equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
     }
     //noinspection JSCheckFunctionSignatures
     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "__" + destinationID, detailObject);
 });
 
-QUnit.asyncTest("unsubscribe (theme, listener, sourceID, destinationID)", function() {
-    expect(3);
+QUnit.test("unsubscribe (theme, listener, sourceID, destinationID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var evt = Modules.Events;
     var theme = "greetings";
@@ -2783,20 +2851,21 @@ QUnit.asyncTest("unsubscribe (theme, listener, sourceID, destinationID)", functi
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     evt.addDocumentListener("modulesjs_message_" + theme + "_"+ sourceID +"_" + destinationID, receiver);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         msg.unsubscribe(theme, receiver, sourceID, destinationID);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, sourceID, "Source undefined");
-        equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, sourceID, "Source undefined");
+        assert.equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
     }
     //noinspection JSCheckFunctionSignatures
     var detailObject = {"postAdress": {"sourceID" : sourceID, "destinationID": destinationID}, "message": detail};
     evt.dispatchCustomEvent(document, "modulesjs_message_" + theme + "_" + sourceID + "_" + destinationID, detailObject);
 });
 
-QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail)", function() {
-    expect(3);
+QUnit.test("subscribe, send, unsubscribe (theme, detail)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var theme = "greetings";
     var detail = {item: "true"};
@@ -2805,19 +2874,20 @@ QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail)", function() {
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     msg.subscribe(theme, receiver);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         msg.unsubscribe(theme, receiver);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, sourceID, "Source undefined");
-        equal(e.detail.postAdress.destinationID, destinationID, "Destination undefined");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, sourceID, "Source undefined");
+        assert.equal(e.detail.postAdress.destinationID, destinationID, "Destination undefined");
     }
     //noinspection JSCheckFunctionSignatures
     msg.send(theme, detail);
 });
 
-QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID)", function() {
-    expect(3);
+QUnit.test("subscribe, send, unsubscribe (theme, detail, sourceID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var theme = "greetings";
     var detail = {item: "true"};
@@ -2826,19 +2896,20 @@ QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID)", functi
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     msg.subscribe(theme, receiver, sourceID);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         msg.unsubscribe(theme, receiver, sourceID);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
-        equal(e.detail.postAdress.destinationID, destinationID, "Destination undefined");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
+        assert.equal(e.detail.postAdress.destinationID, destinationID, "Destination undefined");
     }
     //noinspection JSCheckFunctionSignatures
     msg.send(theme, detail, sourceID);
 });
 
-QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail, null, destinationID)", function() {
-    expect(3);
+QUnit.test("subscribe, send, unsubscribe (theme, detail, null, destinationID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var theme = "greetings";
     var detail = {item: "true"};
@@ -2847,19 +2918,20 @@ QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail, null, destinationI
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     msg.subscribe(theme, receiver, null, destinationID);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         msg.unsubscribe(theme, receiver, null, destinationID);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, sourceID, "Source undefined");
-        equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, sourceID, "Source undefined");
+        assert.equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
     }
     //noinspection JSCheckFunctionSignatures
     msg.send(theme, detail, null, destinationID);
 });
 
-QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID, destinationID)", function() {
-    expect(3);
+QUnit.test("subscribe, send, unsubscribe (theme, detail, sourceID, destinationID)", function( assert ) {
+    var done = assert.async();
+    assert.expect(3);
     var msg = Modules.Events.Messages;
     var theme = "greetings";
     var detail = {item: "true"};
@@ -2868,20 +2940,20 @@ QUnit.asyncTest("subscribe, send, unsubscribe (theme, detail, sourceID, destinat
     //noinspection JSCheckFunctionSignatures,JSValidateTypes
     msg.subscribe(theme, receiver, sourceID, destinationID);
     function receiver(e) {
-        start();
+        done();
         //noinspection JSCheckFunctionSignatures
         msg.unsubscribe(theme, receiver, sourceID, destinationID);
-        equal(e.detail.message.item, "true", "Message received");
-        equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
-        equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
+        assert.equal(e.detail.message.item, "true", "Message received");
+        assert.equal(e.detail.postAdress.sourceID, sourceID, "Source correct");
+        assert.equal(e.detail.postAdress.destinationID, destinationID, "Destination correct");
     }
     //noinspection JSCheckFunctionSignatures
     msg.send(theme, detail, sourceID, destinationID);
 });
 
 //noinspection JSUnresolvedFunction
-module("Modules.Loader", {
-    setup: function() {
+QUnit.module("Modules.Loader", {
+    beforeEach: function() {
         //Definition of Setup module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
@@ -2918,7 +2990,7 @@ module("Modules.Loader", {
         Setup.loadModulePathDefined();
         Setup.unloadModuleSimple();
     },
-    teardown: function() {
+    afterEach: function() {
         //Definition of Teardown module
         //noinspection JSUnresolvedVariable
         window.exports = window.exports || (window.exports = {});
@@ -2957,10 +3029,10 @@ module("Modules.Loader", {
     }
 });
 
-QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=undefined, itemName, className, callback)", function(){
-    expect(26);
+QUnit.test("DEPRECATED // load (itemType=Modules.MODULE, path=undefined, itemName, className, callback)", function( assert) {
+    var done = assert.async();
+    assert.expect(20);
 
-    var loader = Modules.Loader;
     var path = undefined;
     var moduleName = "testModule";
     var className = "loadModulePathUndefined";
@@ -2968,7 +3040,7 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=undefined, it
     document.addEventListener("module_" + moduleName + "_loaded", whenModuleLoadedWithEvent, false);
     document.addEventListener("module_" + moduleName + "_loadingStarted", whenModuleLoadingStartedWithEvent, false);
 
-    loader.load(Modules.MODULE, path, moduleName, className, whenModuleLoadedWithCallback);
+    Modules.Loader.load(Modules.MODULE, path, moduleName, className, whenModuleLoadedWithCallback);
 
     var modulePath = moduleName + "/" + moduleName;
     var itemPath = Modules.DOM.getDocumentRootURL() + "/" + moduleName + "/";
@@ -2981,19 +3053,19 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=undefined, it
     }
     function whenModuleLoadingStartedWithEvent(event) {
         document.removeEventListener("module_" + moduleName + "_loadingStarted", whenModuleLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, moduleName, "module_" + moduleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, moduleName, "module_" + moduleName + "_loadingStarted event:" +
             " itemName: " + moduleName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "module_" + moduleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "module_" + moduleName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
-        equal(event.detail.itemInfo.className, className, "module_" + moduleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.className, className, "module_" + moduleName + "_loadingStarted event:" +
             " className: " + className);
         var containerClassName = undefined;
-        equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + moduleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + moduleName + "_loadingStarted event:" +
             " containerClassName: " + containerClassName);
     }
     function whenModuleLoadedWithCallback() {
         checkModuleLoaded(moduleName, modulePath, className, "callback assert");
-        start();
+        done();
     }
 
     function checkModuleLoaded(moduleName, modulePath, className, comment) {
@@ -3003,33 +3075,33 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=undefined, it
             var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
             var actualLoadedCSSHref = cssLoaded.href;
             var expectedCSSHref = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".css";
-            equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+            assert.equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
             var actualLoadedCSSClassName = cssLoaded.className;
             var expectedCSSClassName = modulesCSSprefix + moduleName;
-            equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+            assert.equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
             var actualLoadedCSSType = cssLoaded.type;
             var expectedCSSType = "text/css";
-            equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+            assert.equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
             var actualLoadedCSSStylesheet = cssLoaded.rel;
             var expectedCSSStylesheet = "stylesheet";
-            equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+            assert.equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
         }
         function jsLoadedCheck() {
             var modulesJsPrefix = "modulesjs_js_";
             var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
             var actualLoadedJsSrc = jsLoaded.src;
             var expectedJsSrc = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".js";
-            equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+            assert.equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
             var actualLoadedJsClassName = jsLoaded.className;
             var expectedJsClassName = modulesJsPrefix + moduleName;
-            equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+            assert.equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
                 + comment + "): " + actualLoadedJsClassName);
             var actualLoadedJsType = jsLoaded.type;
             var expectedJsType = "text/javascript";
-            equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+            assert.equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
             var actualLoadedJsAsync = jsLoaded.async;
             var expectedJsAsync = true;
-            equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+            assert.equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
         }
         function htmlLoadedCheck() {
             var htmlsLoaded = document.getElementsByClassName(moduleName);
@@ -3040,9 +3112,9 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=undefined, it
             for (var i = 0; i < htmlsLoadedLength; i++) {
                 var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
                 var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
-                ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
-                ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
-                equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+                assert.ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+                assert.ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
+                assert.equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
                     + "; modulesjs_moduleID: " + itemIDAttribute);
             }
         }
@@ -3052,8 +3124,9 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=undefined, it
     }
 });
 
-QUnit.asyncTest("loadModule (path=undefined, moduleName, className, callback)", function(){
-    expect(26);
+QUnit.test("loadModule (path=undefined, moduleName, className, callback)", function( assert) {
+    var done = assert.async();
+    assert.expect(20);
 
     var loader = Modules.Loader;
     var path = undefined;
@@ -3076,19 +3149,19 @@ QUnit.asyncTest("loadModule (path=undefined, moduleName, className, callback)", 
     }
     function whenModuleLoadingStartedWithEvent(event) {
         document.removeEventListener("module_" + moduleName + "_loadingStarted", whenModuleLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, moduleName, "module_" + moduleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, moduleName, "module_" + moduleName + "_loadingStarted event:" +
             " itemName: " + moduleName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "module_" + moduleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "module_" + moduleName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
-        equal(event.detail.itemInfo.className, className, "module_" + moduleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.className, className, "module_" + moduleName + "_loadingStarted event:" +
             " className: " + className);
         var containerClassName = undefined;
-        equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + moduleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + moduleName + "_loadingStarted event:" +
             " containerClassName: " + containerClassName);
     }
     function whenModuleLoadedWithCallback() {
         checkModuleLoaded(moduleName, modulePath, className, "callback assert");
-        start();
+        done();
     }
 
     function checkModuleLoaded(moduleName, modulePath, className, comment) {
@@ -3098,33 +3171,33 @@ QUnit.asyncTest("loadModule (path=undefined, moduleName, className, callback)", 
             var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
             var actualLoadedCSSHref = cssLoaded.href;
             var expectedCSSHref = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".css";
-            equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+            assert.equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
             var actualLoadedCSSClassName = cssLoaded.className;
             var expectedCSSClassName = modulesCSSprefix + moduleName;
-            equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+            assert.equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
             var actualLoadedCSSType = cssLoaded.type;
             var expectedCSSType = "text/css";
-            equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+            assert.equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
             var actualLoadedCSSStylesheet = cssLoaded.rel;
             var expectedCSSStylesheet = "stylesheet";
-            equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+            assert.equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
         }
         function jsLoadedCheck() {
             var modulesJsPrefix = "modulesjs_js_";
             var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
             var actualLoadedJsSrc = jsLoaded.src;
             var expectedJsSrc = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".js";
-            equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+            assert.equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
             var actualLoadedJsClassName = jsLoaded.className;
             var expectedJsClassName = modulesJsPrefix + moduleName;
-            equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+            assert.equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
                 + comment + "): " + actualLoadedJsClassName);
             var actualLoadedJsType = jsLoaded.type;
             var expectedJsType = "text/javascript";
-            equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+            assert.equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
             var actualLoadedJsAsync = jsLoaded.async;
             var expectedJsAsync = true;
-            equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+            assert.equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
         }
         function htmlLoadedCheck() {
             var htmlsLoaded = document.getElementsByClassName(moduleName);
@@ -3135,9 +3208,9 @@ QUnit.asyncTest("loadModule (path=undefined, moduleName, className, callback)", 
             for (var i = 0; i < htmlsLoadedLength; i++) {
                 var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
                 var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
-                ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
-                ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
-                equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+                assert.ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+                assert.ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
+                assert.equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
                     + "; modulesjs_moduleID: " + itemIDAttribute);
             }
         }
@@ -3147,8 +3220,9 @@ QUnit.asyncTest("loadModule (path=undefined, moduleName, className, callback)", 
     }
 });
 
-QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=modules_forTests, itemName, className, callback)", function(assert){
-    assert.expect(26);
+QUnit.test("DEPRECATED // load (itemType=Modules.MODULE, path=modules_forTests, itemName, className, callback)", function(assert){
+    var done = assert.async();
+    assert.expect(20);
 
     var loader = Modules.Loader;
     var path = "modules_forTests";
@@ -3170,19 +3244,19 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=modules_forTe
     }
     function whenModuleLoadingStartedWithEvent(event) {
         document.removeEventListener("module_" + itemName + "_loadingStarted", whenModuleLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, itemName, "module_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, itemName, "module_" + itemName + "_loadingStarted event:" +
             " itemName: " + itemName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "module_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "module_" + itemName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
-        equal(event.detail.itemInfo.className, className, "module_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.className, className, "module_" + itemName + "_loadingStarted event:" +
             " className: " + className);
         var containerClassName = undefined;
-        equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + itemName + "_loadingStarted event:" +
             " containerClassName: " + containerClassName);
     }
     function whenModuleLoadedWithCallback() {
         checkModuleLoaded(itemName, itemPath, className, "callback assert");
-        start();
+        done();
     }
 
     function checkModuleLoaded(itemName, itemPath, className, comment) {
@@ -3192,33 +3266,33 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=modules_forTe
             var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
             var actualLoadedCSSHref = cssLoaded.href;
             var expectedCSSHref = itemPath + itemName + ".css";
-            equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+            assert.equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
             var actualLoadedCSSClassName = cssLoaded.className;
             var expectedCSSClassName = modulesCSSprefix + itemName;
-            equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+            assert.equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
             var actualLoadedCSSType = cssLoaded.type;
             var expectedCSSType = "text/css";
-            equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+            assert.equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
             var actualLoadedCSSStylesheet = cssLoaded.rel;
             var expectedCSSStylesheet = "stylesheet";
-            equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+            assert.equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
         }
         function jsLoadedCheck() {
             var modulesJsPrefix = "modulesjs_js_";
             var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
             var actualLoadedJsSrc = jsLoaded.src;
             var expectedJsSrc = itemPath + itemName + ".js";
-            equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+            assert.equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
             var actualLoadedJsClassName = jsLoaded.className;
             var expectedJsClassName = modulesJsPrefix + itemName;
-            equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+            assert.equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
                 + comment + "): " + actualLoadedJsClassName);
             var actualLoadedJsType = jsLoaded.type;
             var expectedJsType = "text/javascript";
-            equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+            assert.equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
             var actualLoadedJsAsync = jsLoaded.async;
             var expectedJsAsync = true;
-            equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+            assert.equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
         }
         function htmlLoadedCheck() {
             var htmlsLoaded = document.getElementsByClassName(itemName);
@@ -3229,9 +3303,9 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=modules_forTe
             for (var i = 0; i < htmlsLoadedLength; i++) {
                 var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
                 var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
-                ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
-                ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
-                equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+                assert.ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+                assert.ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
+                assert.equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
                     + "; modulesjs_moduleID: " + itemIDAttribute);
             }
         }
@@ -3241,8 +3315,9 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.MODULE, path=modules_forTe
     }
 });
 
-QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callback)", function(assert){
-    assert.expect(26);
+QUnit.test("loadModule (path=modules_forTests, moduleName, className, callback)", function(assert){
+    var done = assert.async();
+    assert.expect(20);
 
     var loader = Modules.Loader;
     var path = "modules_forTests";
@@ -3264,19 +3339,19 @@ QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callb
     }
     function whenModuleLoadingStartedWithEvent(event) {
         document.removeEventListener("module_" + itemName + "_loadingStarted", whenModuleLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, itemName, "module_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, itemName, "module_" + itemName + "_loadingStarted event:" +
             " itemName: " + itemName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "module_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "module_" + itemName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
-        equal(event.detail.itemInfo.className, className, "module_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.className, className, "module_" + itemName + "_loadingStarted event:" +
             " className: " + className);
         var containerClassName = undefined;
-        equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + itemName + "_loadingStarted event:" +
             " containerClassName: " + containerClassName);
     }
     function whenModuleLoadedWithCallback() {
         checkModuleLoaded(itemName, itemPath, className, "callback assert");
-        start();
+        done();
     }
 
     function checkModuleLoaded(itemName, itemPath, className, comment) {
@@ -3286,33 +3361,33 @@ QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callb
             var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
             var actualLoadedCSSHref = cssLoaded.href;
             var expectedCSSHref = itemPath + itemName + ".css";
-            equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+            assert.equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
             var actualLoadedCSSClassName = cssLoaded.className;
             var expectedCSSClassName = modulesCSSprefix + itemName;
-            equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+            assert.equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
             var actualLoadedCSSType = cssLoaded.type;
             var expectedCSSType = "text/css";
-            equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+            assert.equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
             var actualLoadedCSSStylesheet = cssLoaded.rel;
             var expectedCSSStylesheet = "stylesheet";
-            equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+            assert.equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
         }
         function jsLoadedCheck() {
             var modulesJsPrefix = "modulesjs_js_";
             var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
             var actualLoadedJsSrc = jsLoaded.src;
             var expectedJsSrc = itemPath + itemName + ".js";
-            equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+            assert.equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
             var actualLoadedJsClassName = jsLoaded.className;
             var expectedJsClassName = modulesJsPrefix + itemName;
-            equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+            assert.equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
                 + comment + "): " + actualLoadedJsClassName);
             var actualLoadedJsType = jsLoaded.type;
             var expectedJsType = "text/javascript";
-            equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+            assert.equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
             var actualLoadedJsAsync = jsLoaded.async;
             var expectedJsAsync = true;
-            equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+            assert.equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
         }
         function htmlLoadedCheck() {
             var htmlsLoaded = document.getElementsByClassName(itemName);
@@ -3323,9 +3398,9 @@ QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callb
             for (var i = 0; i < htmlsLoadedLength; i++) {
                 var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
                 var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
-                ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
-                ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
-                equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+                assert.ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+                assert.ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
+                assert.equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
                     + "; modulesjs_moduleID: " + itemIDAttribute);
             }
         }
@@ -3335,7 +3410,8 @@ QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callb
     }
 });
 
-QUnit.asyncTest("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScripts, itemName=script, className, callback)", function(assert){
+QUnit.test("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScripts, itemName=script, className, callback)", function(assert){
+    var done = assert.async();
     assert.expect(10);
     var loader = Modules.Loader;
     var itemType = Modules.JAVASCRIPT;
@@ -3351,7 +3427,7 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScrip
 
     function whenJavaScriptLoadedWithCallback() {
         checkJSLoaded(itemName, itemPath, "callback assert");
-        QUnit.start();
+        done();
     }
 
     function checkJSLoaded(itemName, itemPath, comment) {
@@ -3359,17 +3435,17 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScrip
         var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
         var actualLoadedJsSrc = jsLoaded.src;
         var expectedJsSrc = itemPath + itemName + ".js";
-        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+        assert.equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
         var actualLoadedJsClassName = jsLoaded.className;
         var expectedJsClassName = modulesJsPrefix + itemName;
-        equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+        assert.equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
             + comment + "): " + actualLoadedJsClassName);
         var actualLoadedJsType = jsLoaded.type;
         var expectedJsType = "text/javascript";
-        equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+        assert.equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
         var actualLoadedJsAsync = jsLoaded.async;
         var expectedJsAsync = true;
-        equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+        assert.equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
     }
 
     function whenJavaScriptLoadedWithEvent(event) {
@@ -3380,14 +3456,15 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScrip
     }
     function whenJavaScriptLoadingStartedWithEvent(event) {
         document.removeEventListener("javascript_" + itemName + "_loadingStarted", whenJavaScriptLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, itemName, "javascript_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, itemName, "javascript_" + itemName + "_loadingStarted event:" +
             " itemName: " + itemName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "javascript_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "javascript_" + itemName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
     }
 });
 
-QUnit.asyncTest("loadJS (path=testScripts, itemName=script, callback)", function(assert){
+QUnit.test("loadJS (path=testScripts, itemName=script, callback)", function(assert){
+    var done = assert.async();
     assert.expect(10);
     var loader = Modules.Loader;
     var itemType = Modules.JAVASCRIPT;
@@ -3403,7 +3480,7 @@ QUnit.asyncTest("loadJS (path=testScripts, itemName=script, callback)", function
 
     function whenJavaScriptLoadedWithCallback() {
         checkJSLoaded(itemName, itemPath, "callback assert");
-        QUnit.start();
+        QUnit.done();
     }
 
     function checkJSLoaded(itemName, itemPath, comment) {
@@ -3411,17 +3488,17 @@ QUnit.asyncTest("loadJS (path=testScripts, itemName=script, callback)", function
         var jsLoaded = document.getElementsByClassName(modulesJsPrefix + itemName)[0];
         var actualLoadedJsSrc = jsLoaded.src;
         var expectedJsSrc = itemPath + itemName + ".js";
-        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+        assert.equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
         var actualLoadedJsClassName = jsLoaded.className;
         var expectedJsClassName = modulesJsPrefix + itemName;
-        equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+        assert.equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
             + comment + "): " + actualLoadedJsClassName);
         var actualLoadedJsType = jsLoaded.type;
         var expectedJsType = "text/javascript";
-        equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+        assert.equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
         var actualLoadedJsAsync = jsLoaded.async;
         var expectedJsAsync = true;
-        equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+        assert.equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
     }
 
     function whenJavaScriptLoadedWithEvent(event) {
@@ -3432,15 +3509,16 @@ QUnit.asyncTest("loadJS (path=testScripts, itemName=script, callback)", function
     }
     function whenJavaScriptLoadingStartedWithEvent(event) {
         document.removeEventListener("javascript_" + itemName + "_loadingStarted", whenJavaScriptLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, itemName, "javascript_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, itemName, "javascript_" + itemName + "_loadingStarted event:" +
             " itemName: " + itemName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "javascript_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "javascript_" + itemName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
     }
 });
 
-QUnit.asyncTest("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScripts, itemName=script.js, className, callback)", function(assert){
-    assert.expect(10);
+QUnit.test("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScripts, itemName=script.js, className, callback)", function(assert){
+    var done = assert.async();
+    assert.assert.expect(10);
     var loader = Modules.Loader;
     var itemType = Modules.JAVASCRIPT;
     var path = "testScripts";
@@ -3456,7 +3534,7 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScrip
 
     function whenJavaScriptLoadedWithCallback() {
         checkJSLoaded(scriptName, itemPath, "callback assert");
-        QUnit.start();
+        QUnit.done();
     }
 
     function checkJSLoaded(scriptName, itemPath, comment) {
@@ -3464,17 +3542,17 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScrip
         var jsLoaded = document.getElementsByClassName(modulesJsPrefix + scriptName)[0];
         var actualLoadedJsSrc = jsLoaded.src;
         var expectedJsSrc = itemPath + scriptName + ".js";
-        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+        assert.equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
         var actualLoadedJsClassName = jsLoaded.className;
         var expectedJsClassName = modulesJsPrefix + scriptName;
-        equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+        assert.equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
             + comment + "): " + actualLoadedJsClassName);
         var actualLoadedJsType = jsLoaded.type;
         var expectedJsType = "text/javascript";
-        equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+        assert.equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
         var actualLoadedJsAsync = jsLoaded.async;
         var expectedJsAsync = true;
-        equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+        assert.equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
     }
 
     function whenJavaScriptLoadedWithEvent(event) {
@@ -3485,15 +3563,16 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.JAVASCRIPT, path=testScrip
     }
     function whenJavaScriptLoadingStartedWithEvent(event) {
         document.removeEventListener("javascript_" + scriptName + "_loadingStarted", whenJavaScriptLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, scriptName, "javascript_" + scriptName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, scriptName, "javascript_" + scriptName + "_loadingStarted event:" +
             " itemName: " + scriptName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "javascript_" + scriptName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "javascript_" + scriptName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
     }
 });
 
-QUnit.asyncTest("loadJS (path=testScripts, itemName=script.js, callback)", function(assert){
-    assert.expect(10);
+QUnit.test("loadJS (path=testScripts, itemName=script.js, callback)", function(assert){
+    var done = assert.async();
+    assert.assert.expect(10);
     var loader = Modules.Loader;
     var itemType = Modules.JAVASCRIPT;
     var path = "testScripts";
@@ -3509,7 +3588,7 @@ QUnit.asyncTest("loadJS (path=testScripts, itemName=script.js, callback)", funct
 
     function whenJavaScriptLoadedWithCallback() {
         checkJSLoaded(scriptName, itemPath, "callback assert");
-        QUnit.start();
+        QUnit.done();
     }
 
     function checkJSLoaded(scriptName, itemPath, comment) {
@@ -3517,17 +3596,17 @@ QUnit.asyncTest("loadJS (path=testScripts, itemName=script.js, callback)", funct
         var jsLoaded = document.getElementsByClassName(modulesJsPrefix + scriptName)[0];
         var actualLoadedJsSrc = jsLoaded.src;
         var expectedJsSrc = itemPath + scriptName + ".js";
-        equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+        assert.equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
         var actualLoadedJsClassName = jsLoaded.className;
         var expectedJsClassName = modulesJsPrefix + scriptName;
-        equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+        assert.equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
             + comment + "): " + actualLoadedJsClassName);
         var actualLoadedJsType = jsLoaded.type;
         var expectedJsType = "text/javascript";
-        equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+        assert.equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
         var actualLoadedJsAsync = jsLoaded.async;
         var expectedJsAsync = true;
-        equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+        assert.equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
     }
 
     function whenJavaScriptLoadedWithEvent(event) {
@@ -3538,15 +3617,16 @@ QUnit.asyncTest("loadJS (path=testScripts, itemName=script.js, callback)", funct
     }
     function whenJavaScriptLoadingStartedWithEvent(event) {
         document.removeEventListener("javascript_" + scriptName + "_loadingStarted", whenJavaScriptLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, scriptName, "javascript_" + scriptName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, scriptName, "javascript_" + scriptName + "_loadingStarted event:" +
             " itemName: " + scriptName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "javascript_" + scriptName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "javascript_" + scriptName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
     }
 });
 
-QUnit.asyncTest("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemName=style, className, callback)", function(assert){
-    assert.expect(10);
+QUnit.test("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemName=style, className, callback)", function(assert){
+    var done = assert.async();
+    assert.assert.expect(10);
 
     var loader = Modules.Loader;
     var path = "testCSS";
@@ -3560,7 +3640,7 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemNam
 
     function whenCSSLoadedWithCallback() {
         checkCSSLoaded(itemName, itemPath, "callback assert");
-        start();
+        done();
     }
 
     function checkCSSLoaded(itemName, itemPath, comment) {
@@ -3568,16 +3648,16 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemNam
         var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
         var actualLoadedCSSHref = cssLoaded.href;
         var expectedCSSHref = itemPath + itemName + ".css";
-        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+        assert.equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
         var actualLoadedCSSClassName = cssLoaded.className;
         var expectedCSSClassName = modulesCSSprefix + itemName;
-        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+        assert.equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
         var actualLoadedCSSType = cssLoaded.type;
         var expectedCSSType = "text/css";
-        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+        assert.equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
         var actualLoadedCSSStylesheet = cssLoaded.rel;
         var expectedCSSStylesheet = "stylesheet";
-        equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+        assert.equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
     }
 
     function whenCSSLoadedWithEvent(event) {
@@ -3589,16 +3669,17 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemNam
 
     function whenCSSLoadingStartedWithEvent (event) {
         document.removeEventListener("css_" + itemName + "_loadingStarted", whenCSSLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, itemName, "css_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, itemName, "css_" + itemName + "_loadingStarted event:" +
             " itemName: " + itemName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "css_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "css_" + itemName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
     }
 
 });
 
-QUnit.asyncTest("loadCSS (path=testCSS, itemName=style, callback)", function(assert){
-    assert.expect(10);
+QUnit.test("loadCSS (path=testCSS, itemName=style, callback)", function(assert){
+    var done = assert.async();
+    assert.assert.expect(10);
 
     var loader = Modules.Loader;
     var path = "testCSS";
@@ -3612,7 +3693,7 @@ QUnit.asyncTest("loadCSS (path=testCSS, itemName=style, callback)", function(ass
 
     function whenCSSLoadedWithCallback() {
         checkCSSLoaded(itemName, itemPath, "callback assert");
-        start();
+        done();
     }
 
     function checkCSSLoaded(itemName, itemPath, comment) {
@@ -3620,16 +3701,16 @@ QUnit.asyncTest("loadCSS (path=testCSS, itemName=style, callback)", function(ass
         var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
         var actualLoadedCSSHref = cssLoaded.href;
         var expectedCSSHref = itemPath + itemName + ".css";
-        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+        assert.equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
         var actualLoadedCSSClassName = cssLoaded.className;
         var expectedCSSClassName = modulesCSSprefix + itemName;
-        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+        assert.equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
         var actualLoadedCSSType = cssLoaded.type;
         var expectedCSSType = "text/css";
-        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+        assert.equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
         var actualLoadedCSSStylesheet = cssLoaded.rel;
         var expectedCSSStylesheet = "stylesheet";
-        equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+        assert.equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
     }
 
     function whenCSSLoadedWithEvent(event) {
@@ -3641,16 +3722,17 @@ QUnit.asyncTest("loadCSS (path=testCSS, itemName=style, callback)", function(ass
 
     function whenCSSLoadingStartedWithEvent (event) {
         document.removeEventListener("css_" + itemName + "_loadingStarted", whenCSSLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, itemName, "css_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, itemName, "css_" + itemName + "_loadingStarted event:" +
             " itemName: " + itemName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "css_" + itemName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "css_" + itemName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
     }
 
 });
 
-QUnit.asyncTest("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemName=style.css, className, callback)", function(assert){
-    assert.expect(10);
+QUnit.test("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemName=style.css, className, callback)", function(assert){
+    var done = assert.async();
+    assert.assert.expect(10);
 
     var loader = Modules.Loader;
     var path = "testCSS";
@@ -3665,7 +3747,7 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemNam
 
     function whenCSSLoadedWithCallback() {
         checkCSSLoaded(styleName, itemPath, "callback assert");
-        start();
+        done();
     }
 
     function checkCSSLoaded(itemName, itemPath, comment) {
@@ -3673,16 +3755,16 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemNam
         var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
         var actualLoadedCSSHref = cssLoaded.href;
         var expectedCSSHref = itemPath + itemName + ".css";
-        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+        assert.equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
         var actualLoadedCSSClassName = cssLoaded.className;
         var expectedCSSClassName = modulesCSSprefix + itemName;
-        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+        assert.equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
         var actualLoadedCSSType = cssLoaded.type;
         var expectedCSSType = "text/css";
-        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+        assert.equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
         var actualLoadedCSSStylesheet = cssLoaded.rel;
         var expectedCSSStylesheet = "stylesheet";
-        equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+        assert.equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
     }
 
     function whenCSSLoadedWithEvent(event) {
@@ -3694,16 +3776,17 @@ QUnit.asyncTest("DEPRECATED // load (itemType=Modules.CSS, path=testCSS, itemNam
 
     function whenCSSLoadingStartedWithEvent (event) {
         document.removeEventListener("css_" + styleName + "_loadingStarted", whenCSSLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, styleName, "css_" + styleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, styleName, "css_" + styleName + "_loadingStarted event:" +
             " itemName: " + itemName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "css_" + styleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "css_" + styleName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
     }
 
 });
 
-QUnit.asyncTest("loadCSS (path=testCSS, itemName=style.css, callback)", function(assert){
-    assert.expect(10);
+QUnit.test("loadCSS (path=testCSS, itemName=style.css, callback)", function(assert){
+    var done = assert.async();
+    assert.assert.expect(10);
 
     var loader = Modules.Loader;
     var path = "testCSS";
@@ -3718,7 +3801,7 @@ QUnit.asyncTest("loadCSS (path=testCSS, itemName=style.css, callback)", function
 
     function whenCSSLoadedWithCallback() {
         checkCSSLoaded(styleName, itemPath, "callback assert");
-        start();
+        done();
     }
 
     function checkCSSLoaded(itemName, itemPath, comment) {
@@ -3726,16 +3809,16 @@ QUnit.asyncTest("loadCSS (path=testCSS, itemName=style.css, callback)", function
         var cssLoaded = document.getElementsByClassName(modulesCSSprefix + itemName)[0];
         var actualLoadedCSSHref = cssLoaded.href;
         var expectedCSSHref = itemPath + itemName + ".css";
-        equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+        assert.equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
         var actualLoadedCSSClassName = cssLoaded.className;
         var expectedCSSClassName = modulesCSSprefix + itemName;
-        equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+        assert.equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
         var actualLoadedCSSType = cssLoaded.type;
         var expectedCSSType = "text/css";
-        equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+        assert.equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
         var actualLoadedCSSStylesheet = cssLoaded.rel;
         var expectedCSSStylesheet = "stylesheet";
-        equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+        assert.equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
     }
 
     function whenCSSLoadedWithEvent(event) {
@@ -3747,16 +3830,17 @@ QUnit.asyncTest("loadCSS (path=testCSS, itemName=style.css, callback)", function
 
     function whenCSSLoadingStartedWithEvent (event) {
         document.removeEventListener("css_" + styleName + "_loadingStarted", whenCSSLoadingStartedWithEvent);
-        equal(event.detail.itemInfo.itemName, styleName, "css_" + styleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemName, styleName, "css_" + styleName + "_loadingStarted event:" +
             " itemName: " + itemName);
-        equal(event.detail.itemInfo.itemPath, itemPath, "css_" + styleName + "_loadingStarted event:" +
+        assert.equal(event.detail.itemInfo.itemPath, itemPath, "css_" + styleName + "_loadingStarted event:" +
             " itemPath: " + itemPath);
     }
 
 });
 
-QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callback, l18n)", function(assert){
-    // expect(26);
+QUnit.test("loadModule (path=modules_forTests, moduleName, className, callback, l18n)", function(assert){
+    var done = assert.async();
+    // assert.expect(26);
 
     var loader = Modules.Loader;
     var path = "modules_forTests";
@@ -3781,19 +3865,19 @@ QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callb
     // }
     // function whenModuleLoadingStartedWithEvent(event) {
     //     document.removeEventListener("module_" + moduleName + "_loadingStarted", whenModuleLoadingStartedWithEvent);
-    //     equal(event.detail.itemInfo.itemName, moduleName, "module_" + moduleName + "_loadingStarted event:" +
+    //     assert.equal(event.detail.itemInfo.itemName, moduleName, "module_" + moduleName + "_loadingStarted event:" +
     //         " itemName: " + moduleName);
-    //     equal(event.detail.itemInfo.itemPath, itemPath, "module_" + moduleName + "_loadingStarted event:" +
+    //     assert.equal(event.detail.itemInfo.itemPath, itemPath, "module_" + moduleName + "_loadingStarted event:" +
     //         " itemPath: " + itemPath);
-    //     equal(event.detail.itemInfo.className, className, "module_" + moduleName + "_loadingStarted event:" +
+    //     assert.equal(event.detail.itemInfo.className, className, "module_" + moduleName + "_loadingStarted event:" +
     //         " className: " + className);
     //     var containerClassName = undefined;
-    //     equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + moduleName + "_loadingStarted event:" +
+    //     assert.equal(event.detail.itemInfo.containerClassName, containerClassName, "module_" + moduleName + "_loadingStarted event:" +
     //         " containerClassName: " + containerClassName);
     // }
     function whenModuleLoadedWithCallback() {
         checkModuleLoaded(moduleName, modulePath, className, "callback assert");
-        start();
+        done();
     }
     //
     function checkModuleLoaded(moduleName, modulePath, className, comment) {
@@ -3803,33 +3887,33 @@ QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callb
             var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
             var actualLoadedCSSHref = cssLoaded.href;
             var expectedCSSHref = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".css";
-            equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
+            assert.equal(actualLoadedCSSHref, expectedCSSHref, "CSS Href loaded correctly (" + comment + "): " + actualLoadedCSSHref);
             var actualLoadedCSSClassName = cssLoaded.className;
             var expectedCSSClassName = modulesCSSprefix + moduleName;
-            equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
+            assert.equal(actualLoadedCSSClassName, expectedCSSClassName, "CSS ClassName loaded correctly (" + comment + "): " + actualLoadedCSSClassName);
             var actualLoadedCSSType = cssLoaded.type;
             var expectedCSSType = "text/css";
-            equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
+            assert.equal(actualLoadedCSSType, expectedCSSType, "CSS Type loaded correctly (" + comment + "): " + actualLoadedCSSType);
             var actualLoadedCSSStylesheet = cssLoaded.rel;
             var expectedCSSStylesheet = "stylesheet";
-            equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
+            assert.equal(actualLoadedCSSStylesheet, expectedCSSStylesheet, "CSS Rel loaded correctly (" + comment + "): " + actualLoadedCSSStylesheet);
         }
         function jsLoadedCheck() {
             var modulesJsPrefix = "modulesjs_js_";
             var jsLoaded = document.getElementsByClassName(modulesJsPrefix + moduleName)[0];
             var actualLoadedJsSrc = jsLoaded.src;
             var expectedJsSrc = Modules.DOM.getDocumentRootURL() + "/" + modulePath + ".js";
-            equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
+            assert.equal(actualLoadedJsSrc, expectedJsSrc, "JavaScript src loaded correctly (" + comment + "): " + actualLoadedJsSrc);
             var actualLoadedJsClassName = jsLoaded.className;
             var expectedJsClassName = modulesJsPrefix + moduleName;
-            equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
+            assert.equal(expectedJsClassName, actualLoadedJsClassName, "JavaScript className loaded correctly ("
                 + comment + "): " + actualLoadedJsClassName);
             var actualLoadedJsType = jsLoaded.type;
             var expectedJsType = "text/javascript";
-            equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
+            assert.equal(expectedJsType, actualLoadedJsType, "JavaScript type loaded correctly (" + comment + "): " + actualLoadedJsType);
             var actualLoadedJsAsync = jsLoaded.async;
             var expectedJsAsync = true;
-            equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
+            assert.equal(expectedJsAsync, actualLoadedJsAsync, "JavaScript async state loaded correctly (" + comment + "): " + actualLoadedJsType);
         }
         function htmlLoadedCheck() {
             var htmlsLoaded = document.getElementsByClassName(moduleName);
@@ -3840,9 +3924,9 @@ QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callb
             for (var i = 0; i < htmlsLoadedLength; i++) {
                 var itemIDAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_id");
                 var itemTypeAttribute = htmlsLoaded[i].parentNode.getAttribute("data-" + "modulesjs_item_type");
-                ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
-                ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
-                equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
+                assert.ok(itemIDAttribute != undefined, "Html loaded correctly, modulesjs_item_id defined correctly (" + comment + "): " + itemIDAttribute);
+                assert.ok(itemTypeAttribute != undefined, "Html loaded correctly, modulesjs_item_type defined correctly (" + comment + "): " + itemTypeAttribute);
+                assert.equal(expectedHtmlClassName, htmlsLoaded[i].className, "Html loaded correctly, className is found in document (" + comment + "): " + htmlsLoaded[i].className
                     + "; modulesjs_moduleID: " + itemIDAttribute);
             }
         }
@@ -3855,8 +3939,10 @@ QUnit.asyncTest("loadModule (path=modules_forTests, moduleName, className, callb
 
 QUnit.test("new Modules.Loader(modulesRelativePath)", function (assert) {
    let loader = new Modules.Loader("modules");
-   equal(loader.modulesRelativePath, "modules");
+   assert.equal(loader.modulesRelativePath, "modules");
 });
+
+//!!!!!!!
 
 //QUnit.asyncTest("unload (itemType=Modules.MODULE, itemName, className, callback)", function(){
 //    expect(1);

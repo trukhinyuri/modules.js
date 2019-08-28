@@ -1,11 +1,15 @@
-// Doesn't support IE6 to IE9, it will return undefined on these browsers
+// Doesn't support IE9, it will return undefined on these browsers
 // See also https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error/Stack
-function extractStacktrace( e, offset ) {
+var fileName = ( sourceFromStacktrace( 0 ) || "" )
+	.replace( /(:\d+)+\)?/, "" )
+	.replace( /.+\//, "" );
+
+export function extractStacktrace( e, offset ) {
 	offset = offset === undefined ? 4 : offset;
 
 	var stack, include, i;
 
-	if ( e.stack ) {
+	if ( e && e.stack ) {
 		stack = e.stack.split( "\n" );
 		if ( /^error$/i.test( stack[ 0 ] ) ) {
 			stack.shift();
@@ -23,21 +27,10 @@ function extractStacktrace( e, offset ) {
 			}
 		}
 		return stack[ offset ];
-
-	// Support: Safari <=6 only
-	} else if ( e.sourceURL ) {
-
-		// exclude useless self-reference for generated Error objects
-		if ( /qunit.js$/.test( e.sourceURL ) ) {
-			return;
-		}
-
-		// for actual exceptions, this is useful
-		return e.sourceURL + ":" + e.line;
 	}
 }
 
-function sourceFromStacktrace( offset ) {
+export function sourceFromStacktrace( offset ) {
 	var error = new Error();
 
 	// Support: Safari <=7 only, IE <=10 - 11 only

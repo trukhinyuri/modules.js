@@ -1,0 +1,42 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole site.
+# These values are expected to rarely change. If you are editing this file
+# very often, consider using Jekyll's data files feature.
+
+## Site settings
+## https://jekyllrb.com/docs/configuration/
+
+# Plugins
+plugins:
+  # https://help.github.com/articles/redirects-on-github-pages/
+  - jekyll-redirect-from
+
+# Theme
+# Not currently used, but not specifying results in github-pages
+# defaulting to compile Primer SASS, which causes problems.
+# https://github.com/jekyll/jekyll/issues/7426
+theme: minima
+
+# Conversion
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Serving
+baseurl: ""
+
+# Input files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CONTRIBUTING.md
+  - CNAME
+
+# Output
+permalink: title
+
+## Site variables
+## accessible via `{{ site.* }}` in layouts.

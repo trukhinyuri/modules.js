@@ -14,13 +14,24 @@
  *    limitations under the License.
  */
 
-"use strict";
-(function () {
-    function run() {
+import { Modules } from './modules.js';
+
+function run() {
         Modules.Loader.loadModule("modules", "globalNavigationMenu", "menu");
     }
-    Modules.Events.addStartupListener(run);
-}());
+Modules.Events.addStartupListener(run);
+
+
+// "use strict";
+// (function () {
+//     function run() {
+//         // Modules.Loader.loadModule("modules", "globalNavigationMenu", "menu");
+//         import {addTextToBody} from './utils.mjs';
+//
+//         addTextToBody('Modules are pretty cool.');
+//     }
+//     Modules.Events.addStartupListener(run);
+// }());
 //function onLoad() {
 //    var modulesInfo = new Array();
 //    modulesInfo.push(new modules.Info("/modules", "globalNavigationMenu", "#header"));

@@ -1,3 +1,418 @@
+2.9.2 / 2019-02-21
+==================
+
+  * Core: Ensuring semaphores are balanced when timeout occurs (#1376)
+  * Docs: Fix the casing for autostart and noglobals (#1373)
+  * HTML Reporter: Avoid inline styles to support CSP without 'unsafe-inline'
+  * Buid: Update 'resolve' to v1.9.0
+
+2.9.1 / 2019-01-07
+==================
+
+  * Build: Fix (and add tests) missing required files in 2.9.0. (#1368)
+  * Build: Set "root: true" in eslintrc
+
+2.9.0 / 2019-01-06
+==================
+
+  * Assert: Report RegExp/Error as strings from `rejects()`/`throws()` (#1333)
+  * Build: Add macOS and Windows to the Travis CI test matrix
+  * Build: Update engine requirement package.json to Node 6
+  * CLI: Reduce size of the dependencies tree (#1342)
+  * CLI: Re-implement run.watch() with 'node-watch' instead of 'sane' (#1342)
+  * HTML Reporter: Fix an unescaped details.source (#1341)
+
+2.8.0 / 2018-11-02
+==================
+
+  * Core: adds back running class to items and adds tests
+  * Core: Adding promise handling on qunit callbacks: begin, moduleStart, testStart, testDone, moduleDone, and done (#1307)
+  * Core: Report full stack trace for uncaught errors if possible (#1324)
+
+2.7.1 / 2018-10-17
+==================
+
+  * Core: guards performance.measure to not throw and cause tests to fail
+  * Build: Avoid Chromium sandbox on Jenkins (as for Travis CI)
+
+2.7.0 / 2018-10-10
+==================
+
+  * HTML Reporter: remove test item when hidepassed is set to true (#1311)
+  * HTML Reporter: Add an XHTML output test
+  * HTML Reporter: Fix XHTML output (issue 1255).
+  * CLI: bump sane, this drops another native extension. (#1314)
+  * All: Add CODE_OF_CONDUCT pointing to the JS Foundation code of conduct
+  * reports/suite: Use performance API to add "User Timings"
+  * reports/test: Use performance API to add "User Timings"
+  * reports: Use `performance.now()` if available
+  * core/utilities: Add `performanceNow` export
+  * core/utilities: Add `hasPerformanceApi` constant
+  * Build: Upgrade grunt-contrib-qunit to 3.x (Headless Chrome)
+  * CLI: Sane Bump
+
+2.6.2 / 2018-08-19
+==================
+
+  * Build: Bump packages identified by npm audit
+  * Build: Remove Browserstack
+  * Build: Upgrade grunt-coveralls to 2.0.0 (#1305)
+  * CLI: [fixes #121] chokidar -> sane (#1283)
+  * Tests: fix HTTP 404 error for the Qunit CSS in one of the test files (#1297)
+  * pushResult() doesn't ever return a value: it's always undefined/void.
+  * Update `fsevents` subdependency for Node 10 compat
+  * Core: Extract QUnit.module to its own file
+  * Docs: Fix Jekyll build (remove conflicting file/dir names)
+  * Docs: Set up redirects for old urls
+  * Docs: Fix broken QUnit.stop link from assert/async and add redirect (#1291)
+  * Build: Stop testing on Node 4 & 9
+  * Docs: Remove unused config and group settings
+
+2.6.1 / 2018-05-15
+==================
+
+  * Test: Prevent global.QUnit leakage between node and browser tests.
+  * Core: Ensure test callbacks and module hooks are released.
+  * Test: Failing test with memory leak via retained hooks/callbacks.
+  * Test: Add Node 10 testing to CI.
+  * HTML Reporter: Disable autocomplete on module search input (#1277)
+  * All: Enable ESLint recommended rules
+
+2.6.0 / 2018-03-26
+==================
+
+  * Core: Ensure late-add high-priority tests are inserted in proper order
+  * CLI: Implement --require option
+  * Test: Refactor startError test to not reload QUnit
+  * Core: Throw error if no tests are run
+  * Assert: Support rejecting falsy values against no matcher in rejects
+  * Assert: Clone actual steps array to avoid passing internal reference
+  * Test: Add failing test for verifySteps passing reference to log
+  * Docs: Note that non-string values fail assert.step()
+  * Assert: Fail test when passing a non string value to assert.step
+  * Core: Extract currently running test out of config.queue into internal testQueue (#1260)
+
+2.5.1 / 2018-02-27
+==================
+
+  * Docs: Align assert.throws() and assert.rejects() docs (#1265)
+  * Build: Use Node 9.x for matrix, cache node_modules
+  * Docs: Remove unexpected throw statement in examples
+  * Docs: Note that assert.rejects() also accepts an error object as matcher
+  * Docs: Mark the second parameter of assert.rejects() as optional
+  * Docs: Remove redundant expression from verifySteps' description (#1262)
+  * Docs: Fix typo in docs for QUnit.module (#1257)
+  * Core: Release all processing locks when Promise rejects from a test
+  * Assert: Fail test when using step inside a test without verifySteps
+  * HTML Reporter: Ensure attributes on qunit-fixture are reset.
+  * Test: Add failing test for fixture attribute leakage.
+  * Tests: refactor fixture reset tests to be more strict
+
+2.5.0 / 2018-01-09
+==================
+
+  * Tests: Fix no-multi-spaces violation found by latest ESLint
+  * Build: Update yarn.lock
+  * Docs: Add example for async test with assert.timeout
+  * Docs: Add assert.rejects API documentation.
+  * Assert: Add `assert.rejects`.
+  * Core: Remove delay parameters from setTimeouts in processing code (#1246)
+  * Fixes spelling of 'occurred'
+  * Tests: Address feedback, use more idiomatic promise chaining.
+  * Tests: Fixup comment indentation.
+  * Tests: Update CLI test and test fixture to remove stacktrace ambiguity.
+  * Core: Capture the proper stack trace in onUnhandledRejection.
+  * Tests: Update tests for unhandled rejection scenarios.
+  * Core: Add QUnit.onUnhandledRejection.
+  * HTML Reporter: Ensure unhandled rejection fails.
+  * CLI: Ensure an unhandled rejection results in a failed test.
+  * Tests: Add test for notrycatch doesn't catch.
+  * Tests: Reject async test promise when config.notrycatch is set.
+  * Docs: assert.verifySteps() called multiple times.
+  * Tests: Add Node 9 to test matrix.
+  * Tests: Drop Node 7 from CI.
+  * Build: Use babel-preset-env and .babelrc
+  * Build: Upgrade all dependencies
+  * All: Enable ESLint no-multi-spaces rule (#1234)
+  * Assert: Reset internal steps list after verifySteps
+
+2.4.1 / 2017-10-21
+==================
+
+  * HTML Reporter: Fix regression in error reporting
+  * Docs: Add further clarification and examples for Step API
+  * Build: Add my new name to .mailmap, update it in AUTHORS.txt
+  * CLI: Add slight debounce to restarting tests on file watching
+  * CLI: Properly support watching files added after first run
+  * Tests: Add watch test for adding file after a run
+  * CLI: Clear require cache of watched files between runs
+  * Tests: Modify watch test to cover require cache scenario
+  * Build: Allow custom livereload port via livereload-port option
+  * Build: Add better livereloading to watch task
+  * Build: Fix test-on-node task during watch
+  * CLI: Catch file load failures and report as failing tests
+  * Test: Fixing double-space that was expanded to tab
+  * All: Updated yarn.lock
+  * All: Upgraded to eslint@4.x via grunt-eslint@20.x and related plugins
+  * CLI: List available reporters when option is specified with no value
+  * Test: Provide descriptive feedback when missing test callback
+
+2.4.0 / 2017-07-08
+==================
+
+  * Build: Disable max-len ESLint rule for tests
+  * Docs: Document assert.timeout
+  * Tests: Add tests for assert.timeout
+  * Assert: Introduce timeout to set per-test timeout durations
+  * Core: Release objects from memory in equiv
+  * Assert: Fix assert.push deprecation link
+  * Docs: Fix typo in docs for QUnit.module
+  * Docs: Document QUnit.module.{only,skip,todo} (#1194)
+  * Test: Add tests for QUnit.module.todo()
+  * Core: Implement QUnit.module.todo()
+  * Test: Add tests for QUnit.module.skip()
+  * Core: Implement QUnit.module.skip()
+  * Core: Fallback to `typeof obj` in `QUnit.objectType`.
+  * Tests: Add tests using native async functions.
+  * CLI: Better messaging on early exits
+  * CLI: Default to non-zero exit code
+  * CLI: Exit with non-zero status when no tests are run
+  * Build: Register events after requiring test file in test-on-node task
+  * Docs: Add note about defining multiple hooks for modules
+  * Tests: Add tests for multiple module hooks
+  * Core: Add support for multiple hooks
+  * Test: Add tests for QUnit.module.only()
+  * Core: Implement QUnit.module.only()
+  * Build: Include bin file in eslint
+
+2.3.3 / 2017-06-02
+==================
+
+  * Core: Updates for Node.js version 8 compatibility and testing
+  * Docs: Update README/CONTRIBUTING with more recent/relevant information
+  * Docs: Move CONTRIBUTING.md from docs to root
+  * Build: Let grunt watch live-reload the test suite
+  * Build: Only start one web server for grunt watch
+  * Core: Support running in WorkerGlobalScope
+  * Docs: Add license status (#1175)
+  * Docs: delete note about QUnit.jsDump's removal
+  * Docs: Document 'todo' in log details object
+  * Docs: Document 'todo' in testDone details object
+  * Tests: Add requireQUnit tests
+  * CLI: Prefer local version of QUnit
+
+2.3.2 / 2017-04-17
+==================
+
+  * HTML Reporter: Add specific diff for number types instead of str-diff. (#1155)
+  * Core: Fix bug calling hooks with skipped tests (#1156)
+  * Docs: Fix title and index link
+
+2.3.1 / 2017-04-10
+==================
+
+  * Tests: Emit `suiteEnd` and trigger `moduleDone` for parent modules
+  * Docs: Remove trailing slash from some urls
+  * All: Enable ESLint indent rule (#1143)
+  * Docs: Update assert.async documentation
+  * Assert: Allow assertions after async
+  * Docs: Copy styles from jquery-wp-content
+  * Docs: Render markdown inside HTML blocks
+  * Core: Ensure assertions occur while test is running
+  * Assert: Throw if async callback invoked after test finishes
+  * Tests: Add additional events test
+  * Tests: Re-order events test
+  * Core: Slim assertions after reporting them
+  * Core: Fix test instance memory leak (#1138)
+  * Docs: Remove baseurl as github is inserting an automatic value (#1136)
+  * Docs: Migrate api docs (#1135)
+  * Readme: Added Gitter badge (#1134)
+
+2.3.0 / 2017-03-29
+==================
+
+  * Core: Test#pushFailure now calls Test#pushResult
+  * HTML Reporter: Display todo tests on hidepassed
+  * CLI: Add support for custom reporters
+  * CLI: Properly support aborting and restarting tests
+  * CLI: Add file watching option
+  * Core: Revamp processing order to one test at a time
+  * Core: Remove parameter from ProcessingQueue#advance
+  * CLI: Add description to help command
+  * CLI: Add seed option
+  * Core: Account for validity of test in test counts
+  * CLI: Support filtering tests
+  * Core: Extract processing logic into ProcessingQueue
+  * Tests: Add CLI tests
+  * CLI: Introduce QUnit CLI
+  * Readme: Add detailed release instructions
+  * All: Enable ESLint prefer-const rule (#1109)
+
+2.2.1 / 2017-03-19
+==================
+
+  * Test: Add basic reorder test
+  * Core: Fix sessionStorage feature detection
+  * Tests: Ensure onError tests are included in test/index.html (#1111)
+
+2.2.0 / 2017-03-11
+==================
+
+  * Core: QUnit.onError now expects error or error-like object
+  * HTML Reporter: Use QUnit.onError
+  * HTML Reporter: Ensure window.onerror return values are correct
+  * HTML Reporter: Moving window.onerror to HTML Reporter
+  * Core: Extract main onError logic into exported function and add tests
+  * Core: Fix start on Node when autostart is not set to true (#1105)
+  * Core: Add todo to assertion event data
+  * Core: Add remaining js-reporter events
+  * Core: Fix double begin when calling start in Node
+  * Core: Rewrite QUnit.equiv to be breadth-first
+  * Core: Optimize and document the "set" and "map" callbacks
+  * Core: Implement QUnit.todo
+  * Core: Add assertion event
+  * Assert: Use actual values for verifySteps on failed steps
+  * Assert: Add assert.verifySteps
+  * Assert: Add assert.step
+  * Core: Fix console error in IE9 (#1093)
+  * Core: Ability to run in sandboxed iframe
+  * Core: Implement event emitter (#1087)
+
+2.1.1 / 2017-01-05
+==================
+
+ * All: Remove deprecated 1.x features
+ * Assert: Deprecate assert.push
+ * Build: Remove unnecessary QUnit.load call
+ * Core: QUnit.start does not require calling QUnit.load
+ * HTML Reporter: Add an abort button
+
+2.1.0 / 2016-12-05
+==================
+
+ * All: Using eslint-plugin-html to lint HTML files
+ * All: Removed JSHint/JSCS config & comment leftovers
+ * All: Update License to JSFoundation
+ * All: Fix some outstanding indentation issues in files
+ * All: Use Rollup and Babel to build
+ * Core: Support a predefined QUnit.config
+ * Core: Fix clearing of storage on done
+ * Core: Always report if test previously failed
+ * Core: Introduce config.storage option
+ * Core: Load the onerror module
+ * Core: Fix QUnit.equiv object methods comparison
+ * Core: Support multiple nested modules hooks properly
+ * Core: Blacklist jsDump-1034
+ * Core: Fire moduleStart only when starting module for the first time
+ * Core: Fire moduleDone when actually finished with module
+ * HTML Reporter: Decouple from sessionStorage reordering logic
+ * HTML Reporter: Fix expanding failed tests when collapse is false.
+ * HTML Reporter: Handle URL params named like Object.prototype properties
+ * Test: Properly handle Promises rejected without an error
+ * Tests: Fixing lint errors caught by eslint-plugin-html
+ * Tests: HTML files should end with LF
+ * Tests: Add tests for Storage interface
+ * Tests: Add tests for logging callback/module hooks order
+ * Tests: Add expects to latest Promise tests
+ * Build: Update Node support versions
+ * Build: Consume eslint-plugin-qunit, use "two" configuration (#1052)
+ * Build: Use ESLint
+ * Build: Use SPDX format in bower.json's license
+ * Build: Remove dependency on es2015-rollup preset
+ * Build: Build with recent Node version but test against support matrix
+
+2.0.1 / 2016-07-23
+==================
+
+  * Core: Add extra guard against multiple begin()s
+  * Test: Use a single property for tracking all async deferred calls
+  * Core: Use callback-based pause/resume for better multi-pause isolation
+  * Core: Better isolate async abstractions
+  * Core: Improve internal async handling by removing resumed
+  * HTML Reporter: Fix apply/reset button visibilty
+  * Core: Ensure runtime for skipped tests is 0
+  * Dump: Add parser for Symbol
+
+2.0.0 / 2016-06-16
+==================
+
+  * All: Remove deprecated features
+  * All: Remove QUnit.config.autorun
+  * All: Code cleanup for non-supported browsers
+  * All: Prevent async tests from having multiple resume timeouts
+  * All: Decouple Core fixture reset from HTML reporter
+  * Assert: Remove throws signature with string expected value
+  * Dump: update typeOf to extract extra complex type definition
+  * Core: Introduce before/after hooks for modules
+  * Core: Decode "+" to " " (space) in url params
+  * Core: Throw error if QUnit is already defined globally
+  * HTML Reporter: Add reset/apply buttons in the module picker
+  * HTML Reporter: Improve module picker accessibility
+  * HTML Reporter: color/background order consistency
+  * HTML Reporter: Further improve module picker styling
+  * HTML Reporter: Improve toolbar styles
+  * HTML Reporter: Multi-select module dropdown
+  * Test: Refactor test.semaphore usage
+  * Tests: Test on all Node.js releases supported by upstream
+
+2.0.0-rc1 / 2016-04-19
+=====================
+
+  * Core: Introduce before/after hooks for modules
+  * HTML Reporter: Multi-select module dropdown
+  * Assert: Remove throws signature with string expected value
+  * All: Remove deprecated features
+  * All: Remove QUnit.config.autorun
+  * All: Code cleanup for non-supported browsers
+  * Test: Refactor test.semaphore usage
+
+1.23.1 / 2016-04-12
+===================
+
+ * Core: Prevents throws keyword from breaking Rhino environments
+ * Core: Be consistent in function type checks
+
+1.23.0 / 2016-03-25
+==================
+
+  * Core: Confine URL parameter interactions to browser-specific code
+  * Core: Reintroduce QUnit.config.module
+  * Core: Implement moduleId support for nested modules
+  * Core: Stop splitting URL parameter values by commas
+  * Core: Introduce moduleId filtering
+  * Core: Add ability to run tests in pseudo-random order
+  * Dump: Fix asymmetrical function dump argument spacing.
+  * HTML Reporter: Fix escaping of diffs
+  * HTML Reporter: Add message explaining missing diff
+  * HTML Reporter: DRY out interface initialization
+  * HTML Reporter: Move module name sort into begin callback
+  * HTML Reporter: Remove redundant document guards
+  * HTML Reporter: Fix hidepassed element check
+  * Assert: Treat Set and Map as unordered in QUnit.equiv
+  * Build: Introduce AppVeyor for Windows CI
+  * Build: Update .gitattributes to fix LF on json files
+  * Build: Fix linefeed to LF on Grunt configuration
+  * Tests: Fix QUnit.stack test to account different path systems
+  * Tests: Define setup and tests near each other
+
+1.22.0 / 2016-02-23
+==================
+
+  * Assert: Implement Assert#pushResult
+  * Assert: Extend Assert methods to QUnit for backwards compatibility
+  * HTML Reporter: Escape setUrl output
+
+1.21.0 / 2016-02-01
+==================
+
+  * Assert: Improve size and speed of QUnit.equiv
+  * Assert: Fully support Object-wrapped primitives in deepEqual
+  * Assert: Register notOk as a non-negative assertion
+  * CSS: Fix hidden test results under static parents
+  * Core: Improve regular expression comparisons
+  * Core: Support filtering by regular expression
+  * Test: Prevents skiping tests after rerun reordering
+  * Tests: Differentiate QUnit.equiv assertions
 
 1.20.0 / 2015-10-27
 ==================
@@ -9,7 +424,7 @@
   * Core: Support Symbol types on QUnit.equiv
   * Core: QUnit.start fails if called with a non-numeric argument
   * Core: Implement Nested modules
-  * Core: Equivalency for desdendants of null constructors
+  * Core: Equivalency for descendants of null constructors
   * HTML Reporter: Adds indicator for filtered test
   * HTML Reporter: Collapse details for successive failed tests
   * Test: Fix regression when a failing test canceled the module hooks
@@ -264,7 +679,7 @@
   * Add testswarm integration as grunt task
   * Added padding on URL config checkboxes.
   * Cleanup composite addon: Use callback registration instead of overwriting them. Set the correct src on rerun link (and dblclick). Remove the composite test itself, as that was a crazy hack not worth maintaining
-  * Cleanup reset() test and usage - run testDone callback first, to allow listeneres ignoring reset assertions
+  * Cleanup reset() test and usage - run testDone callback first, to allow listeners ignoring reset assertions
   * Double clicking on composite test rows opens individual test page
   * test-message for all message-bearing API reporting details
 
@@ -318,11 +733,11 @@
   * Fix CommonJS export by assigning QUnit to module.exports.
   * Remove the testEnvironmentArg to test(). Most obscure, never used anywhere. test() is still heavily overloaded with argument shifting, this makes it a little more sane. Fixes #172
   * Serialize expected and actual values only when test fails. Speeds up output of valid tests, especially for lots of large objects. Fixes #183
-  * Fix sourceFromsTacktrace to get the right line in Firefox. Shift the 'error' line away in Chrome to get a match.
+  * Fix sourceFromsStacktrace to get the right line in Firefox. Shift the 'error' line away in Chrome to get a match.
   * Fix references to test/deepEqual.js
   * In autorun mode, moduleDone is called without matching moduleStart. Fix issue #184
   * Fixture test: allow anything falsy in test as getAttribute in oldIE will return empty string instead of null. We don't really care.
-  * Keep label and checkbox together ( http://i.imgur.com/5Wk3A.png )
+  * Keep label and checkbox together ( https://i.imgur.com/5Wk3A.png )
   * Add readme for themes
   * Fix bad global in reset()
   * Some cleanup in theme addons
@@ -349,7 +764,7 @@
   * Using node-qunit port, the start/stop function are not exposed so we need to prefix any call to them with 'QUnit'. Aka: start() -> QUnit.start()
   * Remove the 'let teardown clean up globals test' - IE<9 doesn't support (==buggy) deleting window properties, and that's not worth the trouble, as everything else passes just fine. Fixes #155
   * Fix globals in test.js, part 2
-  * Fix globals in test.js. ?tell wwalser to use ?noglobals everyonce in a while
+  * Fix globals in test.js. ?tell wwalser to use ?noglobals every once in a while
   * Extend readme regarding release process
 
 1.1.0 / 2011-10-11
@@ -513,7 +928,7 @@
   * Optimized and cleaned up CSS file
   * Making the reset-method non-global (only module, test and assertions should be global), and fixing the fixture reset by using jQuery's html() method again, doesn't work with innerHTML, yet
   * Introducing #qunit-fixture element, deprecating the (never documented) #main element. Doesn't require inline styles and is now independent of jQuery.
-  * Ammending previous commit: Remove jQuery-core specific resets (will be replaced within jQuery testsuite). Fixes issue #19 - QUnit.reset() removes global jQuery ajax event handlers
+  * Amending previous commit: Remove jQuery-core specific resets (will be replaced within jQuery testsuite). Fixes issue #19 - QUnit.reset() removes global jQuery ajax event handlers
   * Remove jQuery-core specific resets (will be replaced within jQuery testsuite). Fixes issue #19 - QUnit.reset() removes global jQuery ajax event handlers
   * Cleaning up rubble from the previous commit.
   * Added raises assertion, reusing some of kensnyder's code.
@@ -543,8 +958,8 @@
   * Expose QUnit.config, but don't make config a global
   * Expose QUnit.config as global to make external workarounds easier
   * Merge branch 'asyncsetup'
-  * Allowing async setup and teardown. Fixes http://github.com/jquery/qunit/issues#issue/20
-  * Always output expected and actual result (no reason not to). Fixes http://github.com/jquery/qunit/issues#issue/21
+  * Allowing async setup and teardown. Fixes https://github.com/jquery/qunit/issues#issue/20
+  * Always output expected and actual result (no reason not to). Fixes https://github.com/jquery/qunit/issues#issue/21
   * More changes to the detection of types in jsDump's typeOf.
   * Change the typeOf checks in QUnit to be more accurate.
   * Added test for jsDump and modified its options to properly output results when document.createTextNode is used; currently tests for DOM elements cause a stackoverflow error in IEs, works fine, with the correct output, elsewhere
@@ -568,7 +983,7 @@
   * IE 6 and 7 weren't respecting the CSS rules for the banner, used a different technique instead.
   * Went a bit further and made extra-sure that the target was specified correctly.
   * Fixed problem where double-clicking an entry in IE caused an error to occur.
-  * Path for http://dev.jquery.com/ticket/5426 - fix the microformat test result
+  * Path for https://dev.jquery.com/ticket/5426 - fix the microformat test result
   * Fixed test() to use 'expected' 2nd param
   * Remove the named function expressions, to stop Safari 2 from freaking out. Fixes #5.
   * Each test can extend the module testEnvironment
@@ -630,7 +1045,7 @@
   * qunit: added missing semicolons
   * qunit: fixed a semicolon, that should have been a comma
   * QUnit: implemented error handling for Opera as proposed by #3628
-  * qunit: fix for http://dev.jquery.com/ticket/3215 changing wording of testresults, to something more positive (x of y passed, z failed)
+  * qunit: fix for https://dev.jquery.com/ticket/3215 changing wording of testresults, to something more positive (x of y passed, z failed)
   * QUnit: testrunner.js: Ensures equality of types (String, Boolean, Number) declared with the 'new' prefix. See comments #3, #4 and #5 on http://philrathe.com/articles/equiv
   * qunit: wrap name of test in span when a module is used for better styling
   * qunit: auto-prepend default mark (#header, #banner, #userAgent, #tests) when not present

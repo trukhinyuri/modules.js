@@ -1,34 +1,36 @@
+import { objectType } from "./core/utilities";
+
 // Test for equality any JavaScript type.
-// Author: Philippe Rathé <prathe@gmail.com>
-QUnit.equiv = (function() {
+// Authors: Philippe Rathé <prathe@gmail.com>, David Chan <david@troi.org>
+export default ( function() {
 
-	// Stack to decide between skip/abort functions
-	var callers = [];
+	// Value pairs queued for comparison. Used for breadth-first processing order, recursion
+	// detection and avoiding repeated comparison (see below for details).
+	// Elements are { a: val, b: val }.
+	var pairs = [];
 
-	// Stack to avoiding loops from circular referencing
-	var parents = [];
-	var parentsB = [];
+	var getProto = Object.getPrototypeOf || function( obj ) {
+		return obj.__proto__;
+	};
 
-	function useStrictEquality( b, a ) {
+	function useStrictEquality( a, b ) {
 
-		/*jshint eqeqeq:false */
-		if ( b instanceof a.constructor || a instanceof b.constructor ) {
-
-			// To catch short annotation VS 'new' annotation of a declaration. e.g.:
-			// `var i = 1;`
-			// `var j = new Number(1);`
-			return a == b;
-		} else {
-			return a === b;
+		// This only gets called if a and b are not strict equal, and is used to compare on
+		// the primitive values inside object wrappers. For example:
+		// `var i = 1;`
+		// `var j = new Number(1);`
+		// Neither a nor b can be null, as a !== b and they have the same type.
+		if ( typeof a === "object" ) {
+			a = a.valueOf();
 		}
+		if ( typeof b === "object" ) {
+			b = b.valueOf();
+		}
+
+		return a === b;
 	}
 
 	function compareConstructors( a, b ) {
-		var getProto = Object.getPrototypeOf || function( obj ) {
-
-			/*jshint proto: true */
-			return obj.__proto__;
-		};
 		var protoA = getProto( a );
 		var protoB = getProto( b );
 
@@ -57,6 +59,35 @@ QUnit.equiv = (function() {
 		return false;
 	}
 
+	function getRegExpFlags( regexp ) {
+		return "flags" in regexp ? regexp.flags : regexp.toString().match( /[gimuy]*$/ )[ 0 ];
+	}
+
+	function isContainer( val ) {
+		return [ "object", "array", "map", "set" ].indexOf( objectType( val ) ) !== -1;
+	}
+
+	function breadthFirstCompareChild( a, b ) {
+
+		// If a is a container not reference-equal to b, postpone the comparison to the
+		// end of the pairs queue -- unless (a, b) has been seen before, in which case skip
+		// over the pair.
+		if ( a === b ) {
+			return true;
+		}
+		if ( !isContainer( a ) ) {
+			return typeEquiv( a, b );
+		}
+		if ( pairs.every( function( pair ) {
+			return pair.a !== a || pair.b !== b;
+		} ) ) {
+
+			// Not yet started comparing this pair
+			pairs.push( { a: a, b: b } );
+		}
+		return true;
+	}
+
 	var callbacks = {
 		"string": useStrictEquality,
 		"boolean": useStrictEquality,
@@ -64,167 +95,191 @@ QUnit.equiv = (function() {
 		"null": useStrictEquality,
 		"undefined": useStrictEquality,
 		"symbol": useStrictEquality,
+		"date": useStrictEquality,
 
-		"nan": function( b ) {
-			return isNaN( b );
-		},
-
-		"date": function( b, a ) {
-			return QUnit.objectType( b ) === "date" && a.valueOf() === b.valueOf();
-		},
-
-		"regexp": function( b, a ) {
-			return QUnit.objectType( b ) === "regexp" &&
-
-				// The regex itself
-				a.source === b.source &&
-
-				// And its modifiers
-				a.global === b.global &&
-
-				// (gmi) ...
-				a.ignoreCase === b.ignoreCase &&
-				a.multiline === b.multiline &&
-				a.sticky === b.sticky;
-		},
-
-		// - skip when the property is a method of an instance (OOP)
-		// - abort otherwise,
-		// initial === would have catch identical references anyway
-		"function": function() {
-			var caller = callers[ callers.length - 1 ];
-			return caller !== Object && typeof caller !== "undefined";
-		},
-
-		"array": function( b, a ) {
-			var i, j, len, loop, aCircular, bCircular;
-
-			// b could be an object literal here
-			if ( QUnit.objectType( b ) !== "array" ) {
-				return false;
-			}
-
-			len = a.length;
-			if ( len !== b.length ) {
-				// safe and faster
-				return false;
-			}
-
-			// Track reference to avoid circular references
-			parents.push( a );
-			parentsB.push( b );
-			for ( i = 0; i < len; i++ ) {
-				loop = false;
-				for ( j = 0; j < parents.length; j++ ) {
-					aCircular = parents[ j ] === a[ i ];
-					bCircular = parentsB[ j ] === b[ i ];
-					if ( aCircular || bCircular ) {
-						if ( a[ i ] === b[ i ] || aCircular && bCircular ) {
-							loop = true;
-						} else {
-							parents.pop();
-							parentsB.pop();
-							return false;
-						}
-					}
-				}
-				if ( !loop && !innerEquiv( a[ i ], b[ i ] ) ) {
-					parents.pop();
-					parentsB.pop();
-					return false;
-				}
-			}
-			parents.pop();
-			parentsB.pop();
+		"nan": function() {
 			return true;
 		},
 
-		"set": function( b, a ) {
-			var aArray, bArray;
+		"regexp": function( a, b ) {
+			return a.source === b.source &&
 
-			// `b` could be any object here
-			if ( QUnit.objectType( b ) !== "set" ) {
+				// Include flags in the comparison
+				getRegExpFlags( a ) === getRegExpFlags( b );
+		},
+
+		// abort (identical references / instance methods were skipped earlier)
+		"function": function() {
+			return false;
+		},
+
+		"array": function( a, b ) {
+			var i, len;
+
+			len = a.length;
+			if ( len !== b.length ) {
+
+				// Safe and faster
 				return false;
 			}
 
-			aArray = [];
-			a.forEach( function( v ) {
-				aArray.push( v );
-			});
-			bArray = [];
-			b.forEach( function( v ) {
-				bArray.push( v );
-			});
 
-			return innerEquiv( bArray, aArray );
+			for ( i = 0; i < len; i++ ) {
+
+				// Compare non-containers; queue non-reference-equal containers
+				if ( !breadthFirstCompareChild( a[ i ], b[ i ] ) ) {
+					return false;
+				}
+			}
+			return true;
 		},
 
-		"map": function( b, a ) {
-			var aArray, bArray;
+		// Define sets a and b to be equivalent if for each element aVal in a, there
+		// is some element bVal in b such that aVal and bVal are equivalent. Element
+		// repetitions are not counted, so these are equivalent:
+		// a = new Set( [ {}, [], [] ] );
+		// b = new Set( [ {}, {}, [] ] );
+		"set": function( a, b ) {
+			var innerEq,
+				outerEq = true;
 
-			// `b` could be any object here
-			if ( QUnit.objectType( b ) !== "map" ) {
+			if ( a.size !== b.size ) {
+
+				// This optimization has certain quirks because of the lack of
+				// repetition counting. For instance, adding the same
+				// (reference-identical) element to two equivalent sets can
+				// make them non-equivalent.
 				return false;
 			}
 
-			aArray = [];
-			a.forEach( function( v, k ) {
-				aArray.push( [ k, v ] );
-			});
-			bArray = [];
-			b.forEach( function( v, k ) {
-				bArray.push( [ k, v ] );
-			});
+			a.forEach( function( aVal ) {
 
-			return innerEquiv( bArray, aArray );
+				// Short-circuit if the result is already known. (Using for...of
+				// with a break clause would be cleaner here, but it would cause
+				// a syntax error on older Javascript implementations even if
+				// Set is unused)
+				if ( !outerEq ) {
+					return;
+				}
+
+				innerEq = false;
+
+				b.forEach( function( bVal ) {
+					var parentPairs;
+
+					// Likewise, short-circuit if the result is already known
+					if ( innerEq ) {
+						return;
+					}
+
+					// Swap out the global pairs list, as the nested call to
+					// innerEquiv will clobber its contents
+					parentPairs = pairs;
+					if ( innerEquiv( bVal, aVal ) ) {
+						innerEq = true;
+					}
+
+					// Replace the global pairs list
+					pairs = parentPairs;
+				} );
+
+				if ( !innerEq ) {
+					outerEq = false;
+				}
+			} );
+
+			return outerEq;
 		},
 
-		"object": function( b, a ) {
-			var i, j, loop, aCircular, bCircular;
+		// Define maps a and b to be equivalent if for each key-value pair (aKey, aVal)
+		// in a, there is some key-value pair (bKey, bVal) in b such that
+		// [ aKey, aVal ] and [ bKey, bVal ] are equivalent. Key repetitions are not
+		// counted, so these are equivalent:
+		// a = new Map( [ [ {}, 1 ], [ {}, 1 ], [ [], 1 ] ] );
+		// b = new Map( [ [ {}, 1 ], [ [], 1 ], [ [], 1 ] ] );
+		"map": function( a, b ) {
+			var innerEq,
+				outerEq = true;
 
-			// Default to true
-			var eq = true;
-			var aProperties = [];
-			var bProperties = [];
+			if ( a.size !== b.size ) {
+
+				// This optimization has certain quirks because of the lack of
+				// repetition counting. For instance, adding the same
+				// (reference-identical) key-value pair to two equivalent maps
+				// can make them non-equivalent.
+				return false;
+			}
+
+			a.forEach( function( aVal, aKey ) {
+
+				// Short-circuit if the result is already known. (Using for...of
+				// with a break clause would be cleaner here, but it would cause
+				// a syntax error on older Javascript implementations even if
+				// Map is unused)
+				if ( !outerEq ) {
+					return;
+				}
+
+				innerEq = false;
+
+				b.forEach( function( bVal, bKey ) {
+					var parentPairs;
+
+					// Likewise, short-circuit if the result is already known
+					if ( innerEq ) {
+						return;
+					}
+
+					// Swap out the global pairs list, as the nested call to
+					// innerEquiv will clobber its contents
+					parentPairs = pairs;
+					if ( innerEquiv( [ bVal, bKey ], [ aVal, aKey ] ) ) {
+						innerEq = true;
+					}
+
+					// Replace the global pairs list
+					pairs = parentPairs;
+				} );
+
+				if ( !innerEq ) {
+					outerEq = false;
+				}
+			} );
+
+			return outerEq;
+		},
+
+		"object": function( a, b ) {
+			var i,
+				aProperties = [],
+				bProperties = [];
 
 			if ( compareConstructors( a, b ) === false ) {
 				return false;
 			}
 
-			// Stack constructor before traversing properties
-			callers.push( a.constructor );
-
-			// Track reference to avoid circular references
-			parents.push( a );
-			parentsB.push( b );
-
 			// Be strict: don't ensure hasOwnProperty and go deep
 			for ( i in a ) {
-				loop = false;
-				for ( j = 0; j < parents.length; j++ ) {
-					aCircular = parents[ j ] === a[ i ];
-					bCircular = parentsB[ j ] === b[ i ];
-					if ( aCircular || bCircular ) {
-						if ( a[ i ] === b[ i ] || aCircular && bCircular ) {
-							loop = true;
-						} else {
-							eq = false;
-							break;
-						}
-					}
-				}
+
+				// Collect a's properties
 				aProperties.push( i );
-				if ( !loop && !innerEquiv( a[ i ], b[ i ] ) ) {
-					eq = false;
-					break;
+
+				// Skip OOP methods that look the same
+				if (
+					a.constructor !== Object &&
+					typeof a.constructor !== "undefined" &&
+					typeof a[ i ] === "function" &&
+					typeof b[ i ] === "function" &&
+					a[ i ].toString() === b[ i ].toString()
+				) {
+					continue;
+				}
+
+				// Compare non-containers; queue non-reference-equal containers
+				if ( !breadthFirstCompareChild( a[ i ], b[ i ] ) ) {
+					return false;
 				}
 			}
-
-			parents.pop();
-			parentsB.pop();
-
-			// Unstack, we are done
-			callers.pop();
 
 			for ( i in b ) {
 
@@ -233,43 +288,59 @@ QUnit.equiv = (function() {
 			}
 
 			// Ensures identical properties name
-			return eq && innerEquiv( aProperties.sort(), bProperties.sort() );
+			return typeEquiv( aProperties.sort(), bProperties.sort() );
 		}
 	};
 
 	function typeEquiv( a, b ) {
-		var prop = QUnit.objectType( a );
-		return callbacks[ prop ]( b, a );
+		var type = objectType( a );
+
+		// Callbacks for containers will append to the pairs queue to achieve breadth-first
+		// search order. The pairs queue is also used to avoid reprocessing any pair of
+		// containers that are reference-equal to a previously visited pair (a special case
+		// this being recursion detection).
+		//
+		// Because of this approach, once typeEquiv returns a false value, it should not be
+		// called again without clearing the pair queue else it may wrongly report a visited
+		// pair as being equivalent.
+		return objectType( b ) === type && callbacks[ type ]( a, b );
 	}
 
-	// The real equiv function
-	function innerEquiv() {
-		var args = [].slice.apply( arguments );
-		if ( args.length < 2 ) {
+	function innerEquiv( a, b ) {
+		var i, pair;
 
-			// End transition
+		// We're done when there's nothing more to compare
+		if ( arguments.length < 2 ) {
 			return true;
 		}
 
-		return ( (function( a, b ) {
-			if ( a === b ) {
+		// Clear the global pair queue and add the top-level values being compared
+		pairs = [ { a: a, b: b } ];
 
-				// Catch the most you can
-				return true;
-			} else if ( a === null || b === null || typeof a === "undefined" ||
-					typeof b === "undefined" ||
-					QUnit.objectType( a ) !== QUnit.objectType( b ) ) {
+		for ( i = 0; i < pairs.length; i++ ) {
+			pair = pairs[ i ];
 
-				// Don't lose time with error prone cases
+			// Perform type-specific comparison on any pairs that are not strictly
+			// equal. For container types, that comparison will postpone comparison
+			// of any sub-container pair to the end of the pair queue. This gives
+			// breadth-first search order. It also avoids the reprocessing of
+			// reference-equal siblings, cousins etc, which can have a significant speed
+			// impact when comparing a container of small objects each of which has a
+			// reference to the same (singleton) large object.
+			if ( pair.a !== pair.b && !typeEquiv( pair.a, pair.b ) ) {
 				return false;
-			} else {
-				return typeEquiv( a, b );
 			}
+		}
 
-		// Apply transition with (1..n) arguments
-		}( args[ 0 ], args[ 1 ] ) ) &&
-			innerEquiv.apply( this, args.splice( 1, args.length - 1 ) ) );
+		// ...across all consecutive argument pairs
+		return arguments.length === 2 || innerEquiv.apply( this, [].slice.call( arguments, 1 ) );
 	}
 
-	return innerEquiv;
-}());
+	return ( ...args ) => {
+		const result = innerEquiv( ...args );
+
+		// Release any retained objects
+		pairs.length = 0;
+		return result;
+	};
+}() );

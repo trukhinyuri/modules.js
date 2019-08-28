@@ -18,7 +18,7 @@
  * @fileOverview
  * @copyright (C) Yuri V. Trukhin.
  * @author trukhinyuri <yuri@trukhin.com>
- * @version 0.9.2
+ * @version 0.11.0
  * @license Apache License, Version 2.0. You may obtain a copy of the License at {@link http://www.apache.org/licenses/LICENSE-2.0}
  */
 
@@ -28,42 +28,72 @@
  * @memberOf window
  */
 
-window.exports = class {};
-
-class Modules {
+export class Modules {
+    /**
+     * Module ItemType module
+     * @returns {string}
+     * @constructor
+     */
     static get MODULE() {
         return "module";
     }
 
+    /**
+     * Module ItemType template
+     * @returns {string}
+     * @constructor
+     */
     static get TEMPLATE() {
         return "template";
     }
 
+    /**
+     * Module ItemType html
+     * @returns {string}
+     * @constructor
+     */
     static get HTML() {
         return "html";
     }
 
+    /**
+     * Module ItemType CSS
+     * @returns {string}
+     * @constructor
+     */
     static get CSS() {
         return "css";
     }
 
+    /**
+     * Module ItemType JavaScript
+     * @returns {string}
+     * @constructor
+     */
     static get JAVASCRIPT() {
         return "javascript";
     }
+
     constructor() {}
 }
 
 /**
- * Load modules to page
+ * Load and unload modules
  * @type {Modules.Loader}
  */
 Modules.Loader = class {
-    constructor(modulesRelativePath) {
-        this.modulesRelativePath = modulesRelativePath;
-    }
-    static loadNew() {
+    /**
+     * Load module to container element on page
+     * @deprecated Since 0.11
+     * @param itemType
+     * @param relativePath
+     * @param itemName
+     * @param className
+     * @param callback
+     * @param containerClassName
+     * @param dataSource
+     */
 
-    }
     static load (itemType, relativePath, itemName, className, callback, containerClassName, dataSource) {
         if (itemType === Modules.MODULE) {
             this.loadModule(relativePath, itemName, className, callback, containerClassName);
@@ -74,6 +104,75 @@ Modules.Loader = class {
         if (itemType === Modules.CSS) {
             this.loadCSS(relativePath, itemName, callback);
         }
+    }
+
+    /**
+     * Check path correctness
+     * @private
+     * @method _checkPath
+     * @memberOf Modules.Loader
+     * @param {String} path Location of the items
+     * @returns {String} Correct path or page directory
+     */
+    static _checkPath(path) {
+        let documentRootURL = Modules.DOM.getDocumentRootURL();
+        if (typeof (path) == "string") {
+            if (path[path.length-1] != "/") {
+                if (path[0] != "/") {
+                    return documentRootURL + "/" + path + "/";
+                }
+                else {
+                    return documentRootURL + path + "/";
+                }
+            }
+            else {
+                if (path[0] != "/") {
+                    return documentRootURL + "/" + path;
+                } else {
+                    return documentRootURL + path;
+                }
+            }
+        }
+        else {
+            return documentRootURL + "/";
+        }
+    }
+
+    /**
+     * Check name correctness (remove extension for internal use)
+     * @private
+     * @method _checkName
+     * @memberOf Modules.Loader
+     * @param {String} itemName Location of the items
+     * @returns {String} Correct path or page directory
+     */
+    static _checkName(itemName) {
+        let correctName = itemName;
+        if (typeof (itemName) == "string") {
+            if (itemName.indexOf('.') === -1) {
+                return correctName;
+            } else {
+                correctName = itemName.substr(0, itemName.lastIndexOf('.')) || itemName;
+                return correctName;
+            }
+        }
+        else {
+            console.warn("Error: itemName " + itemName + "is not string!");
+        }
+    }
+
+    /**
+     * Load module to container element on page
+     * Relative path to folder with modules
+     * @param modulesRelativePath
+     * Name of module
+     * @param moduleName
+     * Container element on the page
+     * @param containerElement
+     */
+    static loadModule(modulesRelativePath, moduleName, containerElement, callback) {
+        let _correctPath = this.checkPath(relativePath);
+        this._loadModule(_correctPath, moduleName, className, callback, l18n, containerClassName);
     }
 
     static loadCSS (relativePath, itemName, callback) {
@@ -111,30 +210,6 @@ Modules.Loader = class {
         let element = dom.getElementsByClassName('fileInfo')[0];
         element.setAttribute('uuid', itemNumber);
         return element.outerHTML;
-    }
-
-    static _checkPath(path) {
-        let documentRootURL = Modules.DOM.getDocumentRootURL();
-        if (typeof (path) == "string") {
-            if (path[path.length-1] != "/") {
-                if (path[0] != "/") {
-                    return documentRootURL + "/" + path + "/";
-                }
-                else {
-                    return documentRootURL + path + "/";
-                }
-            }
-            else {
-                if (path[0] != "/") {
-                    return documentRootURL + "/" + path;
-                } else {
-                    return documentRootURL + path;
-                }
-            }
-        }
-        else {
-            return documentRootURL + "/";
-        }
     }
 
     static _checkName(itemName) {
@@ -912,15 +987,10 @@ Modules.Server = class {
     }
 };
 
-window.exports.Modules = new Modules();
-window.exports.Modules.DOM = new Modules.DOM();
-window.exports.Modules.Events = new Modules.Events();
-window.exports.Modules.Events.Messages = new Modules.Events.Messages();
-window.exports.Modules.L18N = new Modules.L18N();
-window.exports.Modules.Loader = new Modules.Loader();
-window.exports.Modules.Server = new Modules.Server();
 
-let Modules2 = window.exports.Modules;
+
+
+
 
 
 

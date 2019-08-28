@@ -1,8 +1,43 @@
-var toString = Object.prototype.toString,
-	hasOwn = Object.prototype.hasOwnProperty;
+import { window, setTimeout } from "../globals";
+import Logger from "../logger";
 
-// returns a new Array with the elements that are in a but not in b
-function diff( a, b ) {
+export const toString = Object.prototype.toString;
+export const hasOwn = Object.prototype.hasOwnProperty;
+export const now = Date.now || function() {
+	return new Date().getTime();
+};
+
+export const hasPerformanceApi = detectPerformanceApi();
+export const performance = hasPerformanceApi ? window.performance : undefined;
+export const performanceNow = hasPerformanceApi ?
+	performance.now.bind( performance ) :
+	now;
+
+function detectPerformanceApi() {
+	return window &&
+		typeof window.performance !== "undefined" &&
+		typeof window.performance.mark === "function" &&
+		typeof window.performance.measure === "function";
+}
+
+export function measure( comment, startMark, endMark ) {
+
+	// `performance.measure` may fail if the mark could not be found.
+	// reasons a specific mark could not be found include: outside code invoking `performance.clearMarks()`
+	try {
+		performance.measure( comment, startMark, endMark );
+	} catch ( ex ) {
+		Logger.warn( "performance.measure could not be executed because of ", ex.message );
+	}
+}
+
+export const defined = {
+	document: window && window.document !== undefined,
+	setTimeout: setTimeout !== undefined
+};
+
+// Returns a new Array with the elements that are in a but not in b
+export function diff( a, b ) {
 	var i, j,
 		result = a.slice();
 
@@ -18,19 +53,16 @@ function diff( a, b ) {
 	return result;
 }
 
-// from jquery.js
-function inArray( elem, array ) {
-	if ( array.indexOf ) {
-		return array.indexOf( elem );
-	}
-
-	for ( var i = 0, length = array.length; i < length; i++ ) {
-		if ( array[ i ] === elem ) {
-			return i;
-		}
-	}
-
-	return -1;
+/**
+ * Determines whether an element exists in a given array or not.
+ *
+ * @method inArray
+ * @param {Any} elem
+ * @param {Array} array
+ * @return {Boolean}
+ */
+export function inArray( elem, array ) {
+	return array.indexOf( elem ) !== -1;
 }
 
 /**
@@ -40,9 +72,9 @@ function inArray( elem, array ) {
  * @param {Object} obj
  * @return {Object} New object with only the own properties (recursively).
  */
-function objectValues ( obj ) {
+export function objectValues( obj ) {
 	var key, val,
-		vals = QUnit.is( "array", obj ) ? [] : {};
+		vals = is( "array", obj ) ? [] : {};
 	for ( key in obj ) {
 		if ( hasOwn.call( obj, key ) ) {
 			val = obj[ key ];
@@ -52,19 +84,13 @@ function objectValues ( obj ) {
 	return vals;
 }
 
-function extend( a, b, undefOnly ) {
+export function extend( a, b, undefOnly ) {
 	for ( var prop in b ) {
 		if ( hasOwn.call( b, prop ) ) {
-
-			// Avoid "Member not found" error in IE8 caused by messing with window.constructor
-			// This block runs on every environment, so `global` is being used instead of `window`
-			// to avoid errors on node.
-			if ( prop !== "constructor" || a !== global ) {
-				if ( b[ prop ] === undefined ) {
-					delete a[ prop ];
-				} else if ( !( undefOnly && typeof a[ prop ] !== "undefined" ) ) {
-					a[ prop ] = b[ prop ];
-				}
+			if ( b[ prop ] === undefined ) {
+				delete a[ prop ];
+			} else if ( !( undefOnly && typeof a[ prop ] !== "undefined" ) ) {
+				a[ prop ] = b[ prop ];
 			}
 		}
 	}
@@ -72,7 +98,7 @@ function extend( a, b, undefOnly ) {
 	return a;
 }
 
-function objectType( obj ) {
+export function objectType( obj ) {
 	if ( typeof obj === "undefined" ) {
 		return "undefined";
 	}
@@ -86,53 +112,48 @@ function objectType( obj ) {
 		type = match && match[ 1 ];
 
 	switch ( type ) {
-		case "Number":
-			if ( isNaN( obj ) ) {
-				return "nan";
-			}
-			return "number";
-		case "String":
-		case "Boolean":
-		case "Array":
-		case "Set":
-		case "Map":
-		case "Date":
-		case "RegExp":
-		case "Function":
-		case "Symbol":
-			return type.toLowerCase();
-	}
-	if ( typeof obj === "object" ) {
-		return "object";
+	case "Number":
+		if ( isNaN( obj ) ) {
+			return "nan";
+		}
+		return "number";
+	case "String":
+	case "Boolean":
+	case "Array":
+	case "Set":
+	case "Map":
+	case "Date":
+	case "RegExp":
+	case "Function":
+	case "Symbol":
+		return type.toLowerCase();
+	default:
+		return typeof obj;
 	}
 }
 
 // Safe object type checking
-function is( type, obj ) {
-	return QUnit.objectType( obj ) === type;
+export function is( type, obj ) {
+	return objectType( obj ) === type;
 }
 
-var getUrlParams = function() {
-	var i, current;
-	var urlParams = {};
-	var location = window.location;
-	var params = location.search.slice( 1 ).split( "&" );
-	var length = params.length;
+// Based on Java's String.hashCode, a simple but not
+// rigorously collision resistant hashing function
+export function generateHash( module, testName ) {
+	const str = module + "\x1C" + testName;
+	let hash = 0;
 
-	if ( params[ 0 ] ) {
-		for ( i = 0; i < length; i++ ) {
-			current = params[ i ].split( "=" );
-			current[ 0 ] = decodeURIComponent( current[ 0 ] );
-
-			// allow just a key to turn on a flag, e.g., test.html?noglobals
-			current[ 1 ] = current[ 1 ] ? decodeURIComponent( current[ 1 ] ) : true;
-			if ( urlParams[ current[ 0 ] ] ) {
-				urlParams[ current[ 0 ] ] = [].concat( urlParams[ current[ 0 ] ], current[ 1 ] );
-			} else {
-				urlParams[ current[ 0 ] ] = current[ 1 ];
-			}
-		}
+	for ( let i = 0; i < str.length; i++ ) {
+		hash = ( ( hash << 5 ) - hash ) + str.charCodeAt( i );
+		hash |= 0;
 	}
 
-	return urlParams;
-};
+	// Convert the possibly negative integer hash code into an 8 character hex string, which isn't
+	// strictly necessary but increases user understanding that the id is a SHA-like hash
+	let hex = ( 0x100000000 + hash ).toString( 16 );
+	if ( hex.length < 8 ) {
+		hex = "0000000" + hex;
+	}
+
+	return hex.slice( -8 );
+}

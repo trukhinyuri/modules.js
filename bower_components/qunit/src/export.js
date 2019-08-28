@@ -1,71 +1,41 @@
-// For browser, export only select globals
-if ( defined.document ) {
+/* global module, exports, define */
+import { defined } from "./core/utilities";
+import { window, self } from "./globals";
 
-	// Deprecated
-	// Extend assert methods to QUnit and Global scope through Backwards compatibility
-	(function() {
-		var i,
-			assertions = Assert.prototype;
+export default function exportQUnit( QUnit ) {
 
-		function applyCurrent( current ) {
-			return function() {
-				var assert = new Assert( QUnit.config.current );
-				current.apply( assert, arguments );
-			};
+	if ( defined.document ) {
+
+	// QUnit may be defined when it is preconfigured but then only QUnit and QUnit.config may be defined.
+		if ( window.QUnit && window.QUnit.version ) {
+			throw new Error( "QUnit has already been defined." );
 		}
 
-		for ( i in assertions ) {
-			QUnit[ i ] = applyCurrent( assertions[ i ] );
-		}
-	})();
+		window.QUnit = QUnit;
+	}
 
-	(function() {
-		var i, l,
-			keys = [
-				"test",
-				"module",
-				"expect",
-				"asyncTest",
-				"start",
-				"stop",
-				"ok",
-				"notOk",
-				"equal",
-				"notEqual",
-				"propEqual",
-				"notPropEqual",
-				"deepEqual",
-				"notDeepEqual",
-				"strictEqual",
-				"notStrictEqual",
-				"throws",
-				"raises"
-			];
+	// For nodejs
+	if ( typeof module !== "undefined" && module && module.exports ) {
+		module.exports = QUnit;
 
-		for ( i = 0, l = keys.length; i < l; i++ ) {
-			window[ keys[ i ] ] = QUnit[ keys[ i ] ];
-		}
-	})();
+		// For consistency with CommonJS environments' exports
+		module.exports.QUnit = QUnit;
+	}
 
-	window.QUnit = QUnit;
-}
+	// For CommonJS with exports, but without module.exports, like Rhino
+	if ( typeof exports !== "undefined" && exports ) {
+		exports.QUnit = QUnit;
+	}
 
-// For nodejs
-if ( typeof module !== "undefined" && module && module.exports ) {
-	module.exports = QUnit;
+	if ( typeof define === "function" && define.amd ) {
+		define( function() {
+			return QUnit;
+		} );
+		QUnit.config.autostart = false;
+	}
 
-	// For consistency with CommonJS environments' exports
-	module.exports.QUnit = QUnit;
-}
-
-// For CommonJS with exports, but without module.exports, like Rhino
-if ( typeof exports !== "undefined" && exports ) {
-	exports.QUnit = QUnit;
-}
-
-if ( typeof define === "function" && define.amd ) {
-	define( function() {
-		return QUnit;
-	} );
-	QUnit.config.autostart = false;
+	// For Web/Service Workers
+	if ( self && self.WorkerGlobalScope && self instanceof self.WorkerGlobalScope ) {
+		self.QUnit = QUnit;
+	}
 }
