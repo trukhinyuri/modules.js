@@ -3071,6 +3071,7 @@ QUnit.test("DEPRECATED // load (itemType=Modules.MODULE, path=undefined, itemNam
     function checkModuleLoaded(moduleName, modulePath, className, comment) {
         //CSS loaded check
         function cssLoadedCheck() {
+            let css = document.getElementsByClassName()
             var modulesCSSprefix = "modulesjs_css_";
             var cssLoaded = document.getElementsByClassName(modulesCSSprefix + moduleName)[0];
             var actualLoadedCSSHref = cssLoaded.href;

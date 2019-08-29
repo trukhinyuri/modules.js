@@ -171,8 +171,10 @@ Modules.Loader = class {
      * @param containerElement
      */
     static loadModule(modulesRelativePath, moduleName, containerElement, callback) {
-        let _correctPath = this.checkPath(relativePath);
-        this._loadModule(_correctPath, moduleName, className, callback, l18n, containerClassName);
+        let correctPath = this._checkPath(modulesRelativePath);
+        requestAnimationFrame(function(){
+            Modules.Loader._loadModuleSync(correctPath, moduleName, className, callback, l18n, containerClassName);
+        });
     }
 
     static loadCSS (relativePath, itemName, callback) {
@@ -347,6 +349,21 @@ Modules.Loader = class {
         };
     }
 
+    static async _loadFileInMemory(pathToItemFile, itemName, extension, callback) {
+        let xhrLoader = new XMLHttpRequest();
+        xhrLoader.open("GET", pathToItemFile  + "." + extension, true);
+        xhrLoader.onreadystatechange = function() {
+            if (xhrLoader.readyState === 4 /* complete */) {
+                if (xhrLoader.status === 200 || xhrLoader.status === 304) {
+                    if (callback) {
+                        callback(xhrLoader.responseText, itemName);
+                    }
+                }
+            }
+        };
+        xhrLoader.send(null);
+    }
+
     static _unloadJS(itemName, callback) {
         //TODO: check, that not one module is not used this js, which unloading
         let modulesJsPrefix = "modulesjs_js_";
@@ -363,7 +380,14 @@ Modules.Loader = class {
         function loadedHandler(responseText, name) {
             Modules.Loader._renderHTML(responseText, className, itemType, containerClassName, callback);
         }
-        this._loadHTMLInMemory(pathToItemFiles, itemName, loadedHandler);
+        this._loadFileInMemory(pathToItemFiles, itemName, 'html', loadedHandler);
+    }
+
+    static _load(pathToItemFiles, itemName, className, itemType, containerClassName, callback) {
+        function loadedHandler(responseText, name) {
+            Modules.Loader._renderHTML(responseText, className, itemType, containerClassName, callback);
+        }
+        this._loadFileInMemory(pathToItemFiles, itemName, 'html', loadedHandler);
     }
 
     static _loadHTMLTemplate(pathToItemFiles, itemName, className, itemType, containerClassName, dataSource, callback) {
@@ -371,7 +395,7 @@ Modules.Loader = class {
             let templatedText = insertTemplate(responseText, dataSource);
             _renderHTML(templatedText, className, itemType, containerClassName, callback);
         }
-        this._loadHTMLInMemory(pathToItemFiles, itemName, loadedHandler);
+        this._loadFileInMemory(pathToItemFiles, itemName, 'html', loadedHandler);
     }
 
     static insertTemplate (responseText, dataSource) {
@@ -446,28 +470,58 @@ Modules.Loader = class {
         }
     }
 
-    static _loadHTMLInMemory(pathToItemFiles, itemName, callback) {
-        let xhrHtmlLoader = new XMLHttpRequest();
-        xhrHtmlLoader.open("GET", pathToItemFiles  + ".html", true);
-        xhrHtmlLoader.onreadystatechange = function() {
-            if (xhrHtmlLoader.readyState === 4 /* complete */) {
-                if (xhrHtmlLoader.status === 200 || xhrHtmlLoader.status === 304) {
-                    if (callback) {
-                        callback(xhrHtmlLoader.responseText, itemName);
-                    }
-                }
+    static _renderModule(cssContent, htmlContent, jsContent, moduleName, className, itemType, containerClassName, callback) {
+        if (containerClassName != null) {
+            let containerElement = document.getElementsByClassName(containerClassName);
+            let containerElementLength = containerElement.length;
+            for (let currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
+                let elementClasses = containerElement.getElementsByClassName(className);
+                loadContentInElementClasses(elementClasses);
             }
-        };
-        xhrHtmlLoader.send(null);
+        } else {
+            let elementClasses = document.getElementsByClassName(className);
+            loadContentInElementClasses(elementClasses);
+        }
+
+        function loadContentInElementClasses (elementClasses) {
+            let classesCount = elementClasses.length;
+            for (let htmlID = 0; htmlID < classesCount; htmlID++) {
+                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
+                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", itemType);
+                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_name", moduleName);
+                elementClasses[htmlID].attachShadow({mode: 'open'});
+                let styleElement = document.createElement("style");
+                let htmlElement = document.createElement("div");
+                let scriptElement = document.createElement("script");
+                styleElement.className += "CSS";
+                styleElement.className += " " + moduleName + "_container";
+                htmlElement.className += "HTML";
+                htmlElement.className += " " + moduleName + "_container";
+                scriptElement.className += "JS";
+                scriptElement.className += " " + moduleName + "_container";
+                styleElement.innerHTML = cssContent;
+                htmlElement.innerHTML = htmlContent;
+                scriptElement.innerHTML = jsContent;
+                elementClasses[htmlID].shadowRoot.appendChild(styleElement);
+                setTimeout(function(){
+                    elementClasses[htmlID].shadowRoot.appendChild(htmlElement);
+                    setTimeout(function(){
+                        elementClasses[htmlID].shadowRoot.appendChild(scriptElement);
+                        setTimeout(function(){
+                            if (callback) {
+                                callback();
+                            }
+                        });
+                    });
+                });
+
+            }
+        }
     }
 
-    static _loadModule (correctPath, moduleName, className, callback, l18n, containerClassName) {
-        requestAnimationFrame(function(){
-            Modules.Loader._loadModuleSync(correctPath, moduleName, className, callback, l18n, containerClassName);
-        });
-    }
 
-    static _loadModuleSync (correctPath, moduleName, className, callback, l18n, containerClassName) {
+
+    static async _loadModuleSync (correctPath, moduleName, className, callback, l18n, containerClassName) {
         let modulePath = this._buildModulePath(correctPath, moduleName);
 
         let itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className,
@@ -477,17 +531,39 @@ Modules.Loader = class {
 
         let pathToModuleFiles = modulePath + moduleName;
 
-        Modules.Loader._loadCSS(modulePath, moduleName, function() {
-            Modules.Loader._loadHTML(pathToModuleFiles, moduleName, className, Modules.MODULE, containerClassName, function() {
-                Modules.Loader._loadL18NJS(modulePath, moduleName, l18n, function () {
-                    Modules.Loader._loadJS(modulePath, moduleName, function() {
-                        Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_loaded", itemData);
-                        if (callback) {
-                            callback();
-                        }
+        let cssContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "css");
+        let htmlContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "html");
+        let jsContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "js");
+
+        this._renderModule(cssContent, htmlContent, jsContent, moduleName, className, "module", containerClassName, function() {
+            Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_loaded", itemData);
+                if (callback) {
+            callback();
+            }
+        });
+    }
+
+    static _makeRequest(method, url) {
+        return new Promise(function (resolve, reject) {
+            let xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.onload = function () {
+                if (this.status >= 200 && this.status < 300) {
+                    resolve(xhr.response);
+                } else {
+                    reject({
+                        status: this.status,
+                        statusText: xhr.statusText
                     });
+                }
+            };
+            xhr.onerror = function () {
+                reject({
+                    status: this.status,
+                    statusText: xhr.statusText
                 });
-            });
+            };
+            xhr.send();
         });
     }
 
@@ -561,8 +637,12 @@ Modules.Loader = class {
     }
 
     static loadModule (relativePath, moduleName, className, callback, l18n, containerClassName) {
-        let _correctPath = this._checkPath(relativePath);
-        this._loadModule(_correctPath, moduleName, className, callback, l18n, containerClassName);
+        let correctPath = this._checkPath(relativePath);
+        requestAnimationFrame(function(){
+            Modules.Loader._loadModuleSync(correctPath, moduleName, className, callback, l18n, containerClassName).then(r => {
+
+            });
+        });
     }
 
     static loadTemplate (relativePath, moduleName, className, dataSource, callback, containerClassName) {
