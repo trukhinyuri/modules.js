@@ -17,7 +17,48 @@
 import { Modules } from './modules.js';
 
 function run() {
-        Modules.Loader.loadModule("modules", "globalNavigationMenu", "menu");
+
+        let demoData = { "hello": "OOK", "nehello" : "ok"};
+        // let demoDataFooter = {
+        //         0: { "hello": "OOK", "nehello" : "ok"}
+        //         , 1: { "hello": "OOK1", "nehello" : "ok1"}
+        // };
+
+
+        async function loadModules() {
+            await Modules.Loader.loadModule("modules", "demo", "menu", demoData);
+            // await Modules.Loader.loadModule("modules", "demo", "footer", demoDataFooter);
+        }
+
+        loadModules().then(function () {
+            demoData = Modules.Loader.bindDataObject("menu", demoData);
+            // demoDataFooter = Modules.Loader.bindDataObject("footer", demoDataFooter);
+            demoData.nehello = 4;
+            demoData.hello = 3;
+
+            // demoDataFooter["0"].hello = 1;
+            // demoDataFooter["1"].nehello = 1;
+            // demoDataFooter["2"] = { "hello": "OOK1", "nehello" : "ok1"};
+
+        });
+
+
+
+
+
+
+        // var data = {"hello": "one"};
+        //
+        //
+        // var p = new Proxy(target, {
+        //     set(target, prop, val) { // для перехвата записи свойства
+        //         if (prop == 'value') {
+        //             alert(val);
+        //             target[prop] = val;
+        //         }
+        //     }
+        // });
+        //  p.value = 2;
     }
 Modules.Events.addStartupListener(run);
 

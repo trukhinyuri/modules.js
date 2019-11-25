@@ -1,4 +1,4 @@
-alert("Hi!");
+// alert("Hi!");
 //"use strict";
 //(function () {
 //    var events = new Modules.Events();

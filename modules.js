@@ -29,83 +29,15 @@
  */
 
 export class Modules {
-    /**
-     * Module ItemType module
-     * @returns {string}
-     * @constructor
-     */
-    static get MODULE() {
-        return "module";
-    }
-
-    /**
-     * Module ItemType template
-     * @returns {string}
-     * @constructor
-     */
-    static get TEMPLATE() {
-        return "template";
-    }
-
-    /**
-     * Module ItemType html
-     * @returns {string}
-     * @constructor
-     */
-    static get HTML() {
-        return "html";
-    }
-
-    /**
-     * Module ItemType CSS
-     * @returns {string}
-     * @constructor
-     */
-    static get CSS() {
-        return "css";
-    }
-
-    /**
-     * Module ItemType JavaScript
-     * @returns {string}
-     * @constructor
-     */
-    static get JAVASCRIPT() {
-        return "javascript";
-    }
-
     constructor() {}
-}
+};
 
 /**
  * Load and unload modules
  * @type {Modules.Loader}
  */
 Modules.Loader = class {
-    /**
-     * Load module to container element on page
-     * @deprecated Since 0.11
-     * @param itemType
-     * @param relativePath
-     * @param itemName
-     * @param className
-     * @param callback
-     * @param containerClassName
-     * @param dataSource
-     */
-
-    static load (itemType, relativePath, itemName, className, callback, containerClassName, dataSource) {
-        if (itemType === Modules.MODULE) {
-            this.loadModule(relativePath, itemName, className, callback, containerClassName);
-        }
-        if (itemType === Modules.JAVASCRIPT) {
-            this.loadJS(relativePath, itemName, callback);
-        }
-        if (itemType === Modules.CSS) {
-            this.loadCSS(relativePath, itemName, callback);
-        }
-    }
-
+    
     /**
      * Check path correctness
      * @private
@@ -138,6 +70,155 @@ Modules.Loader = class {
         }
     }
 
+    static _buildModulePath(path, moduleName) {
+        let result = path + moduleName + "/";
+        return result;
+    }
+
+    static _makeRequest(method, url) {
+        return new Promise(function (resolve, reject) {
+            let xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.onload = function () {
+                if (this.status >= 200 && this.status < 300) {
+                    resolve(xhr.response);
+                } else {
+                    reject({
+                        status: this.status,
+                        statusText: xhr.statusText
+                    });
+                }
+            };
+            xhr.onerror = function () {
+                reject({
+                    status: this.status,
+                    statusText: xhr.statusText
+                });
+            };
+            xhr.send();
+        });
+    }
+
+    static async loadModule (relativePath, moduleName, className, dataSource, SDRoot) {
+        let result = false;
+
+        // if (dataSource[1] instanceof Object) {
+        //     result = await this._loadMultiModules(relativePath, moduleName, className, dataSource)
+        // } else {
+            result = await this._loadSingleModule(relativePath, moduleName, className, dataSource, null, SDRoot);
+        // }
+        return result;
+    }
+
+    static async _loadMultiModules(relativePath, moduleName, className, dataSource, isLoadInModule) {
+        let result = false;
+        let i = 0;
+        for (var prop in dataSource) {
+            if (Object.prototype.hasOwnProperty.call(dataSource, prop)) {
+                result = await this._loadSingleModule(relativePath, moduleName, className, dataSource[i], i);
+                i++;
+            }
+        }
+        return result;
+    }
+
+    static async _loadSingleModule(relativePath, moduleName, className, dataSource, index, SDRoot) {
+        let indexCorrect = 0;
+        if (index != undefined) {
+            indexCorrect = index;
+        } else {
+            indexCorrect = 0;
+        }
+        let correctPath = this._checkPath(relativePath);
+
+        let modulePath = this._buildModulePath(correctPath, moduleName);
+
+        let itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className}};
+
+        let pathToModuleFiles = modulePath + moduleName;
+
+        let cssContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "css");
+        let htmlContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "html");
+        let jsContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "js");
+
+        htmlContent = await this._proxyingData(dataSource, htmlContent);
+
+        let result = await this._renderModule(cssContent, htmlContent, jsContent, moduleName, className, indexCorrect, SDRoot);
+        return result;
+    }
+
+    static async _renderModule(cssContent, htmlContent, jsContent, moduleName, className, index, SDRoot) {
+        let resultLoad = false;
+        let elementClasses = null;
+        if (SDRoot !== undefined) {
+            elementClasses = SDRoot.querySelectorAll("." + className);
+            console.log("." + className)
+        } else {
+            elementClasses = document.getElementsByClassName(className);
+        }
+        resultLoad = await this._loadContentInElementClasses(className, elementClasses, moduleName, cssContent, htmlContent, jsContent, index);
+        return resultLoad;
+    }
+
+    static async _loadContentInElementClasses (className, elementClasses, moduleName, cssContent, htmlContent, jsContent, index) {
+        let classesCount = elementClasses.length;
+        for (let htmlID = 0; htmlID < classesCount; htmlID++) {
+            elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
+            elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_name", moduleName + index.toString());
+            elementClasses[htmlID].attachShadow({mode: 'open'});
+            let indexContainer = document.createElement("div");
+            indexContainer.className = index.toString();
+            // indexContainer.setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
+            // indexContainer.setAttribute("data-" + "modulesjs_item_name", moduleName + index.toString());
+            // // if (indexContainer.shadowRoot == null) {
+            //     indexContainer.attachShadow({mode: 'open'});
+            // // }
+            let styleElement = document.createElement("style");
+            let htmlElement = document.createElement("div");
+            let scriptElement = document.createElement("script");
+            styleElement.className += "CSS";
+            styleElement.className += " " + moduleName + "_container";
+            htmlElement.className += "HTML";
+            htmlElement.className += " " + moduleName + "_container";
+            scriptElement.type = "module";
+            scriptElement.className += "JS";
+            scriptElement.className += " " + moduleName + "_container";
+            styleElement.innerHTML = cssContent;
+            htmlElement.innerHTML = htmlContent;
+            jsContent = this._isolateJSContent(jsContent, className, htmlID);
+            scriptElement.innerHTML = jsContent;
+            indexContainer.appendChild(styleElement);
+            indexContainer.appendChild(htmlElement);
+            indexContainer.appendChild(scriptElement);
+
+            elementClasses[htmlID].shadowRoot.appendChild(indexContainer);
+        }
+        return true;
+    }
+
+    static _isolateJSContent(jsContent, className, htmlID) {
+        let jsContentStrings = jsContent.split("\n");
+        let jsContentImports = "";
+        let jsContentStringsLength = jsContentStrings.length;
+        for (let i = 0; i < jsContentStringsLength; i++) {
+             if (jsContentStrings[i].split(" ")[0].localeCompare("import") === 0) {
+                 jsContentImports += jsContentStrings[i] + "\n";
+                 jsContentStrings = jsContentStrings.splice(i + 1, jsContentStrings.length);
+                 jsContentStringsLength--;
+            }
+        }
+
+        let jsContentIncapsulated = jsContentStrings.join("\n");
+
+        let jsContentResult = jsContentImports +
+            "(function () {\n" +
+            "let DynamicSDRoot = \"" + className + "\";\n" +
+            "let DynamicSDRootInternalClass = \"" + htmlID + "\";\n" +
+            jsContentIncapsulated +
+            "\n})();";
+        return jsContentResult;
+    }
+
     /**
      * Check name correctness (remove extension for internal use)
      * @private
@@ -159,22 +240,6 @@ Modules.Loader = class {
         else {
             console.warn("Error: itemName " + itemName + "is not string!");
         }
-    }
-
-    /**
-     * Load module to container element on page
-     * Relative path to folder with modules
-     * @param modulesRelativePath
-     * Name of module
-     * @param moduleName
-     * Container element on the page
-     * @param containerElement
-     */
-    static loadModule(modulesRelativePath, moduleName, containerElement, callback) {
-        let correctPath = this._checkPath(modulesRelativePath);
-        requestAnimationFrame(function(){
-            Modules.Loader._loadModuleSync(correctPath, moduleName, className, callback, l18n, containerClassName);
-        });
     }
 
     static loadCSS (relativePath, itemName, callback) {
@@ -227,11 +292,6 @@ Modules.Loader = class {
         else {
             console.warn("Error: itemName " + itemName + "is not string!");
         }
-    }
-
-    static _buildModulePath(path, moduleName) {
-        let result = path + moduleName + "/";
-        return result;
     }
 
     static _loadCSS (correctPath, itemName, callback) {
@@ -470,101 +530,252 @@ Modules.Loader = class {
         }
     }
 
-    static _renderModule(cssContent, htmlContent, jsContent, moduleName, className, itemType, containerClassName, callback) {
-        if (containerClassName != null) {
-            let containerElement = document.getElementsByClassName(containerClassName);
-            let containerElementLength = containerElement.length;
-            for (let currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
-                let elementClasses = containerElement.getElementsByClassName(className);
-                loadContentInElementClasses(elementClasses);
-            }
-        } else {
-            let elementClasses = document.getElementsByClassName(className);
-            loadContentInElementClasses(elementClasses);
-        }
+    static bindDataObject(containerName, dataSource) {
+        // if (dataSource[1] instanceof Object) {
+        //     return this._bindMultipleDataObject(containerName, dataSource)
+        //
+        // } else {
+            return this._bindSingleDataObject(containerName, dataSource)
+        // }
 
-        function loadContentInElementClasses (elementClasses) {
-            let classesCount = elementClasses.length;
-            for (let htmlID = 0; htmlID < classesCount; htmlID++) {
-                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
-                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", itemType);
-                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_name", moduleName);
-                elementClasses[htmlID].attachShadow({mode: 'open'});
-                let styleElement = document.createElement("style");
-                let htmlElement = document.createElement("div");
-                let scriptElement = document.createElement("script");
-                styleElement.className += "CSS";
-                styleElement.className += " " + moduleName + "_container";
-                htmlElement.className += "HTML";
-                htmlElement.className += " " + moduleName + "_container";
-                scriptElement.className += "JS";
-                scriptElement.className += " " + moduleName + "_container";
-                styleElement.innerHTML = cssContent;
-                htmlElement.innerHTML = htmlContent;
-                scriptElement.innerHTML = jsContent;
-                elementClasses[htmlID].shadowRoot.appendChild(styleElement);
-                setTimeout(function(){
-                    elementClasses[htmlID].shadowRoot.appendChild(htmlElement);
-                    setTimeout(function(){
-                        elementClasses[htmlID].shadowRoot.appendChild(scriptElement);
-                        setTimeout(function(){
-                            if (callback) {
-                                callback();
+    }
+
+    static _bindSingleDataObject(containerName, dataSource) {
+        let dataHandler = {
+            set: function (target, prop, value) {
+                let container = document.getElementsByClassName(containerName)[0];
+                let indexContainer = container.getElementsByClassName("0")[0];
+
+                let i = 1;
+                for (let aprop in dataSource) {
+                    if (Object.prototype.hasOwnProperty.call(dataSource, aprop)) {
+                        if (prop.localeCompare(aprop) == 0) {
+                            let newStr = "";
+                            let delimiter = ""
+
+                            // var newStr = "";
+                            for (let j = 0; j < i; j++) {
+                                newStr += "\x09";
+                                delimiter += "\x09";
                             }
-                        });
-                    });
-                });
+                            newStr += value;
 
+                            for (let j = 0; j < i; j++) {
+                                newStr += "\x09";
+                            }
+
+                            let replaceExp = delimiter + "(.*?)" + delimiter;
+
+                            let replaceStrFull = indexContainer.shadowRoot.innerHTML.match(replaceExp).toString();
+                            let replaceStr = replaceStrFull.split(',')[0];
+
+                            indexContainer.shadowRoot.innerHTML = indexContainer.shadowRoot.innerHTML.replace(new RegExp(replaceStr, 'g'), newStr);
+                        }
+
+                        i++;
+                    }
+                }
+                return true;
+            }
+        };
+        let proxy = new Proxy(dataSource, dataHandler);
+        return proxy;
+    }
+
+    // static _bindMultipleDataObject(containerName, dataSource) {
+    //     let multipleProxy = {};
+    //
+    //     let dataHandler = {
+    //         set: function (target, prop, value) {
+    //             let t = 0;
+    //             target[prop] = value;
+    //             alert(target)
+    //
+    //             for (let tprop in target) {
+    //                 if (Object.prototype.hasOwnProperty.call(target, tprop)) {
+    //                     if (target[tprop] != undefined) {
+    //
+    //                         //Добавили догрузить
+    //                         // let container = document.getElementsByClassName(containerName)[0];
+    //                         // let indexContainer = container.getElementsByClassName(t.toString())[0];
+    //
+    //                         //
+    //                         //
+    //                         //         let i = 1;
+    //                         //         for (let aprop in propDS) {
+    //                         //             if (Object.prototype.hasOwnProperty.call(propDS, aprop)) {
+    //                         //                 if (propDS.localeCompare(aprop) == 0) {
+    //                         //
+    //                         //                     let newStr = "";
+    //                         //                     let delimiter = ""
+    //                         //
+    //                         //                     // var newStr = "";
+    //                         //                     for (let j = 0; j < i; j++) {
+    //                         //                         newStr += "\x09";
+    //                         //                         delimiter += "\x09";
+    //                         //                     }
+    //                         //                     newStr += value;
+    //                         //
+    //                         //                     for (let j = 0; j < i; j++) {
+    //                         //                         newStr += "\x09";
+    //                         //                     }
+    //                         //
+    //                         //                     let replaceExp = delimiter + "(.*?)" + delimiter;
+    //                         //
+    //                         //                     let replaceStrFull = indexContainer.shadowRoot.innerHTML.match(replaceExp).toString();
+    //                         //                     let replaceStr = replaceStrFull.split(',')[0];
+    //                         //
+    //                         //                     indexContainer.shadowRoot.innerHTML = indexContainer.shadowRoot.innerHTML.replace(new RegExp(replaceStr, 'g'), newStr);
+    //                         //                 }
+    //                         //                 i++;
+    //                         //             }
+    //                         //         }
+    //
+    //                         t++;
+    //                     }
+    //
+    //                 }
+    //             }
+    //
+    //              // for (var propDS in target) {
+    //              //     if (Object.prototype.hasOwnProperty.call(target, propDS)) {
+    //              //         let container = document.getElementsByClassName(containerName)[0];
+    //              //         let indexContainer = container.getElementsByClassName(k.toString())[0];
+    //              //
+    //              //
+    //              //         let i = 1;
+    //              //         for (let aprop in propDS) {
+    //              //             if (Object.prototype.hasOwnProperty.call(propDS, aprop)) {
+    //              //                 if (propDS.localeCompare(aprop) == 0) {
+    //              //
+    //              //                     let newStr = "";
+    //              //                     let delimiter = ""
+    //              //
+    //              //                     // var newStr = "";
+    //              //                     for (let j = 0; j < i; j++) {
+    //              //                         newStr += "\x09";
+    //              //                         delimiter += "\x09";
+    //              //                     }
+    //              //                     newStr += value;
+    //              //
+    //              //                     for (let j = 0; j < i; j++) {
+    //              //                         newStr += "\x09";
+    //              //                     }
+    //              //
+    //              //                     let replaceExp = delimiter + "(.*?)" + delimiter;
+    //              //
+    //              //                     let replaceStrFull = indexContainer.shadowRoot.innerHTML.match(replaceExp).toString();
+    //              //                     let replaceStr = replaceStrFull.split(',')[0];
+    //              //
+    //              //                     indexContainer.shadowRoot.innerHTML = indexContainer.shadowRoot.innerHTML.replace(new RegExp(replaceStr, 'g'), newStr);
+    //              //                 }
+    //              //                 i++;
+    //              //             }
+    //              //         }
+    //              //
+    //              //         k++;
+    //              //      }
+    //              //  }
+    //
+    //
+    //
+    //
+    //             // let container = document.getElementsByClassName(containerName)[0];
+    //             // let indexContainer = container.getElementsByClassName("0")[0];
+    //             //
+    //             // let i = 1;
+    //             // for (let aprop in dataSource) {
+    //             //     if (Object.prototype.hasOwnProperty.call(dataSource, aprop)) {
+    //             //         if (prop.localeCompare(aprop) == 0) {
+    //             //             let newStr = "";
+    //             //             let delimiter = ""
+    //             //
+    //             //             // var newStr = "";
+    //             //             for (let j = 0; j < i; j++) {
+    //             //                 newStr += "\x09";
+    //             //                 delimiter += "\x09";
+    //             //             }
+    //             //             newStr += value;
+    //             //
+    //             //             for (let j = 0; j < i; j++) {
+    //             //                 newStr += "\x09";
+    //             //             }
+    //             //
+    //             //             let replaceExp = delimiter + "(.*?)" + delimiter;
+    //             //
+    //             //             let replaceStrFull = indexContainer.shadowRoot.innerHTML.match(replaceExp).toString();
+    //             //             let replaceStr = replaceStrFull.split(',')[0];
+    //             //
+    //             //             indexContainer.shadowRoot.innerHTML = indexContainer.shadowRoot.innerHTML.replace(new RegExp(replaceStr, 'g'), newStr);
+    //             //         }
+    //             //
+    //             //         i++;
+    //             //     }
+    //             // }
+    //         return true;
+    //     }
+    // };
+    //
+    //
+    //     let internalDataHandler = {
+    //         set: function (target, prop, value) {
+    //             target[prop] = value;
+    //             dataHandler.set(dataSource);
+    //             return true;
+    //         }
+    //     };
+    //
+    //     let i = 0;
+    //     for (var prop in dataSource) {
+    //         if (Object.prototype.hasOwnProperty.call(dataSource, prop)) {
+    //             multipleProxy[i]= new Proxy(dataSource[i], internalDataHandler);
+    //             i++;
+    //         }
+    //     }
+    //     let superProxy = new Proxy(multipleProxy, dataHandler);
+    //     return superProxy;
+    //
+    //
+    // }
+
+    static async _proxyingData(dataSource, htmlContent) {
+        let i = 1;
+        for (let prop in dataSource) {
+                if (Object.prototype.hasOwnProperty.call(dataSource, prop)) {
+                    let replaceStr = "{{ " + prop + " }}";
+                    var newStr = "";
+                    for (let j = 0; j < i; j++) {
+                        newStr += "\x09";
+                    }
+                    newStr += dataSource[prop];
+                    for (let j = 0; j < i; j++) {
+                        newStr += "\x09";
+                    }
+                    htmlContent = htmlContent.replace(new RegExp(replaceStr, 'g'), newStr);
+                    i++;
+                }
+        }
+        return htmlContent;
+    }
+
+    static _updateProxyingData(dataSource, htmlContent) {
+        let i = 1;
+        for (let prop in dataSource) {
+            if (Object.prototype.hasOwnProperty.call(dataSource, prop)) {
+                let replaceStr = "{{ " + prop + " }}";
+                var newStr = "";
+                for (let j = 0; j < i; j++) {
+                    newStr += "&zwnj;";
+                }
+                newStr += dataSource[prop];
+                for (let j = 0; j < i; j++) {
+                    newStr += "&zwnj;";
+                }
+                htmlContent = htmlContent.replace(new RegExp(replaceStr, 'g'), newStr);
+                i++;
             }
         }
-    }
-
-
-
-    static async _loadModuleSync (correctPath, moduleName, className, callback, l18n, containerClassName) {
-        let modulePath = this._buildModulePath(correctPath, moduleName);
-
-        let itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className,
-                "containerClassName" : containerClassName}};
-
-        Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_loadingStarted", itemData);
-
-        let pathToModuleFiles = modulePath + moduleName;
-
-        let cssContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "css");
-        let htmlContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "html");
-        let jsContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "js");
-
-        this._renderModule(cssContent, htmlContent, jsContent, moduleName, className, "module", containerClassName, function() {
-            Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_loaded", itemData);
-                if (callback) {
-            callback();
-            }
-        });
-    }
-
-    static _makeRequest(method, url) {
-        return new Promise(function (resolve, reject) {
-            let xhr = new XMLHttpRequest();
-            xhr.open(method, url);
-            xhr.onload = function () {
-                if (this.status >= 200 && this.status < 300) {
-                    resolve(xhr.response);
-                } else {
-                    reject({
-                        status: this.status,
-                        statusText: xhr.statusText
-                    });
-                }
-            };
-            xhr.onerror = function () {
-                reject({
-                    status: this.status,
-                    statusText: xhr.statusText
-                });
-            };
-            xhr.send();
-        });
+        return htmlContent;
     }
 
     static _loadTemplate(correctPath, moduleName, className, callback, containerClassName, dataSource) {
@@ -598,51 +809,6 @@ Modules.Loader = class {
     static _getModulesNumberLoaded(moduleName) {
         let modules = document.getElementsByClassName(moduleName);
         return modules.length;
-    }
-
-    static _unloadModule(moduleName, className, callback, containerClassName) {
-        requestAnimationFrame(function(){
-            unloadSync(moduleName, className, callback, containerClassName);
-        });
-
-        function unloadSync (moduleName, className, callback, containerClassName) {
-            let itemData = {"itemInfo": {"itemName" : moduleName, "className": className,
-                    "containerClassName" : containerClassName, "isJSCSSUnloaded": false}};
-            Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_unloadingStarted", itemData);
-
-            let loadedModulesNumber = _getModulesNumberLoaded(moduleName);
-            if (loadedModulesNumber > 1) {
-                _unloadHTML(moduleName, className, Modules.MODULE, containerClassName, function() {
-                    itemData.isJSCSSUnloaded = true;
-                    Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_unloaded", itemData);
-                    if (callback) {
-                        callback();
-                    }
-                });
-            } else if ((loadedModulesNumber === 1)) {
-                _unloadJS(moduleName, function() {
-                    _unloadHTML(moduleName, className, Modules.MODULE, containerClassName, function() {
-                        _unloadCSS(moduleName, function() {
-                            itemData.isJSCSSUnloaded = false;
-                            Modules.Events.dispatchCustomEvent(document, "module_" + moduleName + "_unloaded", itemData);
-                            if (callback) {
-                                callback();
-                            }
-                        });
-                    });
-                });
-            }
-
-        }
-    }
-
-    static loadModule (relativePath, moduleName, className, callback, l18n, containerClassName) {
-        let correctPath = this._checkPath(relativePath);
-        requestAnimationFrame(function(){
-            Modules.Loader._loadModuleSync(correctPath, moduleName, className, callback, l18n, containerClassName).then(r => {
-
-            });
-        });
     }
 
     static loadTemplate (relativePath, moduleName, className, dataSource, callback, containerClassName) {
