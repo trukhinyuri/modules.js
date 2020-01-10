@@ -8,21 +8,21 @@ import { extend } from "./utilities";
  */
 const config = {
 
-	// The queue of tests to run
+	// The queue of tests_old to run
 	queue: [],
 
 	// Block until document ready
 	blocking: true,
 
-	// By default, run previously failed tests first
-	// very useful in combination with "Hide passed tests" checked
+	// By default, run previously failed tests_old first
+	// very useful in combination with "Hide passed tests_old" checked
 	reorder: true,
 
 	// By default, modify document.title when suite is done
 	altertitle: true,
 
 	// HTML Reporter: collapse every test except the first failing test
-	// If false, all failing tests will be expanded
+	// If false, all failing tests_old will be expanded
 	collapse: true,
 
 	// By default, scroll to top of the page when suite is done
@@ -31,7 +31,7 @@ const config = {
 	// Depth up-to which object will be dumped
 	maxDepth: 5,
 
-	// When enabled, all tests must call expect()
+	// When enabled, all tests_old must call expect()
 	requireExpects: false,
 
 	// Placeholder for user-configurable form-exposed URL parameters
@@ -57,7 +57,7 @@ const config = {
 
 	callbacks: {},
 
-	// The storage module to use for reordering tests
+	// The storage module to use for reordering tests_old
 	storage: localSessionStorage
 };
 

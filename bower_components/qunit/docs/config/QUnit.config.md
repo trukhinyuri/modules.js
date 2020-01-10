@@ -132,7 +132,7 @@ Disable autostart, useful when loading tests asynchronsly, here using requirejs:
 ```js
 QUnit.config.autostart = false;
 require(
-  [ "tests/testModule1", "tests/testModule2" ],
+  [ "tests_old/testModule1", "tests_old/testModule2" ],
   function() {
     QUnit.start();
   }

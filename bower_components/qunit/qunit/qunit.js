@@ -639,21 +639,21 @@
    */
   var config = {
 
-  	// The queue of tests to run
+  	// The queue of tests_old to run
   	queue: [],
 
   	// Block until document ready
   	blocking: true,
 
-  	// By default, run previously failed tests first
-  	// very useful in combination with "Hide passed tests" checked
+  	// By default, run previously failed tests_old first
+  	// very useful in combination with "Hide passed tests_old" checked
   	reorder: true,
 
   	// By default, modify document.title when suite is done
   	altertitle: true,
 
   	// HTML Reporter: collapse every test except the first failing test
-  	// If false, all failing tests will be expanded
+  	// If false, all failing tests_old will be expanded
   	collapse: true,
 
   	// By default, scroll to top of the page when suite is done
@@ -662,7 +662,7 @@
   	// Depth up-to which object will be dumped
   	maxDepth: 5,
 
-  	// When enabled, all tests must call expect()
+  	// When enabled, all tests_old must call expect()
   	requireExpects: false,
 
   	// Placeholder for user-configurable form-exposed URL parameters
@@ -688,7 +688,7 @@
 
   	callbacks: {},
 
-  	// The storage module to use for reordering tests
+  	// The storage module to use for reordering tests_old
   	storage: localSessionStorage
   };
 
@@ -1140,7 +1140,7 @@
 
   		// Pass along `skip` and `todo` properties from parent module, in case
   		// there is one, to childs. And use own otherwise.
-  		// This property will be used to mark own tests and tests of child suites
+  		// This property will be used to mark own tests_old and tests_old of child suites
   		// as either `skipped` or `todo`.
   		skip: skip,
   		todo: skip ? false : todo
@@ -2582,7 +2582,7 @@
   var unitSampler = void 0;
 
   // This is a queue of functions that are tasks within a single test.
-  // After tests are dequeued from config.queue they are expanded into
+  // After tests_old are dequeued from config.queue they are expanded into
   // a set of tasks in this queue.
   var taskQueue = [];
 
@@ -2691,7 +2691,7 @@
   }
 
   /**
-   * Creates a seeded "sample" generator which is used for randomizing tests.
+   * Creates a seeded "sample" generator which is used for randomizing tests_old.
    */
   function unitSamplerGenerator(seed) {
 
@@ -2727,22 +2727,22 @@
   	if (config.stats.all === 0) {
 
   		if (config.filter && config.filter.length) {
-  			throw new Error("No tests matched the filter \"" + config.filter + "\".");
+  			throw new Error("No tests_old matched the filter \"" + config.filter + "\".");
   		}
 
   		if (config.module && config.module.length) {
-  			throw new Error("No tests matched the module \"" + config.module + "\".");
+  			throw new Error("No tests_old matched the module \"" + config.module + "\".");
   		}
 
   		if (config.moduleId && config.moduleId.length) {
-  			throw new Error("No tests matched the moduleId \"" + config.moduleId + "\".");
+  			throw new Error("No tests_old matched the moduleId \"" + config.moduleId + "\".");
   		}
 
   		if (config.testId && config.testId.length) {
-  			throw new Error("No tests matched the testId \"" + config.testId + "\".");
+  			throw new Error("No tests_old matched the testId \"" + config.testId + "\".");
   		}
 
-  		throw new Error("No tests were run.");
+  		throw new Error("No tests_old were run.");
   	}
 
   	emit("runEnd", globalSuite.end(true));
@@ -2753,7 +2753,7 @@
   		runtime: runtime
   	}).then(function () {
 
-  		// Clear own storage items if all tests passed
+  		// Clear own storage items if all tests_old passed
   		if (storage && config.stats.bad === 0) {
   			for (var i = storage.length - 1; i >= 0; i--) {
   				var key = storage.key(i);
@@ -2902,10 +2902,10 @@
   	this.steps = [];
   	this.timeout = undefined;
 
-  	// If a module is skipped, all its tests and the tests of the child suites
+  	// If a module is skipped, all its tests_old and the tests_old of the child suites
   	// should be treated as skipped even if they are defined as `only` or `todo`.
-  	// As for `todo` module, all its tests will be treated as `todo` except for
-  	// tests defined as `skip` which will be left intact.
+  	// As for `todo` module, all its tests_old will be treated as `todo` except for
+  	// tests_old defined as `skip` which will be left intact.
   	//
   	// So, if a test is defined as `todo` and is inside a skipped module, we should
   	// then treat that test as if was defined as `skip`.
@@ -2913,7 +2913,7 @@
   		settings.skip = true;
   		settings.todo = false;
 
-  		// Skipped tests should be left intact
+  		// Skipped tests_old should be left intact
   	} else if (this.module.todo && !settings.skip) {
   		settings.todo = true;
   	}
@@ -2943,7 +2943,7 @@
 
   	if (settings.skip) {
 
-  		// Skipped tests will fully ignore any sent callback
+  		// Skipped tests_old will fully ignore any sent callback
   		this.callback = function () {};
   		this.async = false;
   		this.expected = 0;
@@ -3034,7 +3034,7 @@
   			// Else next test will carry the responsibility
   			saveGlobal();
 
-  			// Restart the tests if they're blocking
+  			// Restart the tests_old if they're blocking
   			if (config.blocking) {
   				internalRecover(this);
   			}
@@ -3073,7 +3073,7 @@
   				_this2.preserveEnvironment = true;
   			}
 
-  			// The 'after' hook should only execute when there are not tests left and
+  			// The 'after' hook should only execute when there are not tests_old left and
   			// when the 'after' and 'finish' tasks are the only tasks left to process
   			if (hookName === "after" && hookOwner.unskippedTestsRun !== numberOfUnskippedTests(hookOwner) - 1 && (config.queue.length > 0 || ProcessingQueue.taskCount() > 2)) {
   				return;
@@ -3111,7 +3111,7 @@
   			}
   		}
 
-  		// Hooks are ignored on skipped tests
+  		// Hooks are ignored on skipped tests_old
   		if (!this.skip) {
   			processHooks(this, this.module);
   		}
@@ -3264,7 +3264,7 @@
 
   		var previousFailCount = config.storage && +config.storage.getItem("qunit-test-" + this.module.name + "-" + this.testName);
 
-  		// Prioritize previously failed tests, detected from storage
+  		// Prioritize previously failed tests_old, detected from storage
   		var prioritize = config.reorder && !!previousFailCount;
 
   		this.previousFailure = !!previousFailCount;
@@ -3404,7 +3404,7 @@
   			return inArray(testModule.moduleId, config.moduleId) || testModule.parentModule && moduleChainIdMatch(testModule.parentModule);
   		}
 
-  		// Internally-generated tests are always valid
+  		// Internally-generated tests_old are always valid
   		if (this.callback && this.callback.validTest) {
   			return true;
   		}
@@ -3817,7 +3817,7 @@
   			// Backwards compatibility fix.
   			// Allows the direct use of global exported assertions and QUnit.assert.*
   			// Although, it's use is not recommended as it can leak assertions
-  			// to other tests from async tests, because we only get a reference to the current test,
+  			// to other tests_old from async tests_old, because we only get a reference to the current test,
   			// not exactly the test where assertion were intended to be called.
   			if (!currentTest) {
   				throw new Error("assertion outside test context, in " + sourceFromStacktrace(2));
@@ -4253,7 +4253,7 @@
   var globalStartCalled = false;
   var runStarted = false;
 
-  // Figure out if we're running the tests from a server or not
+  // Figure out if we're running the tests_old from a server or not
   QUnit.isLocal = !(defined.document && window$1.location.protocol !== "file:");
 
   // Expose the current QUnit version
@@ -4355,7 +4355,7 @@
 
   	runStarted = true;
 
-  	// Add a slight delay to allow definition of more modules and tests.
+  	// Add a slight delay to allow definition of more modules and tests_old.
   	if (defined.setTimeout) {
   		setTimeout$1(function () {
   			begin();
@@ -4490,8 +4490,8 @@
   	// Add URL-parameter-mapped config values with UI form rendering data
   	QUnit.config.urlConfig.push({
   		id: "hidepassed",
-  		label: "Hide passed tests",
-  		tooltip: "Only show tests and assertions that fail. Stored as query-strings."
+  		label: "Hide passed tests_old",
+  		tooltip: "Only show tests_old and assertions that fail. Stored as query-strings."
   	}, {
   		id: "noglobals",
   		label: "Check for Globals",
@@ -4499,7 +4499,7 @@
   	}, {
   		id: "notrycatch",
   		label: "No try-catch",
-  		tooltip: "Enabling this will run tests outside of a try-catch block. Makes debugging " + "exceptions in IE reasonable. Stored as query-strings."
+  		tooltip: "Enabling this will run tests_old outside of a try-catch block. Makes debugging " + "exceptions in IE reasonable. Stored as query-strings."
   	});
 
   	QUnit.begin(function () {
@@ -4647,7 +4647,7 @@
   	}
 
   	function abortTests() {
-  		var abortButton = id("qunit-abort-tests-button");
+  		var abortButton = id("qunit-abort-tests_old-button");
   		if (abortButton) {
   			abortButton.disabled = true;
   			abortButton.innerHTML = "Aborting...";
@@ -4741,7 +4741,7 @@
   		if ("hidepassed" === field.name && "replaceState" in window$1.history) {
   			QUnit.urlParams[field.name] = value;
   			config[field.name] = value || false;
-  			tests = id("qunit-tests");
+  			tests = id("qunit-tests_old");
   			if (tests) {
   				var length = tests.children.length;
   				var children = tests.children;
@@ -4856,7 +4856,7 @@
 
   	function abortTestsButton() {
   		var button = document.createElement("button");
-  		button.id = "qunit-abort-tests-button";
+  		button.id = "qunit-abort-tests_old-button";
   		button.innerHTML = "Abort";
   		addEvent(button, "click", abortTests);
   		return button;
@@ -5084,7 +5084,7 @@
   	}
 
   	function appendTestResults() {
-  		var tests = id("qunit-tests"),
+  		var tests = id("qunit-tests_old"),
   		    result = id("qunit-testresult"),
   		    controls;
 
@@ -5112,7 +5112,7 @@
   		if (!testId || testId.length <= 0) {
   			return "";
   		}
-  		return "<div id='qunit-filteredTest'>Rerunning selected tests: " + escapeText(testId.join(", ")) + " <a id='qunit-clearFilter' href='" + escapeText(unfilteredUrl) + "'>Run all tests</a></div>";
+  		return "<div id='qunit-filteredTest'>Rerunning selected tests_old: " + escapeText(testId.join(", ")) + " <a id='qunit-clearFilter' href='" + escapeText(unfilteredUrl) + "'>Run all tests_old</a></div>";
   	}
 
   	function appendUserAgent() {
@@ -5128,7 +5128,7 @@
   		var qunit = id("qunit");
 
   		if (qunit) {
-  			qunit.innerHTML = "<h1 id='qunit-header'>" + escapeText(document.title) + "</h1>" + "<h2 id='qunit-banner'></h2>" + "<div id='qunit-testrunner-toolbar'></div>" + appendFilteredTest() + "<h2 id='qunit-userAgent'></h2>" + "<ol id='qunit-tests'></ol>";
+  			qunit.innerHTML = "<h1 id='qunit-header'>" + escapeText(document.title) + "</h1>" + "<h2 id='qunit-banner'></h2>" + "<div id='qunit-testrunner-toolbar'></div>" + appendFilteredTest() + "<h2 id='qunit-userAgent'></h2>" + "<ol id='qunit-tests_old'></ol>";
   		}
 
   		appendHeader();
@@ -5143,7 +5143,7 @@
   		    rerunTrigger,
   		    testBlock,
   		    assertList,
-  		    tests = id("qunit-tests");
+  		    tests = id("qunit-tests_old");
 
   		if (!tests) {
   			return;
@@ -5190,15 +5190,15 @@
 
   	QUnit.done(function (details) {
   		var banner = id("qunit-banner"),
-  		    tests = id("qunit-tests"),
-  		    abortButton = id("qunit-abort-tests-button"),
+  		    tests = id("qunit-tests_old"),
+  		    abortButton = id("qunit-abort-tests_old-button"),
   		    totalTests = stats.passedTests + stats.skippedTests + stats.todoTests + stats.failedTests,
-  		    html = [totalTests, " tests completed in ", details.runtime, " milliseconds, with ", stats.failedTests, " failed, ", stats.skippedTests, " skipped, and ", stats.todoTests, " todo.<br />", "<span class='passed'>", details.passed, "</span> assertions of <span class='total'>", details.total, "</span> passed, <span class='failed'>", details.failed, "</span> failed."].join(""),
+  		    html = [totalTests, " tests_old completed in ", details.runtime, " milliseconds, with ", stats.failedTests, " failed, ", stats.skippedTests, " skipped, and ", stats.todoTests, " todo.<br />", "<span class='passed'>", details.passed, "</span> assertions of <span class='total'>", details.total, "</span> passed, <span class='failed'>", details.failed, "</span> failed."].join(""),
   		    test,
   		    assertLi,
   		    assertList;
 
-  		// Update remaing tests to aborted
+  		// Update remaing tests_old to aborted
   		if (abortButton && abortButton.disabled) {
   			html = "Tests aborted after " + details.runtime + " milliseconds.";
 
@@ -5362,7 +5362,7 @@
   		    testCounts,
   		    skipped,
   		    sourceName,
-  		    tests = id("qunit-tests");
+  		    tests = id("qunit-tests_old");
 
   		if (!tests) {
   			return;
@@ -5390,7 +5390,7 @@
 
   		if (testPassed) {
 
-  			// Collapse the passing tests
+  			// Collapse the passing tests_old
   			addClass(assertList, "qunit-collapsed");
   		} else if (config.collapse) {
   			if (!collapseNext) {
@@ -5399,7 +5399,7 @@
   				collapseNext = true;
   			} else {
 
-  				// Collapse remaining tests
+  				// Collapse remaining tests_old
   				addClass(assertList, "qunit-collapsed");
   			}
   		}

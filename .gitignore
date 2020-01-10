@@ -3,3 +3,5 @@
 *.swp
 *~.nib
 .idea/
+bower_components/
+node_modules/

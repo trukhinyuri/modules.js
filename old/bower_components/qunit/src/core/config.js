@@ -4,21 +4,21 @@
  * `config` initialized at top of scope
  */
 var config = {
-	// The queue of tests to run
+	// The queue of tests_old to run
 	queue: [],
 
 	// block until document ready
 	blocking: true,
 
-	// by default, run previously failed tests first
-	// very useful in combination with "Hide passed tests" checked
+	// by default, run previously failed tests_old first
+	// very useful in combination with "Hide passed tests_old" checked
 	reorder: true,
 
 	// by default, modify document.title when suite is done
 	altertitle: true,
 
 	// HTML Reporter: collapse every test except the first failing test
-	// If false, all failing tests will be expanded
+	// If false, all failing tests_old will be expanded
 	collapse: true,
 
 	// by default, scroll to top of the page when suite is done
@@ -27,7 +27,7 @@ var config = {
 	// depth up-to which object will be dumped
 	maxDepth: 5,
 
-	// when enabled, all tests must call expect()
+	// when enabled, all tests_old must call expect()
 	requireExpects: false,
 
 	// add checkboxes that are persisted in the query-string
@@ -35,8 +35,8 @@ var config = {
 	urlConfig: [
 		{
 			id: "hidepassed",
-			label: "Hide passed tests",
-			tooltip: "Only show tests and assertions that fail. Stored as query-strings."
+			label: "Hide passed tests_old",
+			tooltip: "Only show tests_old and assertions that fail. Stored as query-strings."
 		},
 		{
 			id: "noglobals",
@@ -47,7 +47,7 @@ var config = {
 		{
 			id: "notrycatch",
 			label: "No try-catch",
-			tooltip: "Enabling this will run tests outside of a try-catch block. Makes debugging " +
+			tooltip: "Enabling this will run tests_old outside of a try-catch block. Makes debugging " +
 				"exceptions in IE reasonable. Stored as query-strings."
 		}
 	],

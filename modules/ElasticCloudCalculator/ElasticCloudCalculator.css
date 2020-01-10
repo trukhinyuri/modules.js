@@ -1,0 +1,164 @@
+@font-face {
+    font-family: "MTSSansWeb";
+    src: url("../../fonts/MTSSans-Regular.otf") format("opentype");
+}
+
+* {
+    font-family: MTSSansWeb, Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.ecc {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-gap: 2mm;
+    grid-template-columns: auto;
+    grid-template-areas:
+            "header"
+            "subHeader"
+            "toDO"
+            "chooser"
+}
+
+.ecc_header {
+    justify-self: left;
+    grid-area: header;
+}
+
+.ecc_subheader {
+    justify-self: left;
+    grid-area: subHeader;
+}
+.ecc_toDO {
+    grid-area: toDO;
+    font-weight: bold;
+    font-size: 5mm;
+}
+
+.ecc_chooser {
+    padding: 2mm 0 0 0;
+    justify-self: stretch;
+    grid-area: chooser;
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: auto 1fr;
+    grid-row-gap: 2mm;
+    grid-template-areas:
+            "name_tarifModel value_tarifModel"
+            "name_region value_region"
+            "name_dc value_dc"
+            "name_segment value_segment";
+
+}
+
+.ecc_chooser_name .ecc_chooser_value {
+    justify-self: stretch;
+}
+.ecc_chooser_name {
+    padding: 1mm 3mm 1mm 3mm;
+
+    font-family: "MTSSansWeb", serif;
+    font-size: 4mm;
+}
+
+.ecc_chooser_name_tarifModel {
+    grid-area: name_tarifModel;
+}
+
+.ecc_chooser_value_tarifModel {
+    grid-area: value_tarifModel;
+}
+
+.ecc_chooser_name_dc {
+    grid-area: name_dc;
+}
+
+.ecc_chooser_name_region {
+    grid-area: name_region;
+}
+
+.ecc_chooser_value_dc {
+    grid-area: value_dc;
+}
+
+.ecc_chooser_value_region {
+    grid-area: value_region;
+}
+
+.ecc_chooser_name_segment {
+    grid-area: name_segment;
+}
+
+.ecc_chooser_value_segment {
+    grid-area: value_segment;
+}
+
+
+
+
+.custom-select {
+    grid-area: selector;
+    background: white;
+    font-family: "MTSSansWeb", serif;
+    font-size: 4mm;
+    height: 8mm;
+    border: 0.2mm solid #dbdee5;
+    width:100%;
+}
+
+.ecc_chooser_value_tarifModel {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    background-color: #f1f1f1;
+    justify-self: stretch;
+}
+
+.ecc_chooser_value_region {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: #f1f1f1;
+    justify-self: stretch;
+}
+
+.tab_chooser_links {
+    padding: 2mm 4mm 2mm 4mm;
+    height: 6mm;
+    display: grid;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    justify-self: stretch;
+    justify-content: center;
+    transition: 0.3s;
+    font-size: 4mm;
+}
+
+
+/* Change background color of buttons on hover */
+.tab_chooser_links:hover {
+    background-color: #e7e7e7;
+    color: black;
+}
+
+.tab_chooser_links_selected, .tab_chooser_links_selected:hover {
+    background-color: #dcdcdc;
+    color: black;
+    justify-self: stretch;
+}
+
+.tab_chooser_links_unselected {
+    background-color: #f3f3f3;
+    color: black;10
+    justify-self: stretch;
+}
+
+
+
+
+
+
+
+

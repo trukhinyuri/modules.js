@@ -376,9 +376,9 @@
 #qunit-banner.qunit-fail                    { background-color: #EE5757; }
 
 
-/*** Aborted tests */
+/*** Aborted tests_old */
 #qunit-tests .aborted { color: #000; background-color: orange; }
-/*** Skipped tests */
+/*** Skipped tests_old */
 
 #qunit-tests .skipped {
 	background-color: #EBECE9;

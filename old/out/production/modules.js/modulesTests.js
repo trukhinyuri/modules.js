@@ -2991,7 +2991,7 @@ asyncTest("send (theme, detail)", function() {
 //    }
 //});
 ////TODO: getElementByClassName with elementType method in modulesOld.js. More simple getElementByClassName.
-////TODO: when we get Elements by ClassName, check elementType in tests.
+////TODO: when we get Elements by ClassName, check elementType in tests_old.
 //module("Modules.Events", {
 //    setup: function() {
 ////        var divloadTest = document.createElement('div');

@@ -2,7 +2,7 @@
 
 ( function( factory ) {
 
-	// For the amd tests we need to delay setup
+	// For the amd tests_old we need to delay setup
 	if ( typeof define === "function" && define.amd ) {
 		require( [ "qunit" ], factory );
 	} else {

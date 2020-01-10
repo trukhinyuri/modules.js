@@ -243,21 +243,21 @@ function sourceFromStacktrace( offset ) {
  * `config` initialized at top of scope
  */
 var config = {
-	// The queue of tests to run
+	// The queue of tests_old to run
 	queue: [],
 
 	// block until document ready
 	blocking: true,
 
-	// by default, run previously failed tests first
-	// very useful in combination with "Hide passed tests" checked
+	// by default, run previously failed tests_old first
+	// very useful in combination with "Hide passed tests_old" checked
 	reorder: true,
 
 	// by default, modify document.title when suite is done
 	altertitle: true,
 
 	// HTML Reporter: collapse every test except the first failing test
-	// If false, all failing tests will be expanded
+	// If false, all failing tests_old will be expanded
 	collapse: true,
 
 	// by default, scroll to top of the page when suite is done
@@ -266,7 +266,7 @@ var config = {
 	// depth up-to which object will be dumped
 	maxDepth: 5,
 
-	// when enabled, all tests must call expect()
+	// when enabled, all tests_old must call expect()
 	requireExpects: false,
 
 	// add checkboxes that are persisted in the query-string
@@ -274,8 +274,8 @@ var config = {
 	urlConfig: [
 		{
 			id: "hidepassed",
-			label: "Hide passed tests",
-			tooltip: "Only show tests and assertions that fail. Stored as query-strings."
+			label: "Hide passed tests_old",
+			tooltip: "Only show tests_old and assertions that fail. Stored as query-strings."
 		},
 		{
 			id: "noglobals",
@@ -286,7 +286,7 @@ var config = {
 		{
 			id: "notrycatch",
 			label: "No try-catch",
-			tooltip: "Enabling this will run tests outside of a try-catch block. Makes debugging " +
+			tooltip: "Enabling this will run tests_old outside of a try-catch block. Makes debugging " +
 				"exceptions in IE reasonable. Stored as query-strings."
 		}
 	],
@@ -443,7 +443,7 @@ function verifyLoggingCallbacks() {
 
 QUnit.urlParams = urlParams;
 
-// Figure out if we're running the tests from a server or not
+// Figure out if we're running the tests_old from a server or not
 QUnit.isLocal = !( defined.document && window.location.protocol !== "file:" );
 
 // Expose the current QUnit version
@@ -451,7 +451,7 @@ QUnit.version = "1.20.0";
 
 extend( QUnit, {
 
-	// call on start of module test to prepend name to all tests
+	// call on start of module test to prepend name to all tests_old
 	module: function( name, testEnvironment, executeNow ) {
 		var module, moduleFns;
 		var currentModule = config.currentModule;
@@ -806,7 +806,7 @@ function Test( settings ) {
 
 	if ( settings.skip ) {
 
-		// Skipped tests will fully ignore any sent callback
+		// Skipped tests_old will fully ignore any sent callback
 		this.callback = function() {};
 		this.async = false;
 		this.expected = 0;
@@ -893,7 +893,7 @@ Test.prototype = {
 			// else next test will carry the responsibility
 			saveGlobal();
 
-			// Restart the tests if they're blocking
+			// Restart the tests_old if they're blocking
 			if ( config.blocking ) {
 				QUnit.start();
 			}
@@ -946,7 +946,7 @@ Test.prototype = {
 			}
 		}
 
-		// Hooks are ignored on skipped tests
+		// Hooks are ignored on skipped tests_old
 		if ( !this.skip ) {
 			processHooks( this, this.module );
 		}
@@ -1041,7 +1041,7 @@ Test.prototype = {
 			]);
 		}
 
-		// Prioritize previously failed tests, detected from sessionStorage
+		// Prioritize previously failed tests_old, detected from sessionStorage
 		priority = QUnit.config.reorder && defined.sessionStorage &&
 				+sessionStorage.getItem( "qunit-test-" + this.module.name + "-" + this.testName );
 
@@ -1150,7 +1150,7 @@ Test.prototype = {
 			}
 		}
 
-		// Internally-generated tests are always valid
+		// Internally-generated tests_old are always valid
 		if ( this.callback && this.callback.validTest ) {
 			return true;
 		}
@@ -1182,16 +1182,16 @@ Test.prototype = {
 	}
 };
 
-// Resets the test setup. Useful for tests that modify the DOM.
+// Resets the test setup. Useful for tests_old that modify the DOM.
 /*
-DEPRECATED: Use multiple tests instead of resetting inside a test.
+DEPRECATED: Use multiple tests_old instead of resetting inside a test.
 Use testStart or testDone for custom cleanup.
 This method will throw an error in 2.0, and will be removed in 2.1
 */
 QUnit.reset = function() {
 
 	// Return on non-browser environments
-	// This is necessary to not break on node tests
+	// This is necessary to not break on node tests_old
 	if ( !defined.document ) {
 		return;
 	}
@@ -1261,7 +1261,7 @@ function synchronize( callback, priority ) {
 	}
 }
 
-// Place previously failed tests on a queue priority line, respecting the order they get assigned.
+// Place previously failed tests_old on a queue priority line, respecting the order they get assigned.
 function priorityFill( callback ) {
 	var queue, prioritizedQueue;
 
@@ -1437,7 +1437,7 @@ QUnit.assert = Assert.prototype = {
 		// Backwards compatibility fix.
 		// Allows the direct use of global exported assertions and QUnit.assert.*
 		// Although, it's use is not recommended as it can leak assertions
-		// to other tests from async tests, because we only get a reference to the current test,
+		// to other tests_old from async tests_old, because we only get a reference to the current test,
 		// not exactly the test where assertion were intended to be called.
 		if ( !currentTest ) {
 			throw new Error( "assertion outside test context, in " + sourceFromStacktrace( 2 ) );
@@ -3343,7 +3343,7 @@ QUnit.init = function() {
 	config.queue = [];
 
 	// Return on non-browser environments
-	// This is necessary to not break on node tests
+	// This is necessary to not break on node tests_old
 	if ( typeof window === "undefined" ) {
 		return;
 	}
@@ -3355,10 +3355,10 @@ QUnit.init = function() {
 			"<h2 id='qunit-banner'></h2>" +
 			"<div id='qunit-testrunner-toolbar'></div>" +
 			"<h2 id='qunit-userAgent'></h2>" +
-			"<ol id='qunit-tests'></ol>";
+			"<ol id='qunit-tests_old'></ol>";
 	}
 
-	tests = id( "qunit-tests" );
+	tests = id( "qunit-tests_old" );
 	banner = id( "qunit-banner" );
 	result = id( "qunit-testresult" );
 
@@ -3583,9 +3583,9 @@ function toolbarChanged() {
 	if ( "hidepassed" === field.name && "replaceState" in window.history ) {
 		config[ field.name ] = value || false;
 		if ( value ) {
-			addClass( id( "qunit-tests" ), "hidepass" );
+			addClass( id( "qunit-tests_old" ), "hidepass" );
 		} else {
-			removeClass( id( "qunit-tests" ), "hidepass" );
+			removeClass( id( "qunit-tests_old" ), "hidepass" );
 		}
 
 		// It is not necessary to refresh the whole page
@@ -3757,7 +3757,7 @@ function appendBanner() {
 }
 
 function appendTestResults() {
-	var tests = id( "qunit-tests" ),
+	var tests = id( "qunit-tests_old" ),
 		result = id( "qunit-testresult" );
 
 	if ( result ) {
@@ -3786,10 +3786,10 @@ function appendFilteredTest() {
 	if ( !testId || testId.length <= 0 ) {
 		return "";
 	}
-	return "<div id='qunit-filteredTest'>Rerunning selected tests: " + testId.join(", ") +
+	return "<div id='qunit-filteredTest'>Rerunning selected tests_old: " + testId.join(", ") +
 		" <a id='qunit-clearFilter' href='" +
 		setUrl({ filter: undefined, module: undefined, testId: undefined }) +
-		"'>" + "Run all tests" + "</a></div>";
+		"'>" + "Run all tests_old" + "</a></div>";
 }
 
 function appendUserAgent() {
@@ -3825,7 +3825,7 @@ function appendTestsList( modules ) {
 
 function appendTest( name, testId, moduleName ) {
 	var title, rerunTrigger, testBlock, assertList,
-		tests = id( "qunit-tests" );
+		tests = id( "qunit-tests_old" );
 
 	if ( !tests ) {
 		return;
@@ -3865,7 +3865,7 @@ QUnit.begin(function( details ) {
 			"<div id='qunit-testrunner-toolbar'></div>" +
 			appendFilteredTest() +
 			"<h2 id='qunit-userAgent'></h2>" +
-			"<ol id='qunit-tests'></ol>";
+			"<ol id='qunit-tests_old'></ol>";
 	}
 
 	appendHeader();
@@ -3884,7 +3884,7 @@ QUnit.begin(function( details ) {
 QUnit.done(function( details ) {
 	var i, key,
 		banner = id( "qunit-banner" ),
-		tests = id( "qunit-tests" ),
+		tests = id( "qunit-tests_old" ),
 		html = [
 			"Tests completed in ",
 			details.runtime,
@@ -3916,7 +3916,7 @@ QUnit.done(function( details ) {
 		].join( " " );
 	}
 
-	// clear own sessionStorage items if all tests passed
+	// clear own sessionStorage items if all tests_old passed
 	if ( config.reorder && defined.sessionStorage && details.failed === 0 ) {
 		for ( i = 0; i < sessionStorage.length; i++ ) {
 			key = sessionStorage.key( i++ );
@@ -3952,7 +3952,7 @@ QUnit.testStart(function( details ) {
 		testBlock.className = "running";
 	} else {
 
-		// Report later registered tests
+		// Report later registered tests_old
 		appendTest( details.name, details.testId, details.module );
 	}
 
@@ -4057,7 +4057,7 @@ QUnit.log(function( details ) {
 QUnit.testDone(function( details ) {
 	var testTitle, time, testItem, assertList,
 		good, bad, testCounts, skipped, sourceName,
-		tests = id( "qunit-tests" );
+		tests = id( "qunit-tests_old" );
 
 	if ( !tests ) {
 		return;
@@ -4081,7 +4081,7 @@ QUnit.testDone(function( details ) {
 
 	if ( bad === 0 ) {
 
-		// Collapse the passing tests
+		// Collapse the passing tests_old
 		addClass( assertList, "qunit-collapsed" );
 	} else if ( bad && config.collapse && !collapseNext ) {
 
@@ -4089,7 +4089,7 @@ QUnit.testDone(function( details ) {
 		collapseNext = true;
 	} else {
 
-		// Collapse remaining tests
+		// Collapse remaining tests_old
 		addClass( assertList, "qunit-collapsed" );
 	}
 

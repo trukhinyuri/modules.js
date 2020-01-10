@@ -38,10 +38,10 @@ export default function Test( settings ) {
 	this.steps = [];
 	this.timeout = undefined;
 
-	// If a module is skipped, all its tests and the tests of the child suites
+	// If a module is skipped, all its tests_old and the tests_old of the child suites
 	// should be treated as skipped even if they are defined as `only` or `todo`.
-	// As for `todo` module, all its tests will be treated as `todo` except for
-	// tests defined as `skip` which will be left intact.
+	// As for `todo` module, all its tests_old will be treated as `todo` except for
+	// tests_old defined as `skip` which will be left intact.
 	//
 	// So, if a test is defined as `todo` and is inside a skipped module, we should
 	// then treat that test as if was defined as `skip`.
@@ -49,7 +49,7 @@ export default function Test( settings ) {
 		settings.skip = true;
 		settings.todo = false;
 
-	// Skipped tests should be left intact
+	// Skipped tests_old should be left intact
 	} else	if ( this.module.todo && !settings.skip ) {
 		settings.todo = true;
 	}
@@ -79,7 +79,7 @@ export default function Test( settings ) {
 
 	if ( settings.skip ) {
 
-		// Skipped tests will fully ignore any sent callback
+		// Skipped tests_old will fully ignore any sent callback
 		this.callback = function() {};
 		this.async = false;
 		this.expected = 0;
@@ -169,7 +169,7 @@ Test.prototype = {
 			// Else next test will carry the responsibility
 			saveGlobal();
 
-			// Restart the tests if they're blocking
+			// Restart the tests_old if they're blocking
 			if ( config.blocking ) {
 				internalRecover( this );
 			}
@@ -209,7 +209,7 @@ Test.prototype = {
 				this.preserveEnvironment = true;
 			}
 
-			// The 'after' hook should only execute when there are not tests left and
+			// The 'after' hook should only execute when there are not tests_old left and
 			// when the 'after' and 'finish' tasks are the only tasks left to process
 			if ( hookName === "after" &&
 				hookOwner.unskippedTestsRun !== numberOfUnskippedTests( hookOwner ) - 1 &&
@@ -249,7 +249,7 @@ Test.prototype = {
 			}
 		}
 
-		// Hooks are ignored on skipped tests
+		// Hooks are ignored on skipped tests_old
 		if ( !this.skip ) {
 			processHooks( this, this.module );
 		}
@@ -423,7 +423,7 @@ Test.prototype = {
 		const previousFailCount = config.storage &&
 				+config.storage.getItem( "qunit-test-" + this.module.name + "-" + this.testName );
 
-		// Prioritize previously failed tests, detected from storage
+		// Prioritize previously failed tests_old, detected from storage
 		const prioritize = config.reorder && !!previousFailCount;
 
 		this.previousFailure = !!previousFailCount;
@@ -564,7 +564,7 @@ Test.prototype = {
 				testModule.parentModule && moduleChainIdMatch( testModule.parentModule );
 		}
 
-		// Internally-generated tests are always valid
+		// Internally-generated tests_old are always valid
 		if ( this.callback && this.callback.validTest ) {
 			return true;
 		}

@@ -36,8 +36,8 @@ import { window } from "../src/globals";
 	QUnit.config.urlConfig.push(
 		{
 			id: "hidepassed",
-			label: "Hide passed tests",
-			tooltip: "Only show tests and assertions that fail. Stored as query-strings."
+			label: "Hide passed tests_old",
+			tooltip: "Only show tests_old and assertions that fail. Stored as query-strings."
 		},
 		{
 			id: "noglobals",
@@ -48,7 +48,7 @@ import { window } from "../src/globals";
 		{
 			id: "notrycatch",
 			label: "No try-catch",
-			tooltip: "Enabling this will run tests outside of a try-catch block. Makes debugging " +
+			tooltip: "Enabling this will run tests_old outside of a try-catch block. Makes debugging " +
 			"exceptions in IE reasonable. Stored as query-strings."
 		}
 	);

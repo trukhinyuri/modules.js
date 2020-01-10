@@ -76,7 +76,7 @@ function run( args, options ) {
 
 	process.on( "exit", function() {
 		if ( running ) {
-			console.error( "Error: Process exited before tests finished running" );
+			console.error( "Error: Process exited before tests_old finished running" );
 
 			const currentTest = QUnit.config.current;
 			if ( currentTest && currentTest.semaphore ) {

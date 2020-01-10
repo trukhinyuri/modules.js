@@ -36,7 +36,7 @@ module.exports = function( grunt ) {
 			grunt.log.writeln( "-----" );
 			grunt.log.ok( constructMessage( totals ) );
 
-			// Refresh the QUnit global to be used in other tests
+			// Refresh the QUnit global to be used in other tests_old
 			global.QUnit = requireFresh( "../../dist/qunit" );
 
 			done( !error );
@@ -49,7 +49,7 @@ module.exports = function( grunt ) {
 
 		return [
 			totalTests,
-			" tests completed with ",
+			" tests_old completed with ",
 			stats.failed,
 			" failed, " +
 			stats.skipped,
@@ -78,7 +78,7 @@ module.exports = function( grunt ) {
 		// to avoid stacking the QUnit logs.
 		var QUnit = requireFresh( "../../dist/qunit" );
 
-		// Expose QUnit to the global scope to be seen on the other tests.
+		// Expose QUnit to the global scope to be seen on the other tests_old.
 		global.QUnit = QUnit;
 
 		QUnit.config.autostart = false;

@@ -1,0 +1,21 @@
+{
+  "name": "modules.js",
+  "version": "2.0.0",
+  "dependencies": {
+    "chai": "latest",
+    "chai-counter": "^1.0.0",
+    "chai-counting": "^1.0.1",
+    "jsdoc": "^3.6.3",
+    "mocha": "^7.0.0",
+    "mocha-headless-chrome": "^2.0.3",
+    "mocha-teamcity-reporter": "latest",
+    "node-qunit-puppeteer": "latest",
+    "puppeteer": "^2.0.0",
+    "qunit": "latest",
+    "requirejs": "latest",
+    "sinon": "latest",
+    "swagger": "latest",
+    "swagger-jsdoc": "^3.5.0",
+    "swagger-ui": "latest"
+  }
+}

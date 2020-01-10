@@ -27,13 +27,13 @@ program
 	.version( pkg.version )
 	.usage( "[options] [files]" )
 	.description( description )
-	.option( "-f, --filter <filter>", "filter which tests run" )
+	.option( "-f, --filter <filter>", "filter which tests_old run" )
 	.option( "-r, --reporter [name]", "specify the reporter to use; " +
 		"if no match is found or no name is provided, a list of available " +
 		"reporters will be displayed" )
 	.option( "--require <module>", "specify a module to require prior to running " +
-		"any tests.", collect, [] )
-	.option( "--seed [value]", "specify a seed to order your tests; " +
+		"any tests_old.", collect, [] )
+	.option( "--seed [value]", "specify a seed to order your tests_old; " +
 		"if option is specified without a value, one will be generated" )
 	.option( "-w, --watch", "Watch files for changes and re-run the test suite" )
 	.parse( process.argv );

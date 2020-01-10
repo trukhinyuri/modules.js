@@ -1,6 +1,6 @@
 QUnit.urlParams = urlParams;
 
-// Figure out if we're running the tests from a server or not
+// Figure out if we're running the tests_old from a server or not
 QUnit.isLocal = !( defined.document && window.location.protocol !== "file:" );
 
 // Expose the current QUnit version
@@ -8,7 +8,7 @@ QUnit.version = "@VERSION";
 
 extend( QUnit, {
 
-	// call on start of module test to prepend name to all tests
+	// call on start of module test to prepend name to all tests_old
 	module: function( name, testEnvironment, executeNow ) {
 		var module, moduleFns;
 		var currentModule = config.currentModule;

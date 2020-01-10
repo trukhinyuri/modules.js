@@ -30,7 +30,7 @@ config.currentModule.suiteReport = globalSuite;
 var globalStartCalled = false;
 var runStarted = false;
 
-// Figure out if we're running the tests from a server or not
+// Figure out if we're running the tests_old from a server or not
 QUnit.isLocal = !( defined.document && window.location.protocol !== "file:" );
 
 // Expose the current QUnit version
@@ -133,7 +133,7 @@ function scheduleBegin() {
 
 	runStarted = true;
 
-	// Add a slight delay to allow definition of more modules and tests.
+	// Add a slight delay to allow definition of more modules and tests_old.
 	if ( defined.setTimeout ) {
 		setTimeout( function() {
 			begin();

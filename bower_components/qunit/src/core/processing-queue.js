@@ -23,7 +23,7 @@ let priorityCount = 0;
 let unitSampler;
 
 // This is a queue of functions that are tasks within a single test.
-// After tests are dequeued from config.queue they are expanded into
+// After tests_old are dequeued from config.queue they are expanded into
 // a set of tasks in this queue.
 const taskQueue = [];
 
@@ -132,7 +132,7 @@ function addToTestQueue( testTasksFunc, prioritize, seed ) {
 }
 
 /**
- * Creates a seeded "sample" generator which is used for randomizing tests.
+ * Creates a seeded "sample" generator which is used for randomizing tests_old.
  */
 function unitSamplerGenerator( seed ) {
 
@@ -183,7 +183,7 @@ function done() {
 			throw new Error( `No tests matched the testId "${config.testId}".` );
 		}
 
-		throw new Error( "No tests were run." );
+		throw new Error( "No tests_old were run." );
 
 	}
 
@@ -195,7 +195,7 @@ function done() {
 		runtime
 	} ).then( () => {
 
-		// Clear own storage items if all tests passed
+		// Clear own storage items if all tests_old passed
 		if ( storage && config.stats.bad === 0 ) {
 			for ( let i = storage.length - 1; i >= 0; i-- ) {
 				const key = storage.key( i );

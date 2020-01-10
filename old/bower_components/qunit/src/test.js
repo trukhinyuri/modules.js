@@ -28,7 +28,7 @@ function Test( settings ) {
 
 	if ( settings.skip ) {
 
-		// Skipped tests will fully ignore any sent callback
+		// Skipped tests_old will fully ignore any sent callback
 		this.callback = function() {};
 		this.async = false;
 		this.expected = 0;
@@ -115,7 +115,7 @@ Test.prototype = {
 			// else next test will carry the responsibility
 			saveGlobal();
 
-			// Restart the tests if they're blocking
+			// Restart the tests_old if they're blocking
 			if ( config.blocking ) {
 				QUnit.start();
 			}
@@ -168,7 +168,7 @@ Test.prototype = {
 			}
 		}
 
-		// Hooks are ignored on skipped tests
+		// Hooks are ignored on skipped tests_old
 		if ( !this.skip ) {
 			processHooks( this, this.module );
 		}
@@ -263,7 +263,7 @@ Test.prototype = {
 			]);
 		}
 
-		// Prioritize previously failed tests, detected from sessionStorage
+		// Prioritize previously failed tests_old, detected from sessionStorage
 		priority = QUnit.config.reorder && defined.sessionStorage &&
 				+sessionStorage.getItem( "qunit-test-" + this.module.name + "-" + this.testName );
 
@@ -372,7 +372,7 @@ Test.prototype = {
 			}
 		}
 
-		// Internally-generated tests are always valid
+		// Internally-generated tests_old are always valid
 		if ( this.callback && this.callback.validTest ) {
 			return true;
 		}
@@ -404,16 +404,16 @@ Test.prototype = {
 	}
 };
 
-// Resets the test setup. Useful for tests that modify the DOM.
+// Resets the test setup. Useful for tests_old that modify the DOM.
 /*
-DEPRECATED: Use multiple tests instead of resetting inside a test.
+DEPRECATED: Use multiple tests_old instead of resetting inside a test.
 Use testStart or testDone for custom cleanup.
 This method will throw an error in 2.0, and will be removed in 2.1
 */
 QUnit.reset = function() {
 
 	// Return on non-browser environments
-	// This is necessary to not break on node tests
+	// This is necessary to not break on node tests_old
 	if ( !defined.document ) {
 		return;
 	}
@@ -483,7 +483,7 @@ function synchronize( callback, priority ) {
 	}
 }
 
-// Place previously failed tests on a queue priority line, respecting the order they get assigned.
+// Place previously failed tests_old on a queue priority line, respecting the order they get assigned.
 function priorityFill( callback ) {
 	var queue, prioritizedQueue;
 

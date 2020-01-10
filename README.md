@@ -15,11 +15,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-###Installation
-```bash
-bower install modules.js
-```
-
 ###API Documentation
 
 [http://api.modules.plugndo.com](http://api.modules.plugndo.com)
@@ -32,3 +27,5 @@ bower install modules.js
 ###Cloud Hosting
 
 [#CloudMTS](https://cloud.mts.ru)
+
+[Infobox](https://infobox.ru)

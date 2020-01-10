@@ -95,7 +95,7 @@
     Test.prototype = {
         init: function() {
             var a, b, li,
-                tests = id( "qunit-tests" );
+                tests = id( "qunit-tests_old" );
 
             if ( tests ) {
                 b = document.createElement( "strong" );
@@ -209,7 +209,7 @@
                 // else next test will carry the responsibility
                 saveGlobal();
 
-                // Restart the tests if they're blocking
+                // Restart the tests_old if they're blocking
                 if ( config.blocking ) {
                     QUnit.start();
                 }
@@ -246,7 +246,7 @@
                 test = this,
                 good = 0,
                 bad = 0,
-                tests = id( "qunit-tests" );
+                tests = id( "qunit-tests_old" );
 
             this.runtime = +new Date() - this.started;
             config.stats.all += this.assertions.length;
@@ -385,7 +385,7 @@
 // `QUnit` initialized at top of scope
     QUnit = {
 
-        // call on start of module test to prepend name to all tests
+        // call on start of module test to prepend name to all tests_old
         module: function( name, testEnvironment ) {
             config.currentModule = name;
             config.currentModuleTestEnvironment = testEnvironment;
@@ -699,24 +699,24 @@
      * `config` initialized at top of scope
      */
     config = {
-        // The queue of tests to run
+        // The queue of tests_old to run
         queue: [],
 
         // block until document ready
         blocking: true,
 
-        // when enabled, show only failing tests
+        // when enabled, show only failing tests_old
         // gets persisted through sessionStorage and can be changed in UI via checkbox
         hidepassed: false,
 
-        // by default, run previously failed tests first
-        // very useful in combination with "Hide passed tests" checked
+        // by default, run previously failed tests_old first
+        // very useful in combination with "Hide passed tests_old" checked
         reorder: true,
 
         // by default, modify document.title when suite is done
         altertitle: true,
 
-        // when enabled, all tests must call expect()
+        // when enabled, all tests_old must call expect()
         requireExpects: false,
 
         // add checkboxes that are persisted in the query-string
@@ -730,7 +730,7 @@
             {
                 id: "notrycatch",
                 label: "No try-catch",
-                tooltip: "Enabling this will run tests outside of a try-catch block. Makes debugging exceptions in IE reasonable. Stored as query-strings."
+                tooltip: "Enabling this will run tests_old outside of a try-catch block. Makes debugging exceptions in IE reasonable. Stored as query-strings."
             }
         ],
 
@@ -785,7 +785,7 @@
 
         config.testNumber = parseInt( urlParams.testNumber, 10 ) || null;
 
-        // Figure out if we're running the tests from a server or not
+        // Figure out if we're running the tests_old from a server or not
         QUnit.isLocal = location.protocol === "file:";
     }());
 
@@ -820,10 +820,10 @@
                         "<h2 id='qunit-banner'></h2>" +
                         "<div id='qunit-testrunner-toolbar'></div>" +
                         "<h2 id='qunit-userAgent'></h2>" +
-                        "<ol id='qunit-tests'></ol>";
+                        "<ol id='qunit-tests_old'></ol>";
             }
 
-            tests = id( "qunit-tests" );
+            tests = id( "qunit-tests_old" );
             banner = id( "qunit-banner" );
             result = id( "qunit-testresult" );
 
@@ -848,9 +848,9 @@
             }
         },
 
-        // Resets the test setup. Useful for tests that modify the DOM.
+        // Resets the test setup. Useful for tests_old that modify the DOM.
         /*
-         DEPRECATED: Use multiple tests instead of resetting inside a test.
+         DEPRECATED: Use multiple tests_old instead of resetting inside a test.
          Use testStart or testDone for custom cleanup.
          This method will throw an error in 2.0, and will be removed in 2.1
          */
@@ -1146,14 +1146,14 @@
                 }
                 if ( defined.sessionStorage ) {
                     if (filter.checked) {
-                        sessionStorage.setItem( "qunit-filter-passed-tests", "true" );
+                        sessionStorage.setItem( "qunit-filter-passed-tests_old", "true" );
                     } else {
-                        sessionStorage.removeItem( "qunit-filter-passed-tests" );
+                        sessionStorage.removeItem( "qunit-filter-passed-tests_old" );
                     }
                 }
             });
 
-            if ( config.hidepassed || defined.sessionStorage && sessionStorage.getItem( "qunit-filter-passed-tests" ) ) {
+            if ( config.hidepassed || defined.sessionStorage && sessionStorage.getItem( "qunit-filter-passed-tests_old" ) ) {
                 filter.checked = true;
                 // `ol` initialized at top of scope
                 ol = document.getElementById( "qunit-tests" );
@@ -1164,8 +1164,8 @@
             // `label` initialized at top of scope
             label = document.createElement( "label" );
             label.setAttribute( "for", "qunit-filter-pass" );
-            label.setAttribute( "title", "Only show tests and assertions that fail. Stored in sessionStorage." );
-            label.innerHTML = "Hide passed tests";
+            label.setAttribute( "title", "Only show tests_old and assertions that fail. Stored in sessionStorage." );
+            label.innerHTML = "Hide passed tests_old";
             toolbar.appendChild( label );
 
             urlConfigCheckboxesContainer = document.createElement("span");
@@ -1263,7 +1263,7 @@
 
         var i, key,
             banner = id( "qunit-banner" ),
-            tests = id( "qunit-tests" ),
+            tests = id( "qunit-tests_old" ),
             runtime = +new Date() - config.started,
             passed = config.stats.all - config.stats.bad,
             html = [
@@ -1296,7 +1296,7 @@
             ].join( " " );
         }
 
-        // clear own sessionStorage items if all tests passed
+        // clear own sessionStorage items if all tests_old passed
         if ( config.reorder && defined.sessionStorage && config.stats.bad === 0 ) {
             // `key` & `i` initialized at top of scope
             for ( i = 0; i < sessionStorage.length; i++ ) {
@@ -1327,7 +1327,7 @@
             module = config.module && config.module.toLowerCase(),
             fullName = (test.module + ": " + test.testName).toLowerCase();
 
-        // Internally-generated tests are always valid
+        // Internally-generated tests_old are always valid
         if ( test.callback && test.callback.validTest === validTest ) {
             delete test.callback.validTest;
             return true;

@@ -29,7 +29,7 @@ function createModule( name, testEnvironment, modifiers ) {
 
 		// Pass along `skip` and `todo` properties from parent module, in case
 		// there is one, to childs. And use own otherwise.
-		// This property will be used to mark own tests and tests of child suites
+		// This property will be used to mark own tests_old and tests_old of child suites
 		// as either `skipped` or `todo`.
 		skip: skip,
 		todo: skip ? false : todo

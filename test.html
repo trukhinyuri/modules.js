@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modules.JS Mocha Tests</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+</head>
+<body>
+<div id="mocha"></div>
+<script src="node_modules/mocha/mocha.js"></script>
+<script src="node_modules/mocha-teamcity-reporter/lib/teamcityBrowser.js"></script>
+<script src="node_modules/chai/chai.js"></script>
+<script src="node_modules/chai-counter/pub/src/chai-counter.js"></script>
+
+<script>
+    mocha.setup('bdd');
+</script>
+<script type="module" src="test.js"></script>
+<script type="module">
+    mocha.checkLeaks();
+    mocha.run();
+</script>
+</body>
+</html>

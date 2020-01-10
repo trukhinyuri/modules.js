@@ -102,7 +102,7 @@ export function escapeText( s ) {
 	}
 
 	function abortTests() {
-		var abortButton = id( "qunit-abort-tests-button" );
+		var abortButton = id( "qunit-abort-tests_old-button" );
 		if ( abortButton ) {
 			abortButton.disabled = true;
 			abortButton.innerHTML = "Aborting...";
@@ -206,7 +206,7 @@ export function escapeText( s ) {
 		if ( "hidepassed" === field.name && "replaceState" in window.history ) {
 			QUnit.urlParams[ field.name ] = value;
 			config[ field.name ] = value || false;
-			tests = id( "qunit-tests" );
+			tests = id( "qunit-tests_old" );
 			if ( tests ) {
 				var length = tests.children.length;
 				var children = tests.children;
@@ -299,7 +299,7 @@ export function escapeText( s ) {
 
 	function abortTestsButton() {
 		var button = document.createElement( "button" );
-		button.id = "qunit-abort-tests-button";
+		button.id = "qunit-abort-tests_old-button";
 		button.innerHTML = "Abort";
 		addEvent( button, "click", abortTests );
 		return button;
@@ -529,7 +529,7 @@ export function escapeText( s ) {
 	}
 
 	function appendTestResults() {
-		var tests = id( "qunit-tests" ),
+		var tests = id( "qunit-tests_old" ),
 			result = id( "qunit-testresult" ),
 			controls;
 
@@ -559,11 +559,11 @@ export function escapeText( s ) {
 		if ( !testId || testId.length <= 0 ) {
 			return "";
 		}
-		return "<div id='qunit-filteredTest'>Rerunning selected tests: " +
+		return "<div id='qunit-filteredTest'>Rerunning selected tests_old: " +
 			escapeText( testId.join( ", " ) ) +
 			" <a id='qunit-clearFilter' href='" +
 			escapeText( unfilteredUrl ) +
-			"'>Run all tests</a></div>";
+			"'>Run all tests_old</a></div>";
 	}
 
 	function appendUserAgent() {
@@ -589,7 +589,7 @@ export function escapeText( s ) {
 			"<div id='qunit-testrunner-toolbar'></div>" +
 			appendFilteredTest() +
 			"<h2 id='qunit-userAgent'></h2>" +
-			"<ol id='qunit-tests'></ol>";
+			"<ol id='qunit-tests_old'></ol>";
 		}
 
 		appendHeader();
@@ -601,7 +601,7 @@ export function escapeText( s ) {
 
 	function appendTest( name, testId, moduleName ) {
 		var title, rerunTrigger, testBlock, assertList,
-			tests = id( "qunit-tests" );
+			tests = id( "qunit-tests_old" );
 
 		if ( !tests ) {
 			return;
@@ -648,15 +648,15 @@ export function escapeText( s ) {
 
 	QUnit.done( function( details ) {
 		var banner = id( "qunit-banner" ),
-			tests = id( "qunit-tests" ),
-			abortButton = id( "qunit-abort-tests-button" ),
+			tests = id( "qunit-tests_old" ),
+			abortButton = id( "qunit-abort-tests_old-button" ),
 			totalTests = stats.passedTests +
 				stats.skippedTests +
 				stats.todoTests +
 				stats.failedTests,
 			html = [
 				totalTests,
-				" tests completed in ",
+				" tests_old completed in ",
 				details.runtime,
 				" milliseconds, with ",
 				stats.failedTests,
@@ -677,7 +677,7 @@ export function escapeText( s ) {
 			assertLi,
 			assertList;
 
-		// Update remaing tests to aborted
+		// Update remaing tests_old to aborted
 		if ( abortButton && abortButton.disabled ) {
 			html = "Tests aborted after " + details.runtime + " milliseconds.";
 
@@ -860,7 +860,7 @@ export function escapeText( s ) {
 	QUnit.testDone( function( details ) {
 		var testTitle, time, testItem, assertList, status,
 			good, bad, testCounts, skipped, sourceName,
-			tests = id( "qunit-tests" );
+			tests = id( "qunit-tests_old" );
 
 		if ( !tests ) {
 			return;
@@ -888,7 +888,7 @@ export function escapeText( s ) {
 
 		if ( testPassed ) {
 
-			// Collapse the passing tests
+			// Collapse the passing tests_old
 			addClass( assertList, "qunit-collapsed" );
 		} else if ( config.collapse ) {
 			if ( !collapseNext ) {
@@ -897,7 +897,7 @@ export function escapeText( s ) {
 				collapseNext = true;
 			} else {
 
-				// Collapse remaining tests
+				// Collapse remaining tests_old
 				addClass( assertList, "qunit-collapsed" );
 			}
 		}

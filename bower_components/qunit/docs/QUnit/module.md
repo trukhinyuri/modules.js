@@ -183,7 +183,7 @@ A sample for using the before, beforeEach, afterEach, and after callbacks
 ```js
 QUnit.module( "module A", {
   before: function() {
-    // prepare something once for all tests
+    // prepare something once for all tests_old
   },
   beforeEach: function() {
     // prepare something before each test
@@ -192,7 +192,7 @@ QUnit.module( "module A", {
     // clean up after each test
   },
   after: function() {
-    // clean up once after all tests are done
+    // clean up once after all tests_old are done
   }
 });
 ```
@@ -227,7 +227,7 @@ QUnit.test( "makes a car", function( assert ) {
 `before`/`beforeEach` hooks queue on nested modules. `after`/`afterEach` hooks stack on nested modules.
 
 ```js
-QUnit.module( "grouped tests argument hooks", function( hooks ) {
+QUnit.module( "grouped tests_old argument hooks", function( hooks ) {
 
   // You can invoke the hooks methods more than once.
   hooks.beforeEach( function( assert ) {

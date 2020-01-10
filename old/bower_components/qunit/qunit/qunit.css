@@ -260,7 +260,7 @@
 
 #qunit-banner.qunit-fail                    { background-color: #EE5757; }
 
-/*** Skipped tests */
+/*** Skipped tests_old */
 
 #qunit-tests .skipped {
 	background-color: #EBECE9;

@@ -1,4 +1,32 @@
-/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: modules.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: modules.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
  * Copyright 2012-2019 Yuri Trukhin
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +45,7 @@
 /**
  * @fileOverview
  * @copyright (C) Yuri V. Trukhin.
- * @author trukhinyuri <yuri@trukhin.com>
+ * @author trukhinyuri &lt;yuri@trukhin.com>
  * @version 2.0.0
  * @license Apache License, Version 2.0. You may obtain a copy of the License at {@link http://www.apache.org/licenses/LICENSE-2.0}
  */
@@ -104,7 +132,7 @@ Modules.DOM = class {
     static getModules (className) {
         let elements = document.getElementsByClassName(className);
         let result = new Array();
-        for (let i = 0; i < elements.length; i++) {
+        for (let i = 0; i &lt; elements.length; i++) {
             if (this.isHTMLModule(elements[i])) {
                 result.push(elements[i]);
             }
@@ -115,7 +143,7 @@ Modules.DOM = class {
     static getTemplates (className) {
         let elements = document.getElementsByClassName(className);
         let result = new Array();
-        for (let i = 0; i < elements.length; i++) {
+        for (let i = 0; i &lt; elements.length; i++) {
             if (this.isHTMLTemplate(elements[i])) {
                 result.push(elements[i]);
             }
@@ -158,7 +186,7 @@ Modules.Loader = class {
       * @returns {String} Correct path or page directory
      **/
     static _checkPath(path) {
-        let documentRootURL = window.location.origin;
+        let documentRootURL = Modules.DOM.getDocumentRootURL();
         if (typeof (path) == "string") {
             if (path[path.length-1] != "/") {
                 if (path[0] != "/") {
@@ -191,7 +219,7 @@ Modules.Loader = class {
             let xhr = new XMLHttpRequest();
             xhr.open(method, url);
             xhr.onload = function () {
-                if (this.status >= 200 && this.status < 300) {
+                if (this.status >= 200 &amp;&amp; this.status &lt; 300) {
                     resolve(xhr.response);
                 } else {
                     reject({
@@ -273,7 +301,7 @@ Modules.Loader = class {
 
     static async _loadContentInElementClasses (className, elementClasses, moduleName, cssContent, htmlContent, jsContent, index) {
         let classesCount = elementClasses.length;
-        for (let htmlID = 0; htmlID < classesCount; htmlID++) {
+        for (let htmlID = 0; htmlID &lt; classesCount; htmlID++) {
             elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
             elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_name", moduleName + index.toString());
             elementClasses[htmlID].attachShadow({mode: 'open'});
@@ -311,7 +339,7 @@ Modules.Loader = class {
         let jsContentStrings = jsContent.split("\n");
         let jsContentImports = "";
         let jsContentStringsLength = jsContentStrings.length;
-        for (let i = 0; i < jsContentStringsLength; i++) {
+        for (let i = 0; i &lt; jsContentStringsLength; i++) {
              if (jsContentStrings[i].split(" ")[0].localeCompare("import") === 0) {
                  jsContentImports += jsContentStrings[i] + "\n";
                  jsContentStrings = jsContentStrings.splice(i + 1, jsContentStrings.length);
@@ -374,7 +402,7 @@ Modules.Loader = class {
         let keys = Object.keys(simpleDataSource);
         let placeholder, value;
         let result = responseText;
-        for (let i = 0; i < keys.length; i++) {
+        for (let i = 0; i &lt; keys.length; i++) {
             placeholder = keys[i];
             value = simpleDataSource[keys[i]];
             result = result.split('$' + placeholder + ';').join(value);
@@ -441,11 +469,11 @@ Modules.Loader = class {
     }
 
     static _loadL18NJS (correctPath, itemName, l18n, callback) {
-        if ((l18n != null) && (l18n.length > 0)) {
+        if ((l18n != null) &amp;&amp; (l18n.length > 0)) {
             let locN = 0;
             let _nextL18NJSLoaded = function () {
                 locN++;
-                if (locN < l18n.length) {
+                if (locN &lt; l18n.length) {
                     Modules.Loader._loadNextL18NJS(l18n[locN], correctPath, itemName, _nextL18NJSLoaded);
                 } else {
                     callback(itemName);
@@ -480,7 +508,7 @@ Modules.Loader = class {
         let done = false;
         script.onreadystatechange = script.onload = function () {
             let state = script.readyState;
-            if (!done && (!state || state === "loaded" || state === "complete")) {
+            if (!done &amp;&amp; (!state || state === "loaded" || state === "complete")) {
                 done = true;
                 Modules.Events.dispatchCustomEvent(document, "javascript_l18n_" + itemName + "_" + loc + "_loaded", itemData);
                 if (callback) {
@@ -510,7 +538,7 @@ Modules.Loader = class {
         let done = false;
         script.onreadystatechange = script.onload = function () {
             let state = script.readyState;
-            if (!done && (!state || state === "loaded" || state === "complete")) {
+            if (!done &amp;&amp; (!state || state === "loaded" || state === "complete")) {
                 done = true;
                 Modules.Events.dispatchCustomEvent(document, "javascript_" + itemName + "_loaded", itemData);
                 if (callback) {
@@ -590,7 +618,7 @@ Modules.Loader = class {
         if (containerClassName != null) {
             let containerElement = document.getElementsByClassName(containerClassName);
             let containerElementLength = containerElement.length;
-            for (let currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
+            for (let currentContainerElement = 0; currentContainerElement &lt; containerElementLength; currentContainerElement ++) {
                 let elementClasses = containerElement.getElementsByClassName(className);
                 unloadContentFromElementClasses(elementClasses);
             }
@@ -601,7 +629,7 @@ Modules.Loader = class {
 
         function unloadContentFromElementClasses (elementClasses) {
             let classesCount = elementClasses.length;
-            for (let htmlID = 0; htmlID < classesCount; htmlID++) {
+            for (let htmlID = 0; htmlID &lt; classesCount; htmlID++) {
                 elementClasses[htmlID].removeAttribute("data-" + "modulesjs_item_id");
                 elementClasses[htmlID].removeAttribute("data-" + "modulesjs_item_type");
                 elementClasses[htmlID].innerHTML = "";
@@ -617,7 +645,7 @@ Modules.Loader = class {
         if (containerClassName != null) {
             let containerElement = document.getElementsByClassName(containerClassName);
             let containerElementLength = containerElement.length;
-            for (let currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
+            for (let currentContainerElement = 0; currentContainerElement &lt; containerElementLength; currentContainerElement ++) {
                 let elementClasses = containerElement.getElementsByClassName(className);
                 loadContentInElementClasses(elementClasses);
             }
@@ -628,7 +656,7 @@ Modules.Loader = class {
 
         function loadContentInElementClasses (elementClasses) {
             let classesCount = elementClasses.length;
-            for (let htmlID = 0; htmlID < classesCount; htmlID++) {
+            for (let htmlID = 0; htmlID &lt; classesCount; htmlID++) {
                 elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
                 elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", itemType);
                 elementClasses[htmlID].attachShadow({mode: 'open'});
@@ -665,13 +693,13 @@ Modules.Loader = class {
                             let delimiter = ""
 
                             // var newStr = "";
-                            for (let j = 0; j < i; j++) {
+                            for (let j = 0; j &lt; i; j++) {
                                 newStr += "\x09";
                                 delimiter += "\x09";
                             }
                             newStr += value;
 
-                            for (let j = 0; j < i; j++) {
+                            for (let j = 0; j &lt; i; j++) {
                                 newStr += "\x09";
                             }
 
@@ -721,13 +749,13 @@ Modules.Loader = class {
     //                         //                     let delimiter = ""
     //                         //
     //                         //                     // var newStr = "";
-    //                         //                     for (let j = 0; j < i; j++) {
+    //                         //                     for (let j = 0; j &lt; i; j++) {
     //                         //                         newStr += "\x09";
     //                         //                         delimiter += "\x09";
     //                         //                     }
     //                         //                     newStr += value;
     //                         //
-    //                         //                     for (let j = 0; j < i; j++) {
+    //                         //                     for (let j = 0; j &lt; i; j++) {
     //                         //                         newStr += "\x09";
     //                         //                     }
     //                         //
@@ -763,13 +791,13 @@ Modules.Loader = class {
     //              //                     let delimiter = ""
     //              //
     //              //                     // var newStr = "";
-    //              //                     for (let j = 0; j < i; j++) {
+    //              //                     for (let j = 0; j &lt; i; j++) {
     //              //                         newStr += "\x09";
     //              //                         delimiter += "\x09";
     //              //                     }
     //              //                     newStr += value;
     //              //
-    //              //                     for (let j = 0; j < i; j++) {
+    //              //                     for (let j = 0; j &lt; i; j++) {
     //              //                         newStr += "\x09";
     //              //                     }
     //              //
@@ -802,13 +830,13 @@ Modules.Loader = class {
     //             //             let delimiter = ""
     //             //
     //             //             // var newStr = "";
-    //             //             for (let j = 0; j < i; j++) {
+    //             //             for (let j = 0; j &lt; i; j++) {
     //             //                 newStr += "\x09";
     //             //                 delimiter += "\x09";
     //             //             }
     //             //             newStr += value;
     //             //
-    //             //             for (let j = 0; j < i; j++) {
+    //             //             for (let j = 0; j &lt; i; j++) {
     //             //                 newStr += "\x09";
     //             //             }
     //             //
@@ -855,11 +883,11 @@ Modules.Loader = class {
                 if (Object.prototype.hasOwnProperty.call(dataSource, prop)) {
                     let replaceStr = "{{ " + prop + " }}";
                     var newStr = "";
-                    for (let j = 0; j < i; j++) {
+                    for (let j = 0; j &lt; i; j++) {
                         newStr += "\x09";
                     }
                     newStr += dataSource[prop];
-                    for (let j = 0; j < i; j++) {
+                    for (let j = 0; j &lt; i; j++) {
                         newStr += "\x09";
                     }
                     htmlContent = htmlContent.replace(new RegExp(replaceStr, 'g'), newStr);
@@ -875,12 +903,12 @@ Modules.Loader = class {
             if (Object.prototype.hasOwnProperty.call(dataSource, prop)) {
                 let replaceStr = "{{ " + prop + " }}";
                 var newStr = "";
-                for (let j = 0; j < i; j++) {
-                    newStr += "&zwnj;";
+                for (let j = 0; j &lt; i; j++) {
+                    newStr += "&amp;zwnj;";
                 }
                 newStr += dataSource[prop];
-                for (let j = 0; j < i; j++) {
-                    newStr += "&zwnj;";
+                for (let j = 0; j &lt; i; j++) {
+                    newStr += "&amp;zwnj;";
                 }
                 htmlContent = htmlContent.replace(new RegExp(replaceStr, 'g'), newStr);
                 i++;
@@ -929,7 +957,7 @@ Modules.Loader = class {
 
     static onTemplateLoaded (templateName, handle) {
         let templateElements = document.getElementsByClassName(templateName);
-        for (let currentId = 0; currentId < templateElements.length; currentId++) {
+        for (let currentId = 0; currentId &lt; templateElements.length; currentId++) {
             if (templateElements[currentId].getAttribute("data-" + "templateLoaded") == null) {
                 handle(templateElements[currentId], currentId);
                 templateElements[currentId].setAttribute("data-" + "templateLoaded", true);
@@ -1099,7 +1127,7 @@ Modules.Events = class {
     static addListeners(targets, type, listener, useCapture) {
         let _useCapture = useCapture || false;
         let length = targets.length;
-        for (let i = 0; i < length; i++) {
+        for (let i = 0; i &lt; length; i++) {
             targets[i].addEventListener(type, listener, _useCapture);
         }
         return listener;
@@ -1111,7 +1139,7 @@ Modules.Events = class {
         //noinspection JSUnresolvedFunction
         let bindedListener = listener.bind(_context);
         let length = targets.length;
-        for (let i = 0; i < targets.length; i++) {
+        for (let i = 0; i &lt; targets.length; i++) {
             targets[i].addEventListener(type, bindedListener, _useCapture);
         }
         return bindedListener;
@@ -1120,7 +1148,7 @@ Modules.Events = class {
     static removeListeners (targets, type, listener, useCapture) {
         let _useCapture = useCapture || false;
         let length = targets.length;
-        for (let i = 0; i < length; i++) {
+        for (let i = 0; i &lt; length; i++) {
             this.removeListener(targets[i], type, listener, _useCapture);
         }
     }
@@ -1224,7 +1252,7 @@ Modules.L18N = class {
         for (let property in langObject) {
             if (langObject.hasOwnProperty(property)) {
                 let elements = document.getElementsByClassName(property);
-                for (let i = 0; i < elements.length; i++ ) {
+                for (let i = 0; i &lt; elements.length; i++ ) {
                     elements[i].innerHTML = langObject[property];
                 }
             }
@@ -1265,7 +1293,7 @@ Modules.Server = class {
 
         script.onreadystatechange = script.onload = function () {
             let state = script.readyState;
-            if (!done && (!state || state === "loaded" || state === "complete")) {
+            if (!done &amp;&amp; (!state || state === "loaded" || state === "complete")) {
                 done = true;
                 document.dispatchEvent(new CustomEvent("config_" + name + "_loaded",
                     {"detail": {"configName" : name, "_path": path}}
@@ -1419,7 +1447,7 @@ Modules.Server = class {
 //         function getModules (className) {
 //             let elements = document.getElementsByClassName(className);
 //             let result = new Array();
-//             for (let i = 0; i < elements.length; i++) {
+//             for (let i = 0; i &lt; elements.length; i++) {
 //                 if (isHTMLModule(elements[i])) {
 //                     result.push(elements[i]);
 //                 }
@@ -1437,7 +1465,7 @@ Modules.Server = class {
 //         function getTemplates (className) {
 //             let elements = document.getElementsByClassName(className);
 //             let result = new Array();
-//             for (let i = 0; i < elements.length; i++) {
+//             for (let i = 0; i &lt; elements.length; i++) {
 //                 if (isHTMLTemplate(elements[i])) {
 //                     result.push(elements[i]);
 //                 }
@@ -1830,7 +1858,7 @@ Modules.Server = class {
 //         function addListeners(targets, type, listener, useCapture) {
 //             let _useCapture = useCapture || false;
 //             let length = targets.length;
-//             for (let i = 0; i < length; i++) {
+//             for (let i = 0; i &lt; length; i++) {
 //                 targets[i].addEventListener(type, listener, _useCapture);
 //             }
 //             return listener;
@@ -1858,7 +1886,7 @@ Modules.Server = class {
 //             //noinspection JSUnresolvedFunction
 //             let bindedListener = listener.bind(_context);
 //             let length = targets.length;
-//             for (let i = 0; i < targets.length; i++) {
+//             for (let i = 0; i &lt; targets.length; i++) {
 //                 targets[i].addEventListener(type, bindedListener, _useCapture);
 //             }
 //             return bindedListener;
@@ -1880,7 +1908,7 @@ Modules.Server = class {
 //         function removeListeners (targets, type, listener, useCapture) {
 //             let _useCapture = useCapture || false;
 //             let length = targets.length;
-//             for (let i = 0; i < length; i++) {
+//             for (let i = 0; i &lt; length; i++) {
 //                 removeListener(targets[i], type, listener, _useCapture);
 //             }
 //         }
@@ -2054,7 +2082,7 @@ Modules.Server = class {
 //             for (let property in langObject) {
 //                 if (langObject.hasOwnProperty(property)) {
 //                     let elements = document.getElementsByClassName(property);
-//                     for (let i = 0; i < elements.length; i++ ) {
+//                     for (let i = 0; i &lt; elements.length; i++ ) {
 //                         elements[i].innerHTML = langObject[property];
 //                     }
 //                 }
@@ -2131,7 +2159,7 @@ Modules.Server = class {
 //             let keys = Object.keys(simpleDataSource);
 //             let placeholder, value;
 //             let result = responseText;
-//             for (let i = 0; i < keys.length; i++) {
+//             for (let i = 0; i &lt; keys.length; i++) {
 //                 placeholder = keys[i];
 //                 value = simpleDataSource[keys[i]];
 //                 result = result.split('$' + placeholder + ';').join(value);
@@ -2168,7 +2196,7 @@ Modules.Server = class {
 // //                    }
 // //                    //list
 // //                    else {
-// //                        for (let i = 0; i < dataSource.length; i++) {
+// //                        for (let i = 0; i &lt; dataSource.length; i++) {
 // //                            stepResult = _replace$PlaceholdersInTemplate(responseText, name, dataSource[i]);
 // //                            stepResult = _addUUIDAttribute(stepResult, i, templateName);
 // //                            result += stepResult;
@@ -2371,11 +2399,11 @@ Modules.Server = class {
 //         }
 //
 //         function _loadL18NJS (correctPath, itemName, l18n, callback) {
-//             if ((l18n != null) && (l18n.length > 0)) {
+//             if ((l18n != null) &amp;&amp; (l18n.length > 0)) {
 //                 let locN = 0;
 //                 let _nextL18NJSLoaded = function () {
 //                     locN++;
-//                     if (locN < l18n.length) {
+//                     if (locN &lt; l18n.length) {
 //                         _loadNextL18NJS(l18n[locN], correctPath, itemName, _nextL18NJSLoaded);
 //                     } else {
 //                         callback(itemName);
@@ -2412,7 +2440,7 @@ Modules.Server = class {
 //             let done = false;
 //             script.onreadystatechange = script.onload = function () {
 //                 let state = script.readyState;
-//                 if (!done && (!state || state === "loaded" || state === "complete")) {
+//                 if (!done &amp;&amp; (!state || state === "loaded" || state === "complete")) {
 //                     done = true;
 //                     Modules.Events.dispatchCustomEvent(document, "javascript_l18n_" + itemName + "_" + loc + "_loaded", itemData);
 //                     if (callback) {
@@ -2451,7 +2479,7 @@ Modules.Server = class {
 //             let done = false;
 //             script.onreadystatechange = script.onload = function () {
 //                 let state = script.readyState;
-//                 if (!done && (!state || state === "loaded" || state === "complete")) {
+//                 if (!done &amp;&amp; (!state || state === "loaded" || state === "complete")) {
 //                     done = true;
 //                     Modules.Events.dispatchCustomEvent(document, "javascript_" + itemName + "_loaded", itemData);
 //                     if (callback) {
@@ -2541,7 +2569,7 @@ Modules.Server = class {
 //             if (containerClassName != null) {
 //                 let containerElement = document.getElementsByClassName(containerClassName);
 //                 let containerElementLength = containerElement.length;
-//                 for (let currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
+//                 for (let currentContainerElement = 0; currentContainerElement &lt; containerElementLength; currentContainerElement ++) {
 //                     let elementClasses = containerElement.getElementsByClassName(className);
 //                     unloadContentFromElementClasses(elementClasses);
 //                 }
@@ -2552,7 +2580,7 @@ Modules.Server = class {
 //
 //             function unloadContentFromElementClasses (elementClasses) {
 //                 let classesCount = elementClasses.length;
-//                 for (let htmlID = 0; htmlID < classesCount; htmlID++) {
+//                 for (let htmlID = 0; htmlID &lt; classesCount; htmlID++) {
 //                     elementClasses[htmlID].removeAttribute("data-" + "modulesjs_item_id");
 //                     elementClasses[htmlID].removeAttribute("data-" + "modulesjs_item_type");
 //                     elementClasses[htmlID].innerHTML = "";
@@ -2579,7 +2607,7 @@ Modules.Server = class {
 //             if (containerClassName != null) {
 //                 let containerElement = document.getElementsByClassName(containerClassName);
 //                 let containerElementLength = containerElement.length;
-//                 for (let currentContainerElement = 0; currentContainerElement < containerElementLength; currentContainerElement ++) {
+//                 for (let currentContainerElement = 0; currentContainerElement &lt; containerElementLength; currentContainerElement ++) {
 //                     let elementClasses = containerElement.getElementsByClassName(className);
 //                     loadContentInElementClasses(elementClasses);
 //                 }
@@ -2590,7 +2618,7 @@ Modules.Server = class {
 //
 //             function loadContentInElementClasses (elementClasses) {
 //                 let classesCount = elementClasses.length;
-//                 for (let htmlID = 0; htmlID < classesCount; htmlID++) {
+//                 for (let htmlID = 0; htmlID &lt; classesCount; htmlID++) {
 //                     elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
 //                     elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", itemType);
 //                     elementClasses[htmlID].innerHTML = HTMLContent;
@@ -2777,7 +2805,7 @@ Modules.Server = class {
 //
 //         function onTemplateLoaded (templateName, handle) {
 //             let templateElements = document.getElementsByClassName(templateName);
-//             for (let currentId = 0; currentId < templateElements.length; currentId++) {
+//             for (let currentId = 0; currentId &lt; templateElements.length; currentId++) {
 //                 if (templateElements[currentId].getAttribute("data-" + "templateLoaded") == null) {
 //                     handle(templateElements[currentId], currentId);
 //                     templateElements[currentId].setAttribute("data-" + "templateLoaded", true);
@@ -2928,7 +2956,7 @@ Modules.Server = class {
 // //            let done = false;
 // //            script.onreadystatechange = script.onload = function () {
 // //                let state = script.readyState;
-// //                if (!done && (!state || state === "loaded" || state === "complete")) {
+// //                if (!done &amp;&amp; (!state || state === "loaded" || state === "complete")) {
 // //                    done = true;
 // //                    if (callback) {
 // //                        callback(name);
@@ -2951,7 +2979,7 @@ Modules.Server = class {
 // //                elementClasses = document.getElementsByClassName(className);
 // //            }
 // //            let classesCount = elementClasses.length;
-// //            for (let htmlID = 0; htmlID < classesCount; htmlID++) {
+// //            for (let htmlID = 0; htmlID &lt; classesCount; htmlID++) {
 // //                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
 // //                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_type", htmlItemType);
 // //                elementClasses[htmlID].innerHTML = responseText;
@@ -2986,7 +3014,7 @@ Modules.Server = class {
 // //            let keys = Object.keys(simpleDataSource);
 // //            let placeholder, value;
 // //            let result = responseText;
-// //            for (let i = 0; i < keys.length; i++) {
+// //            for (let i = 0; i &lt; keys.length; i++) {
 // //                placeholder = keys[i];
 // //                value = simpleDataSource[keys[i]];
 // //                result = result.split('$' + placeholder + ';').join(value);
@@ -3047,7 +3075,7 @@ Modules.Server = class {
 // //                    }
 // //                    //list
 // //                    else {
-// //                        for (let i = 0; i < dataSource.length; i++) {
+// //                        for (let i = 0; i &lt; dataSource.length; i++) {
 // //                            stepResult = _replace$PlaceholdersInTemplate(responseText, name, dataSource[i]);
 // //                            stepResult = _addUUIDAttribute(stepResult, i, templateName);
 // //                            result += stepResult;
@@ -3188,7 +3216,7 @@ Modules.Server = class {
 //
 //             script.onreadystatechange = script.onload = function () {
 //                 let state = script.readyState;
-//                 if (!done && (!state || state === "loaded" || state === "complete")) {
+//                 if (!done &amp;&amp; (!state || state === "loaded" || state === "complete")) {
 //                     done = true;
 //                     document.dispatchEvent(new CustomEvent("config_" + name + "_loaded",
 //                         {"detail": {"configName" : name, "_path": path}}
@@ -3217,3 +3245,26 @@ Modules.Server = class {
 //  * @name Modules
 //  */
 // let Modules = window.exports.Modules;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Modules.html">Modules</a></li></ul><h3>Classes</h3><ul><li><a href="module-Modules.Modules.html">Modules</a></li><li><a href="module-Modules.Modules.DOM.html">DOM</a></li><li><a href="module-Modules.Modules.Loader.html">Loader</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Jan 10 2020 19:22:02 GMT+0300 (Moscow Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

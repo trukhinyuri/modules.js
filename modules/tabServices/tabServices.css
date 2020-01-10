@@ -1,0 +1,75 @@
+@font-face {
+    font-family: "MTSSansWeb";
+    src: url("../../fonts/MTSSans-Regular.otf") format("opentype");
+}
+
+* {
+    font-family: MTSSansWeb, Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.tabServices {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+    "tabs contentSpace"
+    "clear contentSpace"
+}
+
+.tab {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    background-color: #f1f1f1;
+    justify-self: stretch;
+    grid-area: tabs;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tablinks {
+    height: 6mm;
+    display: grid;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 4mm;
+}
+
+
+/* Change background color of buttons on hover */
+.tablinks:hover {
+    background-color: #e7e7e7;
+    color: black;
+}
+
+.tablinks_selected, .tablinks_selected:hover {
+    background-color: rgb(227, 6, 17);
+    color: white;
+}
+
+.tablinks_unselected {
+    background-color: #f3f3f3;
+    color: black;
+}
+
+
+/* Style the tab content */
+.tabcontent {
+    padding: 6px 12px;
+    border-right: 0.2mm solid #dbdee5;
+    justify-self: stretch;
+    grid-area: contentSpace;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: flex;
+}

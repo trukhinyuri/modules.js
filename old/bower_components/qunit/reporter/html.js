@@ -22,7 +22,7 @@ QUnit.init = function() {
 	config.queue = [];
 
 	// Return on non-browser environments
-	// This is necessary to not break on node tests
+	// This is necessary to not break on node tests_old
 	if ( typeof window === "undefined" ) {
 		return;
 	}
@@ -34,10 +34,10 @@ QUnit.init = function() {
 			"<h2 id='qunit-banner'></h2>" +
 			"<div id='qunit-testrunner-toolbar'></div>" +
 			"<h2 id='qunit-userAgent'></h2>" +
-			"<ol id='qunit-tests'></ol>";
+			"<ol id='qunit-tests_old'></ol>";
 	}
 
-	tests = id( "qunit-tests" );
+	tests = id( "qunit-tests_old" );
 	banner = id( "qunit-banner" );
 	result = id( "qunit-testresult" );
 
@@ -262,9 +262,9 @@ function toolbarChanged() {
 	if ( "hidepassed" === field.name && "replaceState" in window.history ) {
 		config[ field.name ] = value || false;
 		if ( value ) {
-			addClass( id( "qunit-tests" ), "hidepass" );
+			addClass( id( "qunit-tests_old" ), "hidepass" );
 		} else {
-			removeClass( id( "qunit-tests" ), "hidepass" );
+			removeClass( id( "qunit-tests_old" ), "hidepass" );
 		}
 
 		// It is not necessary to refresh the whole page
@@ -436,7 +436,7 @@ function appendBanner() {
 }
 
 function appendTestResults() {
-	var tests = id( "qunit-tests" ),
+	var tests = id( "qunit-tests_old" ),
 		result = id( "qunit-testresult" );
 
 	if ( result ) {
@@ -465,10 +465,10 @@ function appendFilteredTest() {
 	if ( !testId || testId.length <= 0 ) {
 		return "";
 	}
-	return "<div id='qunit-filteredTest'>Rerunning selected tests: " + testId.join(", ") +
+	return "<div id='qunit-filteredTest'>Rerunning selected tests_old: " + testId.join(", ") +
 		" <a id='qunit-clearFilter' href='" +
 		setUrl({ filter: undefined, module: undefined, testId: undefined }) +
-		"'>" + "Run all tests" + "</a></div>";
+		"'>" + "Run all tests_old" + "</a></div>";
 }
 
 function appendUserAgent() {
@@ -504,7 +504,7 @@ function appendTestsList( modules ) {
 
 function appendTest( name, testId, moduleName ) {
 	var title, rerunTrigger, testBlock, assertList,
-		tests = id( "qunit-tests" );
+		tests = id( "qunit-tests_old" );
 
 	if ( !tests ) {
 		return;
@@ -544,7 +544,7 @@ QUnit.begin(function( details ) {
 			"<div id='qunit-testrunner-toolbar'></div>" +
 			appendFilteredTest() +
 			"<h2 id='qunit-userAgent'></h2>" +
-			"<ol id='qunit-tests'></ol>";
+			"<ol id='qunit-tests_old'></ol>";
 	}
 
 	appendHeader();
@@ -563,7 +563,7 @@ QUnit.begin(function( details ) {
 QUnit.done(function( details ) {
 	var i, key,
 		banner = id( "qunit-banner" ),
-		tests = id( "qunit-tests" ),
+		tests = id( "qunit-tests_old" ),
 		html = [
 			"Tests completed in ",
 			details.runtime,
@@ -595,7 +595,7 @@ QUnit.done(function( details ) {
 		].join( " " );
 	}
 
-	// clear own sessionStorage items if all tests passed
+	// clear own sessionStorage items if all tests_old passed
 	if ( config.reorder && defined.sessionStorage && details.failed === 0 ) {
 		for ( i = 0; i < sessionStorage.length; i++ ) {
 			key = sessionStorage.key( i++ );
@@ -631,7 +631,7 @@ QUnit.testStart(function( details ) {
 		testBlock.className = "running";
 	} else {
 
-		// Report later registered tests
+		// Report later registered tests_old
 		appendTest( details.name, details.testId, details.module );
 	}
 
@@ -736,7 +736,7 @@ QUnit.log(function( details ) {
 QUnit.testDone(function( details ) {
 	var testTitle, time, testItem, assertList,
 		good, bad, testCounts, skipped, sourceName,
-		tests = id( "qunit-tests" );
+		tests = id( "qunit-tests_old" );
 
 	if ( !tests ) {
 		return;
@@ -760,7 +760,7 @@ QUnit.testDone(function( details ) {
 
 	if ( bad === 0 ) {
 
-		// Collapse the passing tests
+		// Collapse the passing tests_old
 		addClass( assertList, "qunit-collapsed" );
 	} else if ( bad && config.collapse && !collapseNext ) {
 
@@ -768,7 +768,7 @@ QUnit.testDone(function( details ) {
 		collapseNext = true;
 	} else {
 
-		// Collapse remaining tests
+		// Collapse remaining tests_old
 		addClass( assertList, "qunit-collapsed" );
 	}
 

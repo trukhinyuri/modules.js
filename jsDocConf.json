@@ -29,8 +29,8 @@
         "explain": true,                  // same as -X
         "test": true,                     // same as -T
         "help": true,                     // same as --help or -h
-        "verbose": true,                  // same as --verbose, only relevant to tests.
-        "match": "value",                 // same as --match value, only relevant to tests.
-        "nocolor": true                   // same as --nocolor, only relevant to tests
+        "verbose": true,                  // same as --verbose, only relevant to tests_old.
+        "match": "value",                 // same as --match value, only relevant to tests_old.
+        "nocolor": true                   // same as --nocolor, only relevant to tests_old
     }
 }
