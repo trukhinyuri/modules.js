@@ -52,38 +52,28 @@ Modules.DOM = class {
      * @returns {string} scheme://host:port
      */
     static getDocumentRootURL() {
-        return window.location.origin;
-    }
+        return this._getDocumentRootURL(null);
+    };
 
-    // /**
-    //  * Check path correctness
-    //  * @private
-    //  * @param {String} path Location of the items
-    //  * @returns {String} Correct path or page directory
-    //  **/
-    // static buildDocumentURLWithPath(path) {
-    //     let documentRootURL = Modules.DOM.getDocumentRootURL();
-    //     if (typeof (path) == "string") {
-    //         if (path[path.length-1] != "/") {
-    //             if (path[0] != "/") {
-    //                 return documentRootURL + "/" + path + "/";
-    //             }
-    //             else {
-    //                 return documentRootURL + path + "/";
-    //             }
-    //         }
-    //         else {
-    //             if (path[0] != "/") {
-    //                 return documentRootURL + "/" + path;
-    //             } else {
-    //                 return documentRootURL + path;
-    //             }
-    //         }
-    //     }
-    //     else {
-    //         return documentRootURL + "/";
-    //     }
-    // }
+    /**
+     * Get "scheme://host:port" from documentURL
+     * For window.location.origin mocking
+     * @private
+     * @static
+     * @deprecated
+     * @returns {string} scheme://host:port
+     */
+    static _getDocumentRootURL(location) {
+        let internalLocation;
+        if(typeof location != 'string') {
+            internalLocation = window.location.origin;
+        } else {
+            internalLocation = location;
+        }
+        return internalLocation;
+    };
+
+
 
     static isHTMLModule (htmlElement) {
         if (htmlElement.parentNode != null) {
@@ -151,28 +141,45 @@ Modules.Loader = class {
 
     constructor() { }
 
-     /**
-      * Check path correctness
-      * @private
-      * @param {String} path Location of the items
-      * @returns {String} Correct path or page directory
+    /**Build "scheme://host:port/path/"
+     * @static
+     * @param {String} relativePath relative path to documentURL, for example "modules"
+     * @returns {String} "scheme://host:port/path/"
      **/
-    static _checkPath(path) {
-        let documentRootURL = window.location.origin;
-        if (typeof (path) == "string") {
-            if (path[path.length-1] != "/") {
-                if (path[0] != "/") {
-                    return documentRootURL + "/" + path + "/";
+    static buildDocumentURLWithPath(relativePath) {
+        return this._buildDocumentURLWithPath(relativePath, null);
+    }
+
+    /**Build "scheme://host:port/path/"
+     * For window.location.origin mocking
+     * @static
+     * @private
+     * @param {String} relativePath relative path to documentURL, for example "modules"
+     * @returns {String} "scheme://host:port/path/"
+     **/
+    static _buildDocumentURLWithPath(relativePath, documentRootURLFake) {
+        let documentRootURL;
+        if (typeof documentRootURLFake != 'string') {
+            documentRootURL = window.location.origin;
+            documentRootURL = documentRootURLFake;
+        } else {
+            documentRootURL = documentRootURLFake;
+        }
+
+        if (typeof (relativePath) === "string") {
+            if (relativePath[relativePath.length-1] !== "/") {
+                if (relativePath[0] !== "/") {
+                    return documentRootURL + "/" + relativePath + "/";
                 }
                 else {
-                    return documentRootURL + path + "/";
+                    return documentRootURL + relativePath + "/";
                 }
             }
             else {
-                if (path[0] != "/") {
-                    return documentRootURL + "/" + path;
+                if (relativePath[0] !== "/") {
+                    return documentRootURL + "/" + relativePath;
                 } else {
-                    return documentRootURL + path;
+                    return documentRootURL + relativePath;
                 }
             }
         }
@@ -240,7 +247,7 @@ Modules.Loader = class {
         } else {
             indexCorrect = 0;
         }
-        let correctPath = this._checkPath(relativePath);
+        let correctPath = this.buildDocumentURLWithPath(relativePath);
 
         let modulePath = this._buildModulePath(correctPath, moduleName);
 
@@ -354,7 +361,7 @@ Modules.Loader = class {
     }
 
     static loadCSS (relativePath, itemName, callback) {
-        let _correctPath = this._checkPath(relativePath);
+        let _correctPath = this.buildDocumentURLWithPath(relativePath);
         let _correctName = this._checkName(itemName);
         this._loadCSS(_correctPath, _correctName, callback);
     }
@@ -923,7 +930,7 @@ Modules.Loader = class {
     }
 
     static loadTemplate (relativePath, moduleName, className, dataSource, callback, containerClassName) {
-        let _correctPath = this._checkPath(relativePath);
+        let _correctPath = this.buildDocumentURLWithPath(relativePath);
         this._loadTemplate(_correctPath, moduleName, className, callback, containerClassName, dataSource);
     }
 
@@ -2252,7 +2259,7 @@ Modules.Server = class {
 //         /**
 //          * Check path correctness
 //          * @private
-//          * @method _checkPath
+//          * @method buildDocumentURLWithPath
 //          * @memberOf Modules.Loader
 //          * @param {String} path Location of the items
 //          * @returns {String} Correct path or page directory

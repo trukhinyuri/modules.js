@@ -19,11 +19,6 @@ limitations under the License.
 
 [http://api.modules.plugndo.com](http://api.modules.plugndo.com)
 
-
-###Donations
-
-[Donate with PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CFZMK8KLFSJC4)
-
 ###Cloud Hosting
 
 [#CloudMTS](https://cloud.mts.ru)

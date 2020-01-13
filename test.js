@@ -33,16 +33,12 @@ describe('Modules', function () {
             counter.assert()
         });
 
-        it('getDocumentRootURL', function () {
+        it('_getDocumentRootURL // getDocumentRootURL', function () {
             counter.expect(1);
-            let window = {
-                location: {
-                    origin: 'https://plugndo.com:8080'
-                }
-            };
 
-            let actual = window.location.origin;
-             expect(actual).to.equal("https://plugndo.com:8080").cc;
+            let expected = "https://plugndo.com:8080";
+            let actual = Modules.DOM._getDocumentRootURL("https://plugndo.com:8080");
+             expect(actual).to.equal(expected).cc;
              counter.assert()
         });
     });
@@ -51,6 +47,28 @@ describe('Modules', function () {
         it('Modules.Loader object exist', function () {
             let loader = new Modules.Loader();
             expect(loader).to.be.a('object');
+        });
+
+        it('_buildDocumentURLWithPath // buildDocumentURLWithPath', function () {
+            counter.expect(4);
+            let expected, actual;
+
+            expected = "https://plugndo.com:8080/modules/";
+            actual = Modules.Loader._buildDocumentURLWithPath('modules', "https://plugndo.com:8080");
+            expect(actual).to.equal(expected).cc;
+
+            actual = Modules.Loader._buildDocumentURLWithPath('modules/', "https://plugndo.com:8080");
+            expect(actual).to.equal(expected).cc;
+
+            actual = Modules.Loader._buildDocumentURLWithPath('/modules/', "https://plugndo.com:8080");
+            expect(actual).to.equal(expected).cc;
+
+            expected = "https://plugndo.com:8080/";
+
+            actual = Modules.Loader._buildDocumentURLWithPath(null, "https://plugndo.com:8080");
+            expect(actual).to.equal(expected).cc;
+
+            counter.assert();
         });
     });
 
