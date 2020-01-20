@@ -4532,7 +4532,7 @@
   				param = params[i].split("=");
   				name = decodeQueryParam(param[0]);
 
-  				// Allow just a key to turn on a flag, e.g., test.html?noglobals
+  				// Allow just a key to turn on a flag, e.g., tests.html?noglobals
   				value = param.length === 1 || decodeQueryParam(param.slice(1).join("="));
   				if (name in urlParams) {
   					urlParams[name] = [].concat(urlParams[name], value);

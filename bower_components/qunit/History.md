@@ -763,8 +763,8 @@
   * Fix IE8 "Member not found" error
   * Using node-qunit port, the start/stop function are not exposed so we need to prefix any call to them with 'QUnit'. Aka: start() -> QUnit.start()
   * Remove the 'let teardown clean up globals test' - IE<9 doesn't support (==buggy) deleting window properties, and that's not worth the trouble, as everything else passes just fine. Fixes #155
-  * Fix globals in test.js, part 2
-  * Fix globals in test.js. ?tell wwalser to use ?noglobals every once in a while
+  * Fix globals in tests.js, part 2
+  * Fix globals in tests.js. ?tell wwalser to use ?noglobals every once in a while
   * Extend readme regarding release process
 
 1.1.0 / 2011-10-11
@@ -828,7 +828,7 @@
   * Whitespace
   * Merge remote branch 'wwalser/syncStopCalls'
   * Introducing the first QUnit addon, based on https://github.com/jquery/qunit/pull/84 - adds QUnit.pixelEqual assertion method, along with example tests.
-  * Remove config.hidepassed setting in test.js, wasn't intended to land in master.
+  * Remove config.hidepassed setting in tests.js, wasn't intended to land in master.
   * Expose QUnit.config.hidepassed setting. Overrides sessionStorage and enables enabling the feature programmatically. Fixes #133
   * Fix formatting (css whitespace) for tracebacks.
   * Expose extend, id, and addEvent methods.
@@ -1002,7 +1002,7 @@
   * The QUnit. prefix was missing from the uses of the start() method.
   * Merged lifecycle object into testEnvironment
   * "replacing totally wrong diff algorithm with a working one" Patch from kassens (manually applied).
-  * fixing jslint errors in test.js
+  * fixing jslint errors in tests.js
   * Fixed: testDone() was always called with 0 failures in CommonJS mode
   * Fixed: moduleDone() was invoked on first call to module()
   * Added a new asyncTest method - removes the need for having to call start() at the beginning of an asynchronous test.

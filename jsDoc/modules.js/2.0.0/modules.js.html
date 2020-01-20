@@ -101,64 +101,62 @@ Modules.DOM = class {
         return internalLocation;
     };
 
-
-
-    static isHTMLModule (htmlElement) {
-        if (htmlElement.parentNode != null) {
-            return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === Modules.MODULE;
-        } else {
-            return false;
-        }
-    }
-
-    static isHTMLTemplate (htmlElement) {
-        if (htmlElement.parentNode != null) {
-            return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === Modules.TEMPLATE;
-        } else {
-            return false;
-        }
-    }
-
-    static getModules (className) {
-        let elements = document.getElementsByClassName(className);
-        let result = new Array();
-        for (let i = 0; i &lt; elements.length; i++) {
-            if (this.isHTMLModule(elements[i])) {
-                result.push(elements[i]);
-            }
-        }
-        return result;
-    }
-
-    static getTemplates (className) {
-        let elements = document.getElementsByClassName(className);
-        let result = new Array();
-        for (let i = 0; i &lt; elements.length; i++) {
-            if (this.isHTMLTemplate(elements[i])) {
-                result.push(elements[i]);
-            }
-        }
-        return result;
-    }
-
-    static getFirstContainerElementByClassName (htmlElement, className) {
-        if (htmlElement.className === className) {
-            return htmlElement;
-        } else {
-            if (htmlElement.parentNode != null) {
-                return this.getFirstContainerElementByClassName(htmlElement.parentNode, className);
-            }
-            else {
-                return null;
-            }
-        }
-    }
-
     static getFirstElementByClassName (htmlDocument, className) {
         return htmlDocument.getElementsByClassName(className)[0];
     }
 
 
+//ToDo: rewrite to compatibility with new modules loading process
+    // static isHTMLModule (htmlElement) {
+    //     if (htmlElement.parentNode != null) {
+    //         return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === Modules.MODULE;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    //
+    // static isHTMLTemplate (htmlElement) {
+    //     if (htmlElement.parentNode != null) {
+    //         return htmlElement.parentNode.getAttribute("data-" + "modulesjs_item_type") === Modules.TEMPLATE;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    //
+    // static getModules (className) {
+    //     let elements = document.getElementsByClassName(className);
+    //     let result = new Array();
+    //     for (let i = 0; i &lt; elements.length; i++) {
+    //         if (this.isHTMLModule(elements[i])) {
+    //             result.push(elements[i]);
+    //         }
+    //     }
+    //     return result;
+    // }
+    //
+    // static getTemplates (className) {
+    //     let elements = document.getElementsByClassName(className);
+    //     let result = new Array();
+    //     for (let i = 0; i &lt; elements.length; i++) {
+    //         if (this.isHTMLTemplate(elements[i])) {
+    //             result.push(elements[i]);
+    //         }
+    //     }
+    //     return result;
+    // }
+    //
+    // static getFirstContainerElementByClassName (htmlElement, className) {
+    //     if (htmlElement.className === className) {
+    //         return htmlElement;
+    //     } else {
+    //         if (htmlElement.parentNode != null) {
+    //             return this.getFirstContainerElementByClassName(htmlElement.parentNode, className);
+    //         }
+    //         else {
+    //             return null;
+    //         }
+    //     }
+    // }
 };
 
 /**
@@ -174,8 +172,8 @@ Modules.Loader = class {
      * @param {String} relativePath relative path to documentURL, for example "modules"
      * @returns {String} "scheme://host:port/path/"
      **/
-    static buildDocumentURLWithPath(relativePath) {
-        return this._buildDocumentURLWithPath(relativePath, null);
+    static buildDocumentURLWithRelativePath(relativePath) {
+        return this._buildDocumentURLWithRelativePath(relativePath, null);
     }
 
     /**Build "scheme://host:port/path/"
@@ -183,9 +181,10 @@ Modules.Loader = class {
      * @static
      * @private
      * @param {String} relativePath relative path to documentURL, for example "modules"
+     * @param {String} documentRootURLFake URL for window.location.origin mocking
      * @returns {String} "scheme://host:port/path/"
      **/
-    static _buildDocumentURLWithPath(relativePath, documentRootURLFake) {
+    static _buildDocumentURLWithRelativePath(relativePath, documentRootURLFake) {
         let documentRootURL;
         if (typeof documentRootURLFake != 'string') {
             documentRootURL = window.location.origin;
@@ -216,12 +215,41 @@ Modules.Loader = class {
         }
     }
 
-    static _buildModulePath(path, moduleName) {
-        let result = path + moduleName + "/";
+    /**Build "scheme://host:port/path/moduleName/"
+     *
+     * @static
+     * @param relativePath relative path to documentURL, for example "modules"
+     * @param moduleName name of module, located in relativePath, for example "footer"
+     * @returns {string} "scheme://host:port/path/moduleName/"
+     */
+    static buildDocumentURLWithRelativePathAndModulePath(relativePath, moduleName) {
+        let result = this._buildDocumentURLWithRelativePathAndModulePath(relativePath, moduleName, null);
         return result;
     }
 
-    static _makeRequest(method, url) {
+    /**Build "scheme://host:port/path/moduleName/"
+     *
+     * @static
+     * @param relativePath relative path to documentURL, for example "modules"
+     * @param moduleName name of module, located in relativePath, for example "footer"
+     * @param {String} documentRootURLFake URL for window.location.origin mocking
+     * @returns {string} "scheme://host:port/path/moduleName/"
+     * @private
+     */
+    static _buildDocumentURLWithRelativePathAndModulePath(relativePath, moduleName, documentRootURLFake) {
+        let result = this._buildDocumentURLWithRelativePath(relativePath, documentRootURLFake) + moduleName + "/";
+        return result;
+    }
+
+    /**
+     * Async XMLHttpRequest implementation.
+     * Example: let result = await Modules.Loader.asyncRequest("GET", "./modulesForTests/first/first.js");
+     * @param HTTP HTTP method
+     * @param url URL
+     * @returns {Promise&lt;unknown>}
+     * @static
+     */
+    static asyncRequest(method, url) {
         return new Promise(function (resolve, reject) {
             let xhr = new XMLHttpRequest();
             xhr.open(method, url);
@@ -275,17 +303,16 @@ Modules.Loader = class {
         } else {
             indexCorrect = 0;
         }
-        let correctPath = this.buildDocumentURLWithPath(relativePath);
 
-        let modulePath = this._buildModulePath(correctPath, moduleName);
+        let modulePath = this.buildDocumentURLWithRelativePathAndModulePath(relativePath, moduleName);
 
         let itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className}};
 
         let pathToModuleFiles = modulePath + moduleName;
 
-        let cssContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "css");
-        let htmlContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "html");
-        let jsContent = await this._makeRequest("GET", pathToModuleFiles  + "." + "js");
+        let cssContent = await this.asyncRequest("GET", pathToModuleFiles  + "." + "css");
+        let htmlContent = await this.asyncRequest("GET", pathToModuleFiles  + "." + "html");
+        let jsContent = await this.asyncRequest("GET", pathToModuleFiles  + "." + "js");
 
         htmlContent = await this._proxyingData(dataSource, htmlContent);
 
@@ -389,7 +416,7 @@ Modules.Loader = class {
     }
 
     static loadCSS (relativePath, itemName, callback) {
-        let _correctPath = this.buildDocumentURLWithPath(relativePath);
+        let _correctPath = this.buildDocumentURLWithRelativePath(relativePath);
         let _correctName = this._checkName(itemName);
         this._loadCSS(_correctPath, _correctName, callback);
     }
@@ -958,7 +985,7 @@ Modules.Loader = class {
     }
 
     static loadTemplate (relativePath, moduleName, className, dataSource, callback, containerClassName) {
-        let _correctPath = this.buildDocumentURLWithPath(relativePath);
+        let _correctPath = this.buildDocumentURLWithRelativePath(relativePath);
         this._loadTemplate(_correctPath, moduleName, className, callback, containerClassName, dataSource);
     }
 
@@ -3268,7 +3295,7 @@ Modules.Server = class {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Jan 13 2020 20:48:17 GMT+0300 (Moscow Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Jan 20 2020 12:34:57 GMT+0300 (Moscow Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

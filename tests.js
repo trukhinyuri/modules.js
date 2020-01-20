@@ -4,10 +4,10 @@ import sinon from './node_modules/sinon/pkg/sinon-esm.js';
 let expect = chai.expect;
 let assert = chai.assert;
 let should = chai.should;
-let counter = window.chai_counter
+let before = chai.before;
+let after = chai.after;
+let counter = window.chai_counter;
 chai.use(chai_counter.plugin);
-
-
 
 describe('Modules', function () {
     it('Modules object exist', function () {
@@ -54,22 +54,61 @@ describe('Modules', function () {
             let expected, actual;
 
             expected = "https://plugndo.com:8080/modules/";
-            actual = Modules.Loader._buildDocumentURLWithPath('modules', "https://plugndo.com:8080");
+            actual = Modules.Loader._buildDocumentURLWithRelativePath('modules', "https://plugndo.com:8080");
             expect(actual).to.equal(expected).cc;
 
-            actual = Modules.Loader._buildDocumentURLWithPath('modules/', "https://plugndo.com:8080");
+            actual = Modules.Loader._buildDocumentURLWithRelativePath('modules/', "https://plugndo.com:8080");
             expect(actual).to.equal(expected).cc;
 
-            actual = Modules.Loader._buildDocumentURLWithPath('/modules/', "https://plugndo.com:8080");
+            actual = Modules.Loader._buildDocumentURLWithRelativePath('/modules/', "https://plugndo.com:8080");
             expect(actual).to.equal(expected).cc;
 
             expected = "https://plugndo.com:8080/";
 
-            actual = Modules.Loader._buildDocumentURLWithPath(null, "https://plugndo.com:8080");
+            actual = Modules.Loader._buildDocumentURLWithRelativePath(null, "https://plugndo.com:8080");
             expect(actual).to.equal(expected).cc;
 
             counter.assert();
         });
+
+        it('_buildDocumentURLWithPathAndModulePath', function () {
+            counter.expect(1);
+            let expected, actual;
+
+            expected = "https://plugndo.com:8080/modules/footer/";
+            actual = Modules.Loader._buildDocumentURLWithRelativePathAndModulePath('modules', 'footer', "https://plugndo.com:8080");
+            expect(actual).to.equal(expected).cc;
+
+            counter.assert();
+        });
+
+        it('makeRequest ("GET", "./modulesForTests/first/first.js") // real file loading', async () => {
+            counter.expect(1);
+
+            let result = await Modules.Loader.asyncRequest("GET", "./modulesForTests/first/first.js");
+            expect(result.split('\n')[0]).to.equal("let first = 0;").cc;
+
+            counter.assert();
+        });
+
+        it('makeRequest ("GET", "/modulesForTests/first/first.js") // real file loading', async () => {
+            counter.expect(1);
+
+            let result = await Modules.Loader.asyncRequest("GET", "/modulesForTests/first/first.js");
+            expect(result.split('\n')[0]).to.equal("let first = 0;").cc;
+
+            counter.assert();
+        });
+
+        it('makeRequest ("GET", "modulesForTests/first/first.js") // real file loading', async () => {
+            counter.expect(1);
+
+            let result = await Modules.Loader.asyncRequest("GET", "modulesForTests/first/first.js");
+            expect(result.split('\n')[0]).to.equal("let first = 0;").cc;
+
+            counter.assert();
+        });
+
     });
 
 });

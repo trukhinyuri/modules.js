@@ -94,7 +94,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line142">line 142</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line140">line 140</a>
     </li></ul></dd>
     
 
@@ -150,7 +150,176 @@
     
 
     
-    <h4 class="name" id=".buildDocumentURLWithPath"><span class="type-signature">(static) </span>buildDocumentURLWithPath<span class="signature">(relativePath)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    <h4 class="name" id=".asyncRequest"><span class="type-signature">(static) </span>asyncRequest<span class="signature">(HTTP, url)</span><span class="type-signature"> &rarr; {Promise.&lt;unknown>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Async XMLHttpRequest implementation.
+Example: let result = await Modules.Loader.asyncRequest("GET", "./modulesForTests/first/first.js");
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>HTTP</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">HTTP method</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">URL</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line224">line 224</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;unknown></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".buildDocumentURLWithRelativePath"><span class="type-signature">(static) </span>buildDocumentURLWithRelativePath<span class="signature">(relativePath)</span><span class="type-signature"> &rarr; {String}</span></h4>
     
 
     
@@ -251,7 +420,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line149">line 149</a>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line147">line 147</a>
     </li></ul></dd>
     
 
@@ -304,6 +473,178 @@
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id=".buildDocumentURLWithRelativePathAndModulePath"><span class="type-signature">(static) </span>buildDocumentURLWithRelativePathAndModulePath<span class="signature">(relativePath, moduleName)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Build "scheme://host:port/path/moduleName/"
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>relativePath</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">relative path to documentURL, for example "modules"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>moduleName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">name of module, located in relativePath, for example "footer"</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules.js.html">modules.js</a>, <a href="modules.js.html#line197">line 197</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    "scheme://host:port/path/moduleName/"
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
     
 
     
@@ -325,7 +666,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Jan 13 2020 20:48:17 GMT+0300 (Moscow Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Jan 20 2020 12:34:57 GMT+0300 (Moscow Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

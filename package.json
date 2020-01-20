@@ -17,5 +17,8 @@
     "swagger": "latest",
     "swagger-jsdoc": "^3.5.0",
     "swagger-ui": "latest"
+  },
+  "devDependencies": {
+    "nyc": "^15.0.0"
   }
 }
