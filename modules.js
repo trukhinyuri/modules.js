@@ -27,6 +27,7 @@
  * Class Modules.JS Framework
  * @type {Modules}
  */
+
 export class Modules {
     /**
      * Create a modules.js object
@@ -221,7 +222,7 @@ Modules.Loader = class {
      * @returns {Promise<unknown>}
      * @static
      */
-    static asyncRequest(method, url) {
+    static requestAsync(method, url) {
         return new Promise(function (resolve, reject) {
             let xhr = new XMLHttpRequest();
             xhr.open(method, url);
@@ -245,28 +246,109 @@ Modules.Loader = class {
         });
     }
 
-    static async loadModule (relativePath, moduleName, className, dataSource, SDRoot) {
-        let result = false;
+    /**
+     * Load modules.js module "moduleName" from relativePathToRoot to className on the document or different module
+     * @param parentModuleNameOrNull null if module loading to document, parentModuleName if we load module in different module
+     * @param relativePathFromRoot Relative path to the DocumentRootURL, containing the folder of the module to load.
+     * @param moduleName Name of module to load
+     * @param className The name of classes in HTML where you want to load the module.
+     * @returns {Promise<boolean>}
+     */
+    static async loadSingleModuleInClassAsync (parentModuleNameOrNull, relativePathFromRoot, moduleName, className) {
+        let dataSource = undefined;
+        let SDRoot = undefined;
+        let resultLoading = false;
 
-        // if (dataSource[1] instanceof Object) {
-        //     result = await this._loadMultiModules(relativePath, moduleName, className, dataSource)
-        // } else {
-            result = await this._loadSingleModule(relativePath, moduleName, className, dataSource, null, SDRoot);
-        // }
-        return result;
+
+
+        //resultLoading = await this._loadSingleModule(relativePathFromRoot, moduleName, className, dataSource, null, SDRoot);
+        this._writeModuleLoadingTreeHistory(parentModuleNameOrNull, className, moduleName);
+
+        return resultLoading;
     }
 
-    static async _loadMultiModules(relativePath, moduleName, className, dataSource, isLoadInModule) {
-        let result = false;
-        let i = 0;
-        for (var prop in dataSource) {
-            if (Object.prototype.hasOwnProperty.call(dataSource, prop)) {
-                result = await this._loadSingleModule(relativePath, moduleName, className, dataSource[i], i);
-                i++;
-            }
-        }
-        return result;
+
+    /**
+     * Write module loading tree history in global object
+     * @param parent null if module loading to document, parentModuleName if we load module in different module
+     * @param className The name of classes in HTML where you want to load the module.
+     * @param moduleName Name of module to load
+     * @private
+     */
+    static _writeModuleLoadingTreeHistory (parent, className, moduleName) {
+        //Initialize history object if not exist
+        if (typeof window.__________ModulesGlobalInternalInfo__________ !== "object") {
+             window.__________ModulesGlobalInternalInfo__________ = {};
+         }
+        //Initialize history document array if not exist
+         if (Array.isArray(window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document) !== true) {
+             window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document = [];
+         }
+
+         //load module in document
+         if ((parent === null) || (parent === undefined)) {
+             let child = [];
+             let parent = [];
+             window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document.push({parent, className, moduleName, child});
+         } else {
+             //load module in another module
+             let treeRoot = window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document;
+             writeInModuleLoadingTreeAndGetSDRoot(treeRoot, parent, className, moduleName);
+
+             function writeInModuleLoadingTreeAndGetSDRoot(treeRoot, parent, className, moduleName) {
+                 for (let i = 0; i < treeRoot.length; i++) {
+                     if (treeRoot[i].moduleName === parent) {
+                         let child = [];
+                         treeRoot[i].child.push({parent, className, moduleName, child});
+                     } else {
+                         writeInModuleLoadingTreeAndGetSDRoot(treeRoot[i].child, parent, className, moduleName);
+                     }
+                 }
+             }
+         }
+
+        //  if (typeof parentPlaceName === "string") {
+        // //
+        // //     // let HeadContainer = document.getElementsByClassName("services")[0].shadowRoot;
+        // //     // let Container = HeadContainer.querySelectorAll("."+DynamicSDRoot)[0];
+        // //     // // let InternalContainer = Container.getElementsByClassName(DynamicSDRootInternalClass)[0];
+        // //     // let SDRoot = Container.shadowRoot;
+        // //     // return SDRoot;
+        // //
+        // //     //TODO:
+        // //     //this._findLoadTreeForParentPlaceName(parentPlaceName);
+        // //
+        // window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory.push({parentPlaceName, className, moduleName});
+        // //     // resultLoading = await this._loadSingleModule(relativePathFromRoot, moduleName, className, dataSource, null, SDRoot);
+        //  } else {
+        // //     throw "ParentName is not set.";
+        // //     return null;
+        //  }
     }
+
+    // static async loadModuleAsync (relativePath, moduleName, className, dataSource, SDRoot) {
+    //     let result = false;
+    //
+    //     // if (dataSource[1] instanceof Object) {
+    //     //     result = await this._loadMultiModules(relativePath, moduleName, className, dataSource)
+    //     // } else {
+    //     result = await this._loadSingleModule(relativePath, moduleName, className, dataSource, null, SDRoot);
+    //     // }
+    //     return result;
+    // }
+
+    //TODO: multiModulesLoadingSupport
+    // static async _loadMultiModules(relativePath, moduleName, className, dataSource, isLoadInModule) {
+    //     let result = false;
+    //     let i = 0;
+    //     for (var prop in dataSource) {
+    //         if (Object.prototype.hasOwnProperty.call(dataSource, prop)) {
+    //             result = await this._loadSingleModule(relativePath, moduleName, className, dataSource[i], i);
+    //             i++;
+    //         }
+    //     }
+    //     return result;
+    // }
 
     static async _loadSingleModule(relativePath, moduleName, className, dataSource, index, SDRoot) {
         let indexCorrect = 0;
@@ -282,9 +364,9 @@ Modules.Loader = class {
 
         let pathToModuleFiles = modulePath + moduleName;
 
-        let cssContent = await this.asyncRequest("GET", pathToModuleFiles  + "." + "css");
-        let htmlContent = await this.asyncRequest("GET", pathToModuleFiles  + "." + "html");
-        let jsContent = await this.asyncRequest("GET", pathToModuleFiles  + "." + "js");
+        let cssContent = await this.requestAsync("GET", pathToModuleFiles  + "." + "css");
+        let htmlContent = await this.requestAsync("GET", pathToModuleFiles  + "." + "html");
+        let jsContent = await this.requestAsync("GET", pathToModuleFiles  + "." + "js");
 
         htmlContent = await this._proxyingData(dataSource, htmlContent);
 
