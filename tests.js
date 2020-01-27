@@ -162,6 +162,9 @@ describe('Modules', () =>  {
             counter.assert();
         });
 
+        it("_findShadowDomRoots (parent, className, moduleName)", function () {
+        });
+
         // it('loadSingleModuleInClassAsync (relativePath, moduleName, className) // stub', async () => {
         //     counter.expect(1);
         //
@@ -178,11 +181,12 @@ describe('Modules', () =>  {
         //     stub.restore();
         // });
 
-         it('loadSingleModuleInClassAsync (relativePathFromRoot, moduleName, className) // check cascade modules loading', function () {
-             Modules.Loader.loadSingleModuleInClassAsync(null, "modulesForTests", "first", "modulesSpace");
-             Modules.Loader.loadSingleModuleInClassAsync(null, "modulesForTests", "first", "modulesSpace");
-             Modules.Loader.loadSingleModuleInClassAsync("first", "modulesForTests", "second", "first");
-             Modules.Loader.loadSingleModuleInClassAsync("second", "modulesForTests", "third", "second");
+         it("loadSingleModuleInClassAsync (relativePathFromRoot, moduleName, className) // check cascade modules loading", () => {
+             let result = Modules.Loader.loadModuleInClass(null, "modulesForTests", "cascadeModuleLoading", "modulesSpace");
+
+             // Modules.Loader.loadSingleModuleInClassAsync(null, "modulesForTests", "first", "modulesSpace");
+             // Modules.Loader.loadSingleModuleInClassAsync("first", "modulesForTests", "second", "first");
+             // Modules.Loader.loadSingleModuleInClassAsync("second", "modulesForTests", "third", "second");
              console.log(JSON.stringify(window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document));
          });
 

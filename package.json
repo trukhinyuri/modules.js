@@ -19,6 +19,7 @@
     "swagger-ui": "latest"
   },
   "devDependencies": {
-    "nyc": "^15.0.0"
+    "nyc": "^15.0.0",
+    "stylelint-config-recommended": "^3.0.0"
   }
 }

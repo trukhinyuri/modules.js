@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "MTSSansWeb";
+    src: url("/fonts/MTSSans-Regular.otf") format("opentype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-auto-rows: auto 1fr;
+    grid-template-columns: 1fr minmax(260mm, 1fr) minmax(260mm, 1fr) 1fr;
+    grid-template-areas:
+            "pageHeader pageHeader pageHeader pageHeader"
+            ". services results ."
+}
+
+.pageHeader {
+    grid-area: pageHeader;
+}
+
+.services {
+    grid-area: services;
+}
+
+.results {
+    grid-area: results;
+}
+
+.free {
+    grid-area: free;
+}

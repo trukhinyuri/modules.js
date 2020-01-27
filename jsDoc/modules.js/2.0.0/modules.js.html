@@ -189,7 +189,6 @@ Modules.Loader = class {
         let documentRootURL;
         if (typeof documentRootURLFake != 'string') {
             documentRootURL = window.location.origin;
-            documentRootURL = documentRootURLFake;
         } else {
             documentRootURL = documentRootURLFake;
         }
@@ -282,16 +281,10 @@ Modules.Loader = class {
      * @param className The name of classes in HTML where you want to load the module.
      * @returns {Promise&lt;boolean>}
      */
-    static async loadSingleModuleInClassAsync (parentModuleNameOrNull, relativePathFromRoot, moduleName, className) {
-        let dataSource = undefined;
-        let SDRoot = undefined;
-        let resultLoading = false;
-
-
-
-        //resultLoading = await this._loadSingleModule(relativePathFromRoot, moduleName, className, dataSource, null, SDRoot);
+    static async loadSingleModuleInClassAsync (parentModuleNameOrNull, relativePathFromRoot, moduleName, className, dataSource) {
+        console.log("parentModuleName: " + parentModuleNameOrNull)
+        let resultLoading = await this._loadSingleModule(parentModuleNameOrNull, relativePathFromRoot, moduleName, className, dataSource);
         this._writeModuleLoadingTreeHistory(parentModuleNameOrNull, className, moduleName);
-
         return resultLoading;
     }
 
@@ -304,43 +297,36 @@ Modules.Loader = class {
      * @private
      */
     static _writeModuleLoadingTreeHistory (parent, className, moduleName) {
+        //Initialize history object if not exist
         if (typeof window.__________ModulesGlobalInternalInfo__________ !== "object") {
              window.__________ModulesGlobalInternalInfo__________ = {};
          }
+        //Initialize history document array if not exist
          if (Array.isArray(window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document) !== true) {
              window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document = [];
          }
 
+         //load module in document
          if ((parent === null) || (parent === undefined)) {
              let child = [];
              let parent = [];
              window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document.push({parent, className, moduleName, child});
          } else {
-             // let treeRoot = window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document;
-             // let findParent = false;
-             //
+             //load module in another module
              let treeRoot = window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document;
-             writeInModuleLoadingTreeAndGetSDRoot(treeRoot, parent, className, moduleName);
+             writeInModuleLoadingRecord(treeRoot, parent, className, moduleName);
 
-             function writeInModuleLoadingTreeAndGetSDRoot(treeRoot, parent, className, moduleName) {
+             function writeInModuleLoadingRecord(treeRoot, parent, className, moduleName) {
                  for (let i = 0; i &lt; treeRoot.length; i++) {
                      if (treeRoot[i].moduleName === parent) {
                          let child = [];
                          treeRoot[i].child.push({parent, className, moduleName, child});
                      } else {
-                         writeInModuleLoadingTreeAndGetSDRoot(treeRoot[i].child, parent, className, moduleName);
+                         writeInModuleLoadingRecord(treeRoot[i].child, parent, className, moduleName);
                      }
                  }
              }
-             // for (let i = 0; i &lt; treeRoot.length; i++) {
-             //     if (treeRoot[i].moduleName === parentPlaceName) {
-             //         let child = [];
-             //         treeRoot[i].child.push({parentPlaceName, className, moduleName, child});
-             //     }
-             // }
-
          }
-
         //  if (typeof parentPlaceName === "string") {
         // //
         // //     // let HeadContainer = document.getElementsByClassName("services")[0].shadowRoot;
@@ -348,16 +334,76 @@ Modules.Loader = class {
         // //     // // let InternalContainer = Container.getElementsByClassName(DynamicSDRootInternalClass)[0];
         // //     // let SDRoot = Container.shadowRoot;
         // //     // return SDRoot;
-        // //
-        // //     //TODO:
-        // //     //this._findLoadTreeForParentPlaceName(parentPlaceName);
-        // //
-        // window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory.push({parentPlaceName, className, moduleName});
-        // //     // resultLoading = await this._loadSingleModule(relativePathFromRoot, moduleName, className, dataSource, null, SDRoot);
-        //  } else {
-        // //     throw "ParentName is not set.";
-        // //     return null;
-        //  }
+    }
+
+    static _findShadowDomRoots (parent, className, moduleName) {
+
+        //Initialize history object if not exist
+        if (typeof window.__________ModulesGlobalInternalInfo__________ !== "object") {
+            window.__________ModulesGlobalInternalInfo__________ = {};
+        }
+        //Initialize history document array if not exist
+        if (Array.isArray(window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document) !== true) {
+            window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document = [];
+        }
+        let resultArray = [];
+
+        if ((parent === null) || (parent === undefined)) {
+            return undefined;
+        } else {
+            //load module in another module
+            console.log("loading l2")
+            let treeRoot = window.__________ModulesGlobalInternalInfo__________.ModulesLoadHistory_document;
+            console.log(treeRoot)
+
+            searchInModuleLoadingHistory(treeRoot, parent, className, moduleName, null);
+
+            function searchInModuleLoadingHistory(treeRoot, parent, className, moduleName, treeSDRoot) {
+                let internalTreeSDRoot;
+
+                for (let i = 0; i &lt; treeRoot.length; i++) {
+                    console.log("treeRoot length: " + treeRoot.length)
+                    if (treeRoot[i].moduleName === parent) {
+                        console.log("moduleName == parent")
+                        if ((treeSDRoot === "undefined") || (treeSDRoot === null)) {
+                            console.log("treeSDRoot null")
+                            console.log("treeRoot[i]: " + treeRoot[i])
+                            console.log("shadowDOM: ")
+                            let shadowRootModule = document.getElementsByClassName(treeRoot[i].className)[i].shadowRoot;
+                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                            console.log(shadowRootModule.innerHTML);
+                            console.log("SHADOWROOT HTML: ")
+                            console.log(shadowRootHTML.innerHTML);
+                            resultArray.push(shadowRootHTML);
+                        } else {
+                            console.log("MOVE TO DEEP LEVEL")
+                            resultArray.push(treeSDRoot.querySelectorAll("." + parent)[i].shadowRoot)
+                        }
+
+                    } else {
+                        console.log("PARENT IS NOT FIND ON TOP LEVEL")
+                        let SDRoot;
+                        if ((treeSDRoot === "undefined") || (treeSDRoot === null)) {
+                            let shadowRootModule = document.getElementsByClassName(treeRoot[i].className)[i].shadowRoot;
+                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                            console.log("treeSDRoot is null")
+                            console.log("SHADOWROOT TEMP HTML: " + shadowRootHTML.innerHTML)
+                            SDRoot = shadowRootHTML;
+                        } else {
+                            console.log("TREEROOT[i] Internal: " + treeRoot[i].className)
+                            let shadowRootModule = treeSDRoot.querySelectorAll("." + treeRoot[i].className)[i].shadowRoot;
+                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                            console.log("treeSDRoot is NOT null")
+                            console.log("SHADOWROOT TEMP HTML: " + shadowRootHTML.innerHTML)
+                            SDRoot = shadowRootHTML;
+                        }
+                        console.log("GO IN CHILD")
+                        searchInModuleLoadingHistory(treeRoot[i].child, parent, className, moduleName, SDRoot);
+                    }
+                }
+            }
+        }
+        return resultArray;
     }
 
     // static async loadModuleAsync (relativePath, moduleName, className, dataSource, SDRoot) {
@@ -384,15 +430,16 @@ Modules.Loader = class {
     //     return result;
     // }
 
-    static async _loadSingleModule(relativePath, moduleName, className, dataSource, index, SDRoot) {
+    static async _loadSingleModule(parentModuleNameOrNull, relativePath, moduleName, className, dataSource, index) {
+        console.log("STARTES _loadSingleModyle: " + moduleName);
+        let modulePath = this.buildDocumentURLWithRelativePathAndModulePath(relativePath, moduleName);
+
         let indexCorrect = 0;
         if (index != undefined) {
             indexCorrect = index;
         } else {
             indexCorrect = 0;
         }
-
-        let modulePath = this.buildDocumentURLWithRelativePathAndModulePath(relativePath, moduleName);
 
         let itemData = {"itemInfo": {"itemName" : moduleName, "itemPath": modulePath, "className": className}};
 
@@ -404,25 +451,40 @@ Modules.Loader = class {
 
         htmlContent = await this._proxyingData(dataSource, htmlContent);
 
-        let result = await this._renderModule(cssContent, htmlContent, jsContent, moduleName, className, indexCorrect, SDRoot);
+        let moduleShadowDomRoots = this._findShadowDomRoots(parentModuleNameOrNull, className, moduleName);
+
+        console.log("moduleShadowRoots: ")
+        console.log(moduleShadowDomRoots)
+
+        let result = await this._renderModule(cssContent, htmlContent, jsContent, moduleName, className, indexCorrect, moduleShadowDomRoots);
+
         return result;
     }
 
-    static async _renderModule(cssContent, htmlContent, jsContent, moduleName, className, index, SDRoot) {
+    static async _renderModule(cssContent, htmlContent, jsContent, moduleName, className, index, moduleShadowDomRoots) {
         let resultLoad = false;
-        let elementClasses = null;
-        if (SDRoot !== undefined) {
-            elementClasses = SDRoot.querySelectorAll("." + className);
-            console.log("." + className)
-        } else {
+        let elementClasses = [];
+
+        if (moduleShadowDomRoots === undefined) {
             elementClasses = document.getElementsByClassName(className);
+            console.log("moduleShadowRoots -> undefined")
+            console.log("element classes: ")
+            console.log(elementClasses.toString())
+        } else {
+            console.log("moduleShadowRoots -> not undefined")
+            console.log(moduleShadowDomRoots[0].innerHTML)
+            moduleShadowDomRoots.forEach(moduleShadowRoot => {
+                elementClasses.push(moduleShadowRoot);
+            });
         }
+        
         resultLoad = await this._loadContentInElementClasses(className, elementClasses, moduleName, cssContent, htmlContent, jsContent, index);
         return resultLoad;
     }
 
     static async _loadContentInElementClasses (className, elementClasses, moduleName, cssContent, htmlContent, jsContent, index) {
         let classesCount = elementClasses.length;
+
         for (let htmlID = 0; htmlID &lt; classesCount; htmlID++) {
             elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
             elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_name", moduleName + index.toString());
@@ -3383,7 +3445,7 @@ Modules.Server = class {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Jan 21 2020 19:20:16 GMT+0300 (Moscow Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Jan 27 2020 10:55:52 GMT+0300 (Moscow Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

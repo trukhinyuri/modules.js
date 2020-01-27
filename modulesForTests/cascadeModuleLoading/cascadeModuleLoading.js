@@ -1,3 +1,10 @@
 import {Modules} from "./modules.js";
 
-Modules.Loader.loadSingleModuleInClassAsync("modulesForTests", "cascadeModuleLoadingInternal", "cascadeModuleLoading", "cascadeModuleLoading");
+// (async () => {
+//     let result = await Modules.Loader.loadSingleModuleInClassAsync("cascadeModuleLoading", "modulesForTests", "cascadeModuleLoadingInternal", "cascadeModuleLoading");
+// })();
+
+let result = Modules.Loader.loadModuleInClass("cascadeModuleLoading", "modulesForTests", "cascadeModuleLoadingInternal", "cascadeModuleLoading");
+
+
+
