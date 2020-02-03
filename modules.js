@@ -246,6 +246,23 @@ Modules.Loader = class {
     }
 
     /**
+     * Sync XMLHttpRequest implementation.
+     * Example: let result = await Modules.Loader.asyncRequest("GET", "./modulesForTests/first/first.js");
+     * @param HTTP HTTP method
+     * @param url URL
+     * @returns {Promise<unknown>}
+     * @static
+     */
+    static requestSync(method, url) {
+            let xhr = new XMLHttpRequest();
+            xhr.open(method, url, false);
+            xhr.send();
+            if ((xhr.status >= 200) && (xhr.status <= 300)) {
+                return xhr.response;
+            }
+    }
+
+    /**
      * Load modules.js module "moduleName" from relativePathToRoot to className on the document or different module
      * @param parentModuleNameOrNull null if module loading to document, parentModuleName if we load module in different module
      * @param relativePathFromRoot Relative path to the DocumentRootURL, containing the folder of the module to load.
@@ -253,8 +270,10 @@ Modules.Loader = class {
      * @param className The name of classes in HTML where you want to load the module.
      * @returns {Promise<boolean>}
      */
-    static async loadModuleInClass (parentModuleNameOrNull, relativePathFromRoot, moduleName, className, dataSource) {
-        let resultLoading = await this._loadSingleModule(parentModuleNameOrNull, relativePathFromRoot, moduleName, className, dataSource);
+    static loadModuleInClass (parentModuleNameOrNull, relativePathFromRoot, moduleName, className, dataSource) {
+        let resultLoading;
+        resultLoading = this._loadSingleModule(parentModuleNameOrNull, relativePathFromRoot, moduleName, className, dataSource);
+
         this._writeModuleLoadingTreeHistory(parentModuleNameOrNull, className, moduleName);
         return resultLoading;
     }
@@ -329,29 +348,39 @@ Modules.Loader = class {
 
             function searchInModuleLoadingHistory(treeRoot, parent, className, moduleName, treeSDRoot) {
                 let internalTreeSDRoot;
-
                 for (let i = 0; i < treeRoot.length; i++) {
                     if (treeRoot[i].moduleName === parent) {
                         if ((treeSDRoot === "undefined") || (treeSDRoot === null)) {
-                            let shadowRootModule = document.getElementsByClassName(treeRoot[i].className)[i].shadowRoot;
-                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
-                            resultArray.push(shadowRootHTML);
+                            let shadowRootModules = document.getElementsByClassName(treeRoot[i].className);
+                            for (let j = 0; j < shadowRootModules.length; j++) {
+                                let shadowRootModule = shadowRootModules[j].shadowRoot;
+                                let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                                resultArray.push(shadowRootHTML);
+                            }
                         } else {
-                            let shadowRootModule = treeSDRoot.shadowRoot;
-                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
-                            resultArray.push(shadowRootHTML);
+                            let shadowRootModules = treeSDRoot.querySelectorAll("." + treeRoot[i].className);
+                            for (let j = 0; j < shadowRootModules.length; j++) {
+                                let shadowRootModule = shadowRootModules[j].shadowRoot;
+                                let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                                resultArray.push(shadowRootHTML);
+                            }
                         }
-
                     } else {
                         let SDRoot;
                         if ((treeSDRoot === "undefined") || (treeSDRoot === null)) {
-                            let shadowRootModule = document.getElementsByClassName(treeRoot[i].className)[i].shadowRoot;
-                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
-                            SDRoot = shadowRootHTML;
+                            let shadowRootModules = document.getElementsByClassName(treeRoot[i].className);
+                            for (let j = 0; j < shadowRootModules.length; j++) {
+                                let shadowRootModule = shadowRootModules[j].shadowRoot;
+                                let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                                SDRoot = shadowRootHTML;
+                            }
                         } else {
-                            let shadowRootModule = treeSDRoot.querySelectorAll("." + treeRoot[i].className)[i].shadowRoot;
-                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
-                            SDRoot = shadowRootHTML;
+                            let shadowRootModules = treeSDRoot.querySelectorAll("." + treeRoot[i].className);
+                            for (let j = 0; j < shadowRootModules.length; j++) {
+                                let shadowRootModule = shadowRootModules[j].shadowRoot;
+                                let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                                SDRoot = shadowRootHTML;
+                            }
                         }
                         searchInModuleLoadingHistory(treeRoot[i].child, parent, className, moduleName, SDRoot);
                     }
@@ -384,25 +413,37 @@ Modules.Loader = class {
             for (let i = 0; i < treeRoot.length; i++) {
                 if (treeRoot[i].moduleName === moduleName) {
                     if ((treeSDRoot === "undefined") || (treeSDRoot === null)) {
-                        let shadowRootModule = document.getElementsByClassName(treeRoot[i].className)[i].shadowRoot;
-                        let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
-                        resultArray.push(shadowRootHTML);
+                        let shadowRootModules = document.getElementsByClassName(treeRoot[i].className);
+                        for (let j = 0; j < shadowRootModules.length; j++) {
+                            let shadowRootModule = shadowRootModules[j].shadowRoot;
+                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                            resultArray.push(shadowRootHTML);
+                        }
                     } else {
-                        let shadowRootModule = treeSDRoot.shadowRoot;
-                        let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
-                        resultArray.push(shadowRootHTML);
+                        let shadowRootModules = treeSDRoot.querySelectorAll("." + treeRoot[i].className);
+                        for (let j = 0; j < shadowRootModules.length; j++) {
+                            let shadowRootModule = shadowRootModules[j].shadowRoot;
+                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                            resultArray.push(shadowRootHTML);
+                        }
                     }
 
                 } else {
                     let SDRoot;
                     if ((treeSDRoot === "undefined") || (treeSDRoot === null)) {
-                        let shadowRootModule = document.getElementsByClassName(treeRoot[i].className)[i].shadowRoot;
-                        let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
-                        SDRoot = shadowRootHTML;
+                        let shadowRootModules = document.getElementsByClassName(treeRoot[i].className);
+                        for (let j = 0; j < shadowRootModules.length; j++) {
+                            let shadowRootModule = shadowRootModules[j].shadowRoot;
+                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                            SDRoot = shadowRootHTML;
+                        }
                     } else {
-                        let shadowRootModule = treeSDRoot.shadowRoot;
-                        let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
-                        SDRoot = shadowRootHTML;
+                        let shadowRootModules = treeSDRoot.querySelectorAll("." + treeRoot[i].className);
+                        for (let j = 0; j < shadowRootModules.length; j++) {
+                            let shadowRootModule = shadowRootModules[j].shadowRoot;
+                            let shadowRootHTML = shadowRootModule.querySelectorAll("." + "HTML")[0];
+                            SDRoot = shadowRootHTML;
+                        }
                     }
                     searchInModuleLoadingHistory(treeRoot[i].child, moduleName, SDRoot);
                 }
@@ -436,7 +477,7 @@ Modules.Loader = class {
     //     return result;
     // }
 
-    static async _loadSingleModule(parentModuleNameOrNull, relativePath, moduleName, className, dataSource, index) {
+    static _loadSingleModule(parentModuleNameOrNull, relativePath, moduleName, className, dataSource, index) {
         let modulePath = this.buildDocumentURLWithRelativePathAndModulePath(relativePath, moduleName);
 
         let indexCorrect = 0;
@@ -450,69 +491,70 @@ Modules.Loader = class {
 
         let pathToModuleFiles = modulePath + moduleName;
 
-        let cssContent = await this.requestAsync("GET", pathToModuleFiles  + "." + "css");
-        let htmlContent = await this.requestAsync("GET", pathToModuleFiles  + "." + "html");
-        let jsContent = await this.requestAsync("GET", pathToModuleFiles  + "." + "js");
+        let cssContent = this.requestSync("GET", pathToModuleFiles  + "." + "css");
+        let htmlContent = this.requestSync("GET", pathToModuleFiles  + "." + "html");
+        let jsContent = this.requestSync("GET", pathToModuleFiles  + "." + "js");
 
-        htmlContent = await this._proxyingData(dataSource, htmlContent);
+        htmlContent = this._proxyingData(dataSource, htmlContent);
 
         let moduleShadowDomRoots = this._findShadowDomRoots(parentModuleNameOrNull, className, moduleName);
 
-        let result = await this._renderModule(cssContent, htmlContent, jsContent, moduleName, className, indexCorrect, moduleShadowDomRoots);
+        let result = this._renderModule(cssContent, htmlContent, jsContent, moduleName, className, indexCorrect, moduleShadowDomRoots);
 
         return result;
     }
 
-    static async _renderModule(cssContent, htmlContent, jsContent, moduleName, className, index, moduleShadowDomRoots) {
+    static _renderModule(cssContent, htmlContent, jsContent, moduleName, className, index, moduleShadowDomRoots) {
         let resultLoad = false;
-        let elementClasses = [];
-
+        let elementClassesArray = [];
         if (moduleShadowDomRoots === undefined) {
-            elementClasses = document.getElementsByClassName(className);
+            elementClassesArray.push(document.getElementsByClassName(className));
         } else {
-            moduleShadowDomRoots.forEach(moduleShadowRoot => {
-                elementClasses.push(moduleShadowRoot);
+            moduleShadowDomRoots.forEach(moduleShadowDomRoot => {
+                elementClassesArray.push(moduleShadowDomRoot.querySelectorAll("." + className));
             });
         }
-        
-        resultLoad = await this._loadContentInElementClasses(className, elementClasses, moduleName, cssContent, htmlContent, jsContent, index);
+        resultLoad = this._loadContentInElementClasses(className, elementClassesArray, moduleName, cssContent, htmlContent, jsContent, index);
         return resultLoad;
     }
 
-    static async _loadContentInElementClasses (className, elementClasses, moduleName, cssContent, htmlContent, jsContent, index) {
-        let classesCount = elementClasses.length;
+    static _loadContentInElementClasses (className, elementClassesArray, moduleName, cssContent, htmlContent, jsContent, index) {
+        elementClassesArray.forEach(elementClasses => {
+            let classesCount = elementClasses.length;
 
-        for (let htmlID = 0; htmlID < classesCount; htmlID++) {
-            elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
-            elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_name", moduleName + index.toString());
-            elementClasses[htmlID].attachShadow({mode: 'open'});
-            let indexContainer = document.createElement("div");
-            indexContainer.className = index.toString();
-            // indexContainer.setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
-            // indexContainer.setAttribute("data-" + "modulesjs_item_name", moduleName + index.toString());
-            // // if (indexContainer.shadowRoot == null) {
-            //     indexContainer.attachShadow({mode: 'open'});
-            // // }
-            let styleElement = document.createElement("style");
-            let htmlElement = document.createElement("div");
-            let scriptElement = document.createElement("script");
-            styleElement.className += "CSS";
-            styleElement.className += " " + moduleName + "_container";
-            htmlElement.className += "HTML";
-            htmlElement.className += " " + moduleName + "_container";
-            scriptElement.type = "module";
-            scriptElement.className += "JS";
-            scriptElement.className += " " + moduleName + "_container";
-            styleElement.innerHTML = cssContent;
-            htmlElement.innerHTML = htmlContent;
-            jsContent = this._isolateJSContent(jsContent, className, htmlID);
-            scriptElement.innerHTML = jsContent;
-            indexContainer.appendChild(styleElement);
-            indexContainer.appendChild(htmlElement);
-            indexContainer.appendChild(scriptElement);
+            for (let htmlID = 0; htmlID < classesCount; htmlID++) {
+                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
+                elementClasses[htmlID].setAttribute("data-" + "modulesjs_item_name", moduleName + index.toString());
+                elementClasses[htmlID].attachShadow({mode: 'open'});
+                let indexContainer = document.createElement("div");
+                indexContainer.className = index.toString();
+                // indexContainer.setAttribute("data-" + "modulesjs_item_id", htmlID.toString());
+                // indexContainer.setAttribute("data-" + "modulesjs_item_name", moduleName + index.toString());
+                // // if (indexContainer.shadowRoot == null) {
+                //     indexContainer.attachShadow({mode: 'open'});
+                // // }
+                let styleElement = document.createElement("style");
+                let htmlElement = document.createElement("div");
+                let scriptElement = document.createElement("script");
+                styleElement.className += "CSS";
+                styleElement.className += " " + moduleName + "_container";
+                htmlElement.className += "HTML";
+                htmlElement.className += " " + moduleName + "_container";
+                scriptElement.type = "module";
+                scriptElement.className += "JS";
+                scriptElement.className += " " + moduleName + "_container";
+                styleElement.innerHTML = cssContent;
+                htmlElement.innerHTML = htmlContent;
+                jsContent = this._isolateJSContent(jsContent, className, htmlID);
+                scriptElement.innerHTML = jsContent;
+                indexContainer.appendChild(styleElement);
+                indexContainer.appendChild(htmlElement);
+                indexContainer.appendChild(scriptElement);
 
-            elementClasses[htmlID].shadowRoot.appendChild(indexContainer);
-        }
+                elementClasses[htmlID].shadowRoot.appendChild(indexContainer);
+            }
+        });
+
         return true;
     }
 
@@ -1056,7 +1098,7 @@ Modules.Loader = class {
     //
     // }
 
-    static async _proxyingData(dataSource, htmlContent) {
+    static _proxyingData(dataSource, htmlContent) {
         let i = 1;
         for (let prop in dataSource) {
                 if (Object.prototype.hasOwnProperty.call(dataSource, prop)) {

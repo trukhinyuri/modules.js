@@ -2,7 +2,10 @@ import {Modules} from "./modules.js";
 
 
 let run = function () {
+    //Load modyles synchronously
+
     Modules.Loader.loadModuleInClass(null, "./modulesForTests/", "cascadeModuleLoading", "pageHeader");
+
 
 
     function receiveTestMessage(e) {
